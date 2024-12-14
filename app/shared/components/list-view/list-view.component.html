@@ -1,0 +1,92 @@
+<div class="deal-offer-bg gt-pt-20 gt-pb-200">
+    <div class="container">
+        <div class="gt-float-100">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 co-xs-12">
+                    <div class="gt-float-100" *ngIf="viewConfig.isBreadCrumbRequired">
+                        <div class="gt-float-left gt-display-flex bredcum-title">
+                            <div class="brdcum-icon">
+                                <img src="assets/images/breadcum-home-icon.svg" alt="icon" width="20" height="22" class="gt-img-responsive" />
+                            </div>
+                            <ul class="gt-display-flex bredcum-nav">
+                                <li>
+                                    <span class="material-icons">navigate_next</span>
+                                    <div class="brelink"><a href="javascript:void(0);" (click)="clickBreadcrumb()">{{viewConfig.breadCrumbText}}</a></div>
+                                </li>
+                                <li>
+                                    <span class="material-icons">navigate_next</span>
+                                    <div class="brelink">All</div>
+                                </li>
+                            </ul> 
+                        </div> 
+                    </div>
+                    <div class="gt-float-100 gt-mt-30 hpy-rw">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 co-xs-12">
+                                <div class="gt-float-100 gt-center-between recom-offer">
+                                    <div class="gt-float-left gt-vcenter recom-offer-primary">
+                                       
+                                        <h2 class="gt-fs-18 gt-lightblack gt-text-medium">{{viewConfig.title}}</h2>
+                                    </div>
+                
+                                    <div class="gt-float-right recom-offer-secondary">
+                                        <!-- <button type="submit" class="gt-btn-primary gt-center gt-wh-btn" (click)="back()"> {{viewConfig.actionButton.label}} </button> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gt-float-100 gt-mt-30">
+                        <div class="row" *ngIf="viewConfig.items.length>0">
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 co-xs-12" *ngFor="let item of viewConfig.items | paginate: { id: 'first',
+                            itemsPerPage: viewConfig.paginationConfig.itemsPerPage,
+                            currentPage: viewConfig.paginationConfig.currentPage,
+                            totalItems:viewConfig.paginationConfig.totalItems }" >
+                                <div class="single-arrivals-products gt-cursor-pointer gt-mb-25" (click)="navigateTo(item)">
+                                    <div class="arrivals-products-image">
+                                        <div class="pr-image max-height-img-192">
+                                            <img [src]="getOfferImage(item.images)" class="gt-img-responsive" alt="image" (error)="errorImageHandler($event)">
+                                            <div class="color-overlay"></div>
+                                           
+                                        </div>
+                                        <div class="arrivals-action">
+                                            <div class="offer-location">{{item?.location?.area}}</div>
+                                            <span class="material-icons fav-btn">favorite_border</span>
+                                        </div>
+                                    </div>
+                
+                                    <div class="arrivals-products-content product-content-pd">
+                                        <div class="offer-name-primary gt-ellipsis" ellipsis>{{item.name| trimTextToCertainNumberCharector: 20}}</div>
+                                        <div class="pr-desire">
+                                            <img src="assets/images/home/desire-icon.svg" class="desire-img" alt="image" />
+                                           
+                                            <div class="offer-desire-primary gt-ellipsis" ellipsis *ngIf="item.category">
+                                                {{item | offerDesire | trimTextToCertainNumberCharector: 20}}
+                                              </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gt-float-100" *ngIf="viewConfig.items.length === 0">No records found..
+                        </div>
+                    </div>
+                    <div class="gt-float-100 gt-mt-60" *ngIf="viewConfig.isPaginationRequired">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="gt-float-100 gt-center">                                    
+                                        <pagination-controls
+                                            id="first"
+                                            previousLabel=""
+                                            nextLabel="" 
+                                            (pageChange)="pageChange($event)">
+                                        </pagination-controls>                                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>            
+    </div>
+</div>

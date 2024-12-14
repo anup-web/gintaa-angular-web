@@ -1,0 +1,195 @@
+<div class="gt-float-100 od-border-top" *ngIf="comments.length > 0 || isAuthenticated() && offerDetail.user.identityId != getCurrentUserId()">
+  <div class="container">
+    
+    <div class="gt-float-100 gt-pd-tb-20 comments-wrapper">
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="gt-float-100 gt-center gt-justify-content-between gt-mb-15 recom-offer">
+             
+            <div class="gt-float-left gt-center recom-offer-primary"  *ngIf="comments.length>0">
+              <h2 class="gt-fs-20 gt-black-70 gt-text-medium">Questions & answers</h2>
+            </div>
+            <div class="gt-float-right recom-offer-secondary"  *ngIf="isAuthenticated() && offerDetail.user.identityId != getCurrentUserId()"><button
+                type="submit" class="gt-btn-primary gt-btn-outline gt-border-radius-2 gt-center ask-btn" (click)="getAskQuestion()">ask a question</button>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-10 gt-media" *ngIf="isAuthenticated() && askQuestion">
+      <img [src]="getCurrentUserImage() || commentNoProfileImage" alt="image" [ngClass]="getCurrentUserImage()? 'org-profile-img':'no-profile-img'"/>
+      <div class="gt-float-100 gt-media-body">
+        <h3 class="gt-mt-zero gt-float-100 media-title">{{fetchShortUserName()}} (You) </h3>                
+        <div class="gt-mt-4 gt-float-100 input-comments">
+          <div class="currency-group">                    
+            <div class="currency-input-group">                      
+              <input type="text" class="currency-form-control" placeholder="Type a question" #msg (keyup)="startTyping('msg')" (keyup.enter)="sendQuestionMsg()">
+              <div class="currency-input-group-append">
+                <span class="currency-input-group-text" (click)="sendQuestionMsg()">
+                      <img src="assets/images/create-offer/msg-send.svg" width="22" height="22" alt="image" class="send-size"> 
+                </span>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <div class="gt-float-100 gt-mt-5 cancel-reply"  (click)="cancelComment()">
+          <button type="submit" class="gt-btn-primary gt-btn-clear canrey cancel-color">cancel</button>
+        </div>              
+      </div>
+    </div>
+
+    <div class="gt-float-100"  *ngIf="comments.length>0">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-mt-10 comments-input" *ngIf="comments.length; else noComment">
+            <div class="gt-float-100 gt-media gt-mb-10" *ngFor="let comment of comments;let i=index;">
+              <img [src]="comment.user?.photoUrl || commentNoProfileImage" alt="image" [ngClass]="comment.user && comment.user.photoUrl? 'org-profile-img':'no-profile-img'"/>
+              <div class="gt-float-100 gt-media-body">
+                <h3 class="gt-mt-zero gt-float-100 media-title">{{comment.user.name}}</h3>
+                <div class="h4 gt-mt-5 gt-float-100 media-comment"> 
+                  <span *ngIf="comment.question.length>textLimitCnt && !isShowReadMoreQuestion[comment.threadId]">{{comment.question.substr(0,textLimitCnt+1)}}...
+                  </span>        
+                  <span *ngIf="comment.question.length<=textLimitCnt || isShowReadMoreQuestion[comment.threadId]">{{comment.question}}
+                  </span>
+                  <span style="color: #48CEF3;font-size: 0.813em;cursor:pointer;" *ngIf="comment.question.length>80">
+                    <span *ngIf="!isShowReadMoreQuestion[comment.threadId]"  (click)="isShowReadMoreQuestion[comment.threadId]=!isShowReadMoreQuestion[comment.threadId]">Read More</span>
+                    <span *ngIf="isShowReadMoreQuestion[comment.threadId]" (click)="isShowReadMoreQuestion[comment.threadId]=!isShowReadMoreQuestion[comment.threadId]">Read Less</span>
+                  </span>
+                </div>
+                <div class="gt-float-100 gt-mt-1 cmts-reply">
+                      <div class="date-time"> {{getTime(comment.timestamp)}} </div> <span class="cmt-reply" (click)="getAskReply(comment,comment.threadId)" *ngIf="comment.canReply"> Reply </span> 
+                      <div class="dropdown replyh-leftm" *ngIf="comment.canEdit || comment.canDelete || comment.canReport">
+                        <button class="dropdown-toggles custom-toggles" type="button"  data-toggle="dropdown">
+                            <span class="icon-gt-more-vert gt-fs-16"></span>
+                        </button>
+                        <div class="dropdown-menu chath-replys">
+                             <div class="gt-float-100 chathtop">                                    
+                                <button class="chath-item" (click)="editQuestion(comment,comment.threadId)" *ngIf="comment.canEdit"> 									
+              <h2 class="gt-fs-14 gt-lightgrayish">edit</h2> </button>
+              <button class="chath-item" (click)="deleteComment('COMMENT',comment.threadId)" *ngIf="comment.canDelete"> 									
+              <h2 class="gt-fs-14 gt-lightgrayish">delete</h2> </button>  
+              <button class="chath-item" (click)="openReportDialog('COMMENT',comment)" *ngIf="comment.canReport"> 									
+              <h2 class="gt-fs-14 gt-lightgrayish">report message</h2> </button> 
+          </div>
+                        </div>
+                      </div>
+                     
+                </div>
+                <div class="gt-float-100 gt-mt-10 gt-media" *ngIf="isAuthenticated() && (showReplyIndex==comment.threadId || showEditQuestionIndex==comment.threadId)">
+                  
+                  <img [src]="getCurrentUserImage() || commentNoProfileImage" alt="image" [ngClass]="getCurrentUserImage()? 'org-profile-img':'no-profile-img'"/>
+                  <div class="gt-float-100 gt-media-body">
+                    <h3 class="gt-mt-zero gt-float-100 media-title">{{fetchShortUserName()}} (You) </h3>                
+                    <div class="gt-mt-4 gt-float-100 input-comments">
+                      <div class="currency-group"> 
+                        <div class="currency-input-group" *ngIf="showReplyIndex==comment.threadId">                      
+                          <input type="text" class="currency-form-control" placeholder="Reply" [(ngModel)]="replyMessages[comment.threadId]" (keyup.enter)="sendReplyMsg(comment.threadId)">
+                          <div class="currency-input-group-append">
+                            <span class="currency-input-group-text" (click)="sendReplyMsg(comment.threadId)">
+                                  <img src="assets/images/create-offer/msg-send.svg" width="19" height="18" alt="image" class="send-size"> 
+                            </span>
+                          </div>
+                        </div>
+                        <div class="currency-input-group" *ngIf="showEditQuestionIndex==comment.threadId">                      
+                          <input type="text" class="currency-form-control" placeholder="Edit" [(ngModel)]="editComments[comment.threadId]" (keyup.enter)="sendEditQuestion(comment,comment.threadId)">
+                          <div class="currency-input-group-append">
+                            <span class="currency-input-group-text" (click)="sendEditQuestion(comment,comment.threadId)">
+                                  <img src="assets/images/create-offer/msg-send.svg" width="19" height="18" alt="image" class="send-size"> 
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="gt-float-100 gt-mt-5 cancel-reply"  (click)="cancelComment()">
+                      <button type="submit" class="gt-btn-primary gt-btn-clear canrey cancel-color">cancel</button>
+                    </div>              
+                  </div>
+                </div>
+                <div class="gt-mt-10 gt-float-100 gt-media" *ngFor="let reply of comment.replies;let j=index;">
+                  <img [src]="reply.user.photoUrl || replyNoProfileImage" alt="image" [ngClass]="reply.user.photoUrl? 'org-profile-img':'no-profile-img'"/>
+                  <div class="gt-float-100 gt-media-body">
+                    <h3 class="gt-mt-zero gt-float-100 media-title">{{reply.user.name}}</h3>
+                    <div class="h4 gt-mt-8 gt-float-100 media-comment">
+                      <span *ngIf="reply.comment.length>textLimitCnt && !isShowReadMoreReply[reply.replyId]">{{reply.comment.substr(0,textLimitCnt+1)}}...
+                      </span>        
+                      <span *ngIf="reply.comment.length<=textLimitCnt || isShowReadMoreReply[reply.replyId]">{{reply.comment}}
+                      </span>
+                      <span style="color: #48CEF3;font-size: 0.813em;cursor:pointer;" *ngIf="reply.comment.length>80">
+                        <span *ngIf="!isShowReadMoreReply[reply.replyId]"  (click)="isShowReadMoreReply[reply.replyId]=!isShowReadMoreReply[reply.replyId]">Read More</span>
+                        <span *ngIf="isShowReadMoreReply[reply.replyId]" (click)="isShowReadMoreReply[reply.replyId]=!isShowReadMoreReply[reply.replyId]">Read Less</span>
+                      </span>
+                    </div>
+                    <div class="gt-float-100 gt-mt-1 cmts-reply">
+                      <div class="date-time"> {{getTime(reply.timestamp)}} </div> <span class="cmt-reply" (click)="getAskReply(comment,reply.replyId)" *ngIf="reply.canReply"> Reply </span>
+                      <div class="dropdown replyh-leftm" *ngIf="reply.canEdit || reply.canDelete || reply.canReport">
+                        <button class="dropdown-toggles custom-toggles" type="button"  data-toggle="dropdown">
+                            <span class="icon-gt-more-vert gt-fs-16"></span>
+                        </button>
+                        <div class="dropdown-menu chath-replys">
+                             <div class="gt-float-100 chathtop">                                    
+                               <button class="chath-item" (click)="editReply(reply,reply.replyId)" *ngIf="reply.canEdit"> 
+                                <h2 class="gt-fs-14 gt-lightgrayish">edit</h2>
+                         </button>
+                      <button class="chath-item" (click)="deleteComment('REPLY',comment.threadId, reply.replyId)" *ngIf="reply.canDelete"> 
+                        <h2 class="gt-fs-14 gt-lightgrayish">delete</h2>
+                         </button>  
+                      <button class="chath-item" (click)="openReportDialog('REPLY',comment,reply)" *ngIf="reply.canReport"> 
+                        <h2 class="gt-fs-14 gt-lightgrayish">report message</h2>
+                         </button>   
+          </div>
+                        </div>
+                      </div>
+                     
+                    
+
+                    </div>
+                    <div class="gt-float-100 gt-mt-10 gt-media" *ngIf="isAuthenticated() && (showReplyIndex==reply.replyId || showEditReplyIndex==reply.replyId)">
+                      <img [src]="getCurrentUserImage() || replyNoProfileImage" alt="image" [ngClass]="getCurrentUserImage()? 'org-profile-img':'no-profile-img'"/>
+                      <div class="gt-float-100 gt-media-body">
+                        <h3 class="gt-mt-zero gt-float-100 media-title">{{fetchShortUserName()}} (You) </h3>                
+                        <div class="gt-mt-4 gt-float-100 input-comments">
+                          <div class="currency-group"> 
+                            <div class="currency-input-group" *ngIf="showReplyIndex==reply.replyId">                      
+                              <input type="text" class="currency-form-control" placeholder="Reply" [(ngModel)]="replyMessages[comment.threadId]" (keyup.enter)="sendReplyMsg(comment.threadId)">
+                              <div class="currency-input-group-append">
+                                <span class="currency-input-group-text" (click)="sendReplyMsg(comment.threadId)">
+                                      <img src="assets/images/create-offer/msg-send.svg" width="19" height="18" alt="image" class="send-size"> 
+                                </span>
+                              </div>
+                            </div>
+                            <div class="currency-input-group" *ngIf="showEditReplyIndex==reply.replyId">                      
+                              <input type="text" class="currency-form-control" placeholder="Edit" [(ngModel)]="editReplyMessages[reply.replyId]" (keyup.enter)="sendEditReply(reply,comment.threadId,reply.replyId)">
+                              <div class="currency-input-group-append">
+                                <span class="currency-input-group-text" (click)="sendEditReply(reply,comment.threadId,reply.replyId)">
+                                      <img src="assets/images/create-offer/msg-send.svg" width="19" height="18" alt="image" class="send-size"> 
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </div> 
+                        <div class="gt-float-100 gt-mt-5 cancel-reply"  (click)="cancelComment()">
+                          <button type="submit" class="gt-btn-primary gt-btn-clear canrey cancel-color">cancel</button>
+                        </div>              
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="gt-float-100 gt-mt-17 other-answer" (click)="getReplyNextPageData(comment.threadId,comment.replies.length)" *ngIf="comment.replies.length ===5 ">
+                  <h4>Show other answers <span class="material-icons"> keyboard_arrow_down</span></h4>
+                </div>
+              </div>
+            </div>
+            <div class="gt-float-100 gt-mt-24 gt-center show-more-btn" (click)="getQuestionNextPageData()" *ngIf="isShowMoreComments">
+              <h5>show more questions</h5>
+           </div>             
+          </div>
+          <ng-template #noComment>No Question Yet</ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

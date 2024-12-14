@@ -1,0 +1,131 @@
+<div class="gt-float-100 gt-mt-24 deal-delivery-steph">
+    <div class="gt-float-100 gt-pl-60 stepk-delivery">
+        <ng-container *ngIf="dealDetails?.callerIsReceiver else SenderShow">
+            <div class="gt-float-100 gt-vcenter gt-position-relative gt-mt-17">
+                <div class="image-width-40 border-radius-100 gt-position-relative gt-center del-bg del-success">
+                    <span class="material-icons-outlined">check</span>
+                </div>
+                <div class="gt-ml-10 shiping-info">
+                    <h2 class="gt-fs-15 gt-float-100 gt-lightblack gt-text-medium">Ordered Received</h2>
+                    <h6 class="gt-fs-13 gt-float-100 gt-lightgrayish">Your package has been confirmed for pick-up. </h6>
+                </div>
+            </div>
+            <div class="gt-float-100 gt-vcenter gt-mt-19 gt-mb-13 gt-pl-7 del-darrow del-primary del-secondary">
+                <span class="material-icons">arrow_downward</span>
+            </div>
+            <ng-container *ngIf="!dealRejected else canceledSec">
+                <div class="gt-float-100 gt-vcenter gt-position-relative gt-mt-17">
+                    <div class="image-width-40 border-radius-100 gt-position-relative gt-center del-bg del-success">
+                        <span class="material-icons-outlined">local_shipping</span>
+                    </div>
+                    <div class="gt-ml-10 shiping-info">
+                        <h2 class="gt-fs-15 gt-float-100 gt-lightblack gt-text-medium">Order Picked-Up</h2>
+                        <h6 class="gt-fs-13 gt-float-100 gt-lightgrayish"> Courier has picked up your order</h6>
+                    </div>
+                </div>
+                <div class="gt-float-100 gt-vcenter gt-mt-19 gt-mb-13 gt-pl-7 del-darrow del-primary">
+                    <span class="material-icons">arrow_downward</span>
+                </div>
+
+                <div class="gt-float-100 gt-vcenter gt-position-relative gt-mt-17">
+                    <div class="image-width-40 border-radius-100 gt-position-relative gt-center del-bg">
+                        <span class="material-icons-outlined">local_shipping</span>
+                    </div>
+                    <div class="gt-ml-10 shiping-info">
+                        <h2 class="gt-fs-15 gt-float-100 gt-lightblack gt-text-medium">Shipped</h2>
+                        <h6 class="gt-fs-13 gt-float-100 gt-lightgrayish">The order is on its way to the other party
+                        </h6>
+                    </div>
+                </div>
+                <div class="gt-float-100 gt-vcenter gt-mt-19 gt-mb-13 gt-pl-7 del-darrow del-primary">
+                    <span class="material-icons">arrow_downward</span>
+                </div>
+
+                <div class="gt-float-100 gt-vcenter gt-position-relative gt-mt-17">
+                    <div class="image-width-40 border-radius-100 gt-position-relative gt-center del-bg">
+                        <img src="/assets/images/deal/six-box.svg" class="da-hand" alt="image" width="30" height="30" />
+                    </div>
+                    <div class="gt-ml-10 shiping-info">
+                        <h2 class="gt-fs-15 gt-float-100 gt-lightblack gt-text-medium">Delivered</h2>
+                        <h6 class="gt-fs-13 gt-float-100 gt-lightgrayish"> The order has been delivered</h6>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #canceledSec>
+                <div class="gt-float-100 gt-vcenter gt-position-relative gt-mt-17">
+                    <div class="image-width-40 border-radius-100 gt-position-relative gt-center del-bg del-error">
+                        <img src="assets/images/deal/chip-round.svg" class="da-hand" alt="image" width="30"
+                            height="30" />
+                    </div>
+                    <div class="gt-ml-10 shiping-info">
+                        <h2 class="gt-fs-15 gt-float-100 gt-lightblack gt-text-medium">Canceled</h2>
+                        <h6 class="gt-fs-13 gt-float-100 gt-lightgrayish"> {{whoModified()}} cancelled this offer</h6>
+                    </div>
+                </div>
+            </ng-template>
+        </ng-container>
+        <ng-template #SenderShow>
+            <div class="gt-float-100 gt-vcenter gt-position-relative gt-mt-17">
+                <div class="image-width-40 border-radius-100 gt-position-relative gt-center del-bg del-success">
+                    <span class="material-icons-outlined">check</span>
+                </div>
+                <div class="gt-ml-10 shiping-info">
+                    <h2 class="gt-fs-15 gt-float-100 gt-lightblack gt-text-medium">Ordered</h2>
+                    <h6 class="gt-fs-13 gt-float-100 gt-lightgrayish">Your order has been placed </h6>
+                </div>
+            </div>
+            <div class="gt-float-100 gt-vcenter gt-mt-19 gt-mb-13 gt-pl-7 del-darrow del-primary del-secondary">
+                <span class="material-icons">arrow_downward</span>
+            </div>
+            <ng-container *ngIf="!dealRejected else canceledSec">
+                <div class="gt-float-100 gt-vcenter gt-position-relative gt-mt-17">
+                    <div class="image-width-40 border-radius-100 gt-position-relative gt-center del-bg del-success">
+                        <span class="material-icons-outlined">local_shipping</span>
+                    </div>
+                    <div class="gt-ml-10 shiping-info">
+                        <h2 class="gt-fs-15 gt-float-100 gt-lightblack gt-text-medium">Order Picked-Up</h2>
+                        <h6 class="gt-fs-13 gt-float-100 gt-lightgrayish"> Courier has picked up your order</h6>
+                    </div>
+                </div>
+                <div class="gt-float-100 gt-vcenter gt-mt-19 gt-mb-13 gt-pl-7 del-darrow del-primary">
+                    <span class="material-icons">arrow_downward</span>
+                </div>
+
+                <div class="gt-float-100 gt-vcenter gt-position-relative gt-mt-17">
+                    <div class="image-width-40 border-radius-100 gt-position-relative gt-center del-bg">
+                        <span class="material-icons-outlined">local_shipping</span>
+                    </div>
+                    <div class="gt-ml-10 shiping-info">
+                        <h2 class="gt-fs-15 gt-float-100 gt-lightblack gt-text-medium">Shipped</h2>
+                        <h6 class="gt-fs-13 gt-float-100 gt-lightgrayish"> Your order is on its way</h6>
+                    </div>
+                </div>
+                <div class="gt-float-100 gt-vcenter gt-mt-19 gt-mb-13 gt-pl-7 del-darrow del-primary">
+                    <span class="material-icons">arrow_downward</span>
+                </div>
+
+                <div class="gt-float-100 gt-vcenter gt-position-relative gt-mt-17">
+                    <div class="image-width-40 border-radius-100 gt-position-relative gt-center del-bg">
+                        <img src="/assets/images/deal/six-box.svg" class="da-hand" alt="image" width="30" height="30" />
+                    </div>
+                    <div class="gt-ml-10 shiping-info">
+                        <h2 class="gt-fs-15 gt-float-100 gt-lightblack gt-text-medium">Delivered</h2>
+                        <h6 class="gt-fs-13 gt-float-100 gt-lightgrayish"> Your order has been delivered</h6>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-template #canceledSec>
+                <div class="gt-float-100 gt-vcenter gt-position-relative gt-mt-17">
+                    <div class="image-width-40 border-radius-100 gt-position-relative gt-center del-bg del-error">
+                        <img src="assets/images/deal/chip-round.svg" class="da-hand" alt="image" width="30"
+                            height="30" />
+                    </div>
+                    <div class="gt-ml-10 shiping-info">
+                        <h2 class="gt-fs-15 gt-float-100 gt-lightblack gt-text-medium">Canceled</h2>
+                        <h6 class="gt-fs-13 gt-float-100 gt-lightgrayish"> {{whoModified()}} cancelled this offer</h6>
+                    </div>
+                </div>
+            </ng-template>
+        </ng-template>
+    </div>
+</div>

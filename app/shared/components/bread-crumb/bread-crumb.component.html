@@ -1,0 +1,29 @@
+<div class="gt-float-100">
+  <div class="gt-float-left gt-vcenter bredcum-title">
+    <div class="gt-float-left brdcum-icon">
+      <div class="gt-cursor-pointer home-rh" routerLink="/"><span class="icon-home3 gt-fs-16"></span></div>
+    </div>
+
+    <ul class="gt-vcenter gt-float-left bredcum-nav">
+      <li class="gt-float-left" *ngFor="let link of breadcrumbs; let i = index">
+        <div class="gt-center">
+        <span class="material-icons gt-float-left">navigate_next</span>
+        <div class="gt-float-left brelink">
+          <ng-container *ngIf="link?.click; else anchorSec">
+            <div class="gt-cursor-pointer link-ph" (click)="onClick(link)">{{ link.name }}</div>
+          </ng-container>
+          <ng-template #anchorSec>
+            <div class="gt-cursor-pointer link-rh" routerLink="{{ link.link }}" [fragment]="link.fragment" *ngIf="link.link; else nolink">
+              {{ link.name }}
+            </div>
+
+            <ng-template #nolink>
+              <div class="no-link">{{ link.name }}</div>
+            </ng-template>
+          </ng-template>
+        </div>
+      </div>
+      </li>
+    </ul>
+  </div>
+</div>

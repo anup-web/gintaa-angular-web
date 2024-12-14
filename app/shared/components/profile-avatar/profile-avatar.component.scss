@@ -1,0 +1,43 @@
+.edit-profile {
+  margin-left: 15%;
+}
+#my-avatar-small .avatar-container .avatar-content {
+  width: 40px;
+  height: 40px;
+  font-size: 16px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#my-avatar-profile .avatar-container .avatar-content {
+  width: 65px !important;
+  height: 65px !important;
+  background-color: #8bc63e;
+  font-size: 44px !important;
+  font-weight: 500 !important;
+  font-family: "Poppins", sans-serif !important;
+  font-display: swap;
+  margin: 0px !important;
+  padding: 0px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#my-avatar-profile .avatar-container {
+  width: 92px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avatar-container {
+  width: 85px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

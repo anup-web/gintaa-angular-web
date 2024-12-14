@@ -1,0 +1,93 @@
+<div class="add-memberh-wrapper memh-switch">
+  <div class="gt-float-100 gt-border-radius-12 gt-pd-lr-16 sub-member-wrapper bswitch-auto">
+    <div class="gt-float-100 gt-mt-20">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-center-between">
+            <div class="success-title">
+              <h1 class="gt-fs-16 gt-lightblack">
+                Switch profiles
+              </h1>
+            </div>
+            <div class="vclose" (click)="onDialogClose()">
+              <span class="
+                  material-icons
+                  color-partner
+                  gt-mt-4 gt-text-medium gt-cursor-pointer
+                ">close</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-34">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100">
+            <div class="gt-float-100 gt-center success-title">
+              <h2 class="gt-fs-20 lightblack-secondary">
+                Switching to
+              </h2>
+            </div>
+            <div class="gt-float-100 gt-center success-title">
+              <h3 class="gt-fs-16 gt-text-medium lightblack-secondary" *ngIf="
+                  businessName === 'SWITCH_TO_PERSONAL';
+                  else businessNameSection
+                ">
+                Personal account
+              </h3>
+              <ng-template #businessNameSection>
+                <h3 class="gt-fs-16 gt-lightgrayish">{{ businessName | trimTextToCertainNumberCharector: 20 }}!</h3>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-24">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-center">
+            <img src="assets/images/business/switching.svg" alt="image" width="240" height="194" class="bs-success" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-42">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-center gt-text-center gt-pl-35 gt-pr-35">
+            <h4 class="gt-fs-14 gt-lightblack">
+              You are about to switch {{(businessName === 'SWITCH_TO_PERSONAL') ? 'personal' : 'business'}} account. Are
+              you sure you want
+              to continue ?
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-44 gt-mb-16">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-vcenter gt-pl-54 gt-pr-54">
+            <button type="submit" (click)="switchCurrentBusiness()" class="
+                gt-btn-primary
+                gt-center
+                gt-height-48
+                gt-border-radius-2
+                gt-width-100
+                gt-fs-16
+                gt-text-medium
+              ">
+              continue
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="gt-float-100 gt-mt-15 chat-offer-height" [ngClass]="{'rs-chat-offer-height': screenType === 'small'}">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <nav class="gt-pb-15 gt-pd-lr-24 deal-nav chat-deal-nav" [ngClass]="{'offerlist-small-rp': screenType === 'small'}">
+                <div class="nav nav-tabs nav-fill custom-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link gt-frs-16" id="nav-home-tab" data-toggle="tab" 
+                    href="#nav-home-{{screenType}}" role="tab" aria-controls="nav-home" 
+                    aria-selected="true" (click)="currentTab(chatTabTypeEnums.OFFER)" [ngClass]="currTab === chatTabTypeEnums.OFFER ? 'active': ''">Listings <div class="gt-center image-width-24 border-radius-100 h4 chat-active offer-count" *ngIf="chatService.totalUnreadCount?.offer>0">{{chatService.totalUnreadCount?.offer}}</div></a>
+
+                    <a class="nav-item nav-link gt-frs-16 gt-ml-20" id="nav-profile-tab" data-toggle="tab" 
+                    href="#nav-profile-{{screenType}}" role="tab" aria-controls="nav-profile"
+                     aria-selected="false" (click)="currentTab(chatTabTypeEnums.DEAL)" [ngClass]="currTab === chatTabTypeEnums.DEAL? 'active': ''">Offers <div class="gt-center image-width-24 border-radius-100 h4 chat-active deal-count" *ngIf="chatService.totalUnreadCount?.deal>0">{{chatService.totalUnreadCount?.deal}}</div></a>
+                    
+                </div>
+            </nav>
+            <div class="tab-content tab-content-custom" id="nav-tabContent">
+                <div class="tab-pane fade" id="nav-home-{{screenType}}" role="tabpanel" aria-labelledby="nav-home-tab" [ngClass]="currTab === chatTabTypeEnums.OFFER ? 'active show': ''">
+                     <!-- <app-chat-search-results></app-chat-search-results> -->
+                     <app-chat-offers-list [chatType]="chatType" [screenType]="screenType"></app-chat-offers-list> 
+                </div>
+                <div class="tab-pane fade" id="nav-profile-{{screenType}}" role="tabpanel" aria-labelledby="nav-profile-tab" [ngClass]="currTab === chatTabTypeEnums.DEAL ? 'active show': ''">
+                     <!-- <app-chat-search-results></app-chat-search-results> -->
+                    <app-chat-deals-list [chatType]="chatType" [screenType]="screenType"></app-chat-deals-list> 
+                </div>                
+            </div>
+        
+        </div>
+    </div>
+  </div>

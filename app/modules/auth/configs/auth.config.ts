@@ -1,0 +1,120 @@
+export enum CURRENT_AUTH_MODAL {
+    SIGN_IN_WITH_MOBILE = 'sign-in-with-mobile',
+    VERIFY_OTP_WITH_MOBILE = 'verify-otp-with-mobile',
+    VERIFY_PASSWORD_WITH_MOBILE = 'verify-password-with-mobile',
+    UPDATE_PROFILE_NAME = 'update-profile-name',
+    UPDATE_PROFILE_EMAIL_OR_PHONE = 'update-profile-email-or-phone',
+    UPDATE_PROFILE_IMAGE = 'update-profile-image',
+    UPDATE_PROFILE_DOB_GENDER = 'update-profile-dob-gender',
+    UPDATE_PROFILE_ADDRESS = 'update-profile-address',
+    UPDATE_PROFILE_PASSWORD = 'update-profile-password',
+    UPDATE_PROFILE_LOCATION = 'update-profile-location',
+    SOCIAL_LOGIN_HEADS_UP_START = 'social-login-headsup',
+
+    ///////////// Start Auth sign in with email link ////////////
+    EMAIL_LOGIN_LINK_SEND_SUCCESS = 'email-login-link-send-succes',
+    EMAIL_LOGIN_LINK_VERIFY = 'email-login-link-verify'
+    ///////////// End Auth sign in with email link ////////////
+}
+
+export enum AUTH_STATUS {
+    ANONYMOUS = 'anonymous',
+    SOFT_LOGGED_IN = 'soft-logged-in',
+    LOGGED_IN = 'logged-in'
+}
+
+export enum USER_TYPES {
+    EXISTING = 'existing',
+    NEW = 'new',
+    GUEST = 'guest'
+}
+
+export enum AUTH_ACTION_TYPE {
+    AUTH_SHOW_LOADER = '[Auth] Show loader',
+    AUTH_HIDE_LOADER = '[Auth] Hide loader',
+    AUTH_PHONE_LOGIN_START = '[Auth] Phone Login Start',
+    AUTH_EMAIL_LOGIN_START = '[Auth] Email Login Start',
+    AUTH_PHONE_SIGNUP_START = '[Auth] Phone SignUp Start',
+    AUTH_EMAIL_SIGNUP_START = '[Auth] Email SignUp Start',
+    AUTH_CURRENT_AUTH_MODEL = '[Auth] Change Current Auth Modal',
+    AUTH_FIREBASE_CALL_SUCCESS = '[Auth] Firebase call Success',
+    AUTH_EMAIL_PASSWORD_LOGIN_START = '[Auth] Firebase call Success with Email and Password',
+    AUTH_FIREBASE_CALL_FAILURE = '[Auth] Firebase call Failure',
+    AUTH_IMAGE_CALL_FAILURE = '[Auth] Image call Failure',
+    AUTH_VERIFY_OTP_START = '[Auth] Verify OTP start',
+    AUTH_SAVE_FIREBASE_USER = '[Auth] Set firebase user',
+    AUTH_USER_LOGGED_IN_SUCCESS = '[Auth] User Logged in Success',
+    AUTH_SAVE_USER_NAME = '[Auth] Save Full Name',
+    AUTH_SAVE_USER_CONTACT_INFO = '[Auth] Save Email and Phone',
+    AUTH_SAVE_USER_INFO = '[Auth] Save Email or Phone',
+    AUTH_SAVE_USER_PERSONAL_INFO = '[Auth] Save DOB and Gender',
+    AUTH_UPDATE_USER_INFO = '[Auth] Update user profile',
+    AUTH_UPDATE_USER_INFO_SUCCESS = '[Auth] Update User Profile Success',
+    AUTH_UPDATE_USER_NAME_SUCCESS = '[Auth] Update User Profile Full Name Success',
+    AUTH_UPDATE_USER_PHONE_EMAIL_SUCCESS = '[Auth] Update User Profile Phone Email Success',
+    AUTH_UPDATE_USER_DOB_GENDER_SUCCESS = '[Auth] Update User Profile DOB Gender Success',
+    AUTH_UPDATE_USER_INFO_FAILURE = '[Auth] Update User Profile Failure',
+    AUTH_LOGIN_EMAIL_USER_INFO = '[Auth] Verify Email And Password',
+    AUTH_VERIFY_EMAIL_LOGIN_INFO = '[Auth] Verify Login Email And Password',
+    AUTH_REDIRECT_TO_SAVE_ADDRESS = '[Auth] Redirect To Save Address',
+    AUTH_UPDATE_USER_LOCATION = '[Auth] Update User Current Location',
+    AUTH_UPDATE_USER_ADDRESS = '[Auth] Update User Current Address',
+    AUTH_REDIRECT_TO_SIGN_IN = '[Auth] Redirect To SignIn',
+    AUTH_UPDATE_ERROR_MESSAGE = '[Auth] Update Error Message',
+    AUTH_UPDATE_CONTACT_ERROR_MESSAGE = '[Auth] Update Contact Info Error Message',
+    AUTH_RESEND_OTP_START = '[Auth] Resend OTP Start',
+    AUTH_PROFILE_IMAGE_UPLOAD_START = '[Auth] Profile Image Upload Start',
+    AUTH_PROFILE_IMAGE_UPLOAD_COMPLETE = '[Auth] Profile Image Upload Complete',
+    AUTH_PROFILE_IMAGE_REMOVE_COMPLETE = '[Auth] Profile Image Removed Complete',
+    SOCIAL_LOGIN_HEADS_UP_START = '[Auth] Social Login Heads Up Start',
+    AUTH_GMAIL_SIGNUP_START = '[Auth] Gmail SignUp Start',
+    AUTH_GMAIL_LOGIN_SUCCESS = '[Auth] Gmail Login Success',
+    AUTH_FACEBOOK_SIGNUP_START = '[Auth] Facebook Login Start',
+    AUTH_FACEBOOK_LOGIN_SUCCESS = '[Auth] Facebook Login Success',
+    AUTH_REDIRECT_TO_PROFILE_NAME = '[Auth] Redirect to Profile Name Screen',
+    AUTH_REDIRECT_TO_PROFILE_EMAIL_OR_PHONE = '[Auth] Redirect to Profile Email Or Phone Screen',
+    AUTH_REDIRECT_TO_PROFILE_IMAGE = '[Auth] Redirect to Profile Image Screen',
+    AUTH_REDIRECT_TO_UPDATE_PROFILE_LOCATION = '[Auth] Redirect to Update Profile Location',
+    AUTH_REDIRECT_TO_UPDATE_PROFILE_ADDRESS = '[Auth] Redirect to Update Profile Address',
+    AUTH_REDIRECT_TO_UPDATE_PROFILE_DOB_GENDER = '[Auth] Redirect to Update Profile DOB Gender',
+    AUTH_CHECK_USER_START = '[Auth] Check user start',
+    AUTH_LOGOUT = '[Auth] Logout',
+    AUTH_LOGOUT_SUCCESS = '[Auth] Logout Success',
+    AUTH_LOGOUT_TRIERED_END = '[Auth] Logout Triggered End',
+    FETCH_PROFILE_DATA = '[Auth] Fetch profile',
+    FETCH_PROFILE_DATA_SUCCESS = '[Auth] Fetch Profile Success',
+    CLEAR_SUCCESS_MESSAGE = '[Auth] Clear Success Message',
+    CLEAR_ERROR_MESSAGE = '[Auth] Clear Error Message',
+    CLOSE_AUTH_MODAL = '[Auth] Close Auth Modal',
+
+    AUTH_VERIFY_OTP_EMAIL = '[Auth] Auth Verify OTP Email',
+    AUTH_VERIFY_OTP_EMAIL_SUCCESS = '[Auth] Auth Verify OTP Email Success',
+    AUTH_VERIFY_OTP_EMAIL_FAILURE = '[Auth] Auth Verify OTP Email Failure',
+    AUTH_VERIFY_OTP_MOBILE = '[Auth] Auth Verify OTP Mobile',
+    AUTH_VERIFY_OTP_MOBILE_SUCCESS = '[Auth] Auth Verify OTP Mobile Success',
+    AUTH_VERIFY_OTP_MOBILE_FAILURE = '[Auth] Auth Verify OTP Mobile Failure',
+
+    AUTH_ADD_USER_ADDRESS = '[Auth] Auth Add User Address',
+    AUTH_ADD_USER_ADDRESS_SUCCESS = '[Auth] Auth Add User Address Success',
+    AUTH_ADD_USER_ADDRESS_FAILURE = '[Auth] Auth Add User Address Failure',
+
+    AUTH_VERIFY_CHECK_OTP_EMAIL = '[Auth] Auth Check Verify OTP Email',
+    AUTH_VERIFY_CHECK_OTP_EMAIL_SUCCESS = '[Auth] Auth Check Verify OTP Email Success',
+    AUTH_VERIFY_CHECK_OTP_EMAIL_FAILURE = '[Auth] Auth Check Verify OTP Email Failure',
+    AUTH_VERIFY_CHECK_OTP_MOBILE = '[Auth] Auth Check Verify OTP Mobile',
+    AUTH_VERIFY_CHECK_OTP_MOBILE_SUCCESS = '[Auth] Auth Check Verify OTP Mobile Success',
+    AUTH_VERIFY_CHECK_OTP_MOBILE_FAILURE = '[Auth] Auth Check Verify OTP Mobile Failure',
+    AUTH_CLOSE_VERIFY_CHECK_OTP = '[Auth] Auth Close Verify OTP',
+
+    ///////////// Start Auth sign in with email link ////////////
+    AUTH_SIGN_IN_WITH_EMAIL_LINK_MAIL_SEND = '[Auth] sign in with email link mail send',
+    AUTH_SIGN_IN_WITH_EMAIL_LINK_MAIL_SEND_SUCCESS = '[Auth] sign in with email link mail send success',
+    AUTH_SIGN_IN_WITH_EMAIL_LINK_VERIFY = '[Auth] sign in with email link verify',
+    AUTH_SIGN_IN_WITH_EMAIL_LINK_VERIFY_START = '[Auth] sign in with email link verify start',
+    AUTH_SIGN_IN_WITH_EMAIL_LINK_VERIFY_SUCCESS = '[Auth] sign in with email link verify success',
+    AUTH_SIGN_IN_CHECK_IS_PROFILE_COMPLETE = '[Auth] sign in check is profile complete',
+    AUTH_SIGN_IN_UPDATE_TOKEN_NEW = '[Auth] register update token',
+    AUTH_SIGN_IN_UPDATE_TOKEN_NEW_MOBILE = '[Auth] register update token mobile',
+    AUTH_SIGN_IN_CHECK_IS_PROFILE_COMPLETE_MOBILE = '[Auth] sign in check is profile complete mobile',
+    ///////////// End Auth sign in with email link ////////////
+}

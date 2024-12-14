@@ -1,0 +1,676 @@
+
+
+<div class="gt-float-100 pt-4 pb-4 auctions-offer-bg upcoming-auctions ">
+    <div class="container">
+      <div class="gt-float-100">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="gt-float-100 gt-center-between item-offer">
+              <div class="gt-float-left gt-vcenter item-offer-primary">
+                <h2 class="gt-fs-18 gt-black dcolor-secondary">Auctions of the day</h2>
+                <!-- <h2 class="gt-fs-18 gt-black dcolor-secondary">Auctions of the day</h2> -->
+              </div>
+              <div class="gt-float-right item-offer-secondary">
+                <button type="submit" class="gt-btn-primary gt-center gt-wh-btn dark-shadow bg-change-secondary" (click)="showAll()" *ngIf="finalResult.length>0"> view all
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="gt-float-100 gt-mt-20 auctions-slide">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="gt-float-100 auth-math-slider">
+              <div class="carousel-pnext pre_next gt-vcenter auctions-prenext" *ngIf="finalResult.length > defaultProductsLength">
+                <a class="arrow_left" *ngIf="isShowPrev" (click)="owlCar.prev()"><span
+                    class="material-icons gt-center dark-shadow-import bg-change-secondary-import">keyboard_arrow_left</span></a>
+                <a class="arrow_right" *ngIf="isShowNext" (click)="owlCar.next()"><span
+                    class="material-icons gt-center dark-shadow-import bg-change-secondary-import">keyboard_arrow_right</span></a>
+              </div>
+              <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event, finalResult.length)" #owlCar>
+                <ng-template carouselSlide *ngFor="let auction of finalResult" >
+                    <div class="single-arrivals-products gt-cursor-pointer gt-pd-zero gt-pd-tb-6 auc-shadow" (click)="navigateToOffer(auction)">
+                        <div class="arrivals-products-image gt-pd-lr-6">
+                            <div class="pr-image max-height-img-200">
+                                <!-- <img [src]="auction.addtionalInfo?auction.addtionalInfo[0]?auction.addtionalInfo[0].auction?auction.addtionalInfo[0].auction.cover?auction.addtionalInfo[0].auction.cover:defaultCoverImage:defaultCoverImage:defaultCoverImage:defaultCoverImage" class="gt-img-responsive" alt="image"> -->
+                                <img [src]="auction.cover?auction.cover:defaultCoverImage" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="auction-timing">
+                                    <div class="gt-center timing-bar">
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">{{auction.cdDays}}</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">day(s)</h3>
+                                        </div>
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">{{auction.cdHours}}</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">hr(s)</h3>
+                                        </div>
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">{{auction.cdMins}}</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">min(s)</h3>
+                                        </div>
+                                        <div class="time-1 gt-borderne">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">{{auction.cdSecs}}</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">sec(s)</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd auctions-title">
+                            <div class="offer-name-primary gt-text-center gt-ellipsis prod-title">{{auction.addtionalInfo?auction.addtionalInfo[0]?auction.addtionalInfo[0].auction?auction.addtionalInfo[0].auction.name:"":"":""}}
+                            </div>
+                        </div>
+
+                        <div class="gt-float-100 gt-pd-lr-12 gt-pt-15 aubid-ewrappe">
+                            <div class="gt-vcenter auc-group">
+                                <div class="gt-vcenter gt-width-50 current-bidp">
+                                    <img src="assets/images/create-offer/auction-od.svg" class="gt-mr-10 avftg"
+                                        width="30" height="26" alt="image">
+                                    <div class="aucprcie">
+                                        <h2 class="gt-fs-13 gt-lightgrayish">Current Bid</h2>
+                                        <div class="gt-vcenter gt-mt-4">
+                                            <img src="assets/images/create-offer/auc-price.svg" class="gt-mr-4 avftg"
+                                                width="10" height="18" alt="image">
+                                            <h3 class="gt-fs-14 gt-lightblack">{{auction.addtionalInfo?auction.addtionalInfo[0]?auction.addtionalInfo[0].bidPrice:"":""}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gt-vcenter gt-width-50 gt-pl-25 buyout-bid">
+                                    <img src="assets/images/create-offer/auc-money.svg" class="gt-mr-3 avftg" width="40"
+                                        height="40" alt="image">
+                                    <div class="aucprcie">
+                                        <h2 class="gt-fs-13 gt-lightgrayish">Buyout</h2>
+                                        <div class="gt-vcenter gt-mt-4">
+                                            <img src="assets/images/create-offer/auc-price.svg" class="gt-mr-4 avftg"
+                                                width="10" height="18" alt="image">
+                                            <h3 class="gt-fs-14 gt-lightblack">{{auction.buyOutPrice}}</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="gt-center-between gt-mt-15 last-bid">
+                                <div class="gt-vcenter gt-float-100 bid-owner">
+                                    <div class="image-width gt-center gt-position-relative chat-noimg gt-mr-8">
+                                        <img [src]="auction.addtionalInfo?auction.addtionalInfo[0]?(auction.addtionalInfo[0].photoUrl && auction.addtionalInfo[0].photoUrl!='')?auction.addtionalInfo[0].photoUrl:userNoImg:userNoImg:userNoImg" class="image-width" alt="image" />
+                                        <img src="assets/images/bg/owner.svg" class="owner-img" alt="image" />
+                                    </div>
+                                    <div class="bid-name">
+                                        <h2 class="gt-width-100 gt-fs-13 gt-lightblack">
+                                            {{transform(auction.addtionalInfo?auction.addtionalInfo[0]?auction.addtionalInfo[0].userName :"":"")}}
+                                        </h2>
+                                        <h3 class="gt-width-100 gt-fs-11 gt-mt-2 gt-primary">
+                                            Current leader
+                                        </h3>
+                                    </div>
+                                </div>
+                                <!-- <span *ngIf="isAuth"> -->
+                                <button 
+                                    *ngIf="auction.addtionalInfo && auction?.addtionalInfo[0]?.bidPrice !== auction.buyOutPrice" 
+                                    type="button" class="gt-btn-primary gt-center bid-now gt-border-radius-2 gt-fs-14 bg-change-secondary dark-shadow border-none">
+                                    bid now
+                                </button>
+                            <!-- </span> -->
+                            </div>
+                        </div>
+
+                    </div>
+                </ng-template>
+
+                <ng-template carouselSlide *ngFor="let item of staticBanners;">
+                    <a href="javascript:;" (click)="redirectToQueryUrl(item)">
+                        <img src="{{item.image}}" class="dauction-image" alt="image">
+                    </a>
+                </ng-template>
+            
+            <!--  <ng-template carouselSlide>
+                <img src="assets/images/addv-img/legal.jpg" class="dauction-image" alt="image">
+            </ng-template>
+
+            <ng-template carouselSlide>
+                <img src="assets/images/addv-img/fitness-banner.png" class="dauction-image" alt="image">
+            </ng-template>
+
+           <ng-template carouselSlide>
+                <img src="assets/images/addv-img/business-1.jpg" class="dauction-image" alt="image">
+            </ng-template>
+
+            <ng-template carouselSlide>
+                <img src="assets/images/addv-img/sell.png" class="dauction-image" alt="image">
+            </ng-template> -->
+
+                <!-- <ng-template carouselSlide>
+                    <div class="single-arrivals-products gt-cursor-pointer gt-pd-zero gt-pd-tb-6 auc-shadow">
+                        <div class="arrivals-products-image gt-pd-lr-6">
+                            <div class="pr-image max-height-img-200">
+                                <img src="assets/pro/58.png" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="auction-timing">
+                                    <div class="gt-center timing-bar">
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">00</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Days</h3>
+                                        </div>
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">02</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Hours</h3>
+                                        </div>
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">15</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Minutes</h3>
+                                        </div>
+                                        <div class="time-1 gt-borderne">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">45</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Seconds</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd auctions-title">
+                            <div class="offer-name-primary gt-text-center gt-ellipsis" ellipsis>Captain Coons Watches
+                            </div>
+                        </div>
+
+                        <div class="gt-float-100 gt-pd-lr-12 gt-pt-15 aubid-ewrappe">
+                            <div class="gt-vcenter auc-group">
+                                <div class="gt-vcenter gt-width-50 current-bidp">
+                                    <img src="assets/images/create-offer/auction-od.svg" class="gt-mr-10 avftg"
+                                        width="30" height="26" alt="image">
+                                    <div class="aucprcie">
+                                        <h2 class="gt-fs-14 gt-black au-opacity">Current Bid</h2>
+                                        <div class="gt-vcenter gt-mt-4">
+                                            <img src="assets/images/create-offer/auc-price.svg" class="gt-mr-4 avftg"
+                                                width="10" height="18" alt="image">
+                                            <h3 class="gt-fs-15 gt-black">14000</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gt-vcenter gt-width-50 gt-pl-25 buyout-bid">
+                                    <img src="assets/images/create-offer/auc-money.svg" class="gt-mr-3 avftg" width="40"
+                                        height="40" alt="image">
+                                    <div class="aucprcie">
+                                        <h2 class="gt-fs-14 gt-black au-opacity">Buyout</h2>
+                                        <div class="gt-vcenter gt-mt-4">
+                                            <img src="assets/images/create-offer/auc-price.svg" class="gt-mr-4 avftg"
+                                                width="10" height="18" alt="image">
+                                            <h3 class="gt-fs-15 gt-black">14000</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="gt-center-between gt-mt-15 last-bid">
+                                <div class="gt-vcenter gt-float-100 bid-owner">
+                                    <div class="gt-vcenter gt-position-relative">
+                                        <img src="assets/images/ui.jpg" class="image-width gt-mr-8 zimd" alt="image" />
+                                        <img src="assets/images/bg/owner.svg" class="owner-img" alt="image" />
+                                    </div>
+                                    <div class="bid-name">
+                                        <h2 class="gt-width-100 gt-fs-14 gt-lightblack">
+                                            Jenniffer Smith
+                                        </h2>
+                                        <h3 class="gt-width-100 gt-fs-12 gt-mt-2 gt-primary">
+                                            Current leader
+                                        </h3>
+                                    </div>
+                                </div>
+                                <button
+                                    class="gt-btn-primary gt-center bid-now bg-change-secondary dark-shadow border-none">
+                                    bid now
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="single-arrivals-products gt-cursor-pointer gt-pd-zero gt-pd-tb-6 auc-shadow">
+                        <div class="arrivals-products-image gt-pd-lr-6">
+                            <div class="pr-image max-height-img-200">
+                                <img src="assets/pro/59.png" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="auction-timing">
+                                    <div class="gt-center timing-bar">
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">00</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Days</h3>
+                                        </div>
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">02</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Hours</h3>
+                                        </div>
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">15</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Minutes</h3>
+                                        </div>
+                                        <div class="time-1 gt-borderne">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">45</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Seconds</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd auctions-title">
+                            <div class="offer-name-primary gt-text-center gt-ellipsis" ellipsis>Captain Coons Watches
+                            </div>
+                        </div>
+
+                        <div class="gt-float-100 gt-pd-lr-12 gt-pt-15 aubid-ewrappe">
+                            <div class="gt-vcenter auc-group">
+                                <div class="gt-vcenter gt-width-50 current-bidp">
+                                    <img src="assets/images/create-offer/auction-od.svg" class="gt-mr-10 avftg"
+                                        width="30" height="26" alt="image">
+                                    <div class="aucprcie">
+                                        <h2 class="gt-fs-14 gt-black au-opacity">Current Bid</h2>
+                                        <div class="gt-vcenter gt-mt-4">
+                                            <img src="assets/images/create-offer/auc-price.svg" class="gt-mr-4 avftg"
+                                                width="10" height="18" alt="image">
+                                            <h3 class="gt-fs-15 gt-black">14000</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gt-vcenter gt-width-50 gt-pl-25 buyout-bid">
+                                    <img src="assets/images/create-offer/auc-money.svg" class="gt-mr-3 avftg" width="40"
+                                        height="40" alt="image">
+                                    <div class="aucprcie">
+                                        <h2 class="gt-fs-14 gt-black au-opacity">Buyout</h2>
+                                        <div class="gt-vcenter gt-mt-4">
+                                            <img src="assets/images/create-offer/auc-price.svg" class="gt-mr-4 avftg"
+                                                width="10" height="18" alt="image">
+                                            <h3 class="gt-fs-15 gt-black">14000</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="gt-center-between gt-mt-15 last-bid">
+                                <div class="gt-vcenter gt-float-100 bid-owner">
+                                    <div class="gt-vcenter gt-position-relative">
+                                        <img src="assets/images/ui.jpg" class="image-width gt-mr-8 zimd" alt="image" />
+                                        <img src="assets/images/bg/owner.svg" class="owner-img" alt="image" />
+                                    </div>
+                                    <div class="bid-name">
+                                        <h2 class="gt-width-100 gt-fs-14 gt-lightblack">
+                                            Jenniffer Smith
+                                        </h2>
+                                        <h3 class="gt-width-100 gt-fs-12 gt-mt-2 gt-primary">
+                                            Current leader
+                                        </h3>
+                                    </div>
+                                </div>
+                                <button
+                                    class="gt-btn-primary gt-center bid-now bg-change-secondary dark-shadow border-none">
+                                    bid now
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="single-arrivals-products gt-cursor-pointer gt-pd-zero gt-pd-tb-6 auc-shadow">
+                        <div class="arrivals-products-image gt-pd-lr-6">
+                            <div class="pr-image max-height-img-200">
+                                <img src="assets/pro/60.png" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="auction-timing">
+                                    <div class="gt-center timing-bar">
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">00</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Days</h3>
+                                        </div>
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">02</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Hours</h3>
+                                        </div>
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">15</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Minutes</h3>
+                                        </div>
+                                        <div class="time-1 gt-borderne">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">45</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Seconds</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd auctions-title">
+                            <div class="offer-name-primary gt-text-center gt-ellipsis" ellipsis>Captain Coons Watches
+                            </div>
+                        </div>
+
+                        <div class="gt-float-100 gt-pd-lr-12 gt-pt-15 aubid-ewrappe">
+                            <div class="gt-vcenter auc-group">
+                                <div class="gt-vcenter gt-width-50 current-bidp">
+                                    <img src="assets/images/create-offer/auction-od.svg" class="gt-mr-10 avftg"
+                                        width="30" height="26" alt="image">
+                                    <div class="aucprcie">
+                                        <h2 class="gt-fs-14 gt-black au-opacity">Current Bid</h2>
+                                        <div class="gt-vcenter gt-mt-4">
+                                            <img src="assets/images/create-offer/auc-price.svg" class="gt-mr-4 avftg"
+                                                width="10" height="18" alt="image">
+                                            <h3 class="gt-fs-15 gt-black">14000</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gt-vcenter gt-width-50 gt-pl-25 buyout-bid">
+                                    <img src="assets/images/create-offer/auc-money.svg" class="gt-mr-3 avftg" width="40"
+                                        height="40" alt="image">
+                                    <div class="aucprcie">
+                                        <h2 class="gt-fs-14 gt-black au-opacity">Buyout</h2>
+                                        <div class="gt-vcenter gt-mt-4">
+                                            <img src="assets/images/create-offer/auc-price.svg" class="gt-mr-4 avftg"
+                                                width="10" height="18" alt="image">
+                                            <h3 class="gt-fs-15 gt-black">14000</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="gt-center-between gt-mt-15 last-bid">
+                                <div class="gt-vcenter gt-float-100 bid-owner">
+                                    <div class="gt-vcenter gt-position-relative">
+                                        <img src="assets/images/ui.jpg" class="image-width gt-mr-8 zimd" alt="image" />
+                                        <img src="assets/images/bg/owner.svg" class="owner-img" alt="image" />
+                                    </div>
+                                    <div class="bid-name">
+                                        <h2 class="gt-width-100 gt-fs-14 gt-lightblack">
+                                            Jenniffer Smith
+                                        </h2>
+                                        <h3 class="gt-width-100 gt-fs-12 gt-mt-2 gt-primary">
+                                            Current leader
+                                        </h3>
+                                    </div>
+                                </div>
+                                <button
+                                    class="gt-btn-primary gt-center bid-now bg-change-secondary dark-shadow border-none">
+                                    bid now
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="single-arrivals-products gt-cursor-pointer gt-pd-zero gt-pd-tb-6 auc-shadow">
+                        <div class="arrivals-products-image gt-pd-lr-6">
+                            <div class="pr-image max-height-img-200">
+                                <img src="assets/pro/57.png" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="auction-timing">
+                                    <div class="gt-center timing-bar">
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">00</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Days</h3>
+                                        </div>
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">02</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Hours</h3>
+                                        </div>
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">15</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Minutes</h3>
+                                        </div>
+                                        <div class="time-1 gt-borderne">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">45</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Seconds</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd auctions-title">
+                            <div class="offer-name-primary gt-text-center gt-ellipsis" ellipsis>Captain Coons Watches
+                            </div>
+                        </div>
+
+                        <div class="gt-float-100 gt-pd-lr-12 gt-pt-15 aubid-ewrappe">
+                            <div class="gt-vcenter auc-group">
+                                <div class="gt-vcenter gt-width-50 current-bidp">
+                                    <img src="assets/images/create-offer/auction-od.svg" class="gt-mr-10 avftg"
+                                        width="30" height="26" alt="image">
+                                    <div class="aucprcie">
+                                        <h2 class="gt-fs-14 gt-black au-opacity">Current Bid</h2>
+                                        <div class="gt-vcenter gt-mt-4">
+                                            <img src="assets/images/create-offer/auc-price.svg" class="gt-mr-4 avftg"
+                                                width="10" height="18" alt="image">
+                                            <h3 class="gt-fs-15 gt-black">14000</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gt-vcenter gt-width-50 gt-pl-25 buyout-bid">
+                                    <img src="assets/images/create-offer/auc-money.svg" class="gt-mr-3 avftg" width="40"
+                                        height="40" alt="image">
+                                    <div class="aucprcie">
+                                        <h2 class="gt-fs-14 gt-black au-opacity">Buyout</h2>
+                                        <div class="gt-vcenter gt-mt-4">
+                                            <img src="assets/images/create-offer/auc-price.svg" class="gt-mr-4 avftg"
+                                                width="10" height="18" alt="image">
+                                            <h3 class="gt-fs-15 gt-black">14000</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="gt-center-between gt-mt-15 last-bid">
+                                <div class="gt-vcenter gt-float-100 bid-owner">
+                                    <div class="gt-vcenter gt-position-relative">
+                                        <img src="assets/images/ui.jpg" class="image-width gt-mr-8 zimd" alt="image" />
+                                        <img src="assets/images/bg/owner.svg" class="owner-img" alt="image" />
+                                    </div>
+                                    <div class="bid-name">
+                                        <h2 class="gt-width-100 gt-fs-14 gt-lightblack">
+                                            Jenniffer Smith
+                                        </h2>
+                                        <h3 class="gt-width-100 gt-fs-12 gt-mt-2 gt-primary">
+                                            Current leader
+                                        </h3>
+                                    </div>
+                                </div>
+                                <button
+                                    class="gt-btn-primary gt-center bid-now bg-change-secondary dark-shadow border-none">
+                                    bid now
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="single-arrivals-products gt-cursor-pointer gt-pd-zero gt-pd-tb-6 auc-shadow">
+                        <div class="arrivals-products-image gt-pd-lr-6">
+                            <div class="pr-image max-height-img-200">
+                                <img src="assets/pro/58.png" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="auction-timing">
+                                    <div class="gt-center timing-bar">
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">00</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Days</h3>
+                                        </div>
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">02</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Hours</h3>
+                                        </div>
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">15</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Minutes</h3>
+                                        </div>
+                                        <div class="time-1 gt-borderne">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">45</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Seconds</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd auctions-title">
+                            <div class="offer-name-primary gt-text-center gt-ellipsis" ellipsis>Captain Coons Watches
+                            </div>
+                        </div>
+
+                        <div class="gt-float-100 gt-pd-lr-12 gt-pt-15 aubid-ewrappe">
+                            <div class="gt-vcenter auc-group">
+                                <div class="gt-vcenter gt-width-50 current-bidp">
+                                    <img src="assets/images/create-offer/auction-od.svg" class="gt-mr-10 avftg"
+                                        width="30" height="26" alt="image">
+                                    <div class="aucprcie">
+                                        <h2 class="gt-fs-14 gt-black au-opacity">Current Bid</h2>
+                                        <div class="gt-vcenter gt-mt-4">
+                                            <img src="assets/images/create-offer/auc-price.svg" class="gt-mr-4 avftg"
+                                                width="10" height="18" alt="image">
+                                            <h3 class="gt-fs-15 gt-black">14000</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gt-vcenter gt-width-50 gt-pl-25 buyout-bid">
+                                    <img src="assets/images/create-offer/auc-money.svg" class="gt-mr-3 avftg" width="40"
+                                        height="40" alt="image">
+                                    <div class="aucprcie">
+                                        <h2 class="gt-fs-14 gt-black au-opacity">Buyout</h2>
+                                        <div class="gt-vcenter gt-mt-4">
+                                            <img src="assets/images/create-offer/auc-price.svg" class="gt-mr-4 avftg"
+                                                width="10" height="18" alt="image">
+                                            <h3 class="gt-fs-15 gt-black">14000</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="gt-center-between gt-mt-15 last-bid">
+                                <div class="gt-vcenter gt-float-100 bid-owner">
+                                    <div class="gt-vcenter gt-position-relative">
+                                        <img src="assets/images/ui.jpg" class="image-width gt-mr-8 zimd" alt="image" />
+                                        <img src="assets/images/bg/owner.svg" class="owner-img" alt="image" />
+                                    </div>
+                                    <div class="bid-name">
+                                        <h2 class="gt-width-100 gt-fs-14 gt-lightblack">
+                                            Jenniffer Smith
+                                        </h2>
+                                        <h3 class="gt-width-100 gt-fs-12 gt-mt-2 gt-primary">
+                                            Current leader
+                                        </h3>
+                                    </div>
+                                </div>
+                                <button
+                                    class="gt-btn-primary gt-center bid-now bg-change-secondary dark-shadow border-none">
+                                    bid now
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="single-arrivals-products gt-cursor-pointer gt-pd-zero gt-pd-tb-6 auc-shadow">
+                        <div class="arrivals-products-image gt-pd-lr-6">
+                            <div class="pr-image max-height-img-200">
+                                <img src="assets/pro/59.png" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="auction-timing">
+                                    <div class="gt-center timing-bar">
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">00</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Days</h3>
+                                        </div>
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">02</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Hours</h3>
+                                        </div>
+                                        <div class="time-1">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">15</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Minutes</h3>
+                                        </div>
+                                        <div class="time-1 gt-borderne">
+                                            <h2 class="gt-width-100 gt-center time-color gt-fs-14">45</h2>
+                                            <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">Seconds</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd auctions-title">
+                            <div class="offer-name-primary gt-text-center gt-ellipsis" ellipsis>Captain Coons Watches
+                            </div>
+                        </div>
+
+                        <div class="gt-float-100 gt-pd-lr-12 gt-pt-15 aubid-ewrappe">
+                            <div class="gt-vcenter auc-group">
+                                <div class="gt-vcenter gt-width-50 current-bidp">
+                                    <img src="assets/images/create-offer/auction-od.svg" class="gt-mr-10 avftg"
+                                        width="30" height="26" alt="image">
+                                    <div class="aucprcie">
+                                        <h2 class="gt-fs-14 gt-black au-opacity">Current Bid</h2>
+                                        <div class="gt-vcenter gt-mt-4">
+                                            <img src="assets/images/create-offer/auc-price.svg" class="gt-mr-4 avftg"
+                                                width="10" height="18" alt="image">
+                                            <h3 class="gt-fs-15 gt-black">14000</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gt-vcenter gt-width-50 gt-pl-25 buyout-bid">
+                                    <img src="assets/images/create-offer/auc-money.svg" class="gt-mr-3 avftg" width="40"
+                                        height="40" alt="image">
+                                    <div class="aucprcie">
+                                        <h2 class="gt-fs-14 gt-black au-opacity">Buyout</h2>
+                                        <div class="gt-vcenter gt-mt-4">
+                                            <img src="assets/images/create-offer/auc-price.svg" class="gt-mr-4 avftg"
+                                                width="10" height="18" alt="image">
+                                            <h3 class="gt-fs-15 gt-black">14000</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="gt-center-between gt-mt-15 last-bid">
+                                <div class="gt-vcenter gt-float-100 bid-owner">
+                                    <div class="gt-vcenter gt-position-relative">
+                                        <img src="assets/images/ui.jpg" class="image-width gt-mr-8 zimd" alt="image" />
+                                        <img src="assets/images/bg/owner.svg" class="owner-img" alt="image" />
+                                    </div>
+                                    <div class="bid-name">
+                                        <h2 class="gt-width-100 gt-fs-14 gt-lightblack">
+                                            Jenniffer Smith
+                                        </h2>
+                                        <h3 class="gt-width-100 gt-fs-12 gt-mt-2 gt-primary">
+                                            Current leader
+                                        </h3>
+                                    </div>
+                                </div>
+                                <button
+                                    class="gt-btn-primary gt-center bid-now bg-change-secondary dark-shadow border-none">
+                                    bid now
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                  </ng-template> -->
+              </owl-carousel-o>
+  
+            </div>
+  
+          </div>
+  
+        </div>
+  
+      </div>
+  
+  
+    </div>
+  
+  </div>
+
+

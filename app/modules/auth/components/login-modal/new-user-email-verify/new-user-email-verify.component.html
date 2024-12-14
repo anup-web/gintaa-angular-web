@@ -1,0 +1,179 @@
+<div
+  class="login-right-wrapper gt-float-100 gt-pr-25 gt-pb-25 new-user-email-rp"
+>
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="user-mail gt-float-100">
+          <div class="email-title et-padding">
+            <h1 class="gt-text-bold gt-fs-20 gt-dark dcolor-primary">
+              Email Verification
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 gt-pr-110 user-register">
+          <p
+            class="h5 gt-fs-14 gt-text-regular gt-dark dcolor-secondary"
+            *ngIf="userType === 'new_user'; else existingUserMessageBlock"
+          >
+            It seems you don't have a Gintaa account yet. To register, please
+            set a password for
+          </p>
+          <ng-template #existingUserMessageBlock>
+            <p class="dcolor-secondary">Please enter your password to login</p>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="user-mail gt-float-100 um-padding">
+          <div class="mail-details gt-display-flex">
+            <h2 class="gt-text-bold gt-fs-17 gt-lightgrayish dcolor-primary">
+              {{ userEmail }}
+            </h2>
+            <span class="material-icons" (click)="movetoEnterPhoneScreen()"
+              >create</span
+            >
+          </div>
+          <div class="gt-text-danger" *ngIf="authErrorMessage">
+            <div class="error">{{ authErrorMessage }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="money">
+          <div class="currency-group">
+            <label class="currency-sr-only dcolor-primary">Password</label>
+            <div
+              class="
+                currency-input-group
+                gt-input-shadow gt-pt-11 gt-pb-11
+                dshadow-none
+              "
+            >
+              <div class="currency-input-group-prepend">
+                <div class="currency-input-group-text">
+                  <span class="material-icons gt-fs-22 gt-lightgrayish"
+                    >lock_open</span
+                  >
+                </div>
+              </div>
+              <input
+                [type]="hidePassword ? 'password' : 'text'"
+                class="currency-form-control email-verify-placeholder"
+                #userPassword
+                name="userPassword"
+                (keyup)="currentPassword = userPassword.value"
+                placeholder="*******************"
+              />
+              <div class="currency-input-group-append">
+                <div
+                  class="currency-input-group-text visib-cursor"
+                  style="cursor: pointer"
+                >
+               
+                  <mat-icon matSuffix (click)="hidePassword = !hidePassword">{{
+                    hidePassword ? "visibility_off" : "visibility"
+                  }}</mat-icon>
+                </div>
+              </div>
+            </div>
+
+           
+
+            <app-password-strength-bar
+              *ngIf="userType === 'new_user'"
+              [passwordToCheck]="currentPassword"
+              [barLabel]="passwordStrengthLabel"
+            ></app-password-strength-bar>
+
+            <div
+              class="gt-text-danger"
+              *ngIf="invalidPasswordErrorMessage"
+              style="margin-top: -20px"
+            >
+              <div class="error error-next">
+                {{ invalidPasswordErrorMessage }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div
+        class="col-lg-12 col-md-12 col-sm-12 col-xs-12"
+        *ngIf="userType === 'new_user'; else loginBlock"
+      >
+        <button
+          class="
+            gt-btn-primary gt-width-100 gt-btn-shadow
+            bg-change-secondary
+            dark-shadow
+            border-none
+          "
+          (click)="verifyEmailPassword()"
+        >
+          verify
+        </button>
+      </div>
+      <ng-template #loginBlock>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <button
+            class="
+              gt-btn-primary gt-width-100 gt-btn-shadow gt-mt-10 gt-border-radius-2
+              bg-change-secondary
+              dark-shadow
+              border-none
+            "
+            (click)="loginEmail()"
+          >
+            Login
+          </button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 gt-pr-110 gt-pt-20 gt-pb-25 user-policy">
+          <p class="h6 gt-text-light gt-fs-13 gt-font-poppins dcolor-primary">
+            By signing up for a Gintaa account , you agree with the
+            <span class="span-underline" 
+              >Terms & Conditions</span
+            >
+            and
+            <span class="span-underline" 
+              >Privacy Policy</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="user-social-login gt-float-100 gt-mt-10">
+    <app-user-social-login></app-user-social-login>
+  </div>
+</div>

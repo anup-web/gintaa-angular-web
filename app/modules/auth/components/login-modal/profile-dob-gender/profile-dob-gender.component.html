@@ -1,0 +1,81 @@
+<div class="login-right-wrapper gt-float-100 gt-pr-25 gt-mt-40 prdg-rp">
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="date-for gt-float-100 gt-mt-20 gt-pl-55 gt-pr-55 frd-rp">
+          <div class="date-birth-title gt-text-center">
+            <h2 class="gt-fs-14 gt-lightgrayish dcolor-primary">
+              Please, set your date of birth and gender
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 gt-mb-16 gt-mt-47 hyu-rp">
+          <h3 class="gt-fs-14 gt-lightgrayish dcolor-primary">Date of birth</h3>
+        </div>
+        <div class="dob-date-select gt-float-100 exdob-rp">
+          <mat-form-field class="example-full-width auth-dobh">
+            <input matInput [matDatepicker]="picker" (dateChange)="setUserDOB($event)" [min]="minDatePicker"
+              [max]="maxDatePicker" [value]="userDob" />
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <button class="gt-btn-primary date-picker-btn" (click)="picker.open()">
+            <img src="assets/images/date-icon.png" width="20" height="22" alt="icon" class="gt-img-responsive" />
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-text-danger" *ngIf="invalidDob" @fadeIn>
+          <div class="error error-next">{{ dateError }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gender-group">
+          <label id="example-radio-group-label"
+            class="user-gender gt-fs-14 gt-lightgrayish gt-mt-25 gt-mb-15 gyu-rp dcolor-primary">Gender</label>
+          <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [value]="userGender">
+            <mat-radio-button value="Male" (click)="setUserGender('Male')">Male</mat-radio-button>
+            <mat-radio-button value="Female" (click)="setUserGender('Female')">Female</mat-radio-button>
+            <mat-radio-button value="Other" (click)="setUserGender('Other')">Other</mat-radio-button>
+          </mat-radio-group>
+        </div>
+        <div class="gt-text-danger" *ngIf="invalidGender && userGender" @fadeIn>
+          <div class="error">Please choose your gender</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-mb-15 gt-mt-10" *ngIf="parsedErrorMessage">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="parsedErrorMessage">
+        <div class="gt-text-danger">
+          <div class="error error-next">{{ parsedErrorMessage }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-pt-20">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <button class="gt-btn-primary gt-width-100 gt-btn-shadow gt-mb-15 psg-rp gt-border-radius-2 bg-change-secondary-import dark-shadow-import border-none-import" (click)="saveDobAndGender()"
+          [disabled]="invalidGender && invalidDob">
+          save & next
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

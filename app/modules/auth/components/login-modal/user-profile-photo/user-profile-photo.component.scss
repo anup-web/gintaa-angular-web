@@ -1,0 +1,17 @@
+.jc-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.gt-btn-shadow:disabled{
+    opacity: .5;
+}
+
+.profile-loader{
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 50%;
+  }

@@ -1,0 +1,61 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Gintaa Wallet Result",
+    "payload": {
+        "coins": 10000,
+        "cash": 1500,
+        "gems": 10,
+        "transactionResult": [
+            {
+                "transactionDate": "2020/12/20",
+                "gems": [
+                    {
+                        "count": 100,
+                        "description": "Earn from Konstantin Konstantinopolskiy"
+                    },
+                    {
+                        "count": 200,
+                        "description": "Edit offer Kaptain Koontz Watches"
+                    }
+                ]
+            },
+            {
+                "transactionDate": "2020/12/18",
+                "gems": [
+                    {
+                        "count": 2000,
+                        "description": "Order Gintaa merch"
+                    }
+                ]
+            },
+            {
+                "transactionDate": "2020/12/2",
+                "gems": [
+                    {
+                        "count": 1,
+                        "description": "Earn from Bob Burn"
+                    }
+                ]
+            },
+            {
+                "transactionDate": "2020/11/30",
+                "gems": [
+                    {
+                        "count": 120,
+                        "description": "Earn from Soumyadip"
+                    }
+                ]
+            },
+            {
+                "transactionDate": "2020/11/28",
+                "gems": [
+                    {
+                        "count": 1,
+                        "description": "Earn from Anup"
+                    }
+                ]
+            }
+        ]        
+    }
+}

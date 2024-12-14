@@ -1,0 +1,50 @@
+<div class="gt-float-100 gt-mt-25">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gt-float-100" *ngIf="businessMembers && businessMembers.length">
+
+        <div *ngFor="let member of businessMembers"
+          class="gt-float-left gt-bg-white gt-border-radius-8 gt-pl-12 gt-pr-30 gt-pt-12 gt-pb-14 gt-mr-30 gt-mb-40 gt-cursor-pointer biness-member-list bg-change dark-shadow"
+          [routerLink]="[member.memberId]">
+
+          <div class="gt-width-100 gt-vcenter">
+            <div class="member-img">
+              <img
+                [src]="member.memberDetails.imageUrl ? member.memberDetails.imageUrl : 'assets/images/user-default-img/chatu-noimg.svg'"
+                class="image-width" [class]="!member.memberDetails.imageUrl ? 'business-default-avatar' : ''"
+                [alt]="member.memberDetails.name" />
+            </div>
+            <div class="gt-ml-8 member-name">
+              <h2 class="gt-fs-16 gt-text-medium gt-lightblack dcolor-primary">
+                {{ member.memberDetails.name }}
+                <span class="gt-fs-14" [ngClass]="{
+                    'comyst-active': member.active === true
+                  }">
+                  {{
+                  member.active
+                  ? "(Active)"
+                  : "(Inactive)"
+                  }}
+                </span>
+              </h2>
+            </div>
+
+          </div>
+
+          <div class="gt-float-100">
+            <div class="gt-ml-49">
+              <h3 class="gt-fs-14 gt-lightgrayish gt-lightblack dcolor-secondary">{{member.businessRole}} </h3>
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

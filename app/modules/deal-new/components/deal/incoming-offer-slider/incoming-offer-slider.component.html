@@ -1,0 +1,94 @@
+<div class="gt-float-100 unauth-matchk">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="gt-float-100 custom-carosl">
+        <div class="carousel-pnext od-right-slider" *ngIf="showArrowButton()">
+          <a class="arrow_left disabled" [id]="arrow_left_nav" (click)="owlCar.prev()"><span
+              class="material-icons dark-shadow-import bg-change-secondary-import">keyboard_arrow_left</span></a>
+          <a class="arrow_right" [id]="arrow_right_nav" (click)="owlCar.next()"><span
+              class="material-icons dark-shadow-import bg-change-secondary-import">keyboard_arrow_right</span></a>
+        </div>
+        <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)" #owlCar>
+          <ng-template carouselSlide *ngIf="requestedAmountPaidByInitiatingUser && requestedAmount">
+            <!-- <div class="single-arrivals-products gt-cursor-pointer col-xl-{{colType}} col-lg-{{colType}} col-md-6 col-sm-6 co-xs-12 receiverAmount"> -->
+            <div class="single-arrivals-products gt-cursor-pointer gt-pb-8">
+              <div class="deal-price-slide gt-cursor-pointer">
+                <div class="deal-price-center">
+                  <img src="assets/images/deal/deal-price.svg" class="deal-price-icon" width="71" height="71"
+                    alt="image" />
+                  <h2 class="
+                      gt-center gt-fs-22 gt-white gt-text-medium gt-mt-16
+                    " *ngIf="requestedAmount else showFreeSec">
+                    {{ requestedAmount }}
+                  </h2>
+                  <ng-template #showFreeSec>
+                    <h2 class="gt-center gt-fs-22 gt-white gt-text-medium gt-mt-16">
+                      Free
+                    </h2>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide *ngFor="let offer of data">
+            <div class="single-arrivals-products gt-float-100 pro-shadow gt-cursor-pointer">
+              <div class="arrivals-products-image" (click)="onClickOffer(offer.offerId)">
+                <div class="pr-image max-height-img-180">
+                  <img [src]="offer.images[0].url" class="gt-img-responsive" [alt]="offer.offerName"
+                    onError="this.src = 'assets/images/create-offer/uplaod-default-img.png'" />
+
+                  <div class="gt-center image-width offers-count" *ngIf="offer?.offerCount && offer?.offerCount > 1">
+                    <h2 class="gt-fs-18 gt-text-medium gt-white">x{{offer?.offerCount}}</h2>
+                  </div>
+                </div>
+              </div>
+
+              <div class="arrivals-products-content product-content-pd">
+                <div class="offer-name-primary gt-ellipsis" ellipsis>
+                  {{ offer.offerName }}
+                </div>
+                <div class="pr-desire">
+                  <ng-container *ngIf="offer.auctioned || offer?.exchangeMode ==='Money' else desireShow">
+                    <span class="icon-gt-money-new gt-fs-14"></span>
+                    <div class="offer-desire-primary gt-ellipsis gt-ml-5" ellipsis>
+                      {{getItemWisePrice(requestedAmount, offer.offerCount)}}
+                    </div>
+                  </ng-container>
+                  <ng-template #desireShow>
+                    <div *ngIf="offer?.free else showDesire1">
+                      <div class="offer-desire-primary gt-ellipsis" ellipsis>
+                        {{ offer?.exchangeMode }}
+                      </div>
+                    </div>
+                    <ng-template #showDesire1>
+                      <img src="assets/images/home/desire-icon.svg" class="desire-img" alt="image">
+                      <div class="offer-desire-primary gt-ellipsis" ellipsis>
+                        {{ offer['exchangeMode'] }}
+                      </div>
+                    </ng-template>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+          <ng-template carouselSlide *ngIf="checkIsOffer() && listType=='offeredOffers' &&  requestedAmount == '0'">
+            <!-- <div class="single-arrivals-products gt-cursor-pointer col-xl-{{colType}} col-lg-{{colType}} col-md-6 col-sm-6 co-xs-12 receiverAmount"> -->
+            <div class="single-arrivals-products gt-cursor-pointer gt-pb-8">
+              <div class="deal-price-slide gt-cursor-pointer">
+                <div class="deal-price-center">
+                  <img src="assets/images/deal/deal-price.svg" class="deal-price-icon" width="71" height="71"
+                    alt="image" />
+                  <h2 class="
+                      gt-center gt-fs-22 gt-white gt-text-medium gt-mt-16
+                    ">
+                    Free
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="login-right-wrapper gt-float-100 gt-pr-25 gt-mt-30 gt-mb-10 prol-rp">
+
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="location-for gt-float-100 gt-mt-10 gt-mb-10 pls-rp">
+          <div class="enter-location-title gt-text-center">
+            <h2 class="gt-fs-14 gt-lightgrayish gt-text-medium dcolor-primary">
+              Select your location to see the best offers near you
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="gt-float-100 gt-mb-38" *ngIf="errorMessage">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 jc">
+        <div class="gt-text-danger">
+          <div class="error"> {{errorMessage}} </div>
+       </div>
+      </div>
+    </div>
+  </div>
+  <div class="user-loc-profile gt-float-100">
+    <app-user-profile-location></app-user-profile-location>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <button class="gt-btn-primary gt-width-100 gt-btn-shadow gt-border-radius-2 bg-change-secondary-import dark-shadow-import border-none-import" (click)="redirectToSaveAddress()">
+          save & next
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

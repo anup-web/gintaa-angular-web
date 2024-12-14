@@ -1,0 +1,490 @@
+<div class="gt-float-100 gt-mt-13 ndealh-hoistory">
+    <ng-container *ngFor="let changes of revisionDeltaChanges; let changeIndex = index">
+        <div class="gt-float-100 gt-pb-15"
+            *ngIf="!(changes?.otherChanges?.dealStatusCode?.prevValue == 'ACCEPTED' && changes?.otherChanges?.dealStatusCode?.newValue == 'ACCEPTED') else showpaymentStatus ">
+            <div class="gt-float-100 gt-pd-lr-12">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="gt-float-100">
+                            <div class="gt-center-start hky-uk">
+                                <h3 class="gt-fs-13 gt-sky">{{ getLocalTime(changes.createdDate) }}
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-container *ngIf="changes.otherChanges && changes.otherChanges?.dealStatusCode">
+                <div class="gt-float-100 gt-mt-10 gt-pd-lr-12">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="gt-float-100">
+                                <div class="gt-center-start hky-uk">
+                                    <ng-container [ngSwitch]="changes?.otherChanges?.dealStatusCode?.newValue">
+                                        <ng-container *ngSwitchCase="'PAYMENT_REFUND_NEEDED'">
+                                            <h3 class="gt-fs-13 gt-black-60"> Refund initiated for this offer </h3>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'PAYMENT_REFUNDED'">
+                                            <h3 class="gt-fs-13 gt-black-60"> Refund is completed for this offer </h3>
+                                        </ng-container>
+                                        <ng-container *ngSwitchCase="'SHIPMENT_FAILED'">
+                                            <h3 class="gt-fs-13 gt-black-60"> Failed to delivery this offer </h3>
+                                        </ng-container>
+                                        <ng-container *ngSwitchDefault>
+                                            <h3 class="gt-fs-13 gt-black-60">{{whoModified(changes.revisionUserId)}}
+                                                {{dealStatus(changes.otherChanges?.dealStatusCode)}} this offer </h3>
+                                        </ng-container>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div class="gt-float-100 gt-mt-10" *ngIf="changes?.otherChanges?.requestedAmount">
+                                <div class="gt-center-start hky-uk"
+                                    *ngIf="changes?.otherChanges?.requestedAmount?.prevValue else addedAmountSec">
+                                    <h3 class="gt-fs-13 gt-black-60">
+                                        {{whoModified(changes.revisionUserId)}}
+                                        <ng-container
+                                            *ngIf="changes?.otherChanges?.requestedAmountPaidByInitiatingUser else youWillPaySec3">
+                                            <ng-container
+                                                *ngIf="changes?.otherChanges?.requestedAmountPaidByInitiatingUser?.newValue else receiverwillpay1">
+                                                <ng-container *ngIf="changes?.callerReceiver else youWillPaySec4">
+                                                    requested money
+                                                    Rs.{{changes?.otherChanges?.requestedAmount?.newValue}} from offered
+                                                    Rs.{{changes?.otherChanges?.requestedAmount?.prevValue}}
+                                                </ng-container>
+                                                <ng-template #youWillPaySec4>
+                                                    offered money:
+                                                    Rs.{{changes?.otherChanges?.requestedAmount?.newValue}} from
+                                                    requested Rs.{{changes?.otherChanges?.requestedAmount?.prevValue}}
+                                                </ng-template>
+                                            </ng-container>
+                                            <ng-template #receiverwillpay1>
+                                                <ng-container *ngIf="changes?.callerReceiver else youWillPaySec5">
+                                                    requested money
+                                                    Rs.{{changes?.otherChanges?.requestedAmount?.newValue}} from offered
+                                                    Rs.{{changes?.otherChanges?.requestedAmount?.prevValue}}
+                                                </ng-container>
+                                                <ng-template #youWillPaySec5>
+                                                    offered money:
+                                                    Rs.{{changes?.otherChanges?.requestedAmount?.newValue}} from
+                                                    requested Rs.{{changes?.otherChanges?.requestedAmount?.prevValue}}
+                                                </ng-template>
+                                            </ng-template>
+                                        </ng-container>
+                                        <ng-template #youWillPaySec3>
+                                            changed offer money from
+                                            Rs.{{changes?.otherChanges?.requestedAmount?.prevValue}} to
+                                            Rs.{{changes?.otherChanges?.requestedAmount?.newValue}}
+                                        </ng-template>
+                                    </h3>
+                                </div>
+                                <ng-template #addedAmountSec>
+                                    <h3 class="gt-fs-13 gt-black-60">
+                                        {{whoModified(changes.revisionUserId)}}
+                                        <ng-container
+                                            *ngIf="changes?.otherChanges?.requestedAmountPaidByInitiatingUser?.newValue else receiverWillPay">
+                                            <ng-container *ngIf="changes?.callerReceiver else youWillPaySec">
+                                                Want money: Rs.{{changes?.otherChanges?.requestedAmount?.newValue}}
+                                            </ng-container>
+                                            <ng-template #youWillPaySec>
+                                                Offered money: Rs.{{changes?.otherChanges?.requestedAmount?.newValue}}
+                                            </ng-template>
+                                        </ng-container>
+                                        <ng-template #receiverWillPay>
+                                            <ng-container *ngIf="changes?.callerReceiver else youWillPaySec2">
+                                                Offered money: Rs.{{changes?.otherChanges?.requestedAmount?.newValue}}
+                                            </ng-container>
+                                            <ng-template #youWillPaySec2>
+                                                Want money: Rs.{{changes?.otherChanges?.requestedAmount?.newValue}}
+                                            </ng-template>
+                                        </ng-template>
+                                    </h3>
+                                </ng-template>
+                            </div>
+                            <div class="gt-float-100 gt-mt-10" *ngIf="changes?.otherChanges?.dealDeliveryMethod">
+                                <div class="gt-center-start hky-uk">
+                                    <h3 class="gt-fs-13 gt-black-60">{{whoModified(changes.revisionUserId)}} changed
+                                        Delivery Preference as
+                                        {{showShipping(changes?.otherChanges?.dealDeliveryMethod?.newValue)}} from
+                                        {{showShipping(changes?.otherChanges?.dealDeliveryMethod?.prevValue)}} </h3>
+                                </div>
+                            </div>
+                            <div class="gt-float-100 gt-mt-10"
+                                *ngIf="changes?.otherChanges?.dealJunction || changes?.otherChanges?.meetingDate">
+                                <div class="gt-center-start hky-uk" *ngIf="changes?.otherChanges?.dealJunction">
+                                    <h3 class="gt-fs-13 gt-black-60"
+                                        *ngIf="changes?.otherChanges?.dealJunction?.prevValue else choosedJunction">
+                                        {{whoModified(changes.revisionUserId)}}
+                                        changed Junction from <span class="gt-sky">
+                                            {{changes?.otherChanges?.dealJunction?.prevValue?.name}} </span> to <span
+                                            class="gt-sky"> {{changes?.otherChanges?.dealJunction?.newValue?.name}}
+                                        </span>
+                                    </h3>
+                                    <ng-template #choosedJunction>
+                                        <h3 class="gt-fs-13 gt-black-60">{{whoModified(changes.revisionUserId)}}
+                                            selected
+                                            <span class="gt-sky">
+                                                {{changes?.otherChanges?.dealJunction?.newValue?.name}} </span>
+                                        </h3>
+                                    </ng-template>
+                                </div>
+                                <div class="gt-float-100">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                                            *ngIf="changes?.otherChanges?.dealJunction?.prevValue">
+                                            <div class="gt-float-100 gt-mt-10">
+                                                <div class="gt-flex-start">
+                                                    <h3 class="gt-fs-16 gt-black-60">Address :
+                                                        {{changes?.otherChanges?.dealJunction?.prevValue?.address}}</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="gt-float-100 gt-mt-10"
+                                                *ngIf="changes?.otherChanges?.dealJunction?.prevValue?.phoneNumbers">
+                                                <div class="gt-flex-start">
+                                                    <h4 class="gt-fs-14 gt-black-60">Contact :
+                                                        {{getJintaaContact(changes?.otherChanges?.dealJunction?.newValue?.phoneNumbers)}}
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row" *ngIf="changes?.otherChanges?.meetingDate?.prevValue">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="gt-float-100 gt-mt-11">
+                                                <div class="gt-flex-start">
+                                                    <h3 class="gt-fs-14 gt-black-60">
+                                                        {{whoModified(changes.revisionUserId)}} changed meeting time
+                                                        from {{ changes?.otherChanges?.meetingDate?.prevValue | date }},
+                                                        {{ changes?.otherChanges?.meetingStartTime?.prevValue |
+                                                        formatMeetTime }} to {{
+                                                        changes?.otherChanges?.meetingDate?.newValue | date }}, {{
+                                                        changes?.otherChanges?.meetingStartTime?.newValue |
+                                                        formatMeetTime }}</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="changes.offeredOffersAdded && changes.offeredOffersAdded?.length">
+                <div class="gt-float-100 gt-mt-10 gt-pd-lr-12">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="gt-float-100">
+                                <div class="gt-center-start hky-uk">
+                                    <h3 class="gt-fs-13 gt-black-60">{{whoModified(changes.revisionUserId)}} have added
+                                        following
+                                        <ng-container *ngIf="changes.callerReceiver else OfferedSec">
+                                            Suggested
+                                        </ng-container>
+                                        <ng-template #OfferedSec>
+                                            Offered
+                                        </ng-template>
+                                        item{{changes.offeredOffersAdded?.length | multiItemItems}}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gt-float-100 gt-mt-10 gt-pd-lr-12"
+                    *ngFor="let offer of changes.offeredOffersAdded; let offerIndex = index">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="gt-float-100">
+                                <div class="gt-center-start hky-uk">
+                                    <h3 class="gt-fs-13 gt-black-70">{{offerIndex+1}}. {{offer?.offerName}},
+                                        Quantity-{{offer?.offerCount}}, Offer value Rs. {{offer?.unitOfferValuation}}
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="gt-float-100 gt-mt-10" *ngIf="changes?.otherChanges?.requestedAmount">
+                                <div class="gt-center-start hky-uk">
+                                    <h3 class="gt-fs-13 gt-black-60">{{whoModified(changes.revisionUserId)}} changed
+                                        offer amount from Rs.{{ changes?.otherChanges?.requestedAmount?.prevValue}} to
+                                        Rs.{{ changes?.otherChanges?.requestedAmount?.newValue}} </h3>
+                                </div>
+                            </div>
+                            <div class="gt-float-100 gt-mt-10" *ngIf="changes?.otherChanges?.dealDeliveryMethod">
+                                <div class="gt-center-start hky-uk">
+                                    <h3 class="gt-fs-13 gt-black-60">{{whoModified(changes.revisionUserId)}} changed
+                                        Delivery Preference as {{
+                                        changes?.otherChanges?.dealDeliveryMethod?.newValue?.name}} from {{
+                                        changes?.otherChanges?.dealDeliveryMethod?.prevValue?.name}} </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="changes.receivedOffersAdded && changes.receivedOffersAdded?.length">
+                <div class="gt-float-100 gt-mt-10 gt-pd-lr-12">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="gt-float-100">
+                                <div class="gt-center-start hky-uk">
+                                    <h3 class="gt-fs-13 gt-black-60">{{whoModified(changes.revisionUserId)}} have added
+                                        following <ng-container *ngIf="changes.callerReceiver else OfferedSec">
+                                            Offered
+                                        </ng-container>
+                                        <ng-template #OfferedSec>
+                                            Suggested
+                                        </ng-template> item{{changes.receivedOffersAdded?.length | multiItemItems}}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gt-float-100 gt-mt-10 gt-pd-lr-12"
+                    *ngFor="let offer of changes.receivedOffersAdded; let offerIndex = index">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="gt-float-100">
+                                <div class="gt-center-start hky-uk">
+                                    <h3 class="gt-fs-13 gt-black-70">{{offerIndex+1}}. {{offer?.offerName}},
+                                        Quantity-{{offer?.offerCount}}, Offer value Rs. {{offer?.unitOfferValuation}}
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="gt-float-100 gt-mt-10" *ngIf="changes?.otherChanges?.requestedAmount">
+                                <div class="gt-center-start hky-uk">
+                                    <h3 class="gt-fs-13 gt-black-60">{{whoModified(changes.revisionUserId)}} changed
+                                        offer amount from Rs.{{ changes?.otherChanges?.requestedAmount?.prevValue}} to
+                                        Rs.{{ changes?.otherChanges?.requestedAmount?.newValue}} </h3>
+                                </div>
+                            </div>
+                            <div class="gt-float-100 gt-mt-10" *ngIf="changes?.otherChanges?.dealDeliveryMethod">
+                                <div class="gt-center-start hky-uk">
+                                    <h3 class="gt-fs-13 gt-black-60">{{whoModified(changes.revisionUserId)}} changed
+                                        Delivery Preference as {{
+                                        changes?.otherChanges?.dealDeliveryMethod?.newValue?.name}} from {{
+                                        changes?.otherChanges?.dealDeliveryMethod?.prevValue?.name}} </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="changes.offeredOffersRemoved && changes.offeredOffersRemoved?.length">
+                <div class="gt-float-100 gt-mt-10 gt-pd-lr-12">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="gt-float-100">
+                                <div class="gt-center-start hky-uk">
+                                    <h3 class="gt-fs-13 gt-black-60">{{whoModified(changes.revisionUserId)}} have
+                                        removed
+                                        following
+                                        <ng-container *ngIf="changes.callerReceiver else OfferedSec">
+                                            Suggested
+                                        </ng-container>
+                                        <ng-template #OfferedSec>
+                                            Offered
+                                        </ng-template>
+                                        item{{changes.offeredOffersRemoved?.length | multiItemItems}}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gt-float-100 gt-mt-10 gt-pd-lr-12"
+                    *ngFor="let offer of changes.offeredOffersRemoved; let offerIndex = index">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="gt-float-100">
+                                <div class="gt-center-start hky-uk">
+                                    <h3 class="gt-fs-13 gt-black-70">{{offerIndex+1}}. {{offer?.offerName}},
+                                        Quantity-{{offer?.offerCount}}, Offer value Rs. {{offer?.unitOfferValuation}}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="changes.receivedOffersRemoved && changes.receivedOffersRemoved?.length">
+                <div class="gt-float-100 gt-mt-10 gt-pd-lr-12">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="gt-float-100">
+                                <div class="gt-center-start hky-uk">
+                                    <h3 class="gt-fs-13 gt-black-60">{{whoModified(changes.revisionUserId)}} have added
+                                        following <ng-container *ngIf="changes.callerReceiver else OfferedSec">
+                                            Offered
+                                        </ng-container>
+                                        <ng-template #OfferedSec>
+                                            Suggested
+                                        </ng-template> item{{changes.receivedOffersRemoved?.length | multiItemItems}}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gt-float-100 gt-mt-10 gt-pd-lr-12"
+                    *ngFor="let offer of changes.receivedOffersRemoved; let offerIndex = index">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="gt-float-100">
+                                <div class="gt-center-start hky-uk">
+                                    <h3 class="gt-fs-13 gt-black-70">{{offerIndex+1}}. {{offer?.offerName}},
+                                        Quantity-{{offer?.offerCount}}, Offer value Rs. {{offer?.unitOfferValuation}}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+        <ng-template #showpaymentStatus>
+            <ng-container *ngIf="changes?.otherChanges?.initiatorPaidAmount">
+                <div class="gt-float-100 gt-pb-15">
+                    <div class="gt-float-100 gt-pd-lr-12">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="gt-float-100">
+                                    <div class="gt-center-start hky-uk">
+                                        <h3 class="gt-fs-13 gt-sky">{{ getLocalTime(changes.createdDate) }} </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gt-float-100 gt-mt-10 gt-pd-lr-12">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="gt-float-100">
+                                    <div class="gt-center-start hky-uk">
+                                        <h3 class="gt-fs-13 gt-black-60" *ngIf="changes?.otherChanges?.initiatorPaidAmount?.newValue else receivedRefund">{{shhowBuyer()}} paid for this offer </h3>
+                                        <ng-template #receivedRefund>
+                                            <h3 class="gt-fs-13 gt-black-60">{{shhowBuyer()}} received refund. </h3>
+                                        </ng-template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+
+        </ng-template>
+    </ng-container>
+
+    <!-- <div class="gt-float-100 gt-pb-15 dealnhistory-1">
+        <div class="gt-float-100 gt-pd-lr-12">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100">
+                        <div class="gt-center-start hky-uk">
+                            <h3 class="gt-fs-13 gt-sky">{{ }}</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gt-float-100 gt-mt-10 gt-pd-lr-12">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100">
+                        <div class="gt-center-start hky-uk">
+                            <h3 class="gt-fs-13 gt-black-60">You have added following item</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gt-float-100 gt-mt-10 gt-pd-lr-12">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100">
+                        <div class="gt-center-start hky-uk">
+                            <h3 class="gt-fs-13 gt-black-70">1. Nike shoe, Quantity-01, Offer value Rs. 2000</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="gt-float-100 gt-pb-15 gt-mt-15 dealnhistory-2">
+        <div class="gt-float-100 gt-pd-lr-12">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100">
+                        <div class="gt-center-start hky-uk">
+                            <h3 class="gt-fs-13 gt-sky">1-Jan-21, 10.30</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gt-float-100 gt-mt-10 gt-pd-lr-12">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100">
+                        <div class="gt-center-start hky-uk">
+                            <h3 class="gt-fs-13 gt-black-60">You have initiated a deal with Rakesh , you are giving
+                                following item/items as a
+                                part of this deal</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gt-float-100 gt-mt-10 gt-pd-lr-12">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100">
+                        <div class="gt-center-start hky-uk">
+                            <h3 class="gt-fs-13 gt-black-70">1. Polo Tshirt, Red, XL, Quantity-02, Offer value Rs. 4000
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gt-float-100 dealnhistory-3">
+        <div class="gt-float-100 gt-pd-lr-12">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100">
+                        <div class="gt-center-start hky-uk">
+                            <h3 class="gt-fs-13 gt-text-medium gt-primary">You want folllowing items from Sofikul</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gt-float-100 gt-mt-10 gt-pd-lr-12">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100">
+                        <div class="gt-center-start hky-uk">
+                            <h3 class="gt-fs-13 gt-black-60">1. Coconut shell bowl, Quantity-01, Offer value Rs. 4000
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</div>

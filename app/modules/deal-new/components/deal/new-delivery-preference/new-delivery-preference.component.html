@@ -1,0 +1,177 @@
+<ng-container *ngIf="dealDeliveryMethod?.id == 'Self'; else otherDelivery">
+  <div class="gt-float-100 gt-mt-15">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100">
+          <div class="gt-center-start">
+            <h3
+              class="gt-fs-14 gt-black-60"
+              *ngIf="dealDetails?.callerIsReceiver; else youInitiatedSec"
+            >
+              {{ dealDetails?.sender?.name }} initiated offer, selecting
+              personal meet.
+            </h3>
+            <ng-template #youInitiatedSec>
+              <h3 class="gt-fs-14 gt-black-60">
+                You initiated offer, selecting personal meet.
+              </h3>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #otherDelivery>
+  <ng-container
+    *ngIf="dealDeliveryMethod?.id == 'Junction'; else thirdPartDelivery"
+  >
+    <div class="gt-float-100 gt-mt-15">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100">
+            <div class="gt-center-start">
+              <h3
+                class="gt-fs-14 gt-black-60"
+                *ngIf="dealDetails?.callerIsReceiver; else youInitiatedSec"
+              >
+                {{ dealDetails?.sender?.name }} offered you to meet at
+                <span class="gt-sky">
+                  {{ dealDetails?.junctionView?.name }}
+                </span>
+                to barter products
+              </h3>
+              <ng-template #youInitiatedSec>
+                <h3 class="gt-fs-14 gt-black-60">
+                  You offered {{ dealDetails?.sender?.name }} to meet at
+                  <span class="gt-sky">
+                    {{ dealDetails?.junctionView?.name }}
+                  </span>
+                  to barter products
+                </h3>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gt-float-100 gt-mt-30">
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div class="gt-float-100 add-address-hfg">
+            <div class="gt-float-100">
+              <div class="gt-flex-start">
+                <h3 class="gt-fs-15 gt-black-80">Address</h3>
+              </div>
+            </div>
+            <div class="gt-float-100 gt-mt-11">
+              <div class="gt-flex-start">
+                <h4 class="gt-fs-14 gt-black-60">
+                  {{ dealDetails?.junctionView?.name }} -
+                  {{ dealDetails?.junctionView?.address }}
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div class="gt-float-100 add-timd-hyu">
+            <div class="gt-float-100">
+              <div class="gt-flex-start">
+                <h3 class="gt-fs-15 gt-black-80">Date & Time</h3>
+              </div>
+            </div>
+            <div class="gt-float-100 gt-mt-11">
+              <div class="gt-flex-start">
+                <h3 class="gt-fs-14 gt-black-60">
+                  {{ dealDetails.meetingDate | date }},
+                  {{ dealDetails.meetingStartTime | formatMeetTime }}
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div
+            class="gt-float-100 gt-mt-10"
+            *ngIf="dealDetails?.junctionView?.contactInformation"
+          >
+            <div class="gt-flex-start">
+              <h4 class="gt-fs-14 gt-black-60">
+                Contact :
+                {{
+                  getJintaaContact(
+                    dealDetails?.junctionView?.contactInformation
+                  )
+                }}
+              </h4>
+            </div>
+          </div>
+          <div class="gt-float-100 gt-mt-10 gt-mb-10">
+            <div class="gt-flex-start">
+              <h4
+                class="gt-fs-14 gt-sky gt-cursor-pointer"
+                (click)="directMeThere()"
+              >
+                Direct me there
+                <!-- view map -->
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #thirdPartDelivery>
+    <ng-container
+      *ngIf="dealDeliveryMethod?.id == 'IndiaPost'; else doorStepDelivery"
+    >
+      <div class="gt-float-100 gt-mt-15">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100">
+              <div class="gt-center-start">
+                <h3
+                  class="gt-fs-14 gt-black-60"
+                  *ngIf="dealDetails?.callerIsReceiver; else youInitiatedSec"
+                >
+                  {{ dealDetails?.sender?.name }} initiated offer, selecting
+                  India Post Delivery Method.
+                </h3>
+                <ng-template #youInitiatedSec>
+                  <h3 class="gt-fs-14 gt-black-60">
+                    You initiated offer, selecting India Post Delivery Method.
+                  </h3>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #doorStepDelivery>
+      <div class="gt-float-100 gt-mt-15">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100">
+              <div class="gt-center-start">
+                <h3
+                  class="gt-fs-14 gt-black-60"
+                  *ngIf="dealDetails?.callerIsReceiver; else youInitiatedSec"
+                >
+                  {{ dealDetails?.sender?.name }} initiated offer, selecting
+                  shipping services.
+                </h3>
+                <ng-template #youInitiatedSec>
+                  <h3 class="gt-fs-14 gt-black-60">
+                    You initiated offer, selecting shipping services.
+                  </h3>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ng-template>
+</ng-template>

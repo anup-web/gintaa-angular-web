@@ -1,0 +1,169 @@
+.list-offer {
+    height: 360px;
+    background: #f6f8fc;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  .fmatch-offer {
+    height: 360px;  
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  
+  .deal-offer-scroll{
+    min-height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 90vh;
+  }
+
+  .offer-scroll {
+    height: 95vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-bottom: 30px;
+}
+
+.feedback-scroll{
+    min-height: 58vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 95vh;  
+}
+
+
+.filter-popup{
+  min-height: 80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 95vh;
+}
+
+
+
+.addmem-scroll{
+  min-height: 84vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 84vh;
+}
+
+.mobh-offer-scroll{
+  min-height: 85vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 85vh;
+}
+
+.address-autoscroll{
+  min-height: 78vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 78vh;
+}
+
+.second-popup{
+  min-height: 70vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 70vh;
+}
+
+.block-user-wrapper{
+  min-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 90vh;
+}
+
+.myf-list{
+  min-height: 60vh;
+overflow-y: auto;
+overflow-x: hidden;
+max-height: 60vh;
+}
+
+.chat-listingh-popup{
+  min-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 90vh;
+}
+
+.user-listing-report{ 
+  min-height: 50vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 77vh; 
+}
+
+.category-scrollk {
+  min-height: auto;
+    max-height: 200px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.sutag-kscroll {
+  min-height: auto;
+  max-height: 88px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.bh-kauto { 
+  min-height: 45vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 82vh;  
+}
+
+
+  .list-offer::-webkit-scrollbar, .fmatch-offer::-webkit-scrollbar, .deal-offer-scroll::-webkit-scrollbar
+  , .address-autoscroll::-webkit-scrollbar, .second-popup::-webkit-scrollbar, .block-user-wrapper::-webkit-scrollbar
+  , .bswitch-auto::-webkit-scrollbar, .inactive-swascroll::-webkit-scrollbar, .feedback-scroll::-webkit-scrollbar, .offer-scroll::-webkit-scrollbar, .business-scroll::-webkit-scrollbar, 
+  .addmem-scroll::-webkit-scrollbar, .mobh-offer-scroll::-webkit-scrollbar, .add-bankh-account::-webkit-scrollbar
+  , .deal-filter-scroll::-webkit-scrollbar, .chat-listingh-popup::-webkit-scrollbar
+  , .hide-offer-wrapper::-webkit-scrollbar, .hide-offerh-wrapper::-webkit-scrollbar 
+  , .user-listing-report::-webkit-scrollbar, .auction-popup::-webkit-scrollbar, .attach-image-main::-webkit-scrollbar
+  , .business-account-wrapper::-webkit-scrollbar, .category-scrollk::-webkit-scrollbar, .sutag-kscroll::-webkit-scrollbar
+  , .bh-kauto::-webkit-scrollbar{
+    width: 6px;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+  }
+  
+  .list-offer::-webkit-scrollbar-track, .fmatch-offer::-webkit-scrollbar-track, .deal-offer-scroll::-webkit-scrollbar-track 
+  , .address-autoscroll::-webkit-scrollbar-track, .second-popup::-webkit-scrollbar-track , .block-user-wrapper::-webkit-scrollbar-track
+  , .bswitch-auto::-webkit-scrollbar-track, .inactive-swascroll::-webkit-scrollbar-track, .feedback-scroll::-webkit-scrollbar-track, .offer-scroll::-webkit-scrollbar-track, .business-scroll::-webkit-scrollbar-track, 
+  .addmem-scroll::-webkit-scrollbar-track, .mobh-offer-scroll::-webkit-scrollbar-track, .add-bankh-account::-webkit-scrollbar-track
+  , .deal-filter-scroll::-webkit-scrollbar-track, .chat-listingh-popup::-webkit-scrollbar-track
+  , .hide-offer-wrapper::-webkit-scrollbar-track, .hide-offerh-wrapper::-webkit-scrollbar-track
+  , .user-listing-report::-webkit-scrollbar-track, .auction-popup::-webkit-scrollbar-track, .attach-image-main::-webkit-scrollbar-track
+  , .business-account-wrapper::-webkit-scrollbar-track, .category-scrollk::-webkit-scrollbar-track, .sutag-kscroll::-webkit-scrollbar-track
+  , .bh-kauto::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+  }
+  
+  .list-offer::-webkit-scrollbar-thumb, .fmatch-offer::-webkit-scrollbar-thumb, .deal-offer-scroll::-webkit-scrollbar-thumb
+  , .address-autoscroll::-webkit-scrollbar-thumb, .second-popup::-webkit-scrollbar-thumb, .block-user-wrapper::-webkit-scrollbar-thumb
+  , .bswitch-auto::-webkit-scrollbar-thumb, .inactive-swascroll::-webkit-scrollbar-thumb, .feedback-scroll::-webkit-scrollbar-thumb, .offer-scroll::-webkit-scrollbar-thumb, .business-scroll::-webkit-scrollbar-thumb, 
+  .addmem-scroll::-webkit-scrollbar-thumb, .mobh-offer-scroll::-webkit-scrollbar-thumb, .add-bankh-account::-webkit-scrollbar-thumb
+  , .deal-filter-scroll::-webkit-scrollbar-thumb, .chat-listingh-popup::-webkit-scrollbar-thumb
+  , .hide-offer-wrapper::-webkit-scrollbar-thumb, .hide-offerh-wrapper::-webkit-scrollbar-thumb
+  , .user-listing-report::-webkit-scrollbar-thumb, .auction-popup::-webkit-scrollbar-thumb, .attach-image-main::-webkit-scrollbar-thumb
+  , .business-account-wrapper::-webkit-scrollbar-thumb, .category-scrollk::-webkit-scrollbar-thumb, .sutag-kscroll::-webkit-scrollbar-thumb
+  , .bh-kauto::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+  }
+
+

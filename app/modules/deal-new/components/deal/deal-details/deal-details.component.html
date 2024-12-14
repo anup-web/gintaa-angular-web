@@ -1,0 +1,872 @@
+<div class="gt-pt-20 gt-pb-100 gt-float-100 new-deal-wrapper">
+
+    <div class="container rp-col-fluid">
+        <!-- bread-crumbs part start -->
+        <app-bread-crumb [breadcrumbs]="breadcrumb" (onClickBreadCrumb)="onClickBreadCrumb($event)"> </app-bread-crumb>
+        <!-- bread-crumbs part end -->
+        <div class="gt-float-100 gt-mb-20 deal-stepper" *ngIf="dealDetails && dealDetails.dealRefId && dealDetails.dealRefId == currentDealId">
+            <app-deal-stepper [dealStatus]="dealDetails?.dealStatus?.dealStatus"
+                [callerIsReceiver]="dealDetails?.callerIsReceiver" [dealDeliveryMethod]="dealDetails.dealDeliveryMethod"
+                [initiatorPaidAmount]="dealDetails?.initiatorPaidAmount"
+                [requestedOffers]="dealDetails?.requestedOffers" [offeredOffers]="dealDetails?.offeredOffers">
+            </app-deal-stepper>
+        </div>
+        <div class="gt-float-100 deal-section">
+            <div class="gt-float-100">
+                <div class="row" *ngIf="dealDetails && dealDetails.dealRefId">
+                    <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12 gt-pr-5 rk-col-1">
+                        <div class="gt-float-100 gt-pd-lr-12 gt-pd-tb-20 gt-mt-7 gt-bg-white chatn-history">
+                            <div class="gt-float-100 deal-boxn">
+                                <div class="gt-between deal-offer-wrapperk">
+                                    <!-- deal left part start -->
+                                    <div class="gt-width-245 deal-offer-primary-left">
+                                        <div
+                                            class="gt-width-245 gt-position-relative gt-float-left deal-offer-primary gt-mb-20 deal-four">
+                                            <ng-container *ngIf="dealDetails?.callerIsReceiver; else userTypeSec">
+                                                <ng-container
+                                                    *ngIf="dealDetails?.receivingBusinessInfo else showuserDetailsq1">
+                                                    <app-deal-user-view [user]="dealDetails?.receivingBusinessInfo"
+                                                        [callerIsReceiver]="dealDetails?.callerIsReceiver"
+                                                        [userLocation]="userLocation" [logo]="true" [direction]="'left'">
+                                                    </app-deal-user-view>
+                                                </ng-container>
+                                                <ng-template #showuserDetailsq1>
+                                                    <app-deal-user-view [user]="dealDetails?.receiver"
+                                                        [callerIsReceiver]="dealDetails?.callerIsReceiver"
+                                                        [userLocation]="userLocation" [direction]="'left'"> </app-deal-user-view>
+                                                </ng-template>
+                                            </ng-container>
+                                            <ng-template #userTypeSec>
+                                                <ng-container
+                                                    *ngIf="dealDetails?.sendingBusinessInfo else showuserDetailsq2">
+                                                    <app-deal-user-view [user]="dealDetails?.sendingBusinessInfo"
+                                                        [logo]="true" [direction]="'left'">
+                                                    </app-deal-user-view>
+                                                </ng-container>
+                                                <ng-template #showuserDetailsq2>
+                                                    <app-deal-user-view [user]="dealDetails?.sender" [direction]="'left'">
+                                                    </app-deal-user-view>
+                                                </ng-template>
+                                            </ng-template>
+                                        </div>
+                                        <div
+                                            class="gt-width-245 gt-position-relative pro-shadow gt-float-left deal-offer-primary deal-nine">
+                                            <ng-container *ngIf="dealDetails?.callerIsReceiver; else senderOfferSec">
+                                                <app-incoming-offer-slider
+                                                    [requestedAmount]="dealDetails.requestedAmount"
+                                                    [data]="dealDetails.requestedOffers"
+                                                    (navigateToOffer)="navigateToOffer($event)"
+                                                    [requestedAmountPaidByInitiatingUser]="!
+                                                    dealDetails.requestedAmountPaidByInitiatingUser
+                                                    ">
+                                                </app-incoming-offer-slider>
+
+                                            </ng-container>
+                                            <ng-template #senderOfferSec>
+                                                <ng-container *ngIf="showCheckOutLayout() else showCard">
+                                                    <div class="gt-float-100 gt-border-radius-4 gt-pb-10">
+                                                        <div class="gt-float-100 gt-pt-10 gt-pb-2 gt-pd-lr-12">
+                                                            <div class="row">
+                                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                                    <div class="gt-float-100">
+                                                                        <h2 class="gt-fs-16 gt-text-medium gt-black-70">
+                                                                            You will pay</h2>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+                                                            <div class="row">
+                                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                                    <div class="gt-float-100 gt-center-between">
+                                                                        <div class="gt-vcenter">
+                                                                            <h3 class="gt-fs-14 gt-black-70">Offered
+                                                                                Price</h3>
+                                                                        </div>
+                                                                        <div class="gt-vcenter hs-price">
+                                                                            <span
+                                                                                class="icon-gt-currency gt-fs-20"></span>
+                                                                            <h4 class="gt-fs-16 gt-black-70">
+                                                                                {{dealDetails?.dealValue | formatPriceDecemal}}</h4>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+                                                            <div class="row">
+                                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                                    <div class="gt-float-100 gt-center-between">
+                                                                        <div class="gt-vcenter">
+                                                                            <h3 class="gt-fs-14 gt-black-70">Shipping
+                                                                                charges</h3>
+                                                                        </div>
+                                                                        <div class="gt-vcenter hs-price">
+                                                                            <span
+                                                                                class="icon-gt-currency gt-fs-20"></span>
+                                                                            <h4 class="gt-fs-16 gt-black-70">
+                                                                                {{dealDetails?.initiatorShippingAmount | formatPriceDecemal}}
+                                                                            </h4>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="gt-float-100 gt-pd-lr-12 gt-mt-15"
+                                                            *ngIf="dealDetails?.includeInsurance else addInsuranceSec">
+                                                            <div class="row">
+                                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                                    <div class="gt-float-100 gt-center-between">
+                                                                        <div class="gt-vcenter gt-float-100"
+                                                                            style="display: flex;flex-direction: column; align-items: flex-start;">
+                                                                            <h3 class="gt-fs-14 gt-black-70">
+                                                                                Co-insurance</h3>
+                                                                            <!-- <button type="button" class="gt-fs-13 gt-sky gt-btn-small glh verify gt-mt-10"> 
+                                                                                remove 
+                                                                            </button> -->
+                                                                        </div>
+                                                                        <div class="gt-vcenter hs-price">
+                                                                            <span
+                                                                                class="icon-gt-currency gt-fs-20"></span>
+                                                                            <h4 class="gt-fs-16 gt-black-70">
+                                                                                {{getInsuranceAmount() | formatPriceDecemal}}
+                                                                            </h4>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div
+                                                                    class="col-xl-12 col-lg-12 col-md-12 col-sm-12 gt-mt-15">
+                                                                    <div
+                                                                        class="gt-float-100 gt-center-between gt-pt-15 total-ph">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <ng-template #addInsuranceSec>
+                                                            <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+                                                                <div class="row">
+                                                                    <div
+                                                                        class="col-xl-12 col-lg-12 col-md-12 col-sm-12 gt-mt-15">
+                                                                        <div
+                                                                            class="gt-float-100 gt-center-between gt-pt-15 total-ph">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div
+                                                                        class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                                        <div class="gt-float-100 gt-center-between">
+                                                                            <!-- <div class="gt-vcenter gt-float-100" style="display: flex;flex-direction: column; align-items: flex-start;">
+                                                                                <mat-checkbox class="gt-float-left my-locs" (change)="addInsurance($event)" [(ngModel)]="selectedAssureDelivery">
+                                                                                    <h3 class="gt-fs-13 gt-sky gt-btn-small glh verify gt-mt-10">Add Co-insurance</h3>
+                                                                                </mat-checkbox>
+                                                                            </div>                                                                       
+                                                                            <div class="gt-vcenter hs-price">
+                                                                                <span
+                                                                                    class="icon-gt-currency gt-fs-20"></span>
+                                                                                <h4 class="gt-fs-16 gt-black-70">
+                                                                                    {{insuranceAmount}}
+                                                                                </h4>
+                                                                            </div> -->
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </ng-template>
+
+                                                        <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+                                                            <div class="row">
+                                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                                    <div
+                                                                        class="gt-float-100 gt-center-between gt-pt-15">
+                                                                        <div class="gt-vcenter">
+                                                                            <h3 class="gt-fs-14 gt-black-70">Total
+                                                                                payble amount</h3>
+                                                                        </div>
+                                                                        <div class="gt-vcenter hs-price">
+                                                                            <span
+                                                                                class="icon-gt-currency gt-fs-25"></span>
+                                                                            <h4 class="gt-fs-18 gt-black-70">
+                                                                                {{getTotalPayableAmount() | formatPriceDecemal}}</h4>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </ng-container>
+                                                <ng-template #showCard>
+                                                    <app-incoming-offer-slider [data]="dealDetails.offeredOffers"
+                                                        [requestedAmount]="dealDetails.requestedAmount"
+                                                        (navigateToOffer)="navigateToOffer($event)"
+                                                        [requestedAmountPaidByInitiatingUser]="dealDetails.requestedAmountPaidByInitiatingUser"
+                                                        [listType]="'offeredOffers'">
+                                                    </app-incoming-offer-slider>
+                                                </ng-template>
+                                            </ng-template>
+                                        </div>
+                                    </div>
+                                    <!-- deal left part end -->
+                                    <!-- deal middle arrow part start -->
+                                    <div class="gt-center deal-offer-arrow rp-deal-arrow">
+                                        <img src="assets/images/new-deal/copare.svg" class="image-arrow" alt="image" width="42" height="39" />
+                                    </div>
+                                    <!-- deal middle arrow part end -->
+                                    <!-- deal right part start -->
+                                    <div class="gt-width-245 deal-offer-secondary-right">
+                                        <div
+                                            class="gt-width-245 gt-position-relative gt-float-left deal-offer-secondary gt-mb-20 deal-six">
+                                            <div class="gt-float-100 gt-center-between">
+                                                <ng-container *ngIf="dealDetails?.callerIsReceiver; else userTypeSec2">
+                                                    <ng-container
+                                                        *ngIf="dealDetails?.sendingBusinessInfo else showuserDetailsq3">
+                                                        <app-deal-user-view [user]="dealDetails?.sendingBusinessInfo"
+                                                            [showUser]="true" [logo]="true" [userLocation]="userLocation">
+                                                        </app-deal-user-view>
+                                                    </ng-container>
+                                                    <ng-template #showuserDetailsq3>
+                                                        <app-deal-user-view [user]="dealDetails?.sender"
+                                                            [showUser]="true" [userLocation]="userLocation">
+                                                        </app-deal-user-view>
+                                                    </ng-template>
+
+                                                </ng-container>
+                                                <ng-template #userTypeSec2>
+                                                    <ng-container
+                                                        *ngIf="dealDetails?.receivingBusinessInfo else showuserDetailsq4">
+                                                        <app-deal-user-view [user]="dealDetails?.receivingBusinessInfo"
+                                                            [callerIsReceiver]="dealDetails?.callerIsReceiver"
+                                                            [userLocation]="userLocation" [logo]="true"
+                                                            [showUser]="true"> </app-deal-user-view>
+                                                    </ng-container>
+                                                    <ng-template #showuserDetailsq4>
+                                                        <app-deal-user-view [user]="dealDetails?.receiver"
+                                                            [callerIsReceiver]="dealDetails?.callerIsReceiver"
+                                                            [userLocation]="userLocation" [showUser]="true">
+                                                        </app-deal-user-view>
+                                                    </ng-template>
+                                                </ng-template>
+                                                <div class="gt-vcenter poff-rating" *ngIf="averageRating">
+                                                    <span
+                                                        class="material-icons gt-fs-19 gt-mr-4 gt-black-40 rating-color">star</span>
+                                                    <h2 class="gt-fs-14 gt-black-60">{{averageRating}}</h2>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div
+                                            class="gt-width-245 gt-position-relative pro-shadow gt-float-left deal-offer-secondary deal-ten">
+                                            <ng-container *ngIf="!dealDetails?.callerIsReceiver; else senderOfferSec2">
+                                                <app-incoming-offer-slider
+                                                    [requestedAmount]="dealDetails.requestedAmount"
+                                                    [data]="dealDetails.requestedOffers"
+                                                    (navigateToOffer)="navigateToOffer($event)"
+                                                    [requestedAmountPaidByInitiatingUser]="!dealDetails.requestedAmountPaidByInitiatingUser">
+                                                </app-incoming-offer-slider>
+                                            </ng-container>
+                                            <ng-template #senderOfferSec2>
+                                                <app-incoming-offer-slider [data]="dealDetails.offeredOffers"
+                                                    [requestedAmount]="dealDetails.requestedAmount"
+                                                    (navigateToOffer)="navigateToOffer($event)"
+                                                    [requestedAmountPaidByInitiatingUser]="dealDetails.requestedAmountPaidByInitiatingUser"
+                                                    [listType]="'offeredOffers'">
+                                                </app-incoming-offer-slider>
+                                            </ng-template>
+                                        </div>
+                                    </div>
+                                    <!-- deal right part end -->
+                                </div>
+
+
+
+
+                                <!-- <div class="gt-float-100 gt-between deal-offer">
+                                    <div class="gt-width-245 gt-position-relative deal-offer-primary">
+                                        <div class="gt-vcenter gt-float-100 feed-back-card">
+                                            <h1 class="gt-fs-14 gt-text-medium gt-black-60" *ngIf="!dealDetails?.callerIsReceiver; else showSenderName">
+                                                You are offering
+                                            </h1>
+                                            <ng-template #showSenderName>
+                                                <h1 class="gt-fs-14 gt-text-medium gt-black-60">
+                                                    You are offering
+                                                   
+                                                </h1>
+                                            </ng-template>
+                                        </div>
+                                    </div>
+                                    <div class="gt-width-245 gt-position-relative deal-offer-secondary">
+                                        <div class="gt-float-100 gt-center-between">
+                                            <h1 class="gt-fs-14 gt-text-medium gt-black-60" *ngIf="!dealDetails?.callerIsReceiver; else showSenderName2">
+                                                You want in exchange
+                                            </h1>
+                                            <ng-template #showSenderName2>
+                                                <h1 class="gt-fs-14 gt-text-medium gt-black-60">
+                                                    You want in exchange
+                                                   
+                                                </h1>
+                                            </ng-template>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <app-deal-rating *ngIf="getRatedByUser()" [dealDetails]="dealDetails"
+                                    [userDetails]="userDetails"></app-deal-rating>
+                            </div>
+                        </div>
+                        <div class="gt-float-100 gt-pd-lr-12 gt-pd-tb-10 gt-mg-tb-7 gt-bg-white chatn-history"
+                            *ngIf="dealDetails && dealDetails.dealRefId && chatHistoryMsg && chatHistoryMsg.length">
+                            <div class="gt-float-100">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="gt-float-100">
+                                            <div class="gt-center-between hky-uk">
+                                                <h2 class="gt-fs-16 gt-black-70">Chat history </h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gt-float-100 nchat-histou chat-autoh-scroll">
+                                <div class="primary-card-body msg-card-body chatbodyclas">
+                                    <ng-container *ngFor="let msg of chatHistoryMsg; let msgIndex = index">
+                                        <div class="gt-float-100 gt-mb-16 gt-pd-lr-15 orgMsg{{msgIndex}}"
+                                            [ngClass]="loggedInUserId==msg.senderId? 'gt-flex-end':'gt-flex-start'"
+                                            #orgMsg>
+                                            <div class="msg-reply-group"
+                                                [ngClass]="{'rs-msg-reply-group': screenType === 'small', 'gt-flex-end': loggedInUserId==msg.senderId, 'gt-flex-start msg-box-white': loggedInUserId!==msg.senderId}">
+                                                <div class="msg-cotainer"
+                                                    [ngClass]="loggedInUserId==msg.senderId? 'mgs-before-right':'mgs-before-left'">
+                                                    <ng-container *ngIf="msg.isReply && msg.replyObj?.orgMsgId">
+                                                        <div class="gt-width-100"
+                                                            [ngClass]="{'replyu-msg-right': loggedInUserId==msg.senderId, 'msg-text replyu-msg-left': loggedInUserId!=msg.senderId,  'gt-vcenter': msg.replyObj.messageType === msgTypeEnum.IMAGE || msg.replyObj.messageType === msgTypeEnum.VIDEO || msg.replyObj.messageType === msgTypeEnum.AUDIO || msg.replyObj.messageType === msgTypeEnum.OFFER}">
+                                                            <ng-container
+                                                                *ngIf="msg.replyObj.messageType === msgTypeEnum.HTML || msg.replyObj.messageType === msgTypeEnum.AUDIO || msg.replyObj.messageType === msgTypeEnum.FILE">
+                                                                <h1
+                                                                    [ngClass]="loggedInUserId==msg.senderId? 'replyu-name-right':'replyu-name-left'">
+                                                                    {{checkIsLoggedInUser(msg.replyObj.senderId,msg.replyObj.senderName)}}
+                                                                </h1>
+                                                                <h2 class="gt-width-100 {{msgIndex}} {{isReadLessReply[msgIndex]}}"
+                                                                    [ngClass]="{'reply-msg-right': loggedInUserId==msg.senderId,'reply-msg-left': loggedInUserId!==msg.senderId, 'limitTextHeight': !isReadLessReply[msgIndex]}"
+                                                                    *ngIf="msg.replyObj.messageType === msgTypeEnum.HTML || msg.replyObj.messageType === msgTypeEnum.FILE">
+                                                                    {{msg.replyObj.messageBody}}</h2>
+                                                                <div class="gt-width-100 gt-flex-end"
+                                                                    (click)="isReadLessReply[msgIndex]=!isReadLessReply[msgIndex]">
+                                                                    <h2 class="cremore-left"
+                                                                        *ngIf="!isReadLessReply[msgIndex] && msg.replyObj.messageBody.length>80">
+                                                                        read more <span
+                                                                            class="material-icons">arrow_drop_down
+                                                                        </span></h2>
+                                                                    <h2 class="cremore-left"
+                                                                        *ngIf="isReadLessReply[msgIndex]">less more
+                                                                        <span class="material-icons">arrow_drop_up
+                                                                        </span>
+                                                                    </h2>
+                                                                </div>
+                                                                <h2 class="gt-width-100 gt-vcenter reply-msg-left"
+                                                                    *ngIf="msg.replyObj.messageType === msgTypeEnum.AUDIO">
+                                                                    <span
+                                                                        class="material-icons gt-fs-16 gt-mr-2">headphones</span>
+                                                                    Audio
+                                                                </h2>
+                                                            </ng-container>
+                                                            <!-- <span class="material-icons replys-close">close</span> -->
+                                                            <ng-container
+                                                                *ngIf="msg.replyObj.messageType === msgTypeEnum.IMAGE">
+                                                                <div class="gt-mr-20 photo-left-txt">
+                                                                    <h1
+                                                                        [ngClass]="loggedInUserId==msg.senderId? 'replyu-name-right':'replyu-name-left'">
+                                                                        {{checkIsLoggedInUser(msg.replyObj.senderId,msg.replyObj.senderName)}}
+                                                                    </h1>
+                                                                    <h2 class="gt-width-100 gt-vcenter"
+                                                                        [ngClass]="loggedInUserId==msg.senderId? 'reply-msg-right':'reply-msg-left'">
+                                                                        <span
+                                                                            class="material-icons gt-fs-16 gt-mr-2">photo_camera</span>
+                                                                        Photo
+                                                                    </h2>
+                                                                </div>
+                                                                <img [src]="msg.replyObj.messageAttr.mediaUrls[0]"
+                                                                    alt="image" class="photo-reply" />
+                                                            </ng-container>
+                                                            <ng-container
+                                                                *ngIf="msg.replyObj.messageType === msgTypeEnum.VIDEO">
+                                                                <div class="gt-mr-20 photo-left-txt">
+                                                                    <h1
+                                                                        [ngClass]="loggedInUserId==msg.senderId? 'replyu-name-right':'replyu-name-left'">
+                                                                        {{checkIsLoggedInUser(msg.replyObj.senderId,msg.replyObj.senderName)}}
+                                                                    </h1>
+                                                                    <h2 class="gt-width-100 gt-vcenter"
+                                                                        [ngClass]="loggedInUserId==msg.senderId? 'reply-msg-right':'reply-msg-left'">
+                                                                        <span
+                                                                            class="material-icons gt-fs-20 gt-mr-2">videocam</span>
+                                                                        video
+                                                                    </h2>
+                                                                </div>
+                                                                <video controls class="video-reply">
+                                                                    <source
+                                                                        [src]="msg.replyObj.messageAttr.mediaUrls[0]"
+                                                                        type="video/mp4">
+                                                                </video>
+                                                            </ng-container>
+                                                            <ng-contianer
+                                                                *ngIf="msg.replyObj.messageType === 'AUDIO_RECORDING'">
+                                                                <h1
+                                                                    [ngClass]="loggedInUserId==msg.senderId? 'replyu-name-right':'replyu-name-left'">
+                                                                    {{checkIsLoggedInUser(msg.replyObj.senderId,msg.replyObj.senderName)}}
+                                                                </h1>
+                                                                <h2 class="gt-width-100 gt-vcenter"
+                                                                    [ngClass]="loggedInUserId==msg.senderId? 'reply-msg-right':'reply-msg-left'">
+                                                                    <span
+                                                                        class="material-icons gt-fs-18 gt-mr-2">mic</span>
+                                                                    Voice message
+                                                                    <!--({{msg.replyObj.messageAttr?.recordingTime}})-->
+                                                                </h2>
+                                                            </ng-contianer>
+                                                        </div>
+                                                        <!-- <span class="material-icons replys-close">close</span> -->
+                                                    </ng-container>
+                                                    <ng-container *ngIf="msg.messageType === 'HTML'">
+                                                        <div class="gt-width-100 gt-flex-start gt-fs-14 gt-white msg-text"
+                                                            [ngClass]="{'limitTextHeight': !isReadLessText[msgIndex]}">
+                                                            {{ msg.messageBody }}</div>
+                                                        <div class="gt-width-100 gt-flex-end"
+                                                            (click)="isReadLessText[msgIndex]=!isReadLessText[msgIndex]">
+                                                            <h2 class="cremore-left"
+                                                                *ngIf="!isReadLessText[msgIndex] && msg.messageBody.length>80">
+                                                                read more <span class="material-icons">arrow_drop_down
+                                                                </span>
+                                                            </h2>
+                                                            <h2 class="cremore-left" *ngIf="isReadLessText[msgIndex]">
+                                                                less more <span class="material-icons">arrow_drop_up
+                                                                </span>
+                                                            </h2>
+                                                        </div>
+                                                        <div class="gt-width-100 gt-flex-end gt-mt-3 msg-time-bottom">
+                                                            <div class="gt-fs-12 msg-time-color msg-time">
+                                                                {{showTime(msg.messageTime)}}</div>
+                                                            <ng-container *ngIf="loggedInUserId==msg.senderId">
+                                                                <div class="singal-check"
+                                                                    *ngIf="msg.isSent && msg.isDelivered==false">
+                                                                    <span class="material-icons">done</span>
+                                                                </div>
+                                                                <div class="double-check"
+                                                                    *ngIf="msg.isDelivered && msg.isRead==false">
+                                                                    <span class="material-icons">done_all</span>
+                                                                </div>
+                                                                <div class="double-check-send" *ngIf="msg.isRead">
+                                                                    <span class="material-icons">done_all</span>
+                                                                </div>
+                                                            </ng-container>
+                                                        </div>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="msg.messageType === 'FILE'">
+                                                        <div class="gt-width-100 gt-flex-start gt-center msg-file">
+                                                            <div class="gt-center gt-border-radius-8 gt-mr-8 file-icon"
+                                                                (click)="downloadFile(msg)" style="cursor:pointer">
+                                                                <span class="material-icons">save_alt</span>
+                                                            </div>
+                                                            <h2 class="gt-fs-16 gt-text-medium"
+                                                                [ngClass]="loggedInUserId==msg.senderId? 'gt-white':''">
+                                                                {{ msg.messageBody }}</h2>
+                                                        </div>
+                                                        <div class="gt-width-100 gt-flex-end gt-mt-3 msg-time-bottom">
+                                                            <div class="gt-fs-12 msg-time-color msg-time">
+                                                                {{showTime(msg.messageTime)}}</div>
+                                                            <ng-container *ngIf="msg.senderId === loggedInUserId">
+                                                                <div class="singal-check"
+                                                                    *ngIf="msg.isSent && msg.isDelivered==false">
+                                                                    <span class="material-icons">done</span>
+                                                                </div>
+                                                                <div class="double-check"
+                                                                    *ngIf="msg.isDelivered && msg.isRead==false">
+                                                                    <span class="material-icons">done_all</span>
+                                                                </div>
+                                                                <div class="double-check-send" *ngIf="msg.isRead">
+                                                                    <span class="material-icons">done_all</span>
+                                                                </div>
+                                                            </ng-container>
+                                                        </div>
+                                                    </ng-container>
+                                                    <ng-container
+                                                        *ngIf="msg.messageType === 'IMAGE' || msg.messageType === 'VIDEO'">
+                                                        <ng-container *ngIf="msg.messageAttr.mediaUrls.length==1">
+                                                            <ng-container *ngIf="msg.messageType === 'IMAGE'">
+                                                                <div
+                                                                    class="single-arrivals-products gt-cursor-pointer gt-offer-224 offer-send">
+                                                                    <div class="arrivals-products-image">
+                                                                        <div class="pr-image max-height-img-221">
+                                                                            <img [src]="msg.messageAttr.mediaUrls[0]"
+                                                                                alt="image" class="img-fluid view-cimg"
+                                                                                (click)="openImageViewModal('view', msg.messageAttr.mediaUrls, false)" />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </ng-container>
+                                                            <ng-container *ngIf="msg.messageType === 'VIDEO'">
+                                                                <video controls class="video-attach">
+                                                                    <source [src]="msg.messageAttr.mediaUrls[0]"
+                                                                        type="video/mp4"
+                                                                        (click)="openImageViewModal('view', msg.messageAttr.mediaUrls, true)">
+                                                                </video>
+                                                            </ng-container>
+                                                            <div
+                                                                class="gt-width-100 gt-flex-start gt-fs-14 gt-white msg-text">
+                                                                {{ msg.messageBody }}</div>
+                                                            <div
+                                                                class="gt-width-100 gt-flex-end gt-mt-3 msg-time-bottom">
+                                                                <div class="gt-fs-12 msg-time-color msg-time">{{
+                                                                    showTime(msg.messageTime) }}</div>
+                                                                <ng-container *ngIf="msg.senderId === loggedInUserId">
+                                                                    <div class="singal-check"
+                                                                        *ngIf="msg.isSent && msg.isDelivered==false">
+                                                                        <span class="material-icons">done</span>
+                                                                    </div>
+                                                                    <div class="double-check"
+                                                                        *ngIf="msg.isDelivered && msg.isRead==false">
+                                                                        <span class="material-icons">done_all</span>
+                                                                    </div>
+                                                                    <div class="double-check-send" *ngIf="msg.isRead">
+                                                                        <span class="material-icons">done_all</span>
+                                                                    </div>
+                                                                </ng-container>
+                                                            </div>
+                                                        </ng-container>
+                                                        <ng-container *ngIf="msg.messageAttr.mediaUrls.length>1">
+                                                            <ng-container *ngIf="msg.messageType === 'IMAGE'">
+                                                                <div class="send-image-view">
+                                                                    <div class="image-1"
+                                                                        *ngFor="let image of msg.messageAttr.mediaUrls | slice: 0: (msg.messageAttr.mediaUrls.length > 4 ? 4 : msg.messageAttr.mediaUrls.length); index as i">
+                                                                        <img [src]="image" alt="image"
+                                                                            class="img-fluid view-cimg"
+                                                                            (click)="openImageViewModal('view', msg.messageAttr.mediaUrls, false)" />
+                                                                        <ng-container
+                                                                            *ngIf="i === 3 && msg.messageAttr.mediaUrls.length > 4">
+                                                                            <div class="all-image-attach"
+                                                                                (click)="openImageViewModal('view', msg.messageAttr.mediaUrls, false)">
+                                                                                <div
+                                                                                    class="gt-vcenter attach-image-list">
+                                                                                    <span
+                                                                                        class="material-icons">attachment</span>
+
+                                                                                    <span class="gt-ml-5 list-image">+
+                                                                                        {{
+                                                                                        msg.messageAttr.mediaUrls.length
+                                                                                        - 3 }}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </ng-container>
+                                                                    </div>
+                                                                    <div
+                                                                        class="gt-width-100 gt-flex-start gt-fs-14 gt-white msg-text">
+                                                                        {{ msg.messageBody }}</div>
+                                                                    <div
+                                                                        class="gt-width-100 gt-flex-end gt-mt-3 msg-time-bottom">
+                                                                        <div class="gt-fs-12 msg-time"
+                                                                            [ngClass]="loggedInUserId === msg.senderId ? 'msg-time-color': ''">
+                                                                            {{ showTime(msg.messageTime) }}</div>
+
+                                                                        <ng-container
+                                                                            *ngIf="msg.senderId === loggedInUserId">
+                                                                            <div class="singal-check"
+                                                                                *ngIf="msg.isSent && msg.isDelivered==false">
+                                                                                <span class="material-icons">done</span>
+                                                                            </div>
+                                                                            <div class="double-check"
+                                                                                *ngIf="msg.isDelivered && msg.isRead==false">
+                                                                                <span
+                                                                                    class="material-icons">done_all</span>
+                                                                            </div>
+                                                                            <div class="double-check-send"
+                                                                                *ngIf="msg.isRead"><span
+                                                                                    class="material-icons">done_all</span>
+                                                                            </div>
+                                                                        </ng-container>
+                                                                    </div>
+                                                                </div>
+                                                            </ng-container>
+                                                            <ng-container *ngIf="msg.messageType === 'VIDEO'">
+                                                                <div class="send-image-view">
+                                                                    <div class="image-1"
+                                                                        *ngFor="let image of msg.messageAttr.mediaUrls | slice: 0: (msg.messageAttr.mediaUrls.length > 4 ? 4 : msg.messageAttr.mediaUrls.length); index as i">
+                                                                        <video controls class="video-attach">
+                                                                            <source [src]="image" type="video/mp4"
+                                                                                (click)="openImageViewModal('view', msg.messageAttr.mediaUrls, true)">
+                                                                        </video>
+                                                                        <ng-container
+                                                                            *ngIf="i === 3 && msg.messageAttr.mediaUrls.length > 4">
+                                                                            <div class="all-image-attach"
+                                                                                (click)="openImageViewModal('view', msg.messageAttr.mediaUrls, true)">
+                                                                                <div
+                                                                                    class="gt-vcenter attach-image-list">
+                                                                                    <span
+                                                                                        class="material-icons">video</span>
+
+                                                                                    <span class="gt-ml-5 list-image">+
+                                                                                        {{
+                                                                                        msg.messageAttr.mediaUrls.length
+                                                                                        - 3 }}</span>
+                                                                                </div>
+                                                                            </div>
+                                                                        </ng-container>
+                                                                    </div>
+                                                                    <div
+                                                                        class="gt-width-100 gt-flex-start gt-fs-14 gt-white msg-text">
+                                                                        {{ msg.messageBody }}</div>
+                                                                    <div
+                                                                        class="gt-width-100 gt-flex-end gt-mt-3 msg-time-bottom">
+                                                                        <div class="gt-fs-12 msg-time"
+                                                                            [ngClass]="loggedInUserId === msg.senderId ? 'gt-white': ''">
+                                                                            {{ showTime(msg.messageTime) }}</div>
+
+                                                                        <ng-container
+                                                                            *ngIf="msg.senderId === loggedInUserId">
+                                                                            <div class="singal-check"
+                                                                                *ngIf="msg.isSent && msg.isDelivered==false">
+                                                                                <span class="material-icons">done</span>
+                                                                            </div>
+                                                                            <div class="double-check"
+                                                                                *ngIf="msg.isDelivered && msg.isRead==false">
+                                                                                <span
+                                                                                    class="material-icons">done_all</span>
+                                                                            </div>
+                                                                            <div class="double-check-send"
+                                                                                *ngIf="msg.isRead"><span
+                                                                                    class="material-icons">done_all</span>
+                                                                            </div>
+                                                                        </ng-container>
+                                                                    </div>
+                                                                </div>
+                                                            </ng-container>
+                                                        </ng-container>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="msg.messageType === 'AUDIO'">
+                                                        <audio controls class="video-attach">
+                                                            <source [src]="msg.messageAttr.mediaUrls[0]"
+                                                                type="audio/mpeg">
+                                                        </audio>
+                                                        <div class="gt-width-100 gt-flex-start gt-center msg-file">
+                                                            <h2 class="gt-fs-16 gt-text-medium"
+                                                                [ngClass]="loggedInUserId==msg.senderId? 'gt-white':''">
+                                                                {{ msg.messageBody }}</h2>
+                                                        </div>
+                                                        <div class="gt-width-100 gt-flex-end gt-mt-3 msg-time-bottom">
+                                                            <div class="gt-fs-12 msg-time-color msg-time">
+                                                                {{showTime(msg.messageTime)}}</div>
+                                                            <ng-container *ngIf="msg.senderId === loggedInUserId">
+                                                                <div class="singal-check"
+                                                                    *ngIf="msg.isSent && msg.isDelivered==false">
+                                                                    <span class="material-icons">done</span>
+                                                                </div>
+                                                                <div class="double-check"
+                                                                    *ngIf="msg.isDelivered && msg.isRead==false">
+                                                                    <span class="material-icons">done_all</span>
+                                                                </div>
+                                                                <div class="double-check-send" *ngIf="msg.isRead">
+                                                                    <span class="material-icons">done_all</span>
+                                                                </div>
+                                                            </ng-container>
+                                                        </div>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="msg.messageType === 'AUDIO_RECORDING'">
+                                                        <ng-container *ngIf="loggedInUserId==msg.senderId">
+                                                            <div class="gt-width-100 msg-text gt-vcenter">
+                                                                <div class="audio-right">
+                                                                    <audio controls class="asend-attach">
+                                                                        <source [src]="msg.messageAttr.mediaUrls[0]"
+                                                                            type="audio/mpeg">
+                                                                    </audio>
+                                                                </div>
+                                                                <div class="audio-suser-send">
+                                                                    <img [src]="showrUserImage(msg)"
+                                                                        class="audio-simg org-profile-img" alt="image">
+                                                                    <span class="material-icons send-amic">mic</span>
+                                                                </div>
+                                                            </div>
+                                                        </ng-container>
+                                                        <ng-container *ngIf="loggedInUserId==msg.recipientId">
+                                                            <div class="gt-width-100 msg-text gt-vcenter">
+                                                                <div class="audio-suser">
+                                                                    <img [src]="showrUserImage(msg)"
+                                                                        class="audio-simg org-profile-img" alt="image">
+                                                                    <span class="material-icons send-amic">mic</span>
+                                                                </div>
+                                                                <div class="audio-right">
+                                                                    <audio controls class="asend-attach">
+                                                                        <source [src]="msg.messageAttr.mediaUrls[0]"
+                                                                            type="audio/mpeg">
+                                                                    </audio>
+                                                                </div>
+                                                            </div>
+                                                        </ng-container>
+                                                        <div class="gt-width-100 gt-flex-end gt-mt-3 msg-time-bottom">
+                                                            <div class="gt-fs-12 msg-time-color msg-time">
+                                                                {{showTime(msg.messageTime)}}</div>
+                                                            <ng-container *ngIf="msg.senderId === loggedInUserId">
+                                                                <div class="singal-check"
+                                                                    *ngIf="msg.isSent && msg.isDelivered==false">
+                                                                    <span class="material-icons">done</span>
+                                                                </div>
+                                                                <div class="double-check"
+                                                                    *ngIf="msg.isDelivered && msg.isRead==false">
+                                                                    <span class="material-icons">done_all</span>
+                                                                </div>
+                                                                <div class="double-check-send" *ngIf="msg.isRead">
+                                                                    <span class="material-icons">done_all</span>
+                                                                </div>
+                                                            </ng-container>
+                                                        </div>
+                                                    </ng-container>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gt-float-100 gt-pd-lr-12 gt-pd-tb-10 gt-mt-7 gt-bg-white nbtn-all"
+                            *ngIf="dealDetails?.dealStatus?.dealStatus !=='REJECTED' && !updateDeliverySec">
+                            <div class="gt-float-100">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="gt-float-100 gt-center-end deal-allbtn">
+                                            <!-- <button class="gt-btn-primary gt-center gt-width-25 gt-border-radius-2 gt-height-48 gt-abtn-shadow gt-border-none gt-pd-zero nbg-color-1 gt-mr-10 gt-float-left">
+                                                <h2 class="gt-fs-15 gt-white">cancel</h2>
+                                            </button> -->
+                                            <!-- <button
+                                                class="gt-btn-primary gt-bg-primary gt-center gt-width-25 gt-border-radius-2 gt-height-48 gt-abtn-shadow gt-border-none gt-pd-zero gt-mr-10 gt-float-left"
+                                                *ngIf="showButton('edit')">
+                                                <h2 class="gt-fs-15 gt-white">edit deal</h2>
+                                            </button> -->
+                                            <button
+                                                class="gt-btn-primary gt-center gt-width-25 gt-border-radius-2 gt-height-48 gt-abtn-shadow gt-border-none gt-pd-zero gt-mr-10 nbg-color-2 gt-float-left dall-btn-8"
+                                                (click)="rejectDeal()" *ngIf="showButton('reject')">
+                                                <h2 class="gt-fs-15 gt-white rej-obtn">reject offer
+                                                </h2>
+                                            </button>
+                                            <button
+                                                class="gt-btn-primary gt-center gt-width-25 gt-border-radius-2 gt-height-48 gt-abtn-shadow gt-border-none gt-pd-zero gt-mr-10 nbg-color-3 gt-float-left dall-btn-7"
+                                                (click)="createRoom()" *ngIf="showButton('chat')">
+                                                <h2 class="gt-fs-15 gt-white">chat now</h2>
+                                            </button>
+                                            <button
+                                                class="gt-btn-primary gt-center gt-width-25 gt-border-radius-2 gt-height-48 gt-abtn-shadow gt-border-none gt-pd-zero gt-bg-sky gt-mr-10 gt-float-left dall-btn-6"
+                                                (click)="updateOffer(dealDetails.dealRefId)"
+                                                *ngIf="showButton('revised')">
+                                                <h2 class="gt-fs-15 gt-white">revise offer</h2>
+                                            </button>
+                                            <button
+                                                class="gt-btn-primary gt-center gt-width-25 gt-border-radius-2 gt-height-48 gt-abtn-shadow gt-border-none gt-pd-zero gt-float-left dall-btn-5 gt-mr-10"
+                                                *ngIf="showButton('pay')" (click)="payNow()">
+                                                <h2 class="gt-fs-15 gt-white">pay now</h2>
+                                            </button>
+                                            <button
+                                                class="gt-btn-primary gt-center gt-width-25 gt-border-radius-2 gt-height-48 gt-abtn-shadow gt-border-none gt-pd-zero gt-float-left dall-btn-4"
+                                                (click)="acceptDeal()" *ngIf="showButton('accept')">
+                                                <h2 class="gt-fs-15 gt-white">accept offer</h2>
+                                            </button>
+                                            <!-- <button class="gt-btn-primary gt-center gt-width-25 gt-border-radius-2 gt-height-48 gt-abtn-shadow gt-border-none gt-pd-zero gt-float-left">
+                                                <h2 class="gt-fs-15 gt-white">send</h2>
+                                            </button> 
+                                            <button class="gt-btn-primary gt-center gt-width-25 gt-border-radius-2 gt-height-48 gt-abtn-shadow gt-border-none gt-pd-zero gt-float-left">
+                                                <h2 class="gt-fs-15 gt-white">submit</h2>
+                                            </button>  -->
+                                            <button
+                                                class="gt-btn-primary gt-center gt-width-25 gt-border-radius-2 gt-height-48 gt-abtn-shadow gt-border-none gt-pd-zero gt-float-left dall-btn-3"
+                                                *ngIf="showButton('close')" (click)="openCloseDialog('optpopup')">
+                                                <h2 class="gt-fs-15 gt-white">close offer</h2>
+                                            </button>
+                                            <button
+                                                class="gt-btn-primary gt-center gt-width-25 gt-border-radius-2 gt-height-48 gt-abtn-shadow gt-border-none gt-pd-zero gt-float-left dall-btn-2"
+                                                *ngIf="showButton('otp')" (click)="openCloseDialog('optpopupshow')">
+                                                <h2 class="gt-fs-15 gt-white">view otp</h2>
+                                            </button>
+                                            <button
+                                                class="gt-btn-primary gt-center gt-width-25 gt-border-radius-2 gt-height-48 gt-abtn-shadow gt-border-none gt-pd-zero gt-float-left dall-btn-1"
+                                                *ngIf="showButton('rate')" (click)="openCloseDialog('RATE_USER')">
+                                                <h2 class="gt-fs-15 gt-white">rate</h2>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <app-deal-accept-shipping *ngIf="updateDeliverySec" [packingList]="packingList"
+                            [dealDetails]="dealDetails" (acceptDeal)="acceptDealDoorStep($event)" [page]="'details'">
+                        </app-deal-accept-shipping>
+                    </div>
+
+                    <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12 gt-pl-5 rk-col-2">
+                        <div class="gt-float-100 gt-pd-lr-12 gt-pd-tb-10 gt-mg-tb-7 gt-bg-white chatn-history">
+                            <div class="gt-float-100">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="gt-float-100">
+                                            <div class="gt-center-end nds-tatus">
+                                                <app-deal-status-view [dealStatus]="dealDetails?.dealStatus?.dealStatus"
+                                                    [callerIsReceiver]="dealDetails?.callerIsReceiver">
+                                                </app-deal-status-view>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gt-float-100 gt-mt-10">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="gt-float-100">
+                                            <div class="row">
+                                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                    <div class="gt-float-100">
+                                                        <div class="gt-center-start hky-uk">
+                                                            <div class="gt-vcenter dev-pref">
+                                                                <span class="icon-popular-loc gt-fs-20 gt-mr-8"></span>
+                                                                <h3 class="gt-fs-15 gt-text-medium gt-black-60">Delivery
+                                                                    preference
+                                                                </h3>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="gt-float-100 nchat-histou">
+                                            <app-new-delivery-preference
+                                                [dealDeliveryMethod]="dealDetails.dealDeliveryMethod"
+                                                [dealDetails]="dealDetails"
+                                                [dealRevision]="revisionDeltaChanges"
+                                                >
+                                            </app-new-delivery-preference>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gt-float-100 gt-pd-tb-20 gt-mb-7 gt-bg-white chatn-history"
+                            *ngIf="revisionDeltaChanges && revisionDeltaChanges?.length">
+                            <div class="gt-float-100 gt-pd-lr-12">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="gt-float-100">
+                                            <div class="gt-center-start hky-uk">
+                                                <div class="gt-vcenter gtrf">
+                                                    <img src="assets/images/new-deal/deli.svg" class="gt-mr-8 hkdr"
+                                                        alt="image" width="22" height="22" />
+                                                    <h3 class="gt-fs-15 gt-text-medium gt-black-60">Offer history</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gt-float-100 nchat-histou">
+                                <app-new-deal-history [revisionDeltaChanges]=revisionDeltaChanges
+                                    [dealDetails]="dealDetails"></app-new-deal-history>
+                            </div>
+                        </div>
+                        <app-deal-tips [showTips]="showTips"></app-deal-tips>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

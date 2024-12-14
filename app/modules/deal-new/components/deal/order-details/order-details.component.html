@@ -1,0 +1,187 @@
+<div class="gt-pt-20 gt-pb-100 gt-float-100 new-deal-wrapper">
+    <div class="container">
+        <app-bread-crumb [breadcrumbs]="breadcrumb" (onClickBreadCrumb)="onClickBreadCrumb($event)"> </app-bread-crumb>
+        <div class="gt-float-100 deal-section gt-mt-30">
+            <div class="gt-float-100 gt-bg-white">
+                <div class="row" *ngIf="dealDetails && dealDetails.dealRefId">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="gt-float-100 gt-border-radius-4 gt-pb-20">
+                            <ng-container *ngIf="!dealDetails?.initiatorPaidAmount else showPaymentCard">
+                                <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="gt-float-100">
+                                                <div class="gt-vcenter add-th">
+                                                    <h3 class="gt-fs-15 gt-text-medium gt-black-70">Order Details </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gt-float-100 gt-pt-10 gt-pb-14 gt-pd-lr-12">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="gt-float-100">
+                                                <div class="gt-float-100 gt-border-radius-4 gt-pb-20 price-details-rph">
+                                                    <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+                                                        <div class="row">
+                                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">                
+                                                                    <div class="gt-float-100 gt-center-between">                       
+                                                                        <div class="gt-vcenter">
+                                                                            <h3 class="gt-fs-14 gt-black-70">Price </h3>
+                                                                        </div>
+                                                                        <div class="gt-vcenter hs-price">
+                                                                             <span class="icon-gt-currency gt-fs-20"></span>
+                                                                             <h4 class="gt-fs-15 gt-letter-spacing gt-black-70">{{dealDetails?.dealValue |formatPriceDecemal }}</h4>
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                  
+                                                    <div class="gt-float-100 gt-pd-lr-12 gt-mt-15" *ngIf="dealDetails?.initiatorShippingAmount">
+                                                        <div class="row">
+                                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">                
+                                                                    <div class="gt-float-100 gt-center-between">                       
+                                                                        <div class="gt-vcenter">
+                                                                            <h3 class="gt-fs-14 gt-black-70">Shipping charges</h3>
+                                                                        </div>
+                                                                        <div class="gt-vcenter hs-price">                            
+                                                                             <span class="icon-gt-currency gt-fs-20"></span>
+                                                                             <h4 class="gt-fs-15 gt-letter-spacing gt-black-70">{{ dealDetails?.initiatorShippingAmount | formatPriceDecemal}}</h4>
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                
+                                                    <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+                                                        <div class="row">
+                                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">                
+                                                                    <div class="gt-float-100 gt-center-between gt-pt-15 total-ph">                       
+                                                                        <div class="gt-vcenter">
+                                                                            <h3 class="gt-fs-14 gt-black-90">Total payble amount</h3>
+                                                                        </div>
+                                                                        <div class="gt-vcenter hs-price">                            
+                                                                             <span class="icon-gt-currency gt-fs-25"></span>
+                                                                             <h4 class="gt-fs-18 gt-letter-spacing gt-text-medium gt-black-90">{{getTotalPayableAmount() | formatPriceDecemal}}</h4>
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <ng-template #showPaymentCard>
+                                <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="gt-float-100">
+                                                <div class="gt-vcenter add-th">
+                                                    <h3 class="gt-fs-15 gt-text-medium gt-black-70">Shipment tracking
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gt-float-100 gt-pt-10 gt-pb-14 gt-pd-lr-12">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                            <div class="gt-float-100">
+                                                <app-deal-delivery [dealRejected]="dealRejected"
+                                                    [dealDetails]="dealDetails"> </app-deal-delivery>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+
+                            <div class="gt-float-100 gt-pt-10 gt-pb-14 gt-pd-lr-12" *ngIf="!dealRejected">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="gt-float-100 gt-flex-end gt-mt-40 frde-tre">
+                                            <button
+                                                class="gt-btn-primary gt-center gt-width-25 gt-border-radius-2 gt-height-48 gt-abtn-shadow gt-border-none gt-pd-zero nbg-color-1 gt-mr-10 gt-float-left"
+                                                *ngIf="showCancel()"
+                                                (click)="cancelDeal()">
+                                                <h2 class="gt-fs-15 gt-white gt-text-semi-bold">cancel</h2>
+                                            </button>
+                                            <button
+                                                class="gt-btn-primary gt-center gt-width-25 gt-border-radius-2 gt-height-48 gt-abtn-shadow gt-border-none gt-pd-zero gt-float-left"
+                                                *ngIf="!dealDetails?.callerIsReceiver && !dealDetails?.initiatorPaidAmount && !dealDetails?.paymentInProgress"
+                                                (click)="payNow()">
+                                                <h2 class="gt-fs-15 gt-white gt-text-semi-bold">pay now</h2>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="gt-float-100 gt-border-radius-4 gt-pb-20">
+                            <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="gt-float-100">
+                                            <div class="gt-vcenter add-th">
+                                                <h3 class="gt-fs-15 gt-text-medium gt-black-70">Product details</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gt-float-100 gt-pt-10 gt-pb-14 gt-pd-lr-12 gt-mt-10">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="gt-float-100 gt-between">
+                                            <div class="gt-float-100"
+                                                *ngIf="dealDetails?.requestedOffers && dealDetails?.requestedOffers?.length">
+                                                <ng-template ngFor let-i="index" let-c="count" let-data
+                                                    [ngForOf]="dealDetails.requestedOffers">
+                                                    <app-product-card [data]="data"
+                                                        (navigateToOffer)="navigateToOffer($event)"
+                                                        [dealValue]="dealDetails?.dealValue">
+                                                    </app-product-card>
+                                                </ng-template>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gt-float-100 gt-border-radius-4 gt-pb-20 gt-mt-10">
+                            <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="gt-float-100">
+                                            <div class="gt-vcenter add-th">
+                                                <h3 class="gt-fs-15 gt-text-medium gt-black-70">Delivery details</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gt-float-100 gt-pt-10 gt-pb-14 gt-pd-lr-12 gt-mt-10">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                        <div class="gt-float-100 gt-between">
+                                            <app-address-card [data]="dealDetails?.initiatorDeliveryAddress">
+                                            </app-address-card>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

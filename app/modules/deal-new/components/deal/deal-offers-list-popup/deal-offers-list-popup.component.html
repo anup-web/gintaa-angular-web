@@ -1,0 +1,190 @@
+<div class="gt-pb-24 choose-offer-popup deal-offer-scroll bg-change">
+  <div class="popup-closed offre-filter-pop ofo-rp"><span class="material-icons" (click)="closeModel()">close</span>
+  </div>
+
+  <div class="gt-float-100 gt-mt-15 gt-pd-lr-24">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 sel-partner">
+          <h1 class="gt-fs-15 gt-lightblack dcolor-primary">Select {{actionText}} items</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-mt-15 gt-pd-lr-24">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 gt-display-flex all-cat-plus">
+          <div class="gt-form-primary gt-mr-24 all-cat-filter">
+            <select id="gt_select_category" [(ngModel)]="filterObject.categoryId"
+              class="gt-form-select offer-form-control gt-deal-283" (change)="changeCategoryOption($event)">
+              <option value="">All categories</option>
+              <ng-template ngFor let-i="index" let-c="count" let-category [ngForOf]="categoryList">
+                <option value="{{category?.categoryId}}">{{ category?.label}}</option>
+              </ng-template>
+            </select>
+          </div>
+
+          <!-- <div class="gt-form-primary gt-mr-32 filter-price-deal">
+            <select id="gt-select" class="gt-form-select offer-form-control gt-deal-325">
+              <option value="">Price: low to high</option>
+              <option value="1">Price: low to high</option>
+              <option value="2">Price: low to high</option>
+            </select>
+          </div> -->
+
+          <div class="gt-border-radius-12 gt-bg-white gt-center filter-list bg-change-secondary dark-shadow border-none"
+            (click)="openFilterDialog()" *ngIf="userAllOfferList && userAllOfferList?.length > 0; ">
+            <span class="material-icons gt-lightblack dcolor-secondary">filter_list</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-mt-15 gt-pd-lr-24 gt-pt-20 list-offer myf-list bg-change-secondary">
+
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100">
+            <h2 class="gt-fs-16 gt-text-medium gt-lightblack dcolor-primary"
+              *ngIf="clickedfrom === 'left' else myListSec ">
+              My full list
+              <!-- <ng-container *ngIf="callerIsReceiver else partnerShow">
+                My full list
+              </ng-container>
+              <ng-template #partnerShow>
+                {{receiverName}}’s full list
+              </ng-template> -->
+            </h2>
+            <ng-template #myListSec>
+              <h2 class="gt-fs-16 gt-text-medium gt-lightblack dcolor-primary">
+                {{receiverName}}’s full list
+                <!-- <ng-container *ngIf="actionType === 'mine' else partnerShow">
+                  My full list
+                </ng-container>
+                <ng-template #partnerShow>
+                  {{receiverName}}’s full list
+                </ng-template> -->
+              </h2>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-20">
+      <div class="row" *ngIf="userAllOffer && userAllOffer?.length > 0; else noOfferSections " infiniteScroll
+        [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="1.5" [infiniteScrollThrottle]="150"
+        (scrolled)="onScrollDown()" [infiniteScrollContainer]="selector" [fromRoot]="true" [scrollWindow]='true'>
+        <ng-template ngFor let-i="index" let-c="count" let-offer [ngForOf]="userAllOffer">
+          <!-- render offer card start -->
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 gt-mb-8">
+            <app-offer-card [offer]="offer" [actionType]="actionType" [offerId]="offerId" (onChange)="onChange($event)"
+              cardName="model" [selectedOffer]="getCurrectOffer(offer.offerId, userSelectedOffers)"> </app-offer-card>
+          </div>
+          <!-- render offer card end -->
+        </ng-template>
+      </div>
+      <ng-template #noOfferSections>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-center">
+            <img src="assets/images/deal/empty offer.png" class="empty-offer" alt="image" width="295" />
+          </div>
+          <div class="gt-float-100 gt-center gt-mt-10">
+            <h1 class="gt-lightblack gt-fs-18">
+              You have no offer in bucket
+            </h1>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+
+  </div>
+
+
+  <!-- <div class="gt-float-100 gt-mt-24 gt-pd-lr-24 gt-pt-20 fmatch-offer">
+
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-center-between myo-rp">
+            <h2 class="gt-fs-16 gt-text-medium gt-lightblack dcolor-primary">Matches </h2>
+            <h3 class="gt-fs-14 gt-text-medium gt-lightgrayish dcolor-secondary"
+              *ngIf="offerMatches.length else noMatchesFound">You have {{offerMatches.length}} match
+              offer{{offerMatches.length | multiItemItems}}</h3>
+            <ng-template #noMatchesFound> No Match found for selected offer</ng-template>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-20">
+      <div class="row" *ngIf="offerMatches && offerMatches?.length > 0; else selectOfferToGetMatch">
+        <ng-template ngFor let-i="index" let-c="count" let-offer [ngForOf]="offerMatches">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12 gt-mb-8">
+            <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+              <div class="arrivals-products-image">
+                <div class="pr-image max-height-img-160">
+                  <img [src]="getOfferImage(offer.image)" class="gt-img-responsive"
+                    alt="{{offer.name}}" (error)="errorImageHandler($event)">
+                  <div class="color-overlay"></div>
+                </div>
+                <div class="arrivals-action">
+                  <div class="offer-location">{{offer.location?.area}}</div>
+                </div>
+              </div>
+
+              <div class="arrivals-products-content product-content-pd">
+                <div class="offer-name-primary gt-ellipsis" ellipsis>{{offer['name']}}
+                </div>
+                <div class="pr-desire">
+                  <img src="assets/images/home/desire-icon.svg" class="desire-img" alt="image" />
+                  <div class="offer-desire-primary gt-ellipsis " ellipsis> {{ offer |
+                    offerDesire }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+
+    <ng-template #selectOfferToGetMatch>
+      <div class="gt-float-100 gt-mt-150 gt-pl-200 gt-pr-200 nomatch-rp">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100 gt-center gt-text-center">
+              <h4 class="gt-fs-18 gt-lightgrayish">Select your partner’s offer above to
+                see matches.
+                with your own offers
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+  </div> -->
+
+  <div class="gt-float-100 gt-mt-24 gt-mb-24 gt-pd-lr-24 select-save" *ngIf="selectedOffer && selectedOffer?.length">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 gt-center gt-justify-content-between item-selected">
+          <div class="gt-float-100 choose-offer">
+            <h3 class="gt-fs-14 gt-primary" (click)="openOfferDialog(actionType)">Selected {{
+              selectedOffer?.length}} item{{selectedOffer?.length | multiItemItems}}</h3>
+          </div>
+          <div class="gt-float-100">
+            <button
+              class="gt-btn-primary gt-height-48 gt-center gt-btn-shadow gt-fs-16 gt-float-right gt-border-radius-2 bg-change-secondary dark-shadow border-none"
+              (click)="saveSelectedOffer()">save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

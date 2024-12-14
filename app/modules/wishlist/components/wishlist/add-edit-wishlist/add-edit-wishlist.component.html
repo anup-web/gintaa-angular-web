@@ -1,0 +1,106 @@
+<div class="gt-float-100 gt-mt-15">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="gt-float-100">
+                <div class="gt-float-left match-box-search wish-list-rp">
+                    <div class="match-search-input">
+                        <div class="gt-form-primary search-wrapper">
+
+                            <app-wishlist-search [search_key]="searchKeyword" (searchKeyword)="changeSearchKeyword($event)"></app-wishlist-search>
+
+                            
+                            <!-- <input
+                                [(ngModel)] = "searchKeyword"
+                                type="text"
+                                class="gt-form-control gt-border-none gt-border-radius-12 match-box-shadow gt-pd-tb-12"
+                                placeholder="Start type to add wish"
+                                /> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- {{searchKeyword}} -->
+<app-search-tag-list  *ngIf="searchKeyword.trim().length > 2" [search_key]="searchKeyword" (selectedCustomTag)="getsSelectedCustomTag($event)"></app-search-tag-list>
+
+<!-- <app-chip-list [type]="'Item'" (selectedCustomTag)=selectedCustomTags($event)>
+</app-chip-list> -->
+
+<!-- 
+<div class="gt-float-100 gt-mt-37 ">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100">
+                <h1 class="gt-fs-21 gt-lightblack gt-text-medium tag-title">
+                    Tags
+                </h1>
+            </div>
+            <div class="gt-float-100 gt-mt-16">
+                <h2 class="gt-fs-16 gt-text-semi-bold tag-sub-color tag-seltitle">
+                    Selected
+                </h2>
+            </div>
+            <div class="gt-float-100 gt-mt-12 selected-chips">
+                <div class="gt-float-left chips-selected">
+                    <div class="gt-vcenter gt-border-radius-8 sel-tag">
+                        <h1 class="gt-fs-18 gt-text-medium gt-white">Apple</h1>
+                        <span
+                            class="material-icons gt-fs-17 gt-white gt-ml-10 gt-cursor-pointer">close</span>
+                    </div>
+                    <div class="gt-vcenter gt-border-radius-8 sel-tag">
+                        <h1 class="gt-fs-18 gt-text-medium gt-white">124GB</h1>
+                        <span
+                            class="material-icons gt-fs-17 gt-white gt-ml-10 gt-cursor-pointer">close</span>
+                    </div>
+                    <div class="gt-vcenter gt-border-radius-8 sel-tag">
+                        <h1 class="gt-fs-18 gt-text-medium gt-white">Gray</h1>
+                        <span
+                            class="material-icons gt-fs-17 gt-white gt-ml-10 gt-cursor-pointer">close</span>
+                    </div>
+                    <div class="gt-vcenter gt-border-radius-8 sel-tag">
+                        <h1 class="gt-fs-18 gt-text-medium gt-white">16’</h1>
+                        <span
+                            class="material-icons gt-fs-17 gt-white gt-ml-10 gt-cursor-pointer">close</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gt-float-100 gt-mt-12">
+                <h3 class="gt-fs-16 gt-text-semi-bold tag-sub-color tag-seltitle">
+                    Suggested
+                </h3>
+            </div>
+
+            <div class="gt-float-left gt-mt-12 chips-Suggested">
+                <div class="gt-vcenter gt-border-radius-8 sug-tag">
+                    <h1 class="gt-fs-18 gt-text-medium gt-white">Xiaomi (3)</h1>                           
+                </div>
+                <div class="gt-vcenter gt-border-radius-8 sug-tag">
+                    <h1 class="gt-fs-18 gt-text-medium gt-white">Tlenovo</h1>                           
+                </div>
+                <div class="gt-vcenter gt-border-radius-8 sug-tag">
+                    <h1 class="gt-fs-18 gt-text-medium gt-white">HP</h1>                           
+                </div>
+                <div class="gt-vcenter gt-border-radius-8 sug-tag">
+                    <h1 class="gt-fs-18 gt-text-medium gt-white">13’ (23)</h1>                           
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="gt-float-100 gt-mt-20" *ngIf="searchKeyword.trim().length > 2">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="gt-float-100">
+                <button type="submit" (click)="addWishlist()" class="gt-btn-primary gt-center gt-fs-16 gt-text-medium gt-border-radius-12 add-wish-btn">
+                    add wish </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-wishlist-offers *ngIf="searchKeyword.trim().length > 2" [search_key]="searchKeyword"></app-wishlist-offers>

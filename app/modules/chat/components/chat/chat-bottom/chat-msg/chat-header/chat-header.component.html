@@ -1,0 +1,86 @@
+
+
+<div class="gt-float-100 gt-vcenter chat-search" *ngIf="chatService.chatConnect?.recipientId && isSearchShow">
+    <div class="gt-vcenter" (click)="isSearchShow=false"><span class="material-icons">arrow_back</span></div>
+    <div class="gt-width-100 csearch-primary">
+        <input type="text" class="gt-form-control gt-border-none" placeholder="Search . . ."/> 
+     </div>
+    <div class="gt-vcenter next-back">
+        <span class="material-icons gt-mr-10">navigate_before</span>
+        <span class="material-icons">navigate_next</span>
+    </div>     
+</div>
+
+ <div class="gt-float-100 chat-uheader" *ngIf="chatService.chatConnect?.recipientId">
+    <div class="gt-center-between">
+        <div class="gt-width-100 gt-vcenter">
+            <div class="image-width gt-center gt-position-relative chat-noimg">
+                <img [src]="showrUserImage()" alt="image" [ngClass]="this.chatService.chatConnect?.receipentImage? 'org-profile-img':'no-profile-img'"/>                
+                 <!-- <div class="online"></div> -->
+                 <div [ngClass]="userStatus==='online'?'online':'offline'"></div>
+            </div>
+            <div class="gt-ml-8">
+                <h2 class="gt-fs-14 gt-text-medium gt-lightblack dcolor-primary">{{chatService.chatConnect.receipentName}}</h2>
+            </div>
+            <!-- <div>
+                <img src="{{ userStatusImg }}" height="20px" width="20px" alt="status">
+            </div> -->
+        </div>
+        <div class="gt-width-20 gt-center-end">
+            <!-- <div class="gt-mr-19 gt-cursor-pointer chat-video">
+                <img src="assets/images/chat/chat-video.svg" class="video-image" alt="image" width="24" height="16" />
+            </div>
+            <div class="gt-mr-29 gt-cursor-pointer chat-phone">
+                <img src="assets/images/chat/chat-phone.svg" class="phone-image" alt="image" width="22" height="22" />
+            </div> -->
+
+
+            <div class="dropdown chath-drop" [hidden]="chatService.loggedInUserAllStatus?.alreadyCallerIsBlockedByUser && chatService.loggedInUserAllStatus?.alreadyReportedOtherUser">
+                <button class="dropdown-toggles custom-toggles" type="button"  data-toggle="dropdown">
+                    <span class="icon-gt-more-vert gt-fs-20"></span>
+                </button>
+                <div class="dropdown-menu chat-dropdowns">
+                     <div class="gt-float-100 chathtop">
+                        <button class="chat-item" (click)="openBlockUserDialog('block')" [hidden]="chatService.loggedInUserAllStatus?.alreadyCallerIsBlockedByUser" *ngIf="!chatService.loggedInUserAllStatus?.alreadyCallerHasBlockUser">
+                            <h2 class="gt-fs-14 gt-lightgrayish gt-text-medium">Block Chat</h2> 
+                        </button>
+                        <button class="chat-item" (click)="unBlockChat()" [hidden]="chatService.loggedInUserAllStatus?.alreadyCallerIsBlockedByUser" *ngIf="chatService.loggedInUserAllStatus?.alreadyCallerHasBlockUser">
+                            <h2 class="gt-fs-14 gt-lightgrayish gt-text-medium">Unblock chat</h2> 
+                        </button>
+                        <button class="chat-item" mat-menu-item [hidden]="chatService.loggedInUserAllStatus?.alreadyReportedOtherUser" (click)="openBlockUserDialog('report')">
+                            <h2 class="gt-fs-14 gt-lightgrayish gt-text-medium">Report User</h2> 
+                        </button>   
+                     </div>
+                </div>
+            </div> 
+
+
+
+
+            <!-- <div class="reply-menu">
+                <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <img src="assets/images/chat/more-vert.svg" class="more-image" alt="image" width="4" height="18" />
+                </button>
+                <mat-menu #menu="matMenu" class="ft-attach-manu">
+                    <button mat-menu-item>
+                        <img src="assets/images/chat/search-chat.svg" width="20" height="20" alt="image"
+                            class="gt-mr-16 block-size dcolor-primary-import">Search in chat</button>
+                     <button mat-menu-item (click)="isSearchShow=true"> 
+                       <h2 class="gt-fs-15 gt-lightgrayish gt-text-medium">Search in history</h2></button>
+                    <button mat-menu-item>
+                         <h2 class="gt-fs-15 gt-lightgrayish gt-text-medium">Mute/Unmute Notifications</h2></button> 
+                         <button mat-menu-item>
+                            <span class="material-icons-outlined gt-mr-13 gt-fs-28 ftchat-icolor ml-minus dcolor-primary-import">notifications</span>Unmute Notifications </button> 
+                         <button mat-menu-item (click)="userBlockDialog()">
+                            <h2 class="gt-fs-15 gt-lightgrayish gt-text-medium">Report User</h2> </button> 
+                        <button mat-menu-item (click)="blockChat()" [hidden]="chatService?.chatRoomDetails?.isBlocked && chatService?.chatRoomDetails?.blockedUserId === loggedInUserId">
+                            <h2 class="gt-fs-15 gt-lightgrayish gt-text-medium">{{chatService?.chatRoomDetails?.isBlocked? 'Unblock chat': 'Block Chat'}}</h2> 
+                        </button>        
+                         <button mat-menu-item>
+                           <h2 class="gt-fs-15 gt-lightgrayish gt-text-medium">Clear history</h2>  </button>   
+                </mat-menu>
+            </div> -->
+
+        </div>
+    </div>
+</div> 

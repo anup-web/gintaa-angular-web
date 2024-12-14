@@ -1,0 +1,104 @@
+<div class="gt-float-100 gt-pt-13 mloc-rp">
+
+<div class="gt-float-100">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="money">
+        <div class="currency-group">
+          <div
+            class="currency-input-group input-icon-map gt-border-white map-input-shadow bg-change border-none"
+          >
+            <div class="currency-input-group-prepend">
+              <div class="currency-input-group-text map-group-padding">
+                <img
+                  src="assets/images/location-on.png"
+                  alt="image"
+                  class="gt-img-responsive"
+                  width="17"
+                  height="24"
+                />
+              </div>
+            </div>
+            <input
+              type="text"
+              class="currency-form-control map-control-padding input-icon-map dcolor-primary bg-change"
+              placeholder="Type in your address here"
+              #search
+              (keyup)="onSearch(search.value)"
+            />
+
+            <div class="currency-input-group-append">
+              <div class="currency-input-group-text visib-cursor">
+                <div class="gps-fixed gt-pr-8" (click)="fetchCurrentLocation()">
+                  <span class="material-icons gt-fs-22"> gps_fixed </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ul class="loc_list gt-pd-10 gt-mr-16 bg-change">
+            <li
+              *ngFor="let prediction of googlePlacesResults"
+              class="place-suggestion gt-float-left gt-mb-10 gt-display-flex gt-cursor-pointer"
+              (click)="suggestionSelected(prediction)"
+            >
+              <span
+                class="material-icons gt-float-left gt-fs-20 gt-mr-5 dcolor-primary"
+                >search</span
+              >
+              <h6 class="gt-float-left gt-fs-13 dcolor-primary">
+                {{ prediction.description }}
+              </h6>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="gt-float-100">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gt-mb-10">
+      <div class="loc-map">
+        <agm-map
+          [latitude]="getMapLat()"
+          [longitude]="getMapLng()"
+          [zoom]="getZoom()"
+          (mapClick)="mapClicked($event)"
+        >
+          <ng-container *ngIf="currentLocation.available">
+            <agm-marker
+              [latitude]="getMapMarkerLat()"
+              [longitude]="getMapMarkerLng()"
+              label="H"
+              title="Home Location"
+              [markerDraggable]="false"
+            >
+            </agm-marker>
+          </ng-container>
+        </agm-map>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="gt-float-100" *ngIf="addressTitle">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gt-mb-30">
+      <h6 class="gt-float-left gt-fs-20">
+        {{ addressTitle.name }}
+      </h6>
+      <input
+        type="text"
+        appAlphabetOnly
+        class="currency-form-control map-control-padding input-icon-map"
+        style="margin-top: 2rem"
+        placeholder="Secondary address title"
+        [(ngModel)]="addressTitle.value"
+      />
+    </div>
+  </div>
+</div>
+
+</div>

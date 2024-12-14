@@ -1,0 +1,100 @@
+<!-- <div class="gt-float-100 gt-pd-lr-32 gt-mt-85 gt-mb-85">
+<div class="row">
+     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+         <div class="gt-float-100 gt-center">
+            <img src="assets/images/chat/chat-noffer.png" class="gt-img-responsive" alt="image"  />
+         </div>
+         <div class="gt-float-100 gt-center gt-mt-50">
+           <h1 class="gt-lightblack gt-fs-20 ">You have no accepted deals now</h1>
+         </div>
+     </div>
+</div>
+</div> -->
+<!-- <app-loading-spinner loaderType="drops-fading" fullPage="false" loader="true" *ngIf="isLoading" addBackDrop="true" backDropColor="#ffffff" loadingMessage="Please wait..."></app-loading-spinner> -->
+
+<!-- <app-spinner *ngIf="isLoading" timeOut="7000"></app-spinner> -->
+
+
+<div class="gt-float-100 gt-pd-lr-24 gt-mb-20 chat-offer-search" [ngClass]="{'gt-pd-lr-8': screenType === 'small'}">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="money-hash">
+            <div class="currency-group">                  
+              <div class="currency-input-group gt-border-none gt-height-40 gt-bg-white gt-border-radius-8">
+                <div class="currency-input-group-prepend">
+                  <div class="currency-input-group-text hash-group-text">
+                    <img src="assets/images/chat/search-chat.svg" alt="image" class="has-tag" width="20"
+                      height="20" />
+                  </div>
+                </div>
+                <input type="text" class="currency-form-control hash-control gt-height-40 gt-bg-white" placeholder="Search in Trading Chat" (keyup)="filterData(searchText)" #searchText/>
+              </div>
+            </div>
+          </div>
+       
+      </div>
+    </div>
+</div>
+
+<ng-container *ngIf="allCommunications?.length>0 then list;else emptyList">   
+</ng-container>
+
+<ng-template #list>
+
+    <div class="gt-float-100 chat-desllist clist-scroll">
+    <div class="gt-float-100 " *ngFor="let deal of allCommunications" (click)="openChat(deal)">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 gt-pd-lr-24 gt-pd-tb-6 gt-mb-5 deal-wrapper-rp user-active bg-change-secondary" [ngClass]="{'offerlist-small-rp': screenType === 'small'}">
+                    <div class="gt-center-between cdeal-card" [ngClass]="{'rs-chat-offer-card': screenType === 'small'}">
+                        <div class="gt-vcenter cd-display-rp" [ngClass]="{'rs-display-flex': screenType === 'small'}">
+                            <div class="image-width gt-center gt-position-relative chat-noimg" *ngIf="showOtherUserName(deal)">
+                                <img [src]="showOtherUserImage(deal) || noChatProfileImage"  alt="image" [ngClass]="showOtherUserImage(deal)? 'org-profile-img':'no-profile-img'"/>
+                                <!-- <div class="online"></div> -->
+                                  <div class="offline"></div> 
+                            </div>
+                            <!-- <div>
+                                <img src="{{ getUserStatusImg(deal.status) }}" height="20px" width="20px" alt="statue">
+                            </div> -->
+
+                            <div class="gt-ml-8 cdeal-box">
+                                <div class="gt-mb-7 deal-offers-title">
+                                    <h1 class="gt-fs-14 gt-lightblack dcolor-primary">{{showOtherUserName(deal)}}</h1>
+                                </div>
+                                <app-chat-deal-item-showcase [dealDetails]="deal"></app-chat-deal-item-showcase>
+                                <div class="gt-mt-8 deal-oname gt-vcenter">
+                                    <ng-container *ngIf="deal.lastMessageSenderIsLoginUser">
+                                        <div class="singal-check gt-mr-8" *ngIf="deal.lastMessageIsSent && deal.lastMessageIsDelivered==false"><span class="material-icons">done</span></div> 
+                                        <div class="double-check gt-mr-8" *ngIf="deal.lastMessageIsDelivered && deal.lastMessageIsRead==false"><span class="material-icons">done_all</span></div>
+                                        <div class="double-check-send gt-mr-8" *ngIf="deal.lastMessageIsRead"><span class="material-icons">done_all</span></div>
+                                    </ng-container>
+                                    <h2 class="gt-fs-14 gt-text-medium gt-lightgrayish dcolor-secondary">
+                                        <span [innerHtml]="deal.lastMessage" class="gt-vcenter"></span>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="offer-dates oc-date" [ngClass]="{'rs-chat-odate-rp': screenType === 'small'}">
+                            <div class="gt-flex-end">
+                                <h3 class="gt-fs-12 gt-lightgrayish dcolor-secondary">{{ deal.lastMessageTime  | formatChatTime}}</h3>
+                            </div>
+                            <div class="gt-flex-end gt-mt-25">
+                                <div class="gt-center image-width-24 border-radius-100 h4 chat-active" *ngIf="deal.totalUnReadMsgCount>0">{{ deal.totalUnReadMsgCount }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</ng-template>
+<ng-template #emptyList>
+    <div class="empty-chat text-center">
+        <!-- <app-empty-chat-animation></app-empty-chat-animation> -->
+        <div class="pt-3">
+            You have no offer chat yet
+        </div>
+    </div>
+</ng-template>

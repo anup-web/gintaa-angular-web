@@ -1,0 +1,180 @@
+<div class="gt-float-100 gt-mt-15 gt-pd-lr-32 rp-lr-12">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="att-file">
+        <h2 class="gt-fs-16 gt-lightblack gt-text-medium dcolor-primary">
+          I’m available on
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-container [formGroup]="parentForm">
+  <ng-container formArrayName="serviceTimingInfos">
+    <!-- Select Day Array Start -->
+    <div class="gt-float-100 gt-mt-10 gt-pd-lr-32 rp-lr-12">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 date-list">
+            <div class="gt-center date-list-box bg-change dark-shadow" [ngClass]="{ 'active-day': day.state }"
+              *ngFor="let day of availableDays; index as i" (click)="updateTimePeriodsForDay(day, i)">
+              {{ day.prefix }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="!days.length && submitted" class="gt-text-danger">
+        <div class="error">Please select atleast one day</div>
+      </div>
+    </div>
+    <!-- Select Day Array End -->
+    <div class="gt-float-100">
+      <div class="row" *ngIf="!isEnableServiceAvailability && days.length; else showAlltimings">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" [formGroupName]="0">
+          <div class="gt-float-100 gt-mt-20 gt-pl-67 time-input-list tilist-2">
+            <div class="gt-float-100 gt-pl-21 gt-display-flex gt-mb-4 date-section">
+              <div class="gt-lightgrayish gt-fs-15 gt-text-medium gt-font-poppins gt-mr-18 form-time dcolor-primary">
+                From
+              </div>
+              <div class="gt-lightgrayish gt-fs-16 gt-text-medium gt-font-poppins to-time dcolor-primary">
+                To
+              </div>
+            </div>
+            <div class="gt-float-100 time-secondary" formArrayName="timingInfoList">
+              <div class="gt-float-100 clear" *ngFor="let time of dayControl.controls; let j = index">
+                <div class="gt-display-flex gt-float-100 gt-mb-5 time-list" [formGroupName]="j">
+                  <div class="gt-mr-20 time-list-primary gt-ml-20">
+                    <input class="time-box" matTimepicker mode="12h" formControlName="startTime" placeholder=""
+                      [strict]="false" (timeChange)="timeChangeUpdate($event, time, 'startTime', j)" />
+                  </div>
+                  <div class="time-list-primary">
+                    <input class="time-box" matTimepicker mode="12h" formControlName="endTime" placeholder=""
+                      [strict]="false" (timeChange)="timeChangeUpdate($event, time, 'endTime', j)" />
+                  </div>
+                  <div class="gt-vcenter gt-ml-20 time-list-delete"
+                    (click)="$event.stopPropagation(); deleteTimeForSelectedDays(j)">
+                    <img src="assets/images/profile/profile-photo-delete.svg" alt="image" class="del-atta" width="16"
+                      height="18" />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="gt-float-100 gt-ml-20 add-time">
+              <button type="button" class="gt-btn-primary gt-btn-clear gt-center btn-time-add"
+                (click)="$event.stopPropagation(); addNewTimeForSelectedDays()">
+                <span class="material-icons gt-fs-16">add</span> add time period
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #showAlltimings>
+      <ng-container *ngFor="let day of days.controls; let i = index">
+        <ng-container *ngIf="day.controls.state">
+          <div class="gt-float-100 gt-mt-20 gt-pd-lr-32 rp-lr-12" [formGroupName]="i">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 time-input-list tilist-1">
+                  <div class="
+                      gt-float-100 gt-pl-40 gt-display-flex gt-mb-4
+                      date-section
+                    ">
+                    <div class="
+                        gt-lightgrayish
+                        gt-fs-15
+                        gt-text-medium
+                        gt-font-poppins
+                        gt-mr-18
+                        form-time
+                        dcolor-primary
+                      ">
+                      From
+                    </div>
+                    <div class="
+                        gt-lightgrayish gt-fs-16 gt-text-medium gt-font-poppins
+                        to-time
+                        dcolor-primary
+                      ">
+                      To
+                    </div>
+                  </div>
+                  <div class="gt-float-100 gt-display-flex time-secondary">
+                    <div class="
+                        gt-lightgrayish
+                        gt-fs-16
+                        gt-text-medium
+                        gt-mr-15 
+                        gt-mt-10                       
+                        gt-text-capitalize
+                        date-name
+                        dcolor-primary
+                      ">
+                      {{ day.get("prefix").value }}
+                    </div>
+                    <div formArrayName="timingInfoList">
+                      <div class="gt-float-100" *ngFor="
+                          let time of day.get('timingInfoList').controls;
+                          let j = index
+                        ">
+                        <div class="
+                            gt-display-flex gt-float-100 gt-mb-5
+                            time-list
+                          " [formGroupName]="j">
+                          <div class="gt-mr-20 time-list-primary">
+                            <input class="time-box" matTimepicker mode="12h" placeholder="" formControlName="startTime"
+                              [strict]="false" (timeChange)="
+                                timeChangeHandler($event, time, 'startTime')
+                              " />
+                          </div>
+                          <div class="time-list-primary">
+                            <input class="time-box" matTimepicker mode="12h" placeholder="" formControlName="endTime"
+                              [strict]="false" [maxDate]="minValue" (timeChange)="
+                                timeChangeHandler($event, time, 'endTime')
+                              " />
+                          </div>
+                          <div class="gt-vcenter gt-ml-20 time-list-delete" (click)="
+                              deleteTime(
+                                day.controls,
+                                day.get('timingInfoList'),
+                                j
+                              )
+                            ">
+                            <img src="assets/images/profile/profile-photo-delete.svg" alt="image" class="del-atta"
+                              width="16" height="18" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="gt-float-100 gt-ml-34 add-time">
+                    <button type="button" class="gt-btn-primary gt-btn-clear gt-center btn-time-add"
+                      (click)="addNewTime(day.controls.timingInfoList)">
+                      <span class="material-icons gt-fs-16">add</span> add time
+                      period
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </ng-container>
+    </ng-template>
+  </ng-container>
+ 
+
+  <!-- Enable Service Availbility Start -->
+  <div class="gt-float-100 gt-mt-20 gt-pd-lr-32 rp-lr-12">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="my-time">
+          <mat-slide-toggle formControlName="serviceTimeSameForAllDays" (change)="toggleTimeAvailbility($event)">Set my
+            time availability for particular days
+          </mat-slide-toggle>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Enable Service Availbility End -->
+</ng-container>

@@ -1,0 +1,323 @@
+<div class="gt-float-100 gt-pb-30 others-profile-left bgbusiness-none bg-change" *ngIf="business">
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div  class="buprofiled-sub-cover color-name-8" [ngClass]="getColorCode()" [ngStyle]="{'background-color': currentLyActiveColor}"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-mt-m60">
+    <div class="gt-center">
+      <div class="users-boxs user-bg user-box-border business-img-primary">
+        <div class="online-delete reonline-delete" *ngIf="business.logoUrl && allowEditBusiness">
+          <button type="button" class="
+              gt-btn-primary
+              edit-delete-btn
+              bg-change-secondary
+              dark-shadow
+              border-none
+            " [routerLink]="['/business/view/', business.id]">
+            <img src="assets/images/business/bupro-edit.svg" class="pro-res" alt="Edit business details" width="24"
+              height="26" />
+          </button>
+        </div>
+        
+        <img [src]="business.logoUrl" [alt]="business.name" class="user-img gt-img-responsive" width="262"
+          height="262" onError="this.src='assets/images/business/company-logo.svg'" />
+       
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-pd-lr-16 gt-mt-13">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 pro-name">
+          <h1 class="gt-fs-20 gt-lightblack gt-text-medium dcolor-primary">
+            {{ business.name  | trimTextToCertainNumberCharector: 18  }}
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="gt-float-100 gt-pd-lr-16 gt-mt-15">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 pro-name">
+          <div class="gt-vcenter online-user">
+            <div class="online-active"></div>
+            <div class="online-text dcolor-primary">online</div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-pd-lr-16 gt-mt-10">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 gt-pl-9 rating-list">
+          <div class="gt-float-left gt-vcenter rating-list-primary">
+            <div class="gt-float-left business-rating-comts ul-mt-zero" *ngIf="business.totalReviews > 0">
+              <ul>
+                <li><span class="material-icons">star</span></li>
+                <li><span class="material-icons">star</span></li>
+                <li><span class="material-icons">star</span></li>
+                <li><span class="material-icons">star</span></li>
+                <li><span class="material-icons">star</span></li>
+              </ul>
+            </div>
+            <h4 class="
+                gt-fs-21
+                pro-title-color
+                gt-text-medium gt-ml-10
+                rating-counts
+              ">
+             
+              <span class="rating-color" *ngIf="business.totalReviews > 0">{{business.totalReviews}}</span>
+              <span class="rating-color" *ngIf="business.totalReviews === 0">No review</span>
+              <span class="gt-fs-21 gt-text-medium dcolor-primary"> ({{ business.totalVotes }} votes)</span>
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-pd-lr-16 gt-mt-20" *ngIf="defaultBusinessAddress.length">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 gt-pl-10 gt-vcenter">
+          <img src="assets/images/loc-hd-icon.svg" width="17" height="19" alt="icon" class="pr-place" />
+          <h5 class="
+              gt-fs-16 gt-lightblack gt-ml-10 gt-opacity-9
+              user-loction-secondary
+              dcolor-primary
+            ">
+            {{ defaultBusinessAddress[0]['city'] }}
+           
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-pd-lr-16 gt-mt-20">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 gt-pl-8 gt-vcenter">
+          <div class="gt-vcenter recent-icon">
+            <span class="material-icons title-icon-color gt-fs-20">schedule</span>
+          </div>
+          <h6 class="
+              gt-fs-16 gt-lightblack gt-ml-7 gt-opacity-9
+              user-year-secondary
+              dcolor-primary
+            ">
+            
+            {{business.profileSince}}
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-pd-lr-16 gt-mt-20">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 gt-pl-9 gt-vcenter">
+          <img src="assets/images/profile/profile-hand.svg" alt="icon" width="19" height="14" class="cate-image" />
+          <h1 class="
+              gt-fs-16 gt-lightblack gt-ml-7 gt-opacity-9
+              deals-count-secondary
+              dcolor-primary
+            ">
+           
+            {{totalOfferCount}} successfull {{totalOfferCount > 1 ? 'listings' : 'listing'}}
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-pd-lr-16 gt-mt-30">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 pro-name">
+          <h1 class="
+              gt-fs-16 gt-lightblack gt-text-medium
+              dcolor-primary dcolor-primary
+            ">
+            Business info
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="business?.profileUrl" class="gt-float-100 gt-pd-lr-16 gt-mt-20">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100">
+          <h2 class="gt-fs-16 gt-lightgrayish dcolor-primary">Url</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="business?.profileUrl" class="gt-float-100 gt-pd-lr-16 gt-mt-4">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100">
+          <h3 class="gt-fs-14 gt-lightgrayish dcolor-secondary">           
+            <a href="{{getBusinessUrlBySlug(business.profileUrl)}}" target="_blank">{{getBusinessUrlBySlug(business.profileUrl)  | trimTextToCertainNumberCharector: 30}}</a>
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-pd-lr-16 gt-mt-20">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100">
+          <h2 class="gt-fs-16 gt-lightgrayish dcolor-primary">About</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-pd-lr-16 gt-mt-4">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100">
+          <h3 class="gt-fs-14 gt-lightblack gt-line-height-20 buni-des dcolor-secondary">
+            {{ business.description }} 
+          </h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-pd-lr-16 gt-mt-20">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 pro-name">
+          <h1 class="gt-fs-16 gt-lightblack gt-text-medium dcolor-primary">
+            Business address
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="business.businessAddresses">
+    <ng-container *ngFor="let address of business.businessAddresses">
+      <div class="gt-float-100 gt-pd-lr-16 gt-mt-20">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100">
+              <h2 class="gt-fs-14 gt-black-80 dcolor-primary">
+                {{ address.annotation }}
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gt-float-100 gt-pd-lr-16 gt-mt-4">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100">
+              <h3 class="gt-lightgrayish gt-fs-14 dcolor-primary">
+                {{ address.addressTitle }}
+              </h3>
+              <h3 class="gt-fs-14 gt-mt-5 gt-lightblack dcolor-secondary">
+                {{ address.addressLine1 }}
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+
+  <div class="gt-float-100 gt-pd-lr-16 gt-mt-20">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 pro-name">
+          <h1 class="gt-fs-16 gt-lightblack gt-text-medium dcolor-primary">
+            Hours of operation
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-pd-lr-16 gt-mt-20 gt-mb-20" *ngIf="business.hoursOfOperations">
+
+
+
+
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="!business.hrsOfOpSameAllDays">
+        <div class="gt-float-100">
+          <div class="gt-float-100">
+            <div class="gt-display-flex day-active">
+              <div *ngFor="let item of allOperationsDay" class="day-box {{
+                  item.activeStatus ? 'select-day' : ''
+                }}">
+                {{ item.day }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gt-float-100 gt-mt-16" *ngIf="
+            business.hoursOfOperations &&
+            business.hoursOfOperations.length > 0
+          ">
+          <div class="day-details dcolor-primary-import" *ngFor="
+              let time of business.hoursOfOperations[0]
+                .hours
+            ">
+            From {{ time.startTime | formatMeetTime }} To
+            {{ time.endTime | formatMeetTime }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="business.hrsOfOpSameAllDays">
+        <div class="gt-float-100">
+          <div class="gt-float-100">
+            <div class="gt-display-flex day-active">
+              <div *ngFor="let item of allOperationsDay" class="day-box {{
+                  item.activeStatus ? 'select-day' : ''
+                }}">
+                {{ item.day }}
+              </div>
+            </div>
+            <div class="gt-display-flex mutiple-time" *ngFor="
+                let day of business.hoursOfOperations
+              ">
+              <div class="day-short">
+                {{ day.day | dayPrefix }}<span>: </span>
+              </div>
+              <div class="day-details gt-fs-14 dcolor-primary-import" *ngFor="let time of day.hours">
+                From {{ time.startTime | formatMeetTime }} To
+                {{ time.endTime | formatMeetTime }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>

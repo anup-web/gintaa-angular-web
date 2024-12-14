@@ -1,0 +1,165 @@
+<div class="gt-float-100 gt-pb-20 gt-bg-white rp-packing-group">
+    <ng-conatiner *ngIf="selectPackage()">
+        <div class="gt-float-100 gt-pt-10 gt-pb-14 gt-ml-25 gt-pr-12">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <div class="gt-float-100 gt-vcenter">
+                        <h2 class="gt-fs-14 gt-text-medium gt-lightblack dcolor-primary">Select your packing box</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gt-float-100 gt-ml-25 gt-pr-12">
+            <mat-radio-group class="dp-radio-group gt-pb-0" aria-label="Select an option" [(ngModel)]="selectedPackage">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <ng-template ngFor let-i="index" let-c="count" let-package [ngForOf]="packingList">
+                            <div class="gt-float-left gt-position-relative pb-wrapper" [ngClass]="{'gt-ml-25': i > 0}">
+                                <mat-radio-button class="delivery-packing" [value]="package.id"
+                                    id="package_{{package.id}}" (change)="setPackage($event)">
+                                    <div class="gt-border-radius-2 gt-mb-20 packing-card dark-shadow bg-change">
+                                        <div class="gt-center gt-pt-22">
+                                            <img [src]="package.logo" class="other-delivery" width="24" height="26"
+                                                [alt]="package.id" />
+                                        </div>
+                                        <div class="gt-float-100 gt-mt-13 gt-text-center">
+                                            <h3
+                                                class="gt-float-100 gt-fs-12 gt-text-medium gt-lightblack dcolor-primary">
+                                                {{package.boxSize}}</h3>
+                                        </div>
+                                    </div>
+                                </mat-radio-button>
+                            </div>
+                        </ng-template>
+                    </div>
+                </div>
+            </mat-radio-group>
+
+            <div class="row gt-mt-15" *ngIf="selectedPackage == '4'">
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 gt-pr-zero pu-zero-rp lwh-col-30">
+                    <div class="money-custom">
+                        <div class="currency-group">
+                            <label class="currency-sr-only offer-input-label gt-fs-13">Length, cm</label>
+                            <div class="currency-input-group hash-input gt-border-radius-2">
+                                <input type="text"
+                                    class="currency-form-control hash-control gt-border-radius-2 gt-pd-tb-7"
+                                    placeholder="1" [(ngModel)]="lengthVal"
+                                    (keypress)="onInputChangePackage($event, 'lengthVal')"
+                                    (change)="onInputChangePackage($event, 'lengthVal')" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 gt-pr-zero pu-zero-rp lwh-col-30">
+                    <div class="money-custom">
+                        <div class="currency-group">
+                            <label class="currency-sr-only offer-input-label gt-fs-13">Width, cm</label>
+                            <div class="currency-input-group hash-input gt-border-radius-2">
+                                <input type="text"
+                                    class="currency-form-control hash-control gt-border-radius-2 gt-pd-tb-7"
+                                    placeholder="1" [(ngModel)]="widthVal"
+                                    (keypress)="onInputChangePackage($event, 'widthVal')"
+                                    (change)="onInputChangePackage($event, 'widthVal')" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12 gt-pr-zero pu-zero-rp lwh-col-30">
+                    <div class="money-custom">
+                        <div class="currency-group">
+                            <label class="currency-sr-only offer-input-label gt-fs-13">Height, cm</label>
+                            <div class="currency-input-group hash-input gt-border-radius-2">
+                                <input type="text"
+                                    class="currency-form-control hash-control gt-border-radius-2 gt-pd-tb-7"
+                                    placeholder="1" [(ngModel)]="heightVal"
+                                    (keypress)="onInputChangePackage($event, 'heightVal')"
+                                    (change)="onInputChangePackage($event, 'heightVal')" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gt-float-100 gt-mt-20 gt-ml-25 gt-pr-12">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100">
+                        <h2 class="gt-fs-14 gt-text-medium gt-lightblack dcolor-primary">What is your item weight</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gt-float-100 gt-mt-20 gt-ml-25 gt-pr-12">
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 gt-pr-zero pu-zero-rp">
+                    <div class="wk-width-328 money-custom">
+                        <div class="currency-group">
+                            <div class="currency-input-group hash-input gt-border-radius-2">
+                                <div class="currency-input-group-prepend">
+                                    <div class="currency-input-group-text">
+                                        <img src="assets/images/deal/kg.svg" alt="image" class="money-tag" width="21"
+                                            height="19" />
+                                    </div>
+                                </div>
+                                <input type="number" class="currency-form-control hash-control gt-pl-3" placeholder="1"
+                                    pattern="/^[0-9]+(\.[0-9]{1,2})?$/" (keyup)="onInputChange($event, 'input')"
+                                    [(ngModel)]="selectedWeightKg" step="0.01" maxlength="5" min="0.5" max="99" />
+                            </div>
+                            <div class="row" *ngIf="selectedWeightKg<0.51">
+                                <div class="col-lg-12 col-md-12 col-sm-12 gt-ml-12">
+                                    <div class="gt-fs-12 new-color">
+                                        <div class="error">Minimum weight should be 500 grams</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-conatiner>
+    <div class="gt-float-100 gt-border-radius-4 gt-bg-white gt-text-danger gt-position-relative"
+        *ngIf="errorMessage">
+        <div class="gt-float-100 gt-pb-10 gt-pd-lr-12">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <div class="gt-float-100 gt-between">
+                        {{errorMessage}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-door-step-delivery *ngIf="!dealDetails?.callerIsReceiver" [shippingVendor]="shippingVendor"
+        [totalAmount]="dealDetails?.requestedAmount" [selectedAssureDelivery]="selectedAssureDelivery"
+        [selectedAssureAmount]="selectedAssureAmount" (updateDeliverAddress)="updateDeliverAddress($event)"
+        (updateAssureDelivery)="updateAssureDelivery($event)" [calculateShipping]="callShipping"
+        [calledFromAccept]="true">
+    </app-door-step-delivery>
+    <ng-conatiner *ngIf="page !=='revise'">
+        <div class="gt-float-100 gt-pd-lr-12 gt-pd-tb-10 gt-bg-white nbtn-all">
+            <div class="gt-float-100">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="gt-float-100 gt-center-end">
+                            <button
+                                class="gt-btn-primary gt-bg-primary gt-center gt-width-25 gt-border-radius-2 gt-height-48 gt-abtn-shadow gt-border-none gt-pd-zero gt-mr-10 gt-float-left"
+                                [ngClass]="!validform ? 'disabled':''" (click)="updateThirdPartyOption()"
+                                [disabled]="!validform" *ngIf="dealDetails?.callerIsReceiver else senderAccept">
+                                <h2 class="gt-fs-15 gt-white">next</h2>
+                            </button>
+                            <ng-template #senderAccept>
+                                <button
+                                    class="gt-btn-primary gt-bg-primary gt-center gt-width-25 gt-border-radius-2 gt-height-48 gt-abtn-shadow gt-border-none gt-pd-zero gt-mr-10 gt-float-left"
+                                    [ngClass]="!validform ? 'disabled':''" (click)="acceptSender()"
+                                    [disabled]="!validform">
+                                    <h2 class="gt-fs-15 gt-white">next</h2>
+                                </button>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-conatiner>
+</div>

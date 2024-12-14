@@ -1,0 +1,45 @@
+<div id="user-profile-map-component" class="modal-wrapper new-address popup-categorys">
+    <div class="popup-closed new-closed cate-close" (click)="onDialogClose()">
+      <span class="material-icons">close</span>
+    </div>
+    {{verticals$ | json }}
+    <div class="row" *ngIf="(verticals$ | async)?.length">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="category-list-primar">
+            <div class="gt-cursor-pointer category-list" *ngFor="let vertical of verticals$ | async; index as i">
+                <h2 class="gt-fs-16 gt-lightblack" (click)="fetchRootCategories(vertical, i)">{{ vertical.label }}</h2> 
+            </div>
+          </div>
+        </div>
+        <div  class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4" *ngIf="(rootCategories$ | async)?.length">
+            
+            <div class="list-item-catgory">
+                <div class="gt-center-between category-list-item" *ngFor="let category of rootCategories$ | async; index as i">
+                    <mat-checkbox (click)="$event.stopPropagation()">
+                        {{ category.label }}                                                
+                    </mat-checkbox>
+                    <mat-icon 
+                        *ngIf="category && !category.leafNode" 
+                        class="material-icons gt-cursor-pointer" 
+                        (click)="fetchSubCategoriesByRootCategory(category, i)">
+                        keyboard_arrow_right
+                    </mat-icon>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-xs-4" *ngIf="allSubCategories?.length">
+           
+            <div class="list-item-catgory">
+                <div class="gt-center-between category-list-item" *ngFor="let category of allSubCategories; index as i">
+                    <mat-checkbox (click)="$event.stopPropagation()">
+                        {{ category.label }}                                                
+                    </mat-checkbox>
+                    <mat-icon *ngIf="category && !category.leafNode" class="material-icons gt-cursor-pointer" (click)="fetchSubCategoriesByRootCategory(category, i)">
+                        keyboard_arrow_right
+                    </mat-icon>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div id="user-profile-map-component" class="modal-wrapper new-address">
+  <div class="popup-closed newh-closed" (click)="closePopup()">
+    <span class="material-icons">close</span>
+  </div>
+
+  <div *ngIf="showAddressMap; else showAddressForm">
+    <div class="gt-float-100" *ngIf="modalTitle">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h5 class="gt-float-100 gt-fs-16 gt-lightblack">
+            {{ modalTitle }}
+          </h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100" *ngIf="errorMessage">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 jc gt-mb-10">
+          <div class="gt-text-danger">
+            <div class="error">{{ errorMessage }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-location-map stateModule="business" [actionMode]="actionMode" [address]="address"
+      [addressAnnotations]="addressAnnotations" (setMapAddress)="setMapAddress($event)"></app-location-map>
+
+    <div class="gt-float-100" *ngIf="addressTitle">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gt-mb-20">
+          <h6 class="gt-float-100 gt-fs-16 gt-lightblack gt-mb-4">
+            {{ addressTitle.name }}
+          </h6>
+          <input type="text" class="currency-form-control map-control-padding input-icon-map"
+            placeholder="Secondary address title" [(ngModel)]="addressTitle.value" appAlphabetOnly />
+          <div class="gt-text-danger" *ngIf="isInvalidTitle">
+            <span class="error">Address title is mandatory</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button (click)="setLocation()" class="gt-btn-primary gt-center gt-text-medium gt-pd-tb-15 gt-pd-tb-11"
+      style="width: 100%">
+      {{ nextButtonText }}
+    </button>
+  </div>
+  <ng-template #showAddressForm>
+    <button (click)="backToLocationMap()" class="gt-btn-primary gt-center gt-text-medium map-back">
+      <span class="material-icons"> keyboard_arrow_left </span> back
+    </button>
+
+    <div class="user-address-componet">
+      <app-user-address stateModule="business" isNewAddress="true" [actionMode]="actionMode" [address]="address"
+        [errorStatus]="errorStatus" [modalTitle]="modalTitle" [addressAnnotations]="addressAnnotations"
+        [allowOtherAddress]="allowOtherAddress" (submitAddressForm)="submitAddressForm($event)"></app-user-address>
+    </div>
+  </ng-template>
+</div>

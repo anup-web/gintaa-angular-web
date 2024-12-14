@@ -1,0 +1,179 @@
+<div class="gt-pb-lr-24 gt-pt-15 business-account-wrapper business-scroll bg-change">
+  <div class="popup-closed boffre-filter-pop">
+    <span class="material-icons" (click)="onDialogClose(false)">close</span>
+  </div>
+
+
+  <div class="gt-float-100 rp-bglogo">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 gt-center gt-text-center">
+          <img src="assets/images/logo-icon.png" width="40" height="40" alt="Gintaa" class="logo-gintaa" />
+        </div>
+        <div class="
+            gt-float-100 gt-center gt-text-center gt-mt-9
+          ">
+          <h1 class="gt-fs-15 logout-color dcolor-primary">            
+            Register your business
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <form [formGroup]="businessForm" (ngSubmit)="onCreateBusiness()">
+    <div class="gt-float-100 gt-mt-20">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-form-primary">
+            <label for="businessNameLegal" class="gt-form-label offer-input-label gt-fs-13 dcolor-primary">Business name</label>
+            <input 
+              id="businessNameLegal" 
+              type="text" 
+              class="gt-form-control offer-form-control binput-border"
+              placeholder="Enter business name " 
+              formControlName="businessNameLegal"                             
+              [customErrors]="businessError.businessNameLegal"
+              autocomplete="off"/>
+              <!-- appAlphabetOnly -->
+          </div>
+        </div>
+       
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-11">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-form-primary">
+            <label for="inputAddress" class="gt-form-label offer-input-label gt-fs-13 dcolor-primary">Business PAN number</label>
+            <input type="text" class="gt-form-control offer-form-control binput-border"
+              placeholder="Enter business PAN number" 
+              id="businessPANNumber" 
+              formControlName="businessPANNumber"              
+              [customErrors]="businessError.businessPANNumber"
+              required onkeyup="
+                var start = this.selectionStart;
+                var end = this.selectionEnd;
+                this.value = this.value.toUpperCase();
+                this.setSelectionRange(start, end);
+              " />
+            
+          </div>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+         
+          <div class="gt-text-danger" *ngIf="mappedErrorMessages.PAN" @fadeIn>
+            {{ mappedErrorMessages.PAN }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-11">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-form-primary">
+            <label for="inputAddress" class="gt-form-label offer-input-label gt-fs-13 dcolor-primary">GST number</label>
+            <input 
+              type="text" 
+              class="gt-form-control offer-form-control binput-border" 
+              placeholder="Enter GST number"
+              id="businessGSTNumber" 
+              formControlName="businessGSTNumber"                             
+              [customErrors]="businessError.businessGSTNumber"
+              onkeyup="
+                var start = this.selectionStart;
+                var end = this.selectionEnd;
+                this.value = this.value.toUpperCase();
+                this.setSelectionRange(start, end);
+              " />
+            
+          </div>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          
+          <div class="gt-text-danger" *ngIf="mappedErrorMessages.GST" @fadeIn>
+            {{ mappedErrorMessages.GST }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-11">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-form-primary">
+            <label for="inputAddress" class="gt-form-label offer-input-label gt-fs-13 dcolor-primary">CIN number ( optional )
+            </label>
+            <input 
+            type="text" 
+            class="gt-form-control offer-form-control binput-border" 
+            placeholder="Enter CIN number"
+              id="businessCINNumber" 
+              formControlName="businessCINNumber"                             
+              [customErrors]="businessError.businessCINNumber"
+              onkeyup="
+                var start = this.selectionStart;
+                var end = this.selectionEnd;
+                this.value = this.value.toUpperCase();
+                this.setSelectionRange(start, end);
+              " />
+            
+          </div>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          
+          <div class="gt-text-danger" *ngIf="mappedErrorMessages.CIN" @fadeIn>
+            {{ mappedErrorMessages.CIN }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gt-float-100 gt-mt-15">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="terms-business">
+               <h2 class="gt-fs-10 gt-lightblack">By continuing, you agree to gintaa business <a href="/legal/business-terms-condition" target="_blank" class="business-terms">terms & conditions</a> and <a href="/legal/business-privacy-policy" target="_blank" class="business-terms">Privacy Policy</a></h2>
+            </div>
+          </div>
+          </div>
+          </div>
+    <div class="gt-float-100 gt-mt-15">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-center">
+            <button class="
+                gt-btn-primary
+                gt-center
+                gt-width-100
+                gt-border-radius-2                
+                gt-fs-16 gt-height-45
+                register-now
+                bg-change-secondary-import
+                dark-shadow-import
+                border-none
+              " type="submit" 
+              [disabled]="
+                !businessForm.valid || 
+                this.mappedErrorMessages.PAN ||
+                this.mappedErrorMessages.GST ||
+                this.mappedErrorMessages.CIN 
+              ">
+             
+              submit
+            </button>
+          </div>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-text-danger" *ngIf="errorMessage" @fadeIn>
+            <span>{{ errorMessage }}</span>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </form>
+</div>

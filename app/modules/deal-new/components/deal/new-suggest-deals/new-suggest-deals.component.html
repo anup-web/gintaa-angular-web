@@ -1,0 +1,726 @@
+<div class="gt-pt-20 gt-pb-100 gt-float-100 new-deal-wrapper">
+    <div class="container rp-col-fluid">
+        <app-bread-crumb [breadcrumbs]="breadcrumb"> </app-bread-crumb>
+        <app-loading-spinner loaderType="drops-fading" [fullPage]="true" [loader]="!receiverofferDetails"
+            addBackDrop="true" backDropColor="#fff"></app-loading-spinner>
+        <!-- <app-spinner *ngIf="!receiverofferDetails" timeOut="7000"></app-spinner> -->
+        <div class="gt-float-100 gt-mt-10 deal-section">
+            <div class="gt-float-100">
+                <div class="row">
+                    <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12 gt-pr-5 rk-col-3">
+                        <div class="gt-float-100 gt-pd-lr-12 gt-pd-tb-20 gt-bg-white gt-mb-7 chatn-history">
+                            <div class="gt-float-100 deal-boxn">
+                                <div class="gt-between deal-offer-wrapperh">
+                                    <!-- deal left part start -->
+                                    <div class="gt-width-245 deal-offer-primary-left">
+                                        <div class="gt-float-100 gt-mb-20 deal-sec-1">
+                                            <div
+                                                class="gt-width-245 gt-position-relative deal-offer-primary deal-part-1">
+                                                <ng-container *ngIf="pageType == 'suggest'; else updateSec">
+                                                    <div *ngIf="senderDetails?.identityId">
+                                                        <app-deal-user-view [user]="senderDetails"
+                                                            [pageType]="pageType">
+                                                        </app-deal-user-view>
+                                                    </div>
+                                                </ng-container>
+                                                <ng-template #updateSec>
+                                                    <ng-container *ngIf="dealDetails?.dealRefId">
+                                                        <ng-container
+                                                            *ngIf="dealDetails?.callerIsReceiver; else senderDetailssec">
+                                                            <app-deal-user-view [user]="receiverDetails"
+                                                                [pageType]="pageType"
+                                                                [callerIsReceiver]="dealDetails?.callerIsReceiver"
+                                                                [direction]="'left'">
+                                                            </app-deal-user-view>
+                                                        </ng-container>
+                                                        <ng-template #senderDetailssec>
+                                                            <app-deal-user-view [user]="senderDetails"
+                                                                [pageType]="pageType"
+                                                                [callerIsReceiver]="dealDetails?.callerIsReceiver"
+                                                                [direction]="'left'">
+                                                            </app-deal-user-view>
+                                                        </ng-template>
+                                                    </ng-container>
+                                                </ng-template>
+                                            </div>
+                                        </div>
+                                        <div class="deal-offer-one">
+                                            <ng-container *ngIf="pageType == 'suggest'; else offerSec1">
+                                                <ng-container
+                                                    *ngIf="(receiverofferDetails?.exchangeMode !=='Money' && receiverofferDetails?.exchangeMode !=='Free' && receiverofferDetails?.exchangeMode !=='Auction') else amountShowSec">
+                                                    <div class="gt-width-245 gt-position-relative pro-shadow gt-float-left deal-offer-primary deal-part-3"
+                                                        *ngIf="senderAllOffer && senderAllOffer?.length else noOfferSec">
+                                                        <app-deal-offer-slider [myAllOffer]="senderAllOffer"
+                                                            [senderSelectedOffers]="senderSelectedOffers"
+                                                            (onChange)="onChange($event)" [offerId]="offerId"
+                                                            actionType="sender"
+                                                            [selectedDeliveryOption]="selectedDeliveryOption">
+                                                        </app-deal-offer-slider>
+                                                    </div>
+                                                    <ng-template #noOfferSec>
+                                                        You don't have any product
+                                                    </ng-template>
+                                                </ng-container>
+
+                                                <ng-template #amountShowSec>
+                                                    <div
+                                                        class="gt-width-245 gt-position-relative gt-float-left pro-shadow deal-offer-primary deal-part-4">
+                                                        <div class="single-arrivals-products gt-cursor-pointer gt-pb-8">
+                                                            <div class="gt-float-100 gt-center price-dealn">
+                                                                <div class="subd-price">
+                                                                    <div class="gt-float-100 gt-center">
+                                                                        <span class="icon-gt-price gt-fs-60"></span>
+                                                                    </div>
+                                                                    <div class="gt-float-100 gt-mt-10 gt-center">
+                                                                        <h2 class="gt-fs-20 gt-white"
+                                                                            *ngIf="receiverofferDetails?.exchangeMode ==='Free' else ShowAmountSender">
+                                                                            Free
+                                                                        </h2>
+                                                                        <ng-template #ShowAmountSender>
+                                                                            <h2 class="gt-fs-20 gt-white"
+                                                                                *ngIf="receiverofferDetails?.exchangeMode ==='Auction' else ShowAmountSenderauction">
+                                                                                {{totalAmount}}
+                                                                            </h2>
+                                                                            <ng-template #ShowAmountSenderauction>
+                                                                                <h2 class="gt-fs-20 gt-white">
+                                                                                    {{totalAmount}}
+                                                                                </h2>
+                                                                            </ng-template>
+                                                                        </ng-template>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </ng-template>
+                                            </ng-container>
+                                            <ng-template #offerSec1>
+                                                <ng-container
+                                                    *ngIf="dealDetails?.callerIsReceiver; else receiverofferSec">
+                                                    <div
+                                                        class="gt-width-245 gt-position-relative pro-shadow gt-float-left deal-offer-secondary deal-part-5">
+                                                        <app-deal-offer-slider [myAllOffer]="receiverAllOffer"
+                                                            [senderSelectedOffers]="receiverSelectedOffers"
+                                                            (onChange)="onChange($event)"
+                                                            [offerId]="receiverofferDetails?.offerId"
+                                                            actionType="receiver"
+                                                            [selectedDeliveryOption]="selectedDeliveryOption">
+                                                        </app-deal-offer-slider>
+                                                    </div>
+                                                </ng-container>
+                                                <ng-template #receiverofferSec>
+                                                    <div class="gt-width-245 gt-position-relative pro-shadow gt-float-left deal-offer-primary deal-part-6"
+                                                        *ngIf="(receiverofferDetails?.exchangeMode !=='Money' && receiverofferDetails?.exchangeMode !=='Free' && receiverofferDetails?.exchangeMode !=='Auction') else amountShowSec">
+                                                        <ng-container
+                                                            *ngIf="senderAllOffer && senderAllOffer?.length else noOfferSec">
+                                                            <app-deal-offer-slider [myAllOffer]="senderAllOffer"
+                                                                [senderSelectedOffers]="senderSelectedOffers"
+                                                                (onChange)="onChange($event)"
+                                                                [offerId]="receiverofferDetails?.offerId"
+                                                                actionType="sender"
+                                                                [selectedDeliveryOption]="selectedDeliveryOption">
+                                                            </app-deal-offer-slider>
+                                                        </ng-container>
+                                                        <ng-template #noOfferSec>
+                                                            You don't have any product
+                                                        </ng-template>
+                                                    </div>
+                                                    <ng-template #amountShowSec>
+                                                        <div
+                                                            class="gt-width-245 gt-position-relative pro-shadow gt-float-left deal-offer-primary deal-part-7">
+                                                            <div
+                                                                class="single-arrivals-products gt-cursor-pointer gt-pb-8">
+                                                                <div class="gt-float-100 gt-center price-dealn">
+                                                                    <div class="subd-price">
+                                                                        <div class="gt-float-100 gt-center">
+                                                                            <span class="icon-gt-price gt-fs-60"></span>
+                                                                        </div>
+                                                                        <div class="gt-float-100 gt-mt-10 gt-center">
+                                                                            <h2 class="gt-fs-20 gt-white"
+                                                                                *ngIf="receiverofferDetails?.exchangeMode ==='Free' else ShowAmountSender2">
+                                                                                Free</h2>
+                                                                            <ng-template #ShowAmountSender2>
+                                                                                <h2 class="gt-fs-20 gt-white">
+                                                                                    {{totalAmount}}</h2>
+                                                                            </ng-template>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </ng-template>
+                                                </ng-template>
+                                            </ng-template>
+                                        </div>
+
+                                        <div class="gt-float-100 gt-between deal-offer-two"
+                                            *ngIf="(receiverofferDetails?.exchangeMode !=='Money' && receiverofferDetails?.exchangeMode !=='Free' && receiverofferDetails?.exchangeMode !=='Auction')">
+                                            <div
+                                                class="gt-width-245 gt-position-relative gt-mt-15 gt-float-left deal-offer-primary deal-part-11">
+                                                <div class="gt-vcenter gt-float-100 feed-back-card pointer">
+                                                    <ng-container *ngIf="pageType == 'suggest'; else updateSecName">
+                                                        <h3 class="gt-fs-14 gt-sky pointer"
+                                                            (click)="openOfferDialog('mine', 'left')"
+                                                            *ngIf="senderAllOffer && senderAllOffer?.length && senderAllOffer?.length > 1 ">
+                                                            Select from my full list
+                                                        </h3>
+                                                    </ng-container>
+                                                    <ng-template #updateSecName>
+                                                        <ng-container
+                                                            *ngIf="dealDetails?.callerIsReceiver; else callerIsSenderName">
+                                                            <h3 class="gt-fs-14 gt-sky pointer"
+                                                                *ngIf="receiverAllOffer && receiverAllOffer?.length && receiverAllOffer?.length > 1 "
+                                                                (click)="openOfferDialog('receiver', 'left')">
+                                                                Select from my full list
+                                                            </h3>
+                                                        </ng-container>
+                                                        <ng-template #callerIsSenderName>
+                                                            <h3 class="gt-fs-14 gt-sky pointer"
+                                                                (click)="openOfferDialog('mine', 'left')"
+                                                                *ngIf="senderAllOffer && senderAllOffer?.length && senderAllOffer?.length > 1 ">
+                                                                Select from my full list
+                                                            </h3>
+                                                        </ng-template>
+                                                    </ng-template>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- deal middle arrow part start -->
+                                    <div class="gt-center deal-offer-arrow rp-deal-arrow">
+                                        <img src="assets/images/new-deal/copare.svg" class="image-arrow" alt="image"
+                                            width="42" height="39" />
+                                    </div>
+                                    <!-- deal middle arrow part end -->
+                                    <!-- deal right part start -->
+                                    <div class="gt-width-245 deal-offer-secondary-right">
+                                        <div
+                                            class="gt-width-245 gt-position-relative gt-float-left deal-offer-secondary gt-mb-20 deal-part-2">
+                                            <div class="gt-float-100 gt-center-between">
+                                                <ng-container *ngIf="pageType == 'suggest'; else updateSec2">
+                                                    <div *ngIf="receiverDetails?.identityId">
+                                                        <!-- Rev Det -->
+                                                        <app-deal-user-view [user]="receiverDetails"
+                                                            [pageType]="pageType" [callerIsReceiver]="true"
+                                                            [userLocation]="userLocation">
+                                                        </app-deal-user-view>
+                                                    </div>
+                                                </ng-container>
+                                                <ng-template #updateSec2>
+                                                    <ng-container
+                                                        *ngIf="dealDetails?.callerIsReceiver; else receiverDetailsSec">
+                                                        <app-deal-user-view [user]="senderDetails" [pageType]="pageType"
+                                                            [callerIsReceiver]="dealDetails?.callerIsReceiver"
+                                                            [userLocation]="userLocation"> </app-deal-user-view>
+                                                    </ng-container>
+                                                    <ng-template #receiverDetailsSec>
+                                                        <app-deal-user-view [user]="receiverDetails"
+                                                            [pageType]="pageType"
+                                                            [callerIsReceiver]="dealDetails?.callerIsReceiver"
+                                                            [userLocation]="userLocation">
+                                                        </app-deal-user-view>
+                                                    </ng-template>
+                                                </ng-template>
+                                                <div class="gt-vcenter poff-rating" *ngIf="averageRating">
+                                                    <span
+                                                        class="material-icons gt-fs-19 gt-mr-4 gt-black-40 rating-color">star</span>
+                                                    <h2 class="gt-fs-14 gt-black-60"> {{averageRating}} </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div
+                                            class="gt-width-245 gt-position-relative pro-shadow gt-float-left deal-offer-secondary deal-part-8">
+                                            <ng-container *ngIf="pageType == 'suggest'; else offerSec2">
+                                                <app-deal-offer-slider [myAllOffer]="receiverAllOffer"
+                                                    [senderSelectedOffers]="receiverSelectedOffers"
+                                                    (onChange)="onChange($event)" [offerId]="offerId"
+                                                    actionType="receiver"
+                                                    [selectedDeliveryOption]="selectedDeliveryOption">
+                                                </app-deal-offer-slider>
+                                            </ng-container>
+                                            <ng-template #offerSec2>
+                                                <ng-container
+                                                    *ngIf="!dealDetails?.callerIsReceiver; else receiverofferSec2">
+                                                    <app-deal-offer-slider [myAllOffer]="receiverAllOffer"
+                                                        [senderSelectedOffers]="receiverSelectedOffers"
+                                                        (onChange)="onChange($event)"
+                                                        [offerId]="receiverofferDetails?.offerId" actionType="receiver"
+                                                        [selectedDeliveryOption]="selectedDeliveryOption">
+                                                    </app-deal-offer-slider>
+                                                </ng-container>
+                                                <ng-template #receiverofferSec2>
+                                                    <div class="gt-width-245 gt-position-relative pro-shadow gt-float-left deal-offer-primary deal-part-9"
+                                                        *ngIf="(receiverofferDetails?.exchangeMode !=='Money' && receiverofferDetails?.exchangeMode !=='Free' && receiverofferDetails?.exchangeMode !=='Auction') else amountShowSec2">
+                                                        <ng-container *ngIf="senderAllOffer && senderAllOffer?.length">
+                                                            <app-deal-offer-slider [myAllOffer]="senderAllOffer"
+                                                                [senderSelectedOffers]="senderSelectedOffers"
+                                                                (onChange)="onChange($event)"
+                                                                [offerId]="receiverofferDetails?.offerId"
+                                                                actionType="sender"
+                                                                [selectedDeliveryOption]="selectedDeliveryOption">
+                                                            </app-deal-offer-slider>
+                                                        </ng-container>
+                                                    </div>
+                                                    <ng-template #amountShowSec2>
+                                                        <div
+                                                            class="gt-width-245 gt-position-relative pro-shadow gt-float-left deal-offer-primary deal-part-10">
+                                                            <div
+                                                                class="single-arrivals-products gt-cursor-pointer gt-pb-8">
+                                                                <div class="gt-float-100 gt-center price-dealn">
+                                                                    <div class="subd-price">
+                                                                        <div class="gt-float-100 gt-center">
+                                                                            <span class="icon-gt-price gt-fs-60"></span>
+                                                                        </div>
+                                                                        <div class="gt-float-100 gt-mt-10 gt-center">
+                                                                            <h2 class="gt-fs-20 gt-white"
+                                                                                *ngIf="receiverofferDetails?.exchangeMode ==='Free' else ShowAmount3">
+                                                                                Free</h2>
+                                                                            <ng-template #ShowAmount3>
+                                                                                <h2 class="gt-fs-20 gt-white">
+                                                                                    {{totalAmount}}
+                                                                                </h2>
+                                                                            </ng-template>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </ng-template>
+                                                </ng-template>
+                                            </ng-template>
+                                        </div>
+                                        <div class="gt-float-100 gt-between deal-offer-two"
+                                            *ngIf="(receiverofferDetails?.exchangeMode !=='Money' && receiverofferDetails?.exchangeMode !=='Free' && receiverofferDetails?.exchangeMode !=='Auction')">
+                                            <div
+                                                class="gt-width-245 gt-mt-15 deal-offer-secondary gt-float-left deal-part-12">
+                                                <div class="gt-float-100 gt-center-between pointer">
+                                                    <ng-container *ngIf="pageType == 'suggest'; else updateSecName2">
+                                                        <h3 class="gt-fs-14 gt-sky pointer"
+                                                            (click)="openOfferDialog('receiver', 'right')">
+                                                            Select from {{ receiverDetails?.name }}’s full list
+                                                        </h3>
+                                                    </ng-container>
+                                                    <ng-template #updateSecName2>
+                                                        <ng-container
+                                                            *ngIf="!dealDetails?.callerIsReceiver; else callerIsSenderName2">
+                                                            <h3 class="gt-fs-14 gt-sky pointer"
+                                                                *ngIf="receiverAllOffer && receiverAllOffer?.length && receiverAllOffer?.length > 1 "
+                                                                (click)="openOfferDialog('receiver', 'right')">
+                                                                Select from {{ receiverDetails?.name }}’s full list
+                                                            </h3>
+                                                        </ng-container>
+                                                        <ng-template #callerIsSenderName2>
+                                                            <h3 class="gt-fs-14 gt-sky pointer"
+                                                                *ngIf="senderAllOffer && senderAllOffer?.length && senderAllOffer?.length > 1 "
+                                                                (click)="openOfferDialog('sender', 'right')">
+                                                                Select from {{ senderDetails?.name }}’s full list
+                                                            </h3>
+                                                        </ng-template>
+                                                    </ng-template>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- deal right part end -->
+                                </div>
+                                <div class="gt-float-100 gt-between deal-offer-three gt-mt-35"
+                                    *ngIf="(receiverofferDetails?.exchangeMode =='Money' || receiverofferDetails?.exchangeMode =='Free' || receiverofferDetails?.exchangeMode =='Auction' || receiverofferDetails?.exchangeMode !=='Auction' && selectedDeliveryOption != 'Junction' || selectedDeliveryOption !='Shipping')">
+                                    <app-deal-tips [showTips]="showTips"></app-deal-tips>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12 gt-pl-5 rk-col-4">
+                        <div class="gt-float-100 gt-pd-lr-12 gt-pd-tb-10 gt-mb-7 gt-bg-white chatn-history"
+                            *ngIf="receiverofferDetails && receiverofferDetails.offerId">
+                            <div class="gt-float-100">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="gt-float-100">
+                                            <div class="gt-center-end nds-tatus">
+                                                <div class="gt-vcenter status-5">
+                                                    <span class="icon-gt-arrow-forward gt-fs-35"></span>
+                                                    <h3 class="gt-fs-15 gt-sky">Outgoing</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gt-float-100 nchat-histou">
+                                <ng-container
+                                    *ngIf="(receiverofferDetails?.exchangeMode !=='Money' && receiverofferDetails?.exchangeMode !=='Free' && receiverofferDetails?.exchangeMode !=='Auction') else exchangeMoneySec">
+                                    <div class="gt-float-100">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="my-time req-money">
+                                                    <mat-slide-toggle
+                                                        [checked]="requestObject.suggestRequestMoney.selected"
+                                                        (change)="toggleMoneyOption($event)">Suggest/request a money
+                                                    </mat-slide-toggle>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="gt-float-100 gt-mt-10"
+                                        *ngIf="requestObject.suggestRequestMoney.selected">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="gt-float-100 gt-display-flex will-pay">
+                                                    <div class="gt-form-primary gt-width-80">
+                                                        <select id="gt_select_option"
+                                                            [(ngModel)]="requestObject.suggestRequestMoney.willPay"
+                                                            class="
+                                                    gt-form-select
+                                                    offer-form-control gt-fs-15
+                                                    will-pay-rp
+                                                  " (change)="changeMoneyOption($event)">
+                                                            <option value="">Select Option</option>
+                                                            <ng-container
+                                                                *ngIf="pageType=='revise' else conditionalShowMoney ">
+                                                                <option value="1">I will pay</option>
+                                                                <option value="2">My partner will pay </option>
+                                                            </ng-container>
+                                                            <ng-template #conditionalShowMoney>
+                                                                <option value="1" *ngIf="showWillPay(1)">I will pay
+                                                                </option>
+                                                                <option value="2" *ngIf="showWillPay(2)">My partner will
+                                                                    pay</option>
+                                                            </ng-template>
+                                                        </select>
+                                                    </div>
+                                                    <div class="money-custom gt-deal-192 gt-ml-33 price-pay-rp">
+                                                        <div class="currency-group">
+                                                            <div class="currency-input-group hash-input">
+                                                                <div class="currency-input-group-prepend">
+                                                                    <div
+                                                                        class="currency-input-group-text tag-group-money">
+                                                                        <img src="assets/images/create-offer/money.svg"
+                                                                            alt="image" class="money-tag" width="40"
+                                                                            height="40" />
+                                                                    </div>
+                                                                </div>
+                                                                <input type="number"
+                                                                    class="currency-form-control hash-control gt-fs-15 gt-pl-3"
+                                                                    placeholder="1000" min="0"
+                                                                    [(ngModel)]="requestObject.suggestRequestMoney.amount"
+                                                                    (keypress)="onAmountChange($event)" step=".01" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="gt-text-danger"
+                                                    *ngIf="suggestDealValidator.amountValidation.invalid" @fadeIn>
+                                                    <div class="error">
+                                                        {{ suggestDealValidator.amountValidation.error }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ng-container>
+
+                                <ng-template #exchangeMoneySec>
+                                    <div class="gt-float-100 gt-pt-10 gt-pb-2"
+                                        *ngIf="receiverofferDetails?.negotiable && receiverofferDetails?.exchangeMode !='Free'">
+                                        <div class="row">
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xs-12 listing-price-50">
+                                                <div class="gt-float-100">
+                                                    <div class="secondary_group">
+                                                        <div class="secondary-wrap validate-input">
+                                                            <span class="secondary-label label-ml">
+                                                                <span
+                                                                    class="icon-gt-currency gt-fs-15s gt-text-medium"></span>
+                                                                Enter listing price/unit</span>
+                                                            <input type="number" class="secondary-input" name="nPrice"
+                                                                [placeholder]="receiverofferDetails?.price"
+                                                                [(ngModel)]="offerPrice" numbersOnly
+                                                                (keyup)="onPriceChangeChange($event)" step="0.01" />
+                                                            <!-- (keyup)="updateUserAddressField('phoneNumber', phoneNumber.value)" -->
+                                                        </div>
+                                                        <div class="gt-text-danger" *ngIf="maxAmountError">
+                                                            <div class="error error-next"> {{maxAmountMessage}} </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                                                <div class="secondary_group">
+                                                    <div class="secondary-wrap validate-input">
+                                                        <span class="secondary-label">Quantity</span>
+                                                        <input class="secondary-input" type="text"
+                                                            formControlName="name" placeholder="10">
+                                                        <span class="secondary-focus"></span>
+                                                    </div>
+                                                </div>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                </ng-template>
+                            </div>
+                            <div class="gt-float-100 gt-mt-5 gt-mb-5" *ngIf="errorMessage">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div class="gt-text-danger">
+                                            <div class="error">{{ errorMessage }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="gt-float-100 gt-mt-5">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 gt-mb-5" >
+                                        <div class="gt-text-danger" *ngIf="suggestDealValidator.sender.invalid">
+                                            <div class="error">{{ suggestDealValidator.sender.error }}</div>
+                                        </div>
+                                        <div class="gt-text-danger" *ngIf="whowillPayError">
+                                            <div class="error">{{ whowillPayError }}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ng-container *ngIf="showDeliveryPreference() else showService">
+                                <div class="gt-float-100 gt-mt-10">
+                                    <div class="row">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="gt-float-100">
+                                                <div class="gt-center-start hky-uk">
+                                                    <div class="gt-vcenter dev-pref">
+                                                        <h3 class="gt-fs-15 gt-text-medium gt-black-60">Delivery
+                                                            preference
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="gt-float-100 nchat-histou">
+                                    <div class="gt-float-100 gt-mt-12">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                <div class="gt-float-100">
+                                                    <div class="gt-float-100 search-list">
+                                                        <div class="sugg-list-item">
+                                                            <mat-radio-group class="dp-radio-group gt-pb-0"
+                                                                aria-label="Select an option"
+                                                                [(ngModel)]="selectedDeliveryOption">
+                                                                <mat-radio-button class="examp-radio-button gt-pd-lr-32"
+                                                                    [value]="availableDeliveryOptions[0]"
+                                                                    (change)="updateDeliveryOption($event)">
+                                                                    <div class="gt-float-100 choose-delivery-options">
+                                                                        <h2 class="gt-float-100 dcolor-primary">
+                                                                            Personal meeting
+                                                                        </h2>
+                                                                        <h3 class="gt-float-100 dcolor-primary">
+                                                                            Most simple way to make an offer
+                                                                        </h3>
+                                                                    </div>
+                                                                </mat-radio-button>
+                                                                <mat-radio-button
+                                                                    class="gt-mt-10 examp-radio-button gt-pd-lr-32"
+                                                                    [value]="availableDeliveryOptions[2]"
+                                                                    (change)="updateDeliveryOption($event)">
+                                                                    <div class="gt-float-100 choose-delivery-options">
+                                                                        <h2 class="gt-float-100 dcolor-primary">
+                                                                            gintaa junction
+                                                                        </h2>
+                                                                        <h3 class="gt-float-100 dcolor-primary">
+                                                                            Secure and convenient places to make
+                                                                            a
+                                                                            offer
+                                                                        </h3>
+                                                                    </div>
+                                                                </mat-radio-button>
+                                                                <app-gintaa-junction
+                                                                    *ngIf="selectedDeliveryOption === availableDeliveryOptions[2]"
+                                                                    [gintaaJunctionValidator]="gintaaJunctionValidator"
+                                                                    [pageType]="pageType">
+                                                                </app-gintaa-junction>
+                                                                <mat-radio-button
+                                                                    *ngIf="(receiverofferDetails?.exchangeMode =='Money' || receiverofferDetails?.exchangeMode == 'Free' || receiverofferDetails?.exchangeMode == 'Auction') && receiverofferDetails.offerType != 'Service'"
+                                                                    class="gt-mt-10 examp-radio-button gt-pd-lr-32"
+                                                                    [value]="availableDeliveryOptions[1]"
+                                                                    (change)="updateDeliveryOption($event)">
+                                                                    <div class="gt-float-100 choose-delivery-options">
+                                                                        <h2 class="gt-float-100 dcolor-primary">
+                                                                            Doorstep delivery
+                                                                        </h2>
+                                                                        <h3 class="gt-float-100 dcolor-primary">
+                                                                            Couriers will deliver your packages
+                                                                        </h3>
+                                                                    </div>
+                                                                </mat-radio-button>
+                                                                <div class="gt-float-100 gt-pd-lr-12"
+                                                                    *ngIf="selectedDeliveryOption == availableDeliveryOptions[1]">
+                                                                    <div
+                                                                        class="gt-float-100 gt-pt-10 gt-pd-lr-12 gt-mb-10">
+                                                                        <div class="row">
+                                                                            <div
+                                                                                class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                                                <div class="gt-float-100">
+                                                                                    <mat-radio-group
+                                                                                        class="dp-radio-group gt-pb-0"
+                                                                                        aria-label="Select an option"
+                                                                                        [(ngModel)]="selectedThirdPartyOption">
+                                                                                        <div
+                                                                                            class="row express_delivery_select">
+                                                                                            <div
+                                                                                                class="col-xl-5 col-lg-5 col-md-5 col-sm-6">
+                                                                                                <mat-radio-button
+                                                                                                    class="examp-radio-button gt-pd-lr-32"
+                                                                                                    [value]="availableDeliveryOptions[1]"
+                                                                                                    (change)="updateDeliveryOption($event, 'door')">
+                                                                                                    <div
+                                                                                                        class="gt-float-100 choose-delivery-options">
+                                                                                                        <h2
+                                                                                                            class="gt-float-100 dcolor-primary">
+                                                                                                            <img
+                                                                                                                src="assets/images/express_delivery.png" />
+                                                                                                        </h2>
+                                                                                                    </div>
+                                                                                                </mat-radio-button>
+                                                                                            </div>
+                                                                                            <div
+                                                                                                class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                                                                                <mat-radio-button
+                                                                                                    class="examp-radio-button gt-pd-lr-32"
+                                                                                                    [value]="availableDeliveryOptions[3]"
+                                                                                                    (change)="updateDeliveryOption($event, 'door')">
+                                                                                                    <div
+                                                                                                        class="gt-float-100 choose-delivery-options">
+                                                                                                        <h2
+                                                                                                            class="gt-float-100 dcolor-primary">
+                                                                                                            <img
+                                                                                                                src="assets/images/india_post.png" />
+                                                                                                        </h2>
+                                                                                                    </div>
+                                                                                                </mat-radio-button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </mat-radio-group>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="gt-float-100"
+                                                                        *ngIf="showDoorStepDelivery('message')">
+                                                                        <div
+                                                                            class="gt-float-100 gt-pt-10 gt-pd-lr-12 gt-mt-10">
+                                                                            <div class="row">
+                                                                                <div
+                                                                                    class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                                                    <div class="gt-float-100">
+                                                                                        <div
+                                                                                            class="gt-fs-14 gt-text-medium gt-black-60 indiapost-info">
+                                                                                            <mat-icon>info
+                                                                                            </mat-icon>
+                                                                                            You need to initiate and
+                                                                                            track the shipment
+                                                                                            personally from India Post.
+                                                                                            All delivery related updates
+                                                                                            will be handled directly
+                                                                                            between the user and India
+                                                                                            Post.
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <app-deal-accept-shipping
+                                                                        *ngIf="showDoorStepDelivery('updateDimension')"
+                                                                        [packingList]="packingList"
+                                                                        [dealDetails]="dealDetails"
+                                                                        (updateDimension)="updateDimension($event)"
+                                                                        [page]="'revise'">
+                                                                    </app-deal-accept-shipping>
+                                                                    <app-door-step-delivery
+                                                                        *ngIf="showDoorStepDelivery()"
+                                                                        [deliveryAddress]="deliveryAddress"
+                                                                        [shippingVendor]="shippingVendor"
+                                                                        [totalAmount]="totalAmount"
+                                                                        [selectedAssureDelivery]="selectedAssureDelivery"
+                                                                        [selectedAssureAmount]="selectedAssureAmount"
+                                                                        (updateDeliverAddress)="updateDeliverAddress($event)"
+                                                                        (updateAssureDelivery)="updateAssureDelivery($event)"
+                                                                        [calculateShipping]="calculateShipping"
+                                                                        [exchangeMode]="receiverofferDetails?.exchangeMode"
+                                                                        [isbusinessOffer]="isbusinessOffer">
+                                                                    </app-door-step-delivery>
+                                                                </div>
+                                                            </mat-radio-group>
+                                                        </div>
+                                                        <div class="gt-text-danger"
+                                                            *ngIf="suggestDealValidator.selectedDeliveryOption.invalid"
+                                                            @fadeIn>
+                                                            <div class="error">
+                                                                {{
+                                                                suggestDealValidator.selectedDeliveryOption.error
+                                                                }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-container>
+                            <ng-template #showService>
+                                <div class="gt-float-100">
+                                    <div class="gt-float-100 gt-pt-10 gt-pd-lr-12 gt-mt-10">
+                                        <div class="row">
+                                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                <div class="gt-float-100">
+                                                    <div class="gt-fs-14 gt-text-medium gt-black-60 indiapost-info">
+                                                        <mat-icon>info</mat-icon>
+                                                        You need to initiate and get the service personally. All service
+                                                        related updates will be handled directly between the customers
+                                                        and service providers.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </ng-template>
+                            <div class="gt-float-100 gt-mt-20">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <button type="button"
+                                            class="gt-btn-primary gt-center gt-border-radius-2 gt-height-48 gt-width-100 gt-float-right new-next"
+                                            (click)="onInitiateDeal()" [ngClass]="disableSuggestBtn ? 'disabled':''"
+                                            [disabled]="disableSuggestBtn">
+                                            <h2 class="gt-fs-16 gt-white">
+                                                <ng-container *ngIf="dealRefId; else updateSecbtn">
+                                                    <ng-container *ngIf="
+                                                  dealDetails?.callerIsReceiver;
+                                                  else callerIsSender2
+                                                ">
+                                                        update offer
+                                                    </ng-container>
+                                                    <ng-template #callerIsSender2>
+                                                        update offer
+                                                    </ng-template>
+                                                </ng-container>
+                                                <ng-template #updateSecbtn> suggest an offer </ng-template>
+                                            </h2>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <app-deal-tips
+                            *ngIf="(receiverofferDetails?.exchangeMode !=='Money' && receiverofferDetails?.exchangeMode !=='Free' && receiverofferDetails?.exchangeMode !=='Auction' && selectedDeliveryOption != 'Junction' && selectedDeliveryOption !='Shipping' )"
+                            [showTips]="showTips">
+                        </app-deal-tips>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

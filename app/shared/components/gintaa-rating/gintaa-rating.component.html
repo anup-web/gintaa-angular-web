@@ -1,0 +1,92 @@
+<div class="gt-float-100 user-fdback-image">
+    <div class="gt-float-100 gt-mt-24 fdback-rating">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="gt-float-100 gt-center">
+                    <h2 class="gt-text-center gt-fs-16 gt-lightblack gt-text-medium dcolor-primary">{{rateString}}</h2>
+                </div>
+                <ng-container *ngIf="ratingContexts && ratingContexts.length > 0">
+                    <ng-container *ngFor="let ratingContext of ratingContexts">
+                        <div class="gt-float-100 review-rating-row">
+                            <div class="gt-center user-rating-comts ul-mt-zero close-rats">
+                                <star-rating [value]="ratingContext.minRating" [totalstars]="ratingContext.maxRating"
+                                    [checkedcolor]="ratingConfig.checkedcolor"
+                                    [uncheckedcolor]="ratingConfig.uncheckedcolor" [size]="ratingConfig.size"
+                                    [readonly]="ratingConfig.readonly" (rate)="onRate($event, ratingContext.contextId)">
+                                </star-rating>
+                            </div>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+    <ng-template ngFor let-i="index" let-c="count" let-question [ngForOf]="questionList">
+        <div class="gt-float-100">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-mt-25 gt-float-100 fdback-qua dcolor-primary">
+                        <h3 class="gt-fs-16 gt-lightblack gt-text-medium dcolor-primary">{{question.question}}
+                            <span class="want-color dcolor-secondary" *ngIf="userName">({{userName}} will not see it)</span>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gt-float-100">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-mt-16 gt-float-100 fdback-tag">
+                        <ng-template ngFor let-i="index" let-c="count" let-answer
+                            [ngForOf]="question?.predictedAnswers">
+                            <div class="gt-cursor-pointer feed-tag"
+                                [ngClass]="(answer?.selected==true) ? 'feed-tag feed-tag-active':'feed-tag'"
+                                (click)="answer.selected = !answer.selected">{{answer.text}}</div>
+                        </ng-template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+
+    <div class="gt-float-100">
+        <div class="row">
+            <div class="gt-float-100 gt-display-flex gt-mt-24 gt-mb-24 gt-pd-lr-24" *ngIf="errorMessage">
+                <div class="gt-text-danger">
+                    <div class="error">{{ errorMessage }}</div>
+                </div>
+            </div>
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 secondary_group gt-mb-zero gt-mt-18 fdback-commt">
+                    <div class="secondary-wrap validate-input gt-border-none">
+
+                        <span class="secondary-label gt-mb-8 offer-input-label" *ngIf="gintaaRating else commentSec">Comment about gintaa
+                            (voluntary)</span>
+                        <ng-template #commentSec>
+                            <span class="secondary-label gt-mb-8 offer-input-label dcolor-primary">Your comment</span>
+                        </ng-template>
+                        <textarea type="textarea" class="secondary-input secondary-bg" rows="2"
+                            placeholder="Your comment" [(ngModel)]="initiateDealComment"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gt-float-100">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-mt-20 gt-float-100 fdback-next">
+                    <button class="gt-btn-primary gt-width-130 gt-btn-shadow bg-change-secondary dark-shadow border-none" [ngClass]="disableButton ? 'disabled':''" (click)="saveUserRating()" [disabled]="disableButton"> 
+                        <ng-container *ngIf="gintaaRating else nextSec">
+                            save
+                        </ng-container> 
+                        <ng-template #nextSec>
+                            save
+                        </ng-template>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

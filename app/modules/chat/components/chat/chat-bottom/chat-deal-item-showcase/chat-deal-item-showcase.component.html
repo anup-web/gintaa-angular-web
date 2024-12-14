@@ -1,0 +1,37 @@
+<div class="gt-width-100 gt-vcenter cdael-card-list" *ngIf="dealDetails?.receivingOffers?.length>0 || dealDetails?.sendingOffers?.length>0">
+    
+    <div class="gt-vcenter cdeal-left">
+        <ng-container *ngFor="let offer of dealDetails.receivingOffers.slice(0,2)">
+            <img [src]="showDealOfferImage(offer.images)" class="image-width-24 gt-border-radius-4 gt-mr-4" alt="image"/>
+        </ng-container>
+        <ng-container *ngIf="dealDetails.receivingAmount>0">
+            <div class="deal-price-chat">
+                <!-- <img src="assets/images/deal/deal-price.svg" class="gt-center deal-price-icon" width="20" height="20"
+                alt="image"> -->
+                <h2 class="gt-center gt-fs-14">{{dealDetails.receivingAmount}}</h2>
+            </div>
+        </ng-container>
+        <div class="gt-vcenter gt-fs-10 gt-lightblack gt-font-poppins gt-text-bold deal-plus" *ngIf="dealDetails.receivingOffers?.length>3">
+            <span class="material-icons gt-text-bold gt-fs-10 ">add</span> {{dealDetails.receivingOffers?.length-3}}</div>
+    </div>
+    <div class="gt-vcenter gt-pd-lr-11 cdael-compare">
+        <img src="assets/images/chat/arrow-dchat.svg" class="dchat-arrow" alt="image" width="10" height="10"/>
+    </div>
+    <div class="gt-vcenter cdeal-right">
+        <ng-container *ngIf="dealDetails.sendingOffers?.length >0">
+            <ng-container *ngFor="let offer of dealDetails.sendingOffers.slice(0,2)">
+                <img [src]="showDealOfferImage(offer.images)" class="image-width-24 gt-border-radius-4 gt-mr-4" alt="image"/>
+            </ng-container>
+        </ng-container>
+        <ng-container *ngIf="dealDetails.sendingAmount>0">
+            <div class="deal-price-chat">
+                <!-- <img src="assets/images/deal/deal-price.svg" class="gt-center deal-price-icon" width="20" height="20"
+                alt="image"> -->
+                <h2 class="gt-center gt-fs-14">{{dealDetails.sendingAmount}}</h2>
+            </div>
+        </ng-container> 
+        <div class="gt-vcenter gt-fs-10 gt-lightblack gt-font-poppins gt-text-bold deal-plus" *ngIf="dealDetails.sendingOffers?.length>3">
+            <span class="material-icons gt-text-bold gt-fs-10 ">add</span>{{dealDetails.sendingOffers.length-3}}</div>   
+    </div>
+     <h4 class="gt-fs-13 gt-sky gt-ml-10 cds-rp">(You) {{dealDetails.dealStatus}}</h4>
+</div>

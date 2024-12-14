@@ -1,0 +1,431 @@
+<div class="gt-float-100 gt-pt-10 gt-pb-14 gt-pd-lr-12">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+      <div class="gt-float-100">
+        <h1 class="gt-fs-15 gt-text-medium gt-lightblack">
+          Upload images/videos
+        </h1>
+        <h2 class="gt-fs-12 gt-mt-5 new-color">
+          You can add upto 10 photos/videos
+        </h2>
+      </div>
+    </div>
+    <div
+      class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-3 mb-5"
+      *ngIf="imageUploadFailed"
+    >
+      <div class="gt-float-100">
+        <h1 class="gt-fs-15 gt-text-medium gt-text-danger">
+          Media upload failed! Please try uploading another image.
+        </h1>
+      </div>
+    </div>
+    <div
+      class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mt-3 mb-5"
+      *ngIf="imageDeleteFailed"
+    >
+      <div class="gt-float-100">
+        <h1 class="gt-fs-15 gt-text-medium gt-text-danger">
+          {{ errorMessage || "Media Remove Failed" }}
+        </h1>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- offer item default image -->
+<div class="gt-float-100 gt-pd-lr-12">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 ak-col-1">
+      <div
+        class="gt-float-100 gt-mb-18 gt-center new-default-image"
+        *ngIf="!coverMediaSub; else coverMedia"
+        (click)="uploadMedia('Cover')"
+        style="cursor: pointer"
+      >
+        <div class="gt-float-100">
+          <div class="gt-float-100 gt-cursor-pointer gt-center">
+            <input
+              type="file"
+              #coverFileInput
+              name="mediaUpload"
+              [accept]="acceptedMediaType"
+              style="display: none"
+            />
+            <img
+              src="assets/images/new-offers/default-upload.svg"
+              alt="images"
+              class="gt-img-responsive"
+              width="42"
+              height="36"
+            />
+          </div>
+          <div class="gt-float-100 gt-text-center upload-text">
+            <h2 class="gt-fs-14 new-color gt-mt-14">cover photo
+              <span class="d-block small-text-info">( Upload mandatory cover image first )</span>
+            </h2>
+          </div>
+        </div>
+      </div>
+      <ng-template #coverMedia>
+        <div class="new-default-image gt-mb-18">
+          <div class="image-box">
+            <div class="online-delete">
+              <button
+                type="button"
+                class="gt-btn-primary offer-delete-upload"
+                (click)="removeMedia(coverMediaSub, 'Cover')"
+              >
+                <img
+                  src="assets/images/profile/profile-photo-delete.svg"
+                  class="pro-res"
+                  alt="image"
+                  width="15"
+                  height="20"
+                />
+              </button>
+            </div>
+            <div class="online-edit">
+              <button
+                type="button"
+                class="gt-btn-primary image-cover-btn bg-cover"
+              >
+                cover
+              </button>
+            </div>
+            <img
+              [src]="coverMediaSub && coverMediaSub?.url"
+              alt="images"
+              class="offer-img gt-img-responsive"
+            />
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<div class="gt-float-100 gt-pd-lr-12">
+  <div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 gt-pr-3 ak-col-2">
+      <div
+        class="gt-float-100 gt-mb-18 gt-center new-default-image sub-imghs"
+        *ngIf="!frontMediaSub; else frontMedia"
+        (click)="uploadMedia('Front')"
+        style="cursor: pointer"
+      >
+        <div class="gt-float-100">
+          <div class="gt-float-100 gt-cursor-pointer gt-center">
+            <input
+              type="file"
+              #frontFileInput
+              name="mediaUpload"
+              accept="image/*"
+              style="display: none"
+            />
+            <img
+              src="assets/images/new-offers/default-upload.svg"
+              alt="images"
+              class="gt-img-responsive"
+              width="42"
+              height="36"
+            />
+          </div>
+          <div class="gt-float-100 gt-text-center upload-text">
+            <h2 class="gt-fs-14 new-color gt-mt-14">front</h2>
+          </div>
+        </div>
+      </div>
+      <ng-template #frontMedia>
+        <div class="new-default-image sub-imgh gt-mb-12">
+          <div class="image-box">
+            <div class="online-delete">
+              <button
+                type="button"
+                class="gt-btn-primary offer-delete-upload"
+                (click)="removeMedia(frontMediaSub, 'Front')"
+              >
+                <img
+                  src="assets/images/profile/profile-photo-delete.svg"
+                  class="pro-res"
+                  alt="image"
+                  width="15"
+                  height="20"
+                />
+              </button>
+            </div>
+            <img
+              [src]="frontMediaSub?.url"
+              alt="images"
+              class="offer-img gt-img-responsive"
+            />
+          </div>
+        </div>
+      </ng-template>
+    </div>
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 gt-pl-3 ak-col-3">
+      <div
+        class="gt-float-100 gt-mb-18 gt-center new-default-image sub-imghs"
+        *ngIf="!backMediaSub; else backMedia"
+        (click)="uploadMedia('Back')"
+        style="cursor: pointer"
+      >
+        <div class="gt-float-100">
+          <div class="gt-float-100 gt-cursor-pointer gt-center">
+            <input
+              type="file"
+              #backFileInput
+              name="mediaUpload"
+              accept="image/*"
+              style="display: none"
+            />
+            <img
+              src="assets/images/new-offers/default-upload.svg"
+              alt="images"
+              class="gt-img-responsive"
+              width="42"
+              height="36"
+            />
+          </div>
+          <div class="gt-float-100 gt-text-center upload-text">
+            <h2 class="gt-fs-14 new-color gt-mt-14">back</h2>
+          </div>
+        </div>
+      </div>
+      <ng-template #backMedia>
+        <div class="new-default-image sub-imgh gt-mb-12">
+          <div class="image-box">
+            <div class="online-delete">
+              <button
+                type="button"
+                class="gt-btn-primary offer-delete-upload"
+                (click)="removeMedia(backMediaSub, 'Back')"
+              >
+                <img
+                  src="assets/images/profile/profile-photo-delete.svg"
+                  class="pro-res"
+                  alt="image"
+                  width="15"
+                  height="20"
+                />
+              </button>
+            </div>
+            <img
+              [src]="backMediaSub?.url"
+              alt="images"
+              class="offer-img gt-img-responsive"
+            />
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<div class="gt-float-100 gt-pd-lr-12">
+  <div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 gt-pr-3 ak-col-4">
+      <div
+        class="gt-float-100 gt-mb-18 gt-center new-default-image sub-imghs"
+        *ngIf="!leftSideMediaSub; else leftMedia"
+        (click)="uploadMedia('Left')"
+        style="cursor: pointer"
+      >
+        <div class="gt-float-100">
+          <div class="gt-float-100 gt-cursor-pointer gt-center">
+            <input
+              type="file"
+              #leftFileInput
+              name="mediaUpload"
+              accept="image/*"
+              style="display: none"
+            />
+            <img
+              src="assets/images/new-offers/default-upload.svg"
+              alt="images"
+              class="gt-img-responsive"
+              width="42"
+              height="36"
+            />
+          </div>
+          <div class="gt-float-100 gt-text-center upload-text">
+            <h2 class="gt-fs-14 new-color gt-mt-14">left side</h2>
+          </div>
+        </div>
+      </div>
+      <ng-template #leftMedia>
+        <div class="new-default-image sub-imgh gt-mb-12">
+          <div class="image-box">
+            <div class="online-delete">
+              <button
+                type="button"
+                class="gt-btn-primary offer-delete-upload"
+                (click)="removeMedia(leftSideMediaSub, 'Left')"
+              >
+                <img
+                  src="assets/images/profile/profile-photo-delete.svg"
+                  class="pro-res"
+                  alt="image"
+                  width="15"
+                  height="20"
+                />
+              </button>
+            </div>
+            <img
+              [src]="leftSideMediaSub?.url"
+              alt="images"
+              class="offer-img gt-img-responsive"
+            />
+          </div>
+        </div>
+      </ng-template>
+    </div>
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 gt-pl-3 ak-col-5">
+      <div
+        class="gt-float-100 gt-mb-18 gt-center new-default-image sub-imghs"
+        *ngIf="!rightSideMediaSub; else rightMedia"
+        (click)="uploadMedia('Right')"
+        style="cursor: pointer"
+      >
+        <div class="gt-float-100">
+          <div class="gt-float-100 gt-cursor-pointer gt-center">
+            <input
+              type="file"
+              #rightFileInput
+              name="mediaUpload"
+              accept="image/*"
+              style="display: none"
+            />
+            <img
+              src="assets/images/new-offers/default-upload.svg"
+              alt="images"
+              class="gt-img-responsive"
+              width="42"
+              height="36"
+            />
+          </div>
+          <div class="gt-float-100 gt-text-center upload-text">
+            <h2 class="gt-fs-14 new-color gt-mt-14">right side</h2>
+          </div>
+        </div>
+      </div>
+      <ng-template #rightMedia>
+        <div class="new-default-image sub-imgh gt-mb-12">
+          <div class="image-box">
+            <div class="online-delete">
+              <button
+                type="button"
+                class="gt-btn-primary offer-delete-upload"
+                (click)="removeMedia(rightSideMediaSub, 'Right')"
+              >
+                <img
+                  src="assets/images/profile/profile-photo-delete.svg"
+                  class="pro-res"
+                  alt="image"
+                  width="15"
+                  height="20"
+                />
+              </button>
+            </div>
+            <img
+              [src]="rightSideMediaSub?.url"
+              alt="images"
+              class="offer-img gt-img-responsive"
+            />
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<div class="gt-float-100 gt-pd-lr-12">
+  <div class="row">
+    <ng-container *ngFor="let media of moreMediaSub; index as i">
+      <div
+        class="col-xl-6 col-lg-6 col-md-6 col-sm-6"
+        [ngClass]="i % 2 == 0 ? 'gt-pr-3 ak-col-6' : 'gt-pl-3 ak-col-6'"
+      >
+        <div class="new-default-image sub-imgh gt-mb-12">
+          <div class="image-box">
+            <div class="online-delete">
+              <button
+                type="button"
+                class="gt-btn-primary offer-delete-upload"
+                (click)="removeMedia(media, 'More')"
+              >
+                <img
+                  src="assets/images/profile/profile-photo-delete.svg"
+                  class="pro-res"
+                  alt="image"
+                  width="15"
+                  height="20"
+                />
+              </button>
+            </div>
+            <ng-container *ngIf="media.mediaType === 'image'; else video">
+              <img
+                [src]="media?.url || 'assets/images/no-image.png'"
+                alt="images"
+                class="offer-img gt-img-responsive"
+                onError="this.src = 'assets/images/no-image.png'"
+              />
+            </ng-container>
+            <ng-template #video>
+              <!-- <mat-video *ngIf="media?.url" class="offer-img gt-img-responsive" [src]="media?.url">
+                <source matVideoSource [src]="media?.url" />
+              </mat-video> -->
+
+              <video class="offer-img gt-img-responsive" controls>
+                <source [src]="media?.url" [type]="media?.url | getVideoType" />
+                <!-- <source [src]="media?.url" type="video/mp4"> -->
+                Your browser does not support the video tag.
+              </video>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <div
+      class="col-xl-6 col-lg-6 col-md-6 col-sm-6"
+      [ngClass]="
+        moreMediaSub.length % 2 == 0 ? 'gt-pr-3 ak-col-7' : 'gt-pl-3 ak-col-7'
+      "
+      (click)="uploadMedia('More')"
+      style="cursor: pointer"
+      *ngIf="showMoreUploadBtn"
+    >
+      <div class="gt-float-100 gt-mb-18 gt-center new-default-image sub-imghs">
+        <div class="gt-float-100">
+          <div class="gt-float-100 gt-cursor-pointer gt-center">
+            <input
+              type="file"
+              #fileInput
+              name="mediaUpload"
+              accept="video/*,image/*"
+              style="display: none"
+              multiple
+            />
+            <img
+              src="assets/images/new-offers/default-upload.svg"
+              alt="images"
+              class="gt-img-responsive"
+              width="42"
+              height="36"
+            />
+          </div>
+          <div class="gt-float-100 gt-text-center upload-text">
+            <h2 class="gt-fs-14 new-color gt-mt-14">more
+              <span class="d-block small-text-info">(  image/video )</span>
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <app-media-spinner timeOut="12000" *ngIf="mediaUploadLoader"></app-media-spinner> -->
+<app-loading-spinner
+  loaderType="drops-fading"
+  [fullPage]="true"
+  [loader]="mediaUploadLoader"
+  addBackDrop="true"
+  backDropColor="#fff"
+></app-loading-spinner>

@@ -1,0 +1,24 @@
+.gt-btn-shadow:disabled {
+  cursor: not-allowed;
+  background-color: #8bc63e;
+  border: 1px solid #8bc63e;
+  opacity: 0.5;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.errorflex{
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+}
+.verify{
+  color: #8bc63e;
+}
+.verify:disabled{
+  color: #6D7C97;
+}
+
+.jc {
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,28 @@
+<div class="gt-float-100 gt-mt-20 offer-dstepper">
+  <ng-stepper #cdkStepper [linear]="true">
+    <ng-container *ngIf="dealStatus !=='REJECTED' else rejectedStep">
+      <ng-container *ngFor="let step of dealSteps; let stepIndex = index">
+        <cdk-step [optional]="step.optional" [completed]="step.completed" [editable]="step.updatedValue">
+          <ng-template cdkStepLabel>
+            <div class="step-bullet">{{step.bullet}}</div>
+            <div class="step-title">{{step.text}}</div>
+          </ng-template>
+        </cdk-step>
+      </ng-container>
+    </ng-container>
+    <ng-template #rejectedStep>
+      <cdk-step [optional]="optional" [completed]="completed" [editable]="updatedValue">
+        <ng-template cdkStepLabel>
+          <div class="step-bullet">1</div>
+          <div class="step-title">Initiated</div>
+        </ng-template>
+      </cdk-step>
+      <cdk-step [optional]="optional" [completed]="completed" [editable]="updatedValue">
+        <ng-template cdkStepLabel>
+          <div class="step-bullet">2</div>
+          <div class="step-title">Rejected</div>
+        </ng-template>
+      </cdk-step>
+    </ng-template>
+  </ng-stepper>
+</div>

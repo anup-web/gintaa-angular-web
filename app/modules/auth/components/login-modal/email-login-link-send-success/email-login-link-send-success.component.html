@@ -1,0 +1,90 @@
+<div class="login-right-wrapper gt-float-100 gt-pr-25 gt-pb-25 new-user-email-rp">
+  <div class="gt-float-100">
+    <div class="gt-float-100 gt-mt-60 wel-rp">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100">
+            <h1 class="gt-fs-16 gt-lightgrayish gt-text-center dcolor-primary">
+              Verify email
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-42 em-rp">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100">
+            <div class="mail-details gt-center">
+              <h2 class="gt-text-medium gt-fs-14 gt-lightblack dcolor-primary">
+                {{ userEmail }}
+              </h2>
+              <span class="material-icons" (click)="movetoEnterPhoneScreen()">create</span>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-50 vl-rp">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100">
+
+            <h3 *ngIf="showMailSendSucMsg" class="
+               gt-fs-14 gt-lightgrayish gt-text-center
+                dcolor-primary
+              ">
+              A <span class="gt-primary">verification link</span> has been sent
+              to your email address.
+            </h3>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-30 gt-pb-30 lc-rp">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 position-relative">
+          <div class="
+              w-100
+              text-center
+              gt-pb-22
+              res-rp
+              position-absolute
+              dcolor-primary
+            " *ngIf="showTimer && counter !== 0" @fadeIn>
+            Resend link
+            <span class="green-text gt-primary">
+              {{ countDown | async | formatTimer }}
+            </span>
+
+          </div>
+
+          <div class="position-relative">
+
+            <button [disabled]="counter" type="submit" class="
+                gt-btn-primary gt-width-100 gt-btn-shadow gt-height-48 gt-center gt-fs-16 gt-border-radius-2
+                bg-change-secondary
+                dark-shadow
+                border-none
+                resend-btn
+                position-absolute
+              " (click)="resendMagicLink()">
+              resend verification link
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="user-social-login gt-float-100 gt-mt-70 rp-elsu">
+    <app-user-social-login></app-user-social-login>
+  </div>
+</div>

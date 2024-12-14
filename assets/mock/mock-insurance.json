@@ -1,0 +1,21 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Insurance Vendor Lists",
+    "payload": {
+        "insuranceVendors": [
+            {
+                "price": 100.0,
+                "images": "assets/images/deal/ins-forever.svg",
+                "name": "Insurance Forever",
+                "rating": 3.9
+            },
+            {
+                "price": 110.0,
+                "images": "assets/images/deal/care-cargo.svg",
+                "name": "Care Cargo",
+                "rating": 4.0
+            } 
+        ]
+    }
+}

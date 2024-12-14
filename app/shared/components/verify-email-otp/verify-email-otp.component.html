@@ -1,0 +1,58 @@
+<div class="mobile-wrapper mobile-fluid dark-shadow-import bg-change-import">
+  <div class="popup-closed conf-rp gt-mt-25 gt-mr-10">
+    <span class="material-icons" (click)="closeDialog()">close</span>
+  </div>
+
+  <div class="otp_profile">
+    <div class="otp-top-bg">
+
+    </div>
+
+    <div class="otp_Title dcolor-primary-import">
+      <h4 class="dcolor-primary-import">The OTP was sent to</h4>
+      <p class="dcolor-primary-import" *ngIf="email">
+        <span> {{ email }} </span>
+      </p>
+      <p class="dcolor-primary-import" *ngIf="phone">
+        <span class="dcolor-primary-import"> {{ phone }} </span>
+      </p>
+    </div>
+
+    <div class="otp_form">
+      <form #otpForm="ngForm" class="otp-start" (ngSubmit)="verifyOtp()">
+        <div class="form_group">
+
+
+          <div class="otp_box text-center">
+            <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="config"
+              (paste)="onPasteOtp($event)">
+            </ng-otp-input>
+            <div *ngIf="serverError" class="text-danger primary-error gt-mt-14">
+              <div>{{ serverError }}</div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="otp_button">
+          <button class="verify_otp bg-change-secondary-import dark-shadow border-none"
+            [disabled]="isVerifyOtp()">Verify OTP</button>
+        </div>
+      </form>
+      <div class="otp_term">
+        <div class="otp_resend dcolor-primary-import align-end">
+          <p class="dcolor-primary-import">Haven't received OTP? &nbsp; </p>
+
+          <span class="dcolor-primary-import" *ngIf="showTimer && counter !== 0">
+            Resend in {{ countDown | async | formatTimer }}
+          </span>
+          <button *ngIf="counter === 0" type="button" class="resend_otp" (click)="resendOtp()">
+            Resend
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-loading-spinner loaderType="drops-fading" [fullPage]="true" [loader]="appLoading" addBackDrop="true">
+</app-loading-spinner>

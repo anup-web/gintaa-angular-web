@@ -1,0 +1,58 @@
+.toaster-container {
+    position: fixed;
+    right: 0;
+    width: 320px;    
+    padding: 25px 40px 25px 60px;   
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    animation: move 1s both;
+    z-index: 999999;
+    bottom:8px;
+    right: 5px;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .toaster-container p {
+    font-size: 15px;
+  }
+
+  .toaster-success {
+    color: #fff;
+    background-color: #51a351;
+    border-color: #51a351;
+  }
+
+  .toaster-error {
+    color: #fff;
+    background-color: #bd362f;
+    border-color: #bd362f;
+  }
+
+  .toaster-info {
+    color: #fff;
+    background-color: #494949;
+    border-color: #494949;
+  }
+  .toaster-icon {
+      left: 20px;
+      position: absolute;
+      top:22px;
+  }
+  .toaster-close{
+    right: 10px;
+    position: absolute;
+    top: 5px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+  .toaster-error .toaster-icon {
+
+    top:27px;
+
+  }
+  .toaster-info .toaster-icon {
+
+    top:27px;
+
+  }

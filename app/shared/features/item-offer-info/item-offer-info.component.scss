@@ -1,0 +1,37 @@
+.mat-datepicker-toggle,
+.mat-datepicker-content .mat-calendar-next-button,
+.mat-datepicker-content .mat-calendar-previous-button {
+  color: #8bc63e !important;
+
+  .mat-icon-button span.mat-button-wrapper svg {
+    width: 2rem !important;
+  }
+}
+
+.gintaa-tooltip-black {
+  background-color: #000;
+  color: #fff;
+  font-size: 2rem;
+  height: 30px;
+}
+
+.mat-icon.mat-primary {
+  background: #fff;
+  color: #48cef3;
+}
+
+.bg-trans {
+  background: transparent !important;
+}
+
+.toggle-inactive {
+  opacity: 0.3;
+}
+
+.secondary-focus {
+  top: 56px;
+  color: #a6a6a6;
+}
+.ndate-picker .mat-form-field-appearance-legacy .mat-form-field-label{
+  color: #48CEF3 !important;
+}

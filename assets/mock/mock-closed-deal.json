@@ -1,0 +1,79 @@
+{
+    "success": true,
+    "code": 200,
+    "message": null,
+    "payload": {
+        "dealRefId": "99cc2c4e-ee88-41b9-9952-1c2016c27f49",
+        "sender": {
+            "name": "Manish kumar singh",
+            "id": "HgL8OYaSeAgthvfkns4kEKdPz162",
+            "imageUrl": ""
+        },
+        "receiver": {
+            "name": "Manish kumar",
+            "id": "hgvkpCsKi0VXWwSnclUcw2lg8r33",
+            "imageUrl": ""
+        },
+        "performedBy": {
+            "name": "Manish kumar singh",
+            "id": "HgL8OYaSeAgthvfkns4kEKdPz162",
+            "imageUrl": ""
+        },
+        "dealSentTimeStamp": "2021-04-13T13:41:03.859",
+        "dealStatus": {
+            "dealStatus": "CLOSED",
+            "dealStatusDesc": null
+        },
+        "requestedOffers": [
+            {
+                "offerId": "1618312448083",
+                "offerName": "test offer 11 ",
+                "offerType": "Item",
+                "offerCount": 1,
+                "images": [
+                    {
+                        "id": "73ab394e-02b3-42e1-a14f-8056e20cbda5",
+                        "name": "1618312448240.jpeg",
+                        "orgName": "loreal.jpeg",
+                        "url": "https://storage.googleapis.com/gintaa-alpha/I/9704318f-7291-4d4f-bc50-90d808aaccd3/2021/4/13/1618312448083//1618312448240.jpeg",
+                        "displayIndex": ""
+                    }
+                ]
+            }
+        ],
+        "offeredOffers": [
+            {
+                "offerId": "1617886134021",
+                "offerName": "twst alpha offer",
+                "offerType": "Item",
+                "offerCount": 1,
+                "images": [
+                    {
+                        "id": "f2496f5c-7104-449f-8d90-adc325498ad3",
+                        "name": "1617886134152.jpeg",
+                        "orgName": "download (1).jpeg",
+                        "url": "https://storage.googleapis.com/gintaa-alpha/I/9704318f-7291-4d4f-bc50-90d808aaccd3/2021/4/8/1617886134021//1617886134152.jpeg",
+                        "displayIndex": ""
+                    }
+                ]
+            }
+        ],
+        "callerIsReceiver": false,
+        "expiryDatetime": null,
+        "amountCurrency": "INR",
+        "requestedAmount": 1003,
+        "includeInsurance": true,
+        "dealDeliveryMethod": {
+            "id": "Self",
+            "name": "Own Arrangement",
+            "description": "Own Arrangement"
+        },
+        "junctionView": null,
+        "comments": null,
+        "dealValue": 9003,
+        "meetingDate": null,
+        "meetingStartTime": null,
+        "meetingEndTime": null,
+        "questions": []
+    }
+}

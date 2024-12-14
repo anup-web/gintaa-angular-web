@@ -1,0 +1,35 @@
+<ng-container *ngIf="suggestPage else showAddressSec">
+    <div class="gt-float-100 gt-mt-11 gt-cursor-pointer " *ngIf="data && data?.id">
+        <div class="gt-float-100 gt-vcenter home-oaddress">
+            <span class="icon-icons-home gt-fs-22 gt-mr-10 locp-tag" *ngIf="data?.annotation =='Home'; else otherLocation"></span>
+            <ng-template #otherLocation>
+                <span class="material-icons gt-mr-10 gt-fs-19 gt-mt-2" *ngIf="data?.annotation =='Work'; else otherLocation1">business</span>
+                <ng-template #otherLocation1>
+                    <span class="material-icons-outlined gt-mr-10 gt-fs-24 gt-mt-2"> location_on</span>
+                </ng-template>
+            </ng-template>
+            <h2 class="gt-fs-13 gt-lightblack dcolor-primary">{{data?.annotation}}</h2>
+        </div>
+        <div class="addh-width">
+            <h3 class="gt-fs-12 new-color gt-mt-2 gt-pl-32 gt-ellipsis" ellipsis [title]="data?.addressLine">{{data?.addressLine}}</h3>
+        </div>
+    </div>
+</ng-container>
+<ng-template #showAddressSec>
+    <div class="address-hk" *ngIf="data && data?.id">
+        <div class="gt-vcenter add-homeh">
+            <span class="icon-gt-home-two gt-fs-22" *ngIf="data?.annotation =='Home'; else otherLocation2"></span>
+            <ng-template #otherLocation2>
+                <span class="material-icons gt-mr-10 gt-fs-19 gt-mt-2" *ngIf="data?.annotation =='Work'; else otherLocation3">business</span>
+                <ng-template #otherLocation3>
+                    <span class="icon-popular-loc gt-fs-22"></span>
+                </ng-template>
+            </ng-template>
+            <h2 class="gt-fs-15 gt-ml-10 gt-black-70">{{data?.annotation}}</h2>
+        </div>
+        <div class="gt-mt-10 gt-pl-27 address-subh">
+            <h3 class="gt-fs-13 gt-text-medium gt-lightgrayish">{{data?.name}}, {{data?.mobile}}</h3>
+            <h4 class="gt-fs-13 gt-mt-5 gt-text-medium gt-black-70">{{data?.addressLine}}</h4>
+        </div>
+    </div>
+</ng-template>

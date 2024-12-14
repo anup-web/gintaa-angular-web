@@ -1,0 +1,393 @@
+
+<div class="gt-float-100 gt-mb-15 gt-center-end sort-bymh" *ngIf="!isPageLoading">
+    <!-- <div class="currency-group gt-border-none offer-search">                        
+        <div class="currency-input-group gt-border-none gt-border-radius-2 gt-height-42">                            
+            <input type="text" class="currency-form-control"
+                placeholder="Search"/>
+                <div class="currency-input-group-append gt-bg-sky">
+                    <div class="gt-cursor-pointer currency-input-group-text">                                                                          
+                        <img src="assets/images/create-offer/search-btnw.svg" width="20" height="20" alt="icon" class="ser-icons">
+                        <h2 class="gt-fs-14 gt-white gt-ml-20">Search</h2>
+                    </div>
+                </div>    
+        </div> 
+     </div>-->
+
+    <div class="gt-float-right gt-center-end">
+        <h2 class="gt-fs-14 gt-mr-20 gt-lightgrayish" >{{deals.length}} offer{{deals.length | multiItemItems}} found</h2>
+
+        <select class="gt-form-select mos-rp gt-border-none offer-form-control gt-border-radius-4" [(ngModel)]="sortBy" (change)="changeSortBy()">
+            <option value="">Sort by</option>
+            <option value="">Relevance</option>
+            <option value="dealSentTimeStamp">Published date</option>
+            <option value="favourite">Favourite</option>
+            <!-- <option value="5">Item</option>
+            <option value="5">Service</option> -->
+            <option value="rating">Rating</option>
+        </select>
+    </div>
+</div>
+
+<!-- <div class="gt-float-100 gt-float-left filter-elist">
+    <div class="gt-center-between gt-float-left gt-border-radius-6 gt-pd-tb-8 gt-pd-lr-10 gt-cursor-pointer gt-bg-white gt-mr-15 filte-list">
+         <h2 class="gt-fs-13 gt-lightblack"> accepted </h2>
+         <span class="material-icons gt-lightgrayish gt-fs-18 gt-ml-8">close</span>
+    </div>
+    <div class="gt-center-between gt-float-left gt-border-radius-6 gt-pd-tb-8 gt-pd-lr-10 gt-cursor-pointer gt-bg-white gt-mr-15 filte-list">
+      <h2 class="gt-fs-13 gt-lightblack">draft</h2>
+      <span class="material-icons gt-lightgrayish gt-fs-18 gt-ml-8">close</span>
+ </div>
+</div> -->
+
+    <div class="gt-float-100 gt-pt-100 gt-pb-100" *ngIf="!isPageLoading && (errorMessage || !deals.length)">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 gt-center">
+                    <app-empty-cart-animation></app-empty-cart-animation>
+                </div>
+                <div class="gt-float-100 gt-center gt-mt-50">
+                    <h1 class="gt-lightblack gt-fs-14 dcolor-primary">You have no offers now</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <app-spinner *ngIf="isPageLoading" timeOut="15000"></app-spinner> -->
+    <app-loading-spinner loaderType="drops-fading" [fullPage]="false" [loader]="isPageLoading" addBackDrop="true"
+        backDropColor="#fff"></app-loading-spinner>
+
+    <div class="gt-float-100 gt-mt-15" *ngIf="deals.length">
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12" *ngFor="let deal of deals; let i = index">
+                <div class="gt-float-100 gt-pd-16 gt-mb-20 deal-box dark-shadow bg-change" intersectionObserver [intersectionDebounce]="0" (visibilityChange)="onVisibilityChanged(i, $event)">
+                    <div (click)="onClick(deal.dealRefId, deal?.dealStatus?.dealStatus, deal?.callerIsReceiver, deal?.directBuy)">
+                        <div class="gt-center gt-justify-content-between deal-title rp-deal-titleh">
+                            <div class="gt-vcenter rp-ghy">
+                                <h1 class="gt-fs-14 gt-lightblack rp-kpu dcolor-primary capitalize gt-ellipsis" ellipsis>
+                                    {{ getDealCardHeaderFormattedName(deal) | date: "medium" }}
+                                </h1>
+                                <!-- <img src="assets/images/deal/gt-unread-two.svg" class="unread-icon" alt="image" width="32" height="32" /> -->
+                            </div>
+                            <ng-container [ngSwitch]="deal?.dealStatus?.dealStatus">
+                                <ng-container *ngSwitchCase="'ACCEPTED'">
+                                    <ng-conatainer *ngIf="deal?.directBuy else suggestOption">
+                                        <ng-conatainer *ngIf="deal?.initiatorPaidAmount else pamentFailed">
+                                            <h2 class="gt-center gt-fs-14">
+                                                <span class="material-icons gt-mr-8 gt-primary">done</span>
+                                                <span class="gt-primary gt-font-poppins">Payment Success</span>
+                                            </h2>
+                                        </ng-conatainer>
+                                        <ng-template #pamentFailed>
+                                            <h2 class="gt-center gt-fs-14">
+                                                <span class="gt-primary gt-font-poppins dc-rejected">Payment Pending</span>
+                                            </h2>
+                                        </ng-template>
+                                    </ng-conatainer>
+                                    <ng-template #suggestOption>
+                                        <h2 class="gt-center gt-fs-14">
+                                            <img src="assets/images/offer-icon-handshake-accepted.svg" class="gt-mr-8 da-hand" alt="image"
+                                                width="22" height="14" />
+                                            <span class="gt-primary gt-font-poppins">Accepted </span>
+                                        </h2>
+                                    </ng-template>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'SHIPMENT_FAILED'">
+                                    <h2 class="gt-center gt-fs-14">
+                                        <span class="gt-primary gt-font-poppins dc-rejected">Shipment Failed</span>
+                                    </h2>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'INITIATED'">
+                                    <ng-container *ngIf="deal?.callerIsReceiver; else outGoingSec">
+                                        <h2 class="gt-center gt-fs-14">
+                                            <img src="assets/images/deal/deal-incoming.svg" class="gt-mr-8 da-hand" alt="image" width="18"
+                                              height="18" />
+                                            <span class="gt-secondary gt-font-poppins">Incoming</span>
+                                        </h2>
+                                    </ng-container>
+                                    <ng-template #outGoingSec>
+                                        <h2 class="gt-center gt-fs-14">
+                                            <img src="assets/images/deal/deal-outgoing.svg" class="gt-mr-8 da-hand" alt="image" width="18"
+                                              height="18" />
+                                            <span class="dc-outgoing gt-font-poppins dcolor-secondary">Outgoing</span>
+                                        </h2>
+                                    </ng-template>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'CLOSED'">
+                                    <h2 class="gt-center gt-fs-14">
+                                        <span class="material-icons gt-mr-8 gt-primary">done</span>
+                                        <span class="gt-primary gt-font-poppins">Closed</span>
+                                    </h2>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'PARTIAL_CLOSED'">
+                                    <h2 class="gt-center gt-fs-14">
+                                        <span class="material-icons gt-mr-8 gt-primary">done</span>
+                                        <span class="gt-primary gt-font-poppins">Partialy closed</span>
+                                    </h2>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'REJECTED'">
+                                    <h2 class="gt-center gt-fs-14">
+                                        <img src="assets/images/deal/chip-round.svg" class="da-hand cly-mr" alt="image" width="40" height="40" />
+                                        <span class="dc-rejected  gt-font-poppins capitalize">Rejected</span>
+                                    </h2>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'ABANDONED'">
+                                    <h2 class="gt-center gt-fs-14">
+                                        <img src="assets/images/deal/chip-round.svg" class="da-hand cly-mr" alt="image" width="40" height="40" />
+                                        <span class="dc-rejected  gt-font-poppins capitalize"> Abandoned</span>
+                                    </h2>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'REPORTED'">
+                                    <h2 class="gt-center gt-fs-14">
+                                        <img src="assets/images/deal/chip-round.svg" class="da-hand cly-mr" alt="image" width="40" height="40" />
+                                        <span class="dc-rejected  gt-font-poppins capitalize">Reported</span>
+                                    </h2>
+                                </ng-container>
+                                <ng-container *ngSwitchCase="'REVISED'">
+                                    <h2 class="gt-center gt-fs-14">
+                                        <img src="assets/images/deal/gt-counter-offer.svg" class="gt-mr-8 da-hand" alt="image" width="16"
+                                          height="16" />
+                                        <span class="gt-sky gt-font-poppins">Revised</span>
+                                    </h2>
+                                </ng-container>
+                            </ng-container>
+                        </div>
+                        <div class="gt-center gt-justify-content-between gt-mt-10 deal-user">
+                            <div class="gt-vcenter feed-back-cards gt-width-245">
+                                <ng-container *ngIf="deal.callerIsReceiver; else callerIsSender">
+                                    <ng-container *ngIf="deal?.receivingBusinessInfo else showuserDetails1">
+                                        <div class="image-width gt-center gt-position-relative chat-noimg ">
+                                            <img [src]="deal.receivingBusinessInfo?.logoUrl" class="hhur image-width" [alt]="deal.receivingBusinessInfo.name"  onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'" *ngIf="deal.receivingBusinessInfo?.logoUrl else avatarSec" />
+                                            <ng-template #avatarSec>
+                                                <img [src]="userNoImage" class="gtpi" [alt]="deal.receivingBusinessInfo.name" />
+                                            </ng-template>
+                                        </div>
+                                        <div class="gt-ml-8 feed-rating">
+                                            <div class="gt-mb-2 user-name-fd">
+                                                <h1 class="gt-fs-13 gt-lightblack name-fd dcolor-primary capitalize gt-ellipsis" ellipsis>
+                                                    {{ deal.receivingBusinessInfo.name | trimTextToCertainNumberCharector: 18 }}
+                                                </h1>
+                                            </div>
+                                            <div class="user-name-fd">
+                                                <h2 class="gt-fs-11 gt-lightgrayish name-fd dcolor-secondary">
+                                                    (You)
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                    <ng-template #showuserDetails1>
+                                        <div class="image-width gt-center gt-position-relative chat-noimg ">
+                                            <img [src]="deal.receiver?.imageUrl" class="hhur image-width" [alt]="deal.receiver.name"  onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'" *ngIf="deal.receiver?.imageUrl else avatarSec" />
+                                            <ng-template #avatarSec>
+                                                <img [src]="userNoImage" class="gtpi" [alt]="deal.receiver.name" />
+                                            </ng-template>
+                                        </div>
+                                        <div class="gt-ml-8 feed-rating">
+                                            <div class="gt-mb-2 user-name-fd">
+                                                <h1 class="gt-fs-13 gt-lightblack name-fd dcolor-primary capitalize gt-ellipsis" ellipsis>
+                                                    {{ deal.receiver.name | trimTextToCertainNumberCharector: 18 }}
+                                                </h1>
+                                            </div>
+                                            <div class="user-name-fd">
+                                                <h2 class="gt-fs-11 gt-lightgrayish name-fd dcolor-secondary">
+                                                    (You)
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </ng-container>
+                                <ng-template #callerIsSender>
+                                    <ng-container *ngIf="deal?.sendingBusinessInfo else showuserDetails2">
+                                        <div class="image-width gt-center gt-position-relative chat-noimg ">
+                                            <img [src]="deal.sendingBusinessInfo?.logoUrl" class="klnh image-width" [alt]="deal.sendingBusinessInfo.name"  onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'" *ngIf="deal.sendingBusinessInfo?.logoUrl else avatarSec3" />
+                                            <ng-template #avatarSec3>
+                                                <img [src]="userNoImage" class="dfgh" [alt]="deal.sendingBusinessInfo.name" />
+                                            </ng-template>
+                                        </div>
+                                        <div class="gt-ml-8 feed-rating">
+                                            <div class="gt-mb-2 user-name-fd">
+                                                <h1 class="gt-fs-13 gt-lightblack name-fd dcolor-primary capitalize gt-ellipsis" ellipsis>
+                                                    {{ deal.sendingBusinessInfo.name | trimTextToCertainNumberCharector: 18 }}
+                                                </h1>
+                                            </div>
+                                            <div class="user-name-fd">
+                                                <h2 class="gt-fs-11 gt-lightgrayish name-fd dcolor-secondary">
+                                                    (You)
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                    <ng-template #showuserDetails2>
+                                        <div class="image-width gt-center gt-position-relative chat-noimg ">
+                                            <img [src]="deal.sender?.imageUrl" class="klnh image-width" [alt]="deal.sender.name"  onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'" *ngIf="deal.sender?.imageUrl else avatarSec3" />
+                                            <ng-template #avatarSec3>
+                                                <img [src]="userNoImage" class="dfgh" [alt]="deal.sender.name" />
+                                            </ng-template>
+                                        </div>
+                                        <div class="gt-ml-8 feed-rating">
+                                            <div class="gt-mb-2 user-name-fd">
+                                                <h1 class="gt-fs-13 gt-lightblack name-fd dcolor-primary capitalize gt-ellipsis" ellipsis>
+                                                    {{ deal.sender.name }}
+                                                </h1>
+                                            </div>
+                                            <div class="user-name-fd">
+                                                <h2 class="gt-fs-11 gt-lightgrayish name-fd dcolor-secondary">
+                                                    (You)
+                                                </h2>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </ng-template>
+                            </div>
+
+                            <div class="gt-vcenter feed-back-cards">
+                                <ng-container *ngIf="deal.callerIsReceiver; else callerIsSender2">
+                                    <ng-container *ngIf="deal?.sendingBusinessInfo else showuserDetails3">
+                                        <div class="gt-mr-8 feed-rating">
+                                            <div class="gt-mb-2 user-name-fd">
+                                                <h1 class="gt-fs-13 gt-lightblack name-fd dcolor-primary capitalize gt-ellipsis" ellipsis>
+                                                    {{ deal.sendingBusinessInfo.name | trimTextToCertainNumberCharector: 18 }}
+                                                </h1>
+                                            </div>
+                                        </div>
+                                        <div class="image-width gt-center gt-position-relative chat-noimg ">
+                                            <img [src]="deal.sendingBusinessInfo?.imageUrl" class="dert image-width" [alt]="deal.sendingBusinessInfo.name"  onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'" *ngIf="deal.sendingBusinessInfo?.logoUrl else avatarSec4" />
+                                            <ng-template #avatarSec4>
+                                                <img [src]="userNoImage" class="rdef" [alt]="deal.sendingBusinessInfo.name" />
+                                            </ng-template>
+                                        </div>
+                                    </ng-container>
+                                    <ng-template #showuserDetails3>
+                                        <div class="gt-mr-8 feed-rating">
+                                            <div class="gt-mb-2 user-name-fd">
+                                                <h1 class="gt-fs-13 gt-lightblack name-fd dcolor-primary capitalize gt-ellipsis" ellipsis>
+                                                    {{ deal.sender.name | trimTextToCertainNumberCharector: 18 }}
+                                                </h1>
+                                            </div>
+                                        </div>
+                                        <div class="image-width gt-center gt-position-relative chat-noimg ">
+                                            <img [src]="deal.sender?.imageUrl" class="dert image-width" [alt]="deal.sender.name"  onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'" *ngIf="deal.sender?.imageUrl else avatarSec4" />
+                                            <ng-template #avatarSec4>
+                                                <img [src]="userNoImage" class="rdef" [alt]="deal.sender.name" />
+                                            </ng-template>
+                                        </div>
+                                    </ng-template>
+                                </ng-container>
+                                <ng-template #callerIsSender2>
+                                    <ng-container *ngIf="deal?.receivingBusinessInfo else showuserDetails4">
+                                        <div class="gt-mr-8 feed-rating">
+                                            <div class="gt-mb-2 user-name-fd">
+                                                <h1 class="gt-fs-13 gt-lightblack name-fd dcolor-primary capitalize gt-ellipsis" ellipsis>
+                                                    {{ deal.receivingBusinessInfo.name | trimTextToCertainNumberCharector: 18 }}
+                                                </h1>
+                                            </div>
+                                        </div>
+                                        <div class="image-width gt-center gt-position-relative chat-noimg ">
+                                            <img [src]="deal.receivingBusinessInfo?.logoUrl" class="rtyu image-width" [alt]="deal.receivingBusinessInfo.name" onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'" *ngIf="deal.receivingBusinessInfo?.logoUrl else avatarSec2"/>
+                                            <ng-template #avatarSec2>
+                                                <img [src]="userNoImage" class="kiuy" [alt]="deal.receivingBusinessInfo.name" />
+                                            </ng-template>
+                                        </div>
+                                    </ng-container>
+                                    <ng-template #showuserDetails4>
+                                        <div class="gt-mr-8 feed-rating">
+                                            <div class="gt-mb-2 user-name-fd">
+                                                <h1 class="gt-fs-13 gt-lightblack name-fd dcolor-primary capitalize gt-ellipsis" ellipsis>
+                                                    {{ deal.receiver.name }}
+                                                </h1>
+                                            </div>
+                                        </div>
+                                        <div class="image-width gt-center gt-position-relative chat-noimg ">
+                                            <img [src]="deal.receiver?.imageUrl" class="rtyu image-width" [alt]="deal.receiver.name" onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'" *ngIf="deal.receiver?.imageUrl else avatarSec2"/>
+                                            <ng-template #avatarSec2>
+                                                <img [src]="userNoImage" class="kiuy" [alt]="deal.receiver.name" />
+                                            </ng-template>
+                                        </div>
+                                    </ng-template>
+                                </ng-template>
+                            </div>
+                        </div>
+
+                        <div class="gt-center gt-justify-content-between gt-mt-10 deal-offer">
+                            <ng-container *ngIf="deal.callerIsReceiver; else callerIsSender3">
+                                <div class="gt-center gt-width-245 deal-offer-secondary">
+                                    <img *ngIf="fetchDealReceiverOfferImageTile(deal)[0]" [src]="fetchDealReceiverOfferImageTile(deal)[1]" class="deal-oimg" alt="image" onError="this.src = 'assets/images/create-offer/uplaod-default-img.png'" />
+                                    <ng-container *ngIf="!fetchDealReceiverOfferImageTile(deal)[0]">
+                                        {{ fetchrequestedAmount(deal) | formatPrice }}
+                                    </ng-container>
+                                </div>
+                            </ng-container>
+                            <ng-template #callerIsSender3>
+                                <div class="gt-center gt-width-245 deal-offer-primary">
+                                    <img *ngIf="fetchDealSenderOfferImageTile(deal)[0]" [src]="fetchDealSenderOfferImageTile(deal)[1]" class="deal-oimg" alt="image" onError="this.src = 'assets/images/create-offer/uplaod-default-img.png'" />
+                                    <ng-container *ngIf="!fetchDealSenderOfferImageTile(deal)[0]">
+                                        <div class="deal-price-box">
+                                            <img src="assets/images/deal/deal-price.svg" class="gt-center deal-price-icon"
+                                                width="45" height="45" alt="image">
+                                            <h2 class="gt-center gt-fs-18 gt-white gt-mt-12">
+                                                {{fetchrequestedAmount(deal) | formatPrice }}</h2>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </ng-template>
+
+                            <div class="deal-offer-arrow">
+                                <img src="assets/images/home/desire-icon.svg" class="image-arrow" alt="image" width="30"
+                                    height="29" />
+                            </div>
+
+                            <ng-container *ngIf="deal.callerIsReceiver; else callerIsSender4">
+                                <div class="gt-center gt-width-245 deal-offer-primary">
+                                    <img *ngIf="fetchDealSenderOfferImageTile(deal)[0]" [src]="fetchDealSenderOfferImageTile(deal)[1]" class="deal-oimg" alt="image" onError="this.src = 'assets/images/create-offer/uplaod-default-img.png'" />
+                                    <ng-container *ngIf="!fetchDealSenderOfferImageTile(deal)[0]">
+                                        <div class="deal-price-box">
+                                            <img src="assets/images/deal/deal-price.svg" class="gt-center deal-price-icon"
+                                                width="45" height="45" alt="image">
+                                            <h2 class="gt-center gt-fs-18 gt-white gt-mt-12">
+                                                {{fetchrequestedAmount(deal) | formatPrice }}</h2>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </ng-container>
+                            <ng-template #callerIsSender4>
+                                <div class="gt-center gt-width-245 deal-offer-secondary">
+                                    <img *ngIf="fetchDealReceiverOfferImageTile(deal)[0]" [src]="fetchDealReceiverOfferImageTile(deal)[1]" class="deal-oimg" alt="image" onError="this.src = 'assets/images/create-offer/uplaod-default-img.png'" />
+                                    <ng-container *ngIf="!fetchDealReceiverOfferImageTile(deal)[0]">
+                                        {{ fetchrequestedAmount(deal) | formatPrice }}
+                                    </ng-container>
+                                </div>
+                            </ng-template>
+                        </div>
+                    </div>
+                    <div class="gt-float-100 gt-mt-10 deal-rate">
+                        <ng-container *ngIf="deal?.dealStatus?.dealStatus == 'CLOSED'">
+                            <div class="gt-width-100 gt-center gt-justify-content-start" *ngIf="!isDealRated(deal) else dealRatedSec" (click)="onClick(deal.dealRefId, deal?.dealStatus?.dealStatus, deal?.callerIsReceiver, deal?.directBuy)">
+                                <img src="assets/images/deal/pending-rate.svg" class="rate-deal-pending gt-mr-8" alt="image" width="18"
+                                  height="18" />
+                                <h2 class="gt-fs-14 gt-primary gt-text-decoration-underline">Pending your rate </h2>
+                              </div>
+                  
+                              <ng-template #dealRatedSec>
+                                <div class="gt-width-100 gt-center gt-justify-content-start">
+                                  <img src="assets/images/deal/deal-rated.svg" class="rate-deal-pending gt-mr-8" alt="image" width="18"
+                                    height="18" />
+                                  <h2 class="gt-fs-13 gt-primary gt-text-decoration-underline">
+                                    Rated
+                                  </h2>
+                                </div>
+                              </ng-template>
+                        </ng-container>
+                        <div class="gt-center image-width-40 gt-cursor-pointer deal-favbtn bg-change-secondary dark-shadow" *ngIf="deal?.dealStatus?.dealStatus != 'CLOSED' && deal?.dealStatus?.dealStatus != 'REJECTED'">
+                            <ng-container *ngIf="!isFavAddedd(deal) else removeFavSec">
+                                <span class="material-icons gt-fs-24"
+                                    (click)="onClickFav(deal.dealRefId, 'add')">favorite_border</span>
+                            </ng-container>
+                            <ng-template #removeFavSec>
+                                <span class="material-icons gt-fs-24 fav-color"
+                                    (click)="onClickFav(deal.dealRefId, 'remove')" #removeFavSec>favorite</span>
+                            </ng-template>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>

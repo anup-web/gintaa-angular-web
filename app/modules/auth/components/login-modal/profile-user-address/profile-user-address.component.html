@@ -1,0 +1,249 @@
+<div class="login-right-wrapper gt-float-100 gt-pr-25 gt-mt-10 prua-rp address-autoscroll">
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="password-for gt-float-100 gt-mb-20 gt-pr-130 paf-rp">
+          <div class="enter-password-title gt-float-left">
+            <h2 class="gt-text-regular gt-fs-13 gt-lightblack dcolor-primary">
+              Fill in your exact address details.You can change it later
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="gt-float-100 gt-mb-24" *ngIf="profileUpdateErrorMessage" @fadeIn>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 gt-text-danger">
+        <div class="error">{{ profileUpdateErrorMessage }}</div>
+      </div>
+    </div>
+  </div>
+
+  <form class="address-form-start">
+
+    <div class="gt-float-100 gt-mb-10">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-form-primary input-bg-change gt-mt-2 rp-aname">
+            <label for="inputAddress"
+              class="gt-form-label gt-fs-14 gt-lightgrayish dcolor-primary">Name</label>
+            <input type="text"  maxlength="30"  class="gt-form-control gt-pt-7 gt-pb-8 email-verify-placeholder"
+              placeholder="Enter name" [value]="requestBody.address[0].name || ''" #name name="name"
+              (keyup)="updateUserAddressField('name', name.value)" appAlphabetOnly />
+          </div>
+          <div class="gt-text-danger" @fadeIn *ngIf="userAddressValidator.name.invalid">
+            <div class="error">{{ userAddressValidator.name.error }}</div>
+          </div>
+
+         
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+          <div class="custom-inputg">
+            <div class="currency-group">
+              <label for="inputAddress" class="currency-sr-only gt-fs-14 gt-lightgrayish dcolor-primary">Phone number</label>
+              <div class="currency-input-group">
+                <div class="currency-input-group-prepend">
+                  <div class="currency-input-group-text cig-text"><span class="icon-add"></span> 91</div>
+                </div>                
+                <input type="text" maxlength="10" class="currency-form-control gt-pt-7 gt-pb-8 gt-height-41 email-verify-placeholder"
+                placeholder="Enter phone" [value]="requestBody.address[0].phoneNumber || ''" #phoneNumber name="phoneNumber"
+                (keyup)="updateUserAddressField('phoneNumber', phoneNumber.value)" numbersOnly />             
+              </div>
+              <div class="gt-text-danger" @fadeIn *ngIf="userAddressValidator.phoneNumber.invalid">
+                <div class="error">{{ userAddressValidator.phoneNumber.error }}</div>
+              </div>
+            </div>
+         </div>
+
+         
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="gt-float-100 gt-mb-10">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-form-primary input-bg-change">
+            <label for="inputAddress"
+              class="gt-form-label gt-fs-14 gt-lightgrayish dcolor-primary">Email</label>
+            <input type="text" class="gt-form-control gt-pt-7 gt-pb-8 email-verify-placeholder"
+              placeholder="Enter email" [value]="requestBody.address[0].email || ''" #email
+              name="email" (keyup)="updateUserAddressField('email', email.value)" />
+          </div>
+          <div class="gt-text-danger" @fadeIn *ngIf="userAddressValidator.email.invalid">
+            <div class="error">
+              {{ userAddressValidator.email.error }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-form-primary input-bg-change">
+            <label for="inputAddress" class="gt-form-label gt-fs-14 gt-lightgrayish dcolor-primary">Address line
+              1</label>
+            <input type="text" class="gt-form-control gt-pt-7 gt-pb-8 email-verify-placeholder gt-fs-14"
+              placeholder="Enter address" [value]="requestBody.address[0].addressLine || ''"
+              #addressLine name="addressLine" (keyup)="updateUserAddressField('addressLine', addressLine.value)" />
+          </div>
+          <div class="gt-text-danger" *ngIf="userAddressValidator.addressLine.invalid" @fadeIn>
+            <div class="error">
+              {{ userAddressValidator.addressLine.error }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-form-primary input-bg-change gt-mt-12">
+            <label for="inputAddress" class="gt-form-label gt-fs-14 gt-lightgrayish dcolor-primary">Landmark</label>
+            <input type="text" class="gt-form-control gt-pt-7 gt-pb-8 email-verify-placeholder gt-fs-14"
+              placeholder="Enter landmark" [value]="requestBody.address[0].landmark || ''" #landmark
+              name="landmark" (keyup)="updateUserAddressField('landmark', landmark.value)" />
+          </div>
+          <div class="gt-text-danger" *ngIf="userAddressValidator.landmark.invalid" @fadeIn>
+            <div class="error">{{ userAddressValidator.landmark.error }}</div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-form-primary input-bg-change gt-mt-12">
+            <label for="inputAddress" class="gt-form-label gt-fs-14 gt-lightgrayish dcolor-primary">House / Flat
+              number</label>
+            <input type="text" class="gt-form-control gt-pt-7 gt-pb-8 email-verify-placeholder gt-fs-14"
+              placeholder="Enter flat number" [value]="requestBody.address[0].flatNo || ''" #flatNo
+              name="flatNo" (keyup)="updateUserAddressField('flatNo', flatNo.value)" />
+          </div>
+          <div class="gt-text-danger" *ngIf="userAddressValidator.flatNo.invalid" @fadeIn>
+            <div class="error">{{ userAddressValidator.flatNo.error }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div class="gt-form-primary input-bg-change gt-mt-12">
+            <label for="inputState" class="gt-form-label gt-fs-14 gt-lightgrayish dcolor-primary">Country</label>
+            <select id="gt-select" class="gt-form-select gt-pt-7 gt-pb-8 gt-fs-14" #country name="country"
+              [value]="requestBody.address[0].country || ''"
+              (change)="updateUserAddressField('country', country.value)">
+              <option value="" class="select-placeholder">Select</option>
+              <option value="India">India</option>             
+            </select>
+            <div class="gt-text-danger" *ngIf="userAddressValidator.country.invalid" @fadeIn>
+              <div class="error">{{ userAddressValidator.country.error }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 pu-zero-rp">
+          <div class="gt-form-primary input-bg-change gt-mt-12">
+            <label for="inputState" class="gt-form-label gt-fs-14 gt-lightgrayish dcolor-primary">State</label>
+            <select required class="gt-form-select gt-pt-7 gt-pb-8 gt-fs-14" id="gt-select" #state name="state"
+              [value]="requestBody.address[0].state || ''" (change)="updateUserAddressField('state', state.value)">
+              <option value="" class="select-placeholder">Select</option>
+              <option value="West Bengal" selected>West Bengal</option>
+              <option value="Jharkhand">Jharkhand</option>
+              <option value="Bihar">Bihar</option>
+              <option value="Odisha">Odisha</option>
+              <option value="Chhattisgarh">Chhattisgarh</option>
+              <option value="Himachal Pradesh">Himachal Pradesh</option>
+              <option value="Uttarakhand">Uttarakhand</option>
+              <option value="Uttar Pradesh">Uttar Pradesh</option>
+              <option value="Delhi">Delhi</option>
+              <option value="Rajasthan">Rajasthan</option>
+              <option value="Punjab">Punjab</option>
+              <option value="Gujarat">Gujarat</option>
+              <option value="Maharashtra">Maharashtra</option>
+              <option value="Karnataka">Karnataka</option>
+            </select>
+            <div class="gt-text-danger" *ngIf="userAddressValidator.state.invalid" @fadeIn>
+              <div class="error">{{ userAddressValidator.state.error }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100">
+      <div class="row">
+        
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 gt-pr-zero pu-zero-rp">
+          <div class="gt-form-primary input-bg-change gt-mt-12">
+            <label for="inputAddress" class="gt-form-label gt-fs-14 gt-lightgrayish dcolor-primary">City</label>
+            <input type="text" class="gt-form-control gt-pt-6 gt-pb-6 email-verify-placeholder gt-fs-14"
+              placeholder="kolkata" [value]="requestBody.address[0].city || ''" #city name="city"
+              (keyup)="updateUserAddressField('city', city.value)" />
+          </div>
+          <div class="gt-text-danger" *ngIf="userAddressValidator.city.invalid" @fadeIn>
+            <div class="error">{{ userAddressValidator.city.error }}</div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div class="gt-form-primary input-bg-change gt-mt-12">
+            <label for="inputAddress" class="gt-form-label gt-fs-14 gt-lightgrayish dcolor-primary">Pin</label>
+            <input type="text" numbersOnly maxlength="6" minlength="6" class="gt-form-control gt-pt-6 gt-pb-6 email-verify-placeholder gt-fs-14"
+              placeholder="700102" [value]="requestBody.address[0].zip || ''" #zip name="zip"
+              (keyup)="updateUserAddressField('zip', zip.value)" />
+          </div>
+          <div class="gt-text-danger" *ngIf="userAddressValidator.zip.invalid" @fadeIn>
+            <div class="error">{{ userAddressValidator.zip.error }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-radio gt-float-100 gt-pt-17 gt-pb-5">
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="requestBody.address[0].annotation"
+              name="annotation">
+              <mat-radio-button value="Home" (change)="toggleOtherAnnotation($event)"><h2 class="gt-fs-14 gt-lightgrayish">Home</h2></mat-radio-button>
+              <mat-radio-button value="Work" (change)="toggleOtherAnnotation($event)"><h2 class="gt-fs-14 gt-lightgrayish">Work</h2></mat-radio-button>
+              <mat-radio-button value="Other" (change)="toggleOtherAnnotation($event)"><h2 class="gt-fs-14 gt-lightgrayish">Other</h2></mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100" *ngIf="showOtherAnnotationText" @fadeIn>
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-form-primary input-bg-change">
+            <input type="text" class="gt-form-control gt-pt-7 gt-pb-8 email-verify-placeholder"
+              placeholder="Use a name" (keyup)="updateAnnotation($event)" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 animate-transition">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <button 
+            [disabled]="!isAddressFormValid"
+            class="gt-btn-primary gt-width-100 gt-btn-shadow gt-mt-10 gt-mb-15 psf-rp gt-border-radius-2 bg-change-secondary-import dark-shadow-import border-none-import" (click)="updateUserPofile()">
+            save
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

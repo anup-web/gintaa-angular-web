@@ -1,0 +1,164 @@
+<div class="gt-float-100 gt-mt-22 match-auth">
+  <div class="container">
+    <div class="gt-float-100 auth-match">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 " *ngIf="!loading">
+          <div class="gt-float-100 auth-math-slider">
+            <div class="carousel-pnext pre_next gt-vcenter auth-pre-next" *ngIf="loadAllOffers && loadAllOffers.length > 4">
+              <a class="arrow_left disabled" (click)="owlCar.prev()" [id]="arrow_left_nav"><span class="material-icons gt-center dark-shadow-import bg-change-secondary-import">keyboard_arrow_left</span></a>
+              <a class="arrow_right" (click)="owlCar.next()" [id]="arrow_right_nav"><span
+                  class="material-icons gt-center dark-shadow-import bg-change-secondary-import">keyboard_arrow_right</span></a>
+            </div>
+            <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)" #owlCar>
+              <ng-template ngFor let-i="index" let-c="count" let-offer [ngForOf]="loadAllOffers">
+                <ng-template carouselSlide>
+                  <div class="match-card" style="max-width: 415px;">
+                    <div class="single-arrivals-products gt-cursor-pointer match-cardpd">
+                      <div (click)="navigateToOffer(offer['offerResponseInfo']['offerId'])">
+                        <div class="arrivals-products-image">
+                          <div class="pr-image max-height-img-125">
+                            <img [src]="offer['offerResponseInfo']['images'] | coverImage" class="thum-width" [alt]="offer['offerResponseInfo']['name']" (error)="errorImageHandler($event)">
+                          </div>
+                        </div>
+  
+                        <div class="arrivals-products-content gt-pd-tb-10">
+                          <div class="offer-name-primary gt-fsi-15 gt-ellipsis" ellipsis>{{offer['offerResponseInfo']['name']}}</div>
+                          <div class="pr-desire gt-mtz">
+                            <img src="assets/images/home/desire-icon.svg" class="desire-img"  alt="image">
+                            <div class="offer-desire-primary">{{offer['offerResponseInfo'] | offerDesire}}</div>                            
+                          </div>
+                        </div>
+                       
+                        <div class="gt-float-100">
+                             <div class="match-prh"></div>
+                        </div>
+                      </div>
+                      
+                      <div class="gt-float-100 gt-mt-10 gt-center-between">
+                           <h2 class="gt-fs-16 gt-text-medium gt-lightblack">I can get</h2>
+                           <div class="gt-center gt-fs-14 gt-cursor-pointer see-all" (click)="navigateToMatches(offer['offerResponseInfo']['offerId'])" *ngIf="offer['response'] && offer['response']['hits'] && offer['response']['matchCount'] > 2">view all</div>
+                      </div>
+                      <div class="arrivals-products-content" *ngIf="offer['response'] && offer['response']['hits'] && offer['response']['matchCount'] else noMatches">
+                        <div class="gt-center-between offer-thumble">
+                          <div class="thum-section gt-mr-5"> 
+                            <img [src]="getOfferImage(offer['response']['hits'][0]['sourceAsMap']['image'])" class="thum-width" alt="image" (error)="errorImageHandler($event)">                           
+                          </div>
+
+                          <div class="thum-section gt-ml-5 gt-position-relative" *ngIf="offer['response']['hits'][1]">
+                            <img [src]="getOfferImage(offer['response']['hits'][1]['sourceAsMap']['image'])" class="thum-width" alt="image" (error)="errorImageHandler($event)"> 
+                            <div class="gt-center mall-image-attach"></div>   
+                            <div class="gt-center attach-image-list"> 
+                              <span class="material-icons gt-white gt-fs-15">add</span>                             
+                              <h3 class="gt-fs-14 gt-white"> {{ offer['response']['matchCount'] -1 }}</h3>  
+                            </div>
+                          </div> 
+                        </div>                       
+                      </div>
+                      <ng-template #noMatches>
+                        <div class="gt-float-100 gt-center n0match">
+                             <h2 class="gt-fs-14">No match found!</h2>
+                        </div> 
+                      </ng-template>
+
+                    </div>
+                  </div>
+                </ng-template>
+              </ng-template>
+                <ng-template carouselSlide>
+                  <div class="match-card gt-pb-8" style="max-width: 260px;" >
+                    <div class="single-arrivals-products shadow-card-none gt-cursor-pointer">
+                      <div class="gt-vcenter match-box-top">
+                        <div class="offer-box-md" *ngIf="loadAllOffers && loadAllOffers.length < 5; else viewAllOffersSec">
+                          <img src="assets/images/offer-box.png" class="offer-bmd" alt="image" />
+                          <h2 class="create-offer-title">Create more offers </h2>
+                          <h3 class="create-sub-title">to see more amazing matches</h3>
+                          <button type="button" class="gt-btn-primary gt-center gt-bg-sky gt-border-radius-12 gt-border-none gt-height-48 create-offer-btn" (click)="addOfferItem()">
+                            <span class="material-icons gt-fs-18">add</span> add new offer </button>
+                        </div>
+                        <ng-template #viewAllOffersSec>
+                          <div class="offer-box-md">
+                            <img src="assets/images/offer-box.png" class="offer-bmd" alt="image" />
+                            <h2 class="create-offer-title">View all  </h2>
+                            <h3 class="create-sub-title">to see your offer matches</h3>
+                            <button type="button" class="gt-btn-primary gt-center gt-bg-sky gt-border-radius-12 gt-border-none gt-height-48 create-offer-btn" (click)="goToMatches()">
+                              View all
+                            </button>
+                          </div>
+                        </ng-template>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+                
+
+              <!--<ng-template carouselSlide>
+                <div class="single-arrivals-products gt-cursor-pointer">
+                  <div class="arrivals-products-image">
+                    <div class="pr-image max-height-img-237">
+                         <img src="assets/pro/39.jpg" class="gt-img-responsive"  alt="image">
+                    </div>                  
+                    <div class="arrivals-action">
+                         <h3>Bidhanagar</h3>
+                         <span class="material-icons">favorite_border</span>             
+                    </div>
+                  </div>
+        
+                  <div class="arrivals-products-content product-content-pd">
+                    <h4>Captain Coons Watches</h4>
+                    <div class="pr-desire">
+                          <span class="material-icons">compare_arrows</span>
+                          <h5>Mobile, Laptop</h5>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+              <ng-template carouselSlide>
+                <div class="single-arrivals-products gt-cursor-pointer">
+                  <div class="arrivals-products-image">
+                    <div class="pr-image max-height-img-237">
+                         <img src="assets/pro/6.jpg" class="gt-img-responsive"  alt="image">
+                    </div>                  
+                    <div class="arrivals-action">
+                         <h3>Bidhanagar</h3>
+                         <span class="material-icons">favorite_border</span>             
+                    </div>
+                  </div>
+        
+                  <div class="arrivals-products-content product-content-pd">
+                    <h4>Captain Coons Watches</h4>
+                    <div class="pr-desire">
+                          <span class="material-icons">compare_arrows</span>
+                          <h5>Mobile, Laptop</h5>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+              <ng-template carouselSlide>
+                <div class="single-arrivals-products gt-cursor-pointer">
+                  <div class="arrivals-products-image">
+                    <div class="pr-image max-height-img-237">
+                         <img src="assets/pro/33.jpg" class="gt-img-responsive"  alt="image">
+                    </div>                  
+                    <div class="arrivals-action">
+                         <h3>Bidhanagar</h3>
+                         <span class="material-icons">favorite_border</span>             
+                    </div>
+                  </div>
+        
+                  <div class="arrivals-products-content product-content-pd">
+                    <h4>Captain Coons Watches</h4>
+                    <div class="pr-desire">
+                          <span class="material-icons">compare_arrows</span>
+                          <h5>Mobile, Laptop</h5>
+                    </div>
+                  </div>
+                </div>
+                </ng-template> -->
+            </owl-carousel-o>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

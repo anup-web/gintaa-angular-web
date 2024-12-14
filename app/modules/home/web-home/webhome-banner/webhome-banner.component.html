@@ -1,0 +1,33 @@
+<div class="container-fluids">
+  <div class="user-caros-slider">
+    <div class="carousel slide carousel-fade" id="banner-carousel" data-ride="carousel" data-interval="4000"
+      data-pause="false">
+
+
+      <div class="carousel-inner">
+        <div *ngFor="let item of homepageBanners; let i = index" class="carousel-item {{ i == 0 ? 'active' : '' }}">
+          <img class="d-block img-fluid main-banner-img" (click)="createBusinessAccount(i)" src="{{ item.image }}"
+            alt="{{ item.label_2 }}" />
+        </div>
+      </div>
+
+
+
+      <ol class="carousel-indicators">
+        <li *ngFor="let item of homepageBanners; let i = index" data-target="#banner-carousel"
+          attr.data-slide-to="{{ i }}" class="{{ i == 0 ? 'active' : '' }}"></li>
+
+      </ol>
+      <!-- /.carousel-indicators -->
+
+      <a href="#banner-carousel" class="carousel-control-prev" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="sr-only" aria-hidden="true">Prev</span>
+      </a>
+      <a href="#banner-carousel" class="carousel-control-next" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+        <span class="sr-only" aria-hidden="true">Next</span>
+      </a>
+    </div>
+  </div>
+</div>

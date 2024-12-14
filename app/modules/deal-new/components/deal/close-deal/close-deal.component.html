@@ -1,0 +1,906 @@
+<div class="deal-offer-bg gt-pt-20">
+  <div class="container">
+    <app-bread-crumb
+      [breadcrumbs]="breadcrumb"
+      (onClickBreadCrumb)="onClickBreadCrumb($event)"
+    >
+    </app-bread-crumb>
+    <!-- <app-loading-spinner
+      loaderType="drops-fading"
+      [fullPage]="true"
+      [loader]="loader"
+      addBackDrop="true"
+      backDropColor="#000000"
+    ></app-loading-spinner> -->
+    <div class="gt-center incoming-deals-wrapper">
+      <div
+        class="
+          wrapper-incoming
+          gt-mt-50 gt-pt-zero
+          incoming-wrapper-rp
+          bg-change
+        "
+        *ngIf="dealDetails && dealDetails?.sender"
+      >
+        <div class="gt-float-100">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="deal-box closed-box dark-shadow bg-change">
+                <div class="gt-center gt-justify-content-between deal-user">
+                  <div
+                    class="gt-display-flex gt-align-items-center feed-back-card"
+                  >
+                    <div
+                      class="
+                        image-width-60
+                        gt-center gt-position-relative
+                        chat-noimg
+                      "
+                    >
+                      <img
+                        [src]="dealDetails.sender?.imageUrl"
+                        class="com-res image-width-60"
+                        [alt]="dealDetails.sender.name"
+                        onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'"
+                        *ngIf="dealDetails.sender?.imageUrl; else avatarSec2"
+                      />
+                      <ng-template #avatarSec2>
+                        <img
+                          [src]="userNoImage"
+                          class="comk-res"
+                          [alt]="dealDetails.sender?.name"
+                        />
+                      </ng-template>
+                    </div>
+
+                    <div class="gt-ml-12 gt-pt-3 feed-rating">
+                      <div class="user-name-fd">
+                        <h1
+                          class="
+                            gt-fs-16 gt-text-medium gt-lightblacks
+                            name-fd
+                            dcolor-primary
+                            capitalize
+                          "
+                        >
+                          {{ dealDetails.sender?.name }}
+                        </h1>
+                      </div>
+                      <div class="gt-mt-4 user-name-fd">
+                        <h2
+                          class="
+                            gt-fs-14 gt-text-medium gt-lightgrayish
+                            name-fd
+                            dcolor-secondary
+                          "
+                        >
+                          <ng-container
+                            *ngIf="
+                              dealDetails.callerIsReceiver;
+                              else callerIsSender
+                            "
+                          >
+                            <ng-container *ngIf="userLocation?.area">
+                              {{ userLocation?.area }} (in
+                              {{ userLocation?.distance }}
+                              {{ userLocation?.distanceUnit }})
+                            </ng-container>
+                          </ng-container>
+                          <ng-template #callerIsSender> (You) </ng-template>
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="
+                      gt-display-flex gt-align-items-center
+                      feed-back-cards
+                    "
+                  >
+                    <div class="gt-mr-12 gt-pt-3 feed-rating">
+                      <div class="user-name-fd">
+                        <h1
+                          class="
+                            gt-fs-16 gt-text-medium gt-lightblack
+                            name-fd
+                            dcolor-primary
+                            capitalize
+                          "
+                        >
+                          {{ dealDetails.receiver?.name }}
+                        </h1>
+                      </div>
+                      <div class="gt-mt-4 user-name-fd">
+                        <h2
+                          class="
+                            gt-fs-14 gt-text-medium gt-lightgrayish
+                            name-fd
+                            dcolor-secondary
+                          "
+                        >
+                          <ng-container
+                            *ngIf="
+                              dealDetails.callerIsReceiver;
+                              else callerIsSender2
+                            "
+                          >
+                            (You)
+                          </ng-container>
+                          <ng-template #callerIsSender2>
+                            <ng-container *ngIf="userLocation?.area">
+                              {{ userLocation?.area }} (in
+                              {{ userLocation?.distance }}
+                              {{ userLocation?.distanceUnit }})
+                            </ng-container>
+                          </ng-template>
+                        </h2>
+                      </div>
+                    </div>
+                    <div
+                      class="
+                        image-width-60
+                        gt-center gt-position-relative
+                        chat-noimg
+                      "
+                    >
+                      <img
+                        [src]="dealDetails.receiver?.imageUrl"
+                        class="com-resg image-width-60"
+                        [alt]="dealDetails.receiver.name"
+                        onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'"
+                        *ngIf="dealDetails.receiver?.imageUrl; else avatarSec"
+                      />
+                      <ng-template #avatarSec>
+                        <img
+                          [src]="userNoImage"
+                          class="com-resh"
+                          [alt]="dealDetails.receiver?.name"
+                        />
+                      </ng-template>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gt-float-100">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="gt-float-100">
+                <div class="gt-center gt-justify-content-between deal-offer">
+                  <div
+                    class="
+                      gt-center
+                      closed-box-deal
+                      deal-offer-primary
+                      dark-shadow
+                      bg-change
+                    "
+                    *ngIf="dealDetails"
+                  >
+                    <ng-container
+                      *ngIf="
+                        dealDetails.offeredOffers &&
+                          dealDetails.offeredOffers.length > 0;
+                        else offerdAmountSec
+                      "
+                    >
+                      <img
+                        [src]="dealDetails.offeredOffers[0].images[0]?.url"
+                        class="deal-oimg"
+                        [alt]="dealDetails.offeredOffers[0].offerName"
+                        onError="this.src = 'assets/images/create-offer/uplaod-default-img.png'"
+                        (click)="
+                          navigateToOffer(dealDetails.offeredOffers[0].offerId)
+                        "
+                        *ngIf="
+                          isImageArray(dealDetails.offeredOffers[0]);
+                          else noOfferImage2
+                        "
+                      />
+                      <ng-template #noOfferImage2>
+                        <img
+                          src="assets/images/create-offer/uplaod-default-img.png"
+                          class="gt-img-responsive"
+                          (click)="
+                            navigateToOffer(
+                              dealDetails.offeredOffers[0].offerId
+                            )
+                          "
+                        />
+                      </ng-template>
+                    </ng-container>
+                    <ng-template #offerdAmountSec>
+                      <div class="deal-price-box">
+                        <img
+                          src="assets/images/deal/deal-price.svg"
+                          class="gt-center deal-price-icon"
+                          width="50"
+                          height="50"
+                          alt="image"
+                        />
+                        <h2
+                          class="
+                            gt-center gt-fs-22 gt-white gt-text-medium gt-mt-12
+                          "
+                        >
+                          {{ fetchrequestedAmount(dealDetails) }}
+                        </h2>
+                      </div>
+                    </ng-template>
+                  </div>
+
+                  <div class="deal-offer-arrow">
+                    <img
+                      src="assets/images/deal/deal-arrow.svg"
+                      class="image-arrow"
+                      alt="image"
+                      width="28"
+                      height="26"
+                    />
+                  </div>
+
+                  <div
+                    class="
+                      gt-center
+                      closed-box-deal
+                      deal-offer-secondary
+                      dark-shadow
+                      bg-change
+                    "
+                  >
+                    <ng-container
+                      *ngIf="
+                        dealDetails.requestedOffers &&
+                        dealDetails.requestedOffers.length > 0
+                      "
+                    >
+                      <!-- *ngFor="let offer of dealDetails.requestedOffers" -->
+                      <img
+                        [src]="dealDetails.requestedOffers[0]?.images[0]?.url"
+                        class="deal-oimg"
+                        [alt]="dealDetails.requestedOffers[0]?.offerName"
+                        onError="this.src = 'assets/images/create-offer/uplaod-default-img.png'"
+                        (click)="
+                          navigateToOffer(
+                            dealDetails.requestedOffers[0].offerId
+                          )
+                        "
+                        *ngIf="
+                          isImageArray(dealDetails.requestedOffers[0]);
+                          else noOfferImage
+                        "
+                      />
+                      <ng-template #noOfferImage>
+                        <img
+                          src="assets/images/create-offer/uplaod-default-img.png"
+                          class="gt-img-responsive"
+                        /> </ng-template
+                      >/>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gt-float-100 gt-mt-16" *ngIf="!showInfoSection">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 co-xs-12">
+              <div class="gt-float-100 gt-center choose-offer">
+                <h3
+                  class="gt-fs-16 gt-text-medium gt-primary"
+                  (click)="infoSection('open')"
+                >
+                  Open full information
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gt-float-100 deal-close-conditons">
+          <div class="gt-float-100 gt-mt-16">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 co-xs-12">
+                <div class="gt-float-100">
+                  <div class="hr-line"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-container *ngIf="showInfoSection">
+            <div class="gt-float-100">
+              <app-deal-information
+                [dealHistory]="dealHistory"
+                [userDetails]="userDetails"
+                [dealDetails]="dealDetails"
+                (navigateToOffer)="navigateToOffer($event)"
+                [userLocation]="userLocation"
+              >
+              </app-deal-information>
+            </div>
+            <div class="gt-float-100 gt-mg-tb-10">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 co-xs-12">
+                  <div class="gt-float-100 gt-center choose-offer">
+                    <h3
+                      class="gt-fs-16 gt-text-medium gt-primary"
+                      (click)="infoSection('close')"
+                    >
+                      show less information
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+
+          <div class="gt-float-100 junction-select">
+            <div
+              class="gt-float-100"
+              *ngIf="dealDetails.dealDeliveryMethod.id != 'Self'"
+            >
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="gt-float-100 gt-mt-8">
+                    <h1
+                      class="
+                        gt-fs-16 gt-text-medium gt-lightblack
+                        dcolor-primary
+                      "
+                    >
+                      Delivery preferences
+                    </h1>
+                  </div>
+                  <div class="gt-float-100 gt-mt-10">
+                    <h2
+                      class="
+                        gt-fs-16 gt-text-medium gt-lightblack
+                        dcolor-primary
+                      "
+                    >
+                      <ng-container
+                        *ngIf="
+                          dealDetails.dealDeliveryMethod.id == 'Self';
+                          else meetingSec
+                        "
+                      >
+                        Personal meet
+                      </ng-container>
+                      <ng-template #meetingSec>
+                        {{ dealDetails.dealDeliveryMethod.name }}
+                      </ng-template>
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="gt-float-100 gt-mt-24 gt-mb-16"
+              *ngIf="dealDetails.dealDeliveryMethod.id === 'Junction'"
+            >
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 co-xs-12">
+                  <div class="gt-float-left select-junctions junctions-deldate">
+                    <div class="gt-center-between">
+                      <div class="jun-left">
+                        <div class="jun-date-primary">
+                          <h2
+                            class="
+                              gt-fs-16 gt-text-medium gt-lightblack
+                              dcolor-primary
+                            "
+                          >
+                            Date and time:
+                          </h2>
+                        </div>
+                        <div class="gt-mt-8 jun-date-secondary">
+                          <h3 class="gt-fs-16 gt-lightblack dcolor-secondary">
+                            {{ dealDetails.meetingDate | date }} at
+                            {{ dealDetails.meetingEndTime | formatMeetTime }}
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="gt-center-end jun-right">
+                        <div
+                          class="
+                            gt-center
+                            image-width-48
+                            gt-border-radius-12
+                            date-junbtn-close
+                            bg-change-secondary
+                            dark-shadow
+                            border-none
+                          "
+                        >
+                          <img
+                            src="assets/images/deal/jun-calendar.svg"
+                            class="jun-imaged"
+                            alt="image"
+                            width="24"
+                            height="24"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="
+                      gt-float-left gt-ml-32
+                      select-junctions
+                      junctions-delplace
+                    "
+                  >
+                    <div class="gt-center-between">
+                      <div class="jun-left gt-width-100">
+                        <div class="jun-date-primary">
+                          <h2
+                            class="
+                              gt-fs-16 gt-text-medium gt-lightblack
+                              store-card-name
+                              dcolor-primary
+                            "
+                          >
+                            “{{ dealDetails?.junctionView?.name }}”
+                            <!-- Store 2.3 mi -->
+                          </h2>
+                        </div>
+                        <div class="gt-mt-8 jun-date-secondary">
+                          <h3
+                            class="
+                              gt-fs-16 gt-lightblack
+                              store-card-address
+                              dcolor-secondary
+                            "
+                          >
+                            {{ dealDetails?.junctionView?.address }}
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="gt-center-end jun-right">
+                        <div
+                          class="
+                            gt-center
+                            image-width-48
+                            gt-border-radius-8
+                            place-junbtn-close
+                            bg-change-secondary
+                            dark-shadow
+                            border-none
+                          "
+                        >
+                          <img
+                            src="assets/images/deal/jun-place.svg"
+                            class="jun-imaged"
+                            alt="image"
+                            width="24"
+                            height="30"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ng-container
+            *ngIf="
+              dealDetails.dealDeliveryMethod.id != 'Shipping';
+              else thirdParty
+            "
+          >
+            <div
+              class="gt-float-100 gt-mt-20 gt-mb-20"
+              *ngIf="dealDetails?.dealStatus?.dealStatus == 'CLOSED'"
+            >
+              <div class="row">
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 co-xs-12">
+                  <div class="gt-float-100 deal-close-date">
+                    <h1
+                      class="
+                        gt-fs-16 gt-text-medium gt-lightblack
+                        dcolor-primary
+                      "
+                    >
+                      offer close date
+                    </h1>
+                    <h2 class="gt-fs-14 gt-lightblack gt-mt-4 dcolor-secondary">
+                      {{ getClosedTime() }}
+                    </h2>
+                  </div>
+                </div>
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 co-xs-12">
+                  <div class="gt-float-100 deal-close-date">
+                    <h1
+                      class="
+                        gt-fs-16 gt-text-medium gt-lightblack
+                        dcolor-primary
+                      "
+                    >
+                      Delivery method
+                    </h1>
+                    <h2 class="gt-fs-14 gt-lightblack gt-mt-4 dcolor-secondary">
+                      <ng-container
+                        *ngIf="
+                          dealDetails.dealDeliveryMethod.id == 'Self';
+                          else meetingSec
+                        "
+                      >
+                        Personal meet
+                      </ng-container>
+                      <ng-template #meetingSec>
+                        {{ dealDetails.dealDeliveryMethod.name }}
+                      </ng-template>
+                    </h2>
+                  </div>
+                </div>
+                <div
+                  class="col-xl-4 col-lg-4 col-md-4 col-sm-12 co-xs-12"
+                  *ngIf="getRatedByUser()"
+                >
+                  <div class="gt-float-100 deal-close-rating">
+                    <h1
+                      class="
+                        gt-fs-16 gt-text-medium gt-lightblack
+                        dcolor-primary
+                      "
+                    >
+                      Your rate
+                    </h1>
+                  </div>
+                  <div class="gt-float-100">
+                    <div
+                      class="
+                        gt-center gt-justify-content-between gt-mt-12
+                        deal-user-incoming
+                      "
+                    >
+                      <div
+                        class="
+                          gt-display-flex gt-align-items-center
+                          dincome-card
+                        "
+                      >
+                        <div
+                          class="
+                            image-width
+                            gt-center gt-position-relative
+                            chat-noimg
+                          "
+                        >
+                          <img
+                            [src]="userDetails?.imageUrl"
+                            class="com-res image-width"
+                            [alt]="userDetails.name"
+                            onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'"
+                            *ngIf="userDetails?.imageUrl; else avatarSec3"
+                          />
+                          <ng-template #avatarSec3>
+                            <img
+                              [src]="userNoImage"
+                              class="comh-res"
+                              [alt]="userDetails?.name"
+                            />
+                          </ng-template>
+                        </div>
+                        <div class="gt-ml-8 gt-pt-3 feed-rating">
+                          <div class="user-name-fd">
+                            <h1
+                              class="
+                                gt-fs-14 gt-lightblack
+                                name-fd
+                                dcolor-primary
+                              "
+                            >
+                              {{ userDetails.name }}
+                            </h1>
+                          </div>
+                          <div class="gt-mt-4 user-name-fd">
+                            <div
+                              class="
+                                gt-float-left
+                                user-rating-comts
+                                ul-mt-zero
+                                close-ratings
+                              "
+                            >
+                              <ng-container
+                                *ngIf="
+                                  dealDetails?.callerIsReceiver;
+                                  else receiverRating
+                                "
+                              >
+                                <app-show-rating
+                                  [ratingNumber]="
+                                    dealDetails?.dealReceiverRating
+                                  "
+                                >
+                                </app-show-rating>
+                              </ng-container>
+                              <ng-template #receiverRating>
+                                <app-show-rating
+                                  [ratingNumber]="dealDetails?.dealSenderRating"
+                                >
+                                </app-show-rating>
+                              </ng-template>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- <div class="gt-float-100">
+                    <div class="
+                        gt-center gt-justify-content-between gt-mt-19
+                        deal-user-incoming
+                      ">
+                      <div class="gt-display-flex gt-align-items-center dincome-card">
+                        <div class="image-user-fd">
+                          <img src="assets/images/logo-icon.png" class="com-res" alt="image" width="47" height="47" />
+                        </div>
+                        <div class="gt-ml-8 gt-pt-3 feed-rating">
+                          <div class="user-name-fd">
+                            <h1 class="
+                                gt-fs-14 gt-lightblack
+                                name-fd
+                                dcolor-primary
+                              ">
+                              Gintaa experience
+                            </h1>
+                          </div>
+                          <div class="gt-mt-4 user-name-fd">
+                            <div class="
+                                gt-float-left
+                                user-rating-comts
+                                ul-mt-zero
+                                close-ratings
+                              ">
+                              <ul>
+                                <app-show-rating [ratingNumber]="5">
+                                </app-show-rating>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="gt-float-100 close-dealflow"
+              *ngIf="dealDetails?.dealStatus?.dealStatus !== 'CLOSED'"
+            >
+              <div class="gt-float-100 gt-mt-10">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 co-xs-12">
+                    <div class="gt-float-100">
+                      <h3
+                        class="
+                          gt-fs-16 gt-text-medium gt-lightblack
+                          dcolor-primary
+                        "
+                      >
+                        Close the offer flow
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gt-float-100 gt-mt-24">
+                <div class="row">
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 co-xs-12">
+                    <div class="gt-float-100 deal-fclose">
+                      <!-- <img src="assets/images/deal/deal-close-1.svg" class="gt-img-responsive" alt="image" /> -->
+                      <app-meet-personally-animation></app-meet-personally-animation>
+                      <h4
+                        class="gt-fs-14 gt-lightblack gt-mt-16 dcolor-primary"
+                      >
+                        1) Meet with partner
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 co-xs-12">
+                    <div class="gt-float-100 deal-fclose">
+                      <!-- <img src="assets/images/deal/deal-close-2.svg" class="gt-img-responsive" alt="image" /> -->
+                      <app-make-exchange-animation></app-make-exchange-animation>
+                      <h4
+                        class="gt-fs-14 gt-lightblack gt-mt-16 dcolor-primary"
+                      >
+                        2) Perform barter
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 co-xs-12">
+                    <div class="gt-float-100 deal-fclose">
+                      <!-- <img src="assets/images/deal/deal-close-3.svg" class="gt-img-responsive" alt="image" /> -->
+                      <app-push-on-button-animation></app-push-on-button-animation>
+                      <h4
+                        class="gt-fs-14 gt-lightblack gt-mt-16 dcolor-primary"
+                      >
+                        3) Both tap on close an offer button
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+          <ng-template #thirdParty>
+            <div class="gt-float-100">
+              <app-deal-delivery
+                [dealDetails]="dealDetails"
+              ></app-deal-delivery>
+            </div>
+          </ng-template>
+
+          <div
+            class="gt-float-100 gt-mt-24"
+            *ngIf="!getRatedByUser(); else marginSec"
+          >
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div
+                  class="gt-center gt-pd-16 deal-accepts acc-deal-rp bg-change"
+                >
+                  <button
+                    *ngIf="
+                      dealDetails?.dealStatus?.dealStatus == 'CLOSED' ||
+                        closeStep == 'CLOSED';
+                      else acceptedSec
+                    "
+                    type="button"
+                    class="
+                      gt-btn-primary gt-center gt-width-100
+                      deal-accept-btn
+                      bg-change-secondary
+                      dark-shadow
+                      border-none
+                    "
+                    (click)="openCloseDialog('RATE_USER')"
+                  >
+                    rate
+                  </button>
+                  <ng-template #acceptedSec>
+                    <div
+                      *ngIf="
+                        (dealDetails?.dealStatus?.dealStatus ==
+                          'PARTIAL_CLOSED' ||
+                          closeStep == 'PARTIAL_CLOSED') &&
+                          isLastModifier();
+                        else senderBlockBtn
+                      "
+                    >
+                      <button
+                        type="button"
+                        class="
+                          gt-btn-primary gt-center
+                          deal-accept-btn
+                          btn-openchat
+                        "
+                        (click)="chatNow()"
+                        [disabled]="isChatNowButtonClicked"
+                        [ngClass]="{ 'disabled-btn': isChatNowButtonClicked }"
+                      >
+                        open deal chat
+                      </button>
+                    </div>
+                    <ng-template #senderBlockBtn>
+                      <button
+                        type="button"
+                        class="
+                          gt-btn-primary gt-center
+                          deal-accept-btn
+                          bg-change-secondary
+                          dark-shadow
+                          border-none
+                        "
+                        (click)="openCloseDialog('optpopup')"
+                      >
+                        close the offer
+                      </button>
+                    </ng-template>
+
+                    <div
+                      class="
+                        gt-ml-16 gt-center
+                        reply-deal
+                        bg-change-secondary
+                        dark-shadow
+                        border-none
+                      "
+                    >
+                      <button mat-icon-button [matMenuTriggerFor]="menu">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                      <mat-menu #menu="matMenu">
+                        <button mat-menu-item>
+                          <div
+                            class="deal-btn-pop"
+                            (click)="openCloseDialog('REPORT')"
+                          >
+                            <img
+                              src="assets/images/profile/profile-block-icon.svg"
+                              width="16"
+                              height="16"
+                              alt="image"
+                              class="gt-mr-8 block-size"
+                            />
+                            <h2 class="gt-lightblack gt-fs-15 dcolor-primary">
+                              Report offer
+                            </h2>
+                          </div>
+                        </button>
+                        <!-- <button mat-menu-item>
+                          <div
+                            class="deal-btn-pop"
+                            (click)="openCloseDialog('ABANDON')"
+                          >
+                            <span
+                              class="material-icons gt-mr-4 gt-fs-20 gt-danger"
+                            >
+                              close</span
+                            >
+                            <h2 class="gt-lightblack gt-fs-15 dcolor-primary">
+                              Abandon Deal
+                            </h2>
+                          </div>
+                        </button> -->
+                        <button
+                          mat-menu-item
+                          (click)="chatNow()"
+                          *ngIf="
+                            (dealDetails?.dealStatus?.dealStatus !=
+                              'PARTIAL_CLOSED' &&
+                              closeStep != 'PARTIAL_CLOSED') ||
+                            !isLastModifier()
+                          "
+                          [disabled]="isChatNowButtonClicked"
+                          [ngClass]="{ 'disabled-btn': isChatNowButtonClicked }"
+                        >
+                          <div class="deal-btn-pop">
+                            <img
+                              src="assets/images/deal/deal-chat.svg"
+                              width="16"
+                              height="16"
+                              alt="image"
+                              class="gt-mr-8 block-size"
+                            />
+                            <h2 class="gt-lightblack gt-fs-15 dcolor-primary">
+                              open offer chat
+                            </h2>
+                          </div>
+                        </button>
+                      </mat-menu>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-template #marginSec>
+            <div class="gt-float-100 gt-mt-24">
+              <div class="row">
+                <div
+                  class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                ></div>
+              </div>
+            </div>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

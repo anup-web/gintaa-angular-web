@@ -1,0 +1,85 @@
+<!-- <app-loading-spinner loaderType="drops-fading" fullPage="false" loader="true" *ngIf="isLoading" addBackDrop="true" backDropColor="#ffffff" loadingMessage="Please wait..."></app-loading-spinner> -->
+
+<!-- <app-spinner *ngIf="isLoading" timeOut="7000"></app-spinner> -->
+<div class="gt-float-100 gt-bg-white offersh-list">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100 gt-pd-lr-24 gt-pd-tb-6 gt-vcenter offsh-group">
+                 <!-- <div class="gt-mr-12 back-left"><span class="material-icons">arrow_back</span></div> -->
+                 <div class="gt-vcenter chatsh-offer">
+                    <img [src]="offerDetail?.images?.length>0?offerDetail?.images[0].url:noImage" class="image-width-40 gt-mr-8 border-radius-100" alt="image" />
+                    <h2 class="gt-fs-15 gt-lightblack gt-text-medium">{{offerDetail?.name}}</h2>
+                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="gt-float-100">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100 gt-pd-lr-24 gt-mg-tb-10 msg-send-user">
+                <button type="submit" class="gt-btn-primary gt-center gt-border-radius-12 send-msg-btn" (click)="openAllUser()"> 
+                    <img src="assets/images/chat/a-send.svg" class="send-aa" alt="image" width="20" height="18"/>
+                    <h1 class="gt-fs-16 gt-text-medium gt-ml-8">send a message to all</h1>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="gt-float-100 culist-scroll"> 
+
+<div class="gt-float-100 gt-cursor-pointer" *ngFor="let room of allRooms" (click)="openChat(room.roomId || room.id)">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100 gt-pd-lr-24 gt-pd-tb-6 gt-mb-5 user-list-rp user-active bg-change-secondary">
+                <div class="gt-center-between display-block-rp">
+                    <div class="gt-vcenter">
+                        <div class="image-width gt-center gt-position-relative chat-noimg">
+                            <img [src]="room.initiatorDisplayImage || room.chatInitiatorDetails?.imageUrl || noImage"  alt="image" [ngClass]="(room.initiatorDisplayImage || room.chatInitiatorDetails?.imageUrl)? 'org-profile-img':'no-profile-img'"/>
+                            <!-- <app-chat-profile-avatar [userName]="room.initiatorDisplayName || room.chatInitiatorDetails?.name"
+                            [imageUrl]="room.initiatorDisplayImage || room.chatInitiatorDetails?.imageUrl"> </app-chat-profile-avatar> -->
+                            
+                            <!-- <div class="online"></div> -->
+                            <div [ngClass]="room.status==='online'?'online':'offline'"></div>
+                        </div>
+                        <!-- <div>
+                            <img src="{{ getUserStatusImg(room.status) }}" height="20px" width="20px">
+                        </div> -->
+
+                        <div class="gt-ml-8">
+                            <div class="deal-offer-title">
+                                <h1 class="gt-fs-15 gt-mb-2 gt-text-medium gt-lightblack dcolor-primary">{{room.initiatorDisplayName || room.chatInitiatorDetails?.name}}</h1>
+                            </div>
+                            <div class="room-msg gt-vcenter">
+                                <ng-container *ngIf="room.lastMessageSenderIsLoginUser">
+                                    <div class="singal-check gt-mr-8" *ngIf="room.lastMessageIsSent && room.lastMessageIsDelivered==false"><span class="material-icons">done</span></div> 
+                                    <div class="double-check gt-mr-8" *ngIf="room.lastMessageIsDelivered && room.lastMessageIsRead==false"><span class="material-icons">done_all</span></div>
+                                    <div class="double-check-send gt-mr-8" *ngIf="room.lastMessageIsRead"><span class="material-icons">done_all</span></div>
+                                </ng-container>
+                                <h2 class="gt-fs-12 gt-text-medium gt-lightgrayish dcolor-secondary" [innerHtml]="room.lastMessage">
+                                    {{room.lastMessage}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offer-dates offer-date-rp">
+                        <div class="gt-flex-end">
+                            <h3 class="gt-fs-12 gt-mb-5 gt-lightgrayish dcolor-secondary">{{room.lastMessageTime | formatChatTime}}</h3>
+                        </div>
+                         <div class="gt-flex-end ">
+                            <div class="gt-center image-width-24 border-radius-100 h4 chat-active" *ngIf="room.totalUnReadMsgCount>0">{{room.totalUnReadMsgCount}}</div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ </div> 
+
+
+<app-chat-selected-users *ngIf="isChatSelectedUserEnabled" (closeEvent)="isChatSelectedUserEnabled=false" (selectedUserEvent)="getSelectedUserList($event)" [allUserList]="allRooms"></app-chat-selected-users> 
+<app-chat-selected-users-send-msg *ngIf="isChatSelectedUserSendMsgEnabled" [chatRooms]="chatWithRooms"  (closeEvent)="isChatSelectedUserSendMsgEnabled=false" (showChatSelectedUser)="isChatSelectedUserSendMsgEnabled=false;isChatSelectedUserEnabled=true;"></app-chat-selected-users-send-msg>

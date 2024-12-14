@@ -1,0 +1,1370 @@
+{
+   "success":true,
+   "code":200,
+   "message":"All published offers fetched successfully",
+   "payload":[
+      {
+         "offerId":"1619865700582",
+         "seOId":"demo-text-here-oid-1619865700582",
+         "name":"demo text here",
+         "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+         "desire":{
+            "description":"",
+            "desireType":"Money",
+            "tags":[
+               "string"
+            ],
+            "vertical":null,
+            "category":null,
+            "amount":200.0
+         },
+         "auctioned":false,
+         "auctionResponseInfo":null,
+         "exchangeMode":"Money",
+         "location":{
+            "lat":22.7034032,
+            "lng":88.28683459999999,
+            "area":"Hooghly",
+            "zip":"712310",
+            "flatNo":"NA",
+            "city":"Dankunibil",
+            "state":"West Bengal",
+            "country":"India",
+            "annotation":"Home",
+            "addressLine":"NH19, Mollaber Village, Dankunibil, West Bengal 712310, India"
+         },
+         "offerType":"Item",
+         "category":{
+            "categoryId":"eeb51585-6914-48bd-ad23-491f663b32bd",
+            "type":"Item",
+            "label":"string",
+            "description":"string",
+            "leafNode":true,
+            "breadcrumbs":[
+               "mobile"
+            ],
+            "hierarchy":[
+               {
+                  "categoryId":"eeb51585-6914-48bd-ad23-491f663b32bd",
+                  "label":"mobile"
+               }
+            ],
+            "tags":[
+               {
+                  "tagId":"5ea50670-205f-468f-a276-9becaaee0f7e",
+                  "name":"string",
+                  "description":"string",
+                  "label":"string",
+                  "values":[
+                     "string"
+                  ],
+                  "allowCompletionSearch":true,
+                  "allowFullSearch":true
+               },
+               {
+                  "tagId":"7102bf38-145d-4a42-9d15-23bc5d6b7137",
+                  "name":"string",
+                  "description":"string",
+                  "label":"string",
+                  "values":[
+                     "string"
+                  ],
+                  "allowCompletionSearch":true,
+                  "allowFullSearch":true
+               }
+            ],
+            "vertical":{
+               "id":"7bc56d7c-5f98-4b66-af0a-0d6f0ada789e",
+               "label":"mobile"
+            },
+            "synonyms":[
+               
+            ],
+            "imagePath":null,
+            "fullSearchScore":null,
+            "completionSearchScore":null,
+            "seoId":"mobile_eeb51585-6914-48bd-ad23-491f663b32bd",
+            "url":"/category/mobile_eeb51585-6914-48bd-ad23-491f663b32bd"
+         },
+         "totalOfferValuation":null,
+         "unitOfferValuation":234,
+         "images":[
+            {
+               "id":"e2010e05-6339-4b55-9478-ae2cb394a2f1",
+               "name":"1619865701533.jpg",
+               "orgName":"garden-service-500x500.jpg",
+               "url":"https://storage.googleapis.com/gintaa-develop/I/eeb51585-6914-48bd-ad23-491f663b32bd/2021/5/1/1619865700582//1619865701533.jpg",
+               "keywords":null,
+               "displayIndex":"1",
+               "mimeType":null,
+               "cover":true
+            }
+         ],
+         "videos":[
+            
+         ],
+         "documents":[
+            {
+               "id":"63dd37db-2432-4a47-a461-6eaadad00c2a",
+               "name":"1619865702654.pdf",
+               "orgName":"sample.pdf",
+               "url":"https://storage.googleapis.com/gintaa-develop/I/eeb51585-6914-48bd-ad23-491f663b32bd/2021/5/1/1619865700582//1619865702654.pdf",
+               "displayIndex":"1"
+            }
+         ],
+         "condition":null,
+         "hidden":false,
+         "hiddenPeriod":0,
+         "activeSince":"3 Days ago",
+         "facets":[
+            
+         ],
+         "user":{
+            "identityId":"xXb5y5ZLTog8g9px1CrdQDeP17J2",
+            "name":"dddd",
+            "averageRating":0.0
+         },
+         "currentUserOfferOwner":false,
+         "chatCount":0,
+         "dealCount":0,
+         "publishedDate":1619865709369,
+         "rejectionReason":null,
+         "rejectionReasonFields":null,
+         "quantity":17.0,
+         "itemCondition":"Good",
+         "conditionType":null
+      },
+      {
+         "offerId":"1619774251355",
+         "seOId":"dji-mavic-mini-2-oid-1619774251355",
+         "name":"DJI Mavic Mini 2",
+         "description":"DJI is expected to launch a new Mavic like drone with a dual camera, rumors swirl this is the new Mavic 3 drone pilots have been expecting. The year of 2020 has been quite interesting for the drone industry",
+         "desire":{
+            "description":"",
+            "desireType":"Money",
+            "tags":[
+               "string"
+            ],
+            "vertical":null,
+            "category":null,
+            "amount":12.0
+         },
+         "auctioned":false,
+         "auctionResponseInfo":null,
+         "exchangeMode":"Money",
+         "location":{
+            "lat":26.3440166,
+            "lng":89.21858879999999,
+            "area":"Cooch Behar",
+            "zip":"736146",
+            "flatNo":"NA",
+            "city":"Mathabhanga",
+            "state":"West Bengal",
+            "country":"India",
+            "annotation":"Home",
+            "addressLine":"Panthasala Rd, Uttar Para, Mathabhanga, West Bengal 736146, India"
+         },
+         "offerType":"Item",
+         "category":{
+            "categoryId":"9ef9ebab-7e49-472b-ad2f-269588ded77f",
+            "type":"Item",
+            "label":"Trousers",
+            "description":"Trousers",
+            "leafNode":true,
+            "breadcrumbs":[
+               "Trousers"
+            ],
+            "hierarchy":[
+               {
+                  "categoryId":"9ef9ebab-7e49-472b-ad2f-269588ded77f",
+                  "label":"Trousers"
+               }
+            ],
+            "tags":[
+               
+            ],
+            "vertical":{
+               "id":"8a858f10-dddb-45bd-8402-0893db988bdf",
+               "label":"Clothes & Apparels"
+            },
+            "synonyms":[
+               
+            ],
+            "imagePath":null,
+            "fullSearchScore":null,
+            "completionSearchScore":null,
+            "seoId":"Trousers_9ef9ebab-7e49-472b-ad2f-269588ded77f",
+            "url":"/category/Trousers_9ef9ebab-7e49-472b-ad2f-269588ded77f"
+         },
+         "totalOfferValuation":null,
+         "unitOfferValuation":12,
+         "images":[
+            {
+               "id":"dbdf238d-8094-406c-b23c-76021dc02efd",
+               "name":"1619774252270.jpg",
+               "orgName":"Cycle3.jpg",
+               "url":"https://storage.googleapis.com/gintaa-develop/I/9ef9ebab-7e49-472b-ad2f-269588ded77f/2021/4/30/1619774251355//1619774252270.jpg",
+               "keywords":null,
+               "displayIndex":"1",
+               "mimeType":null,
+               "cover":true
+            }
+         ],
+         "videos":[
+            
+         ],
+         "documents":[
+            {
+               "id":"792dbc5f-5b85-43c3-8244-98c43582c7f0",
+               "name":"1619774253396.pdf",
+               "orgName":"A Sample PDF.pdf",
+               "url":"https://storage.googleapis.com/gintaa-develop/I/9ef9ebab-7e49-472b-ad2f-269588ded77f/2021/4/30/1619774251355//1619774253396.pdf",
+               "displayIndex":"1"
+            }
+         ],
+         "condition":null,
+         "hidden":false,
+         "hiddenPeriod":0,
+         "activeSince":"4 Days ago",
+         "facets":[
+            
+         ],
+         "user":{
+            "identityId":"SJ6oxAsAXFWtj92GrFLubCjHAJA3",
+            "name":"Mithun Test",
+            "averageRating":0.0
+         },
+         "currentUserOfferOwner":false,
+         "chatCount":0,
+         "dealCount":0,
+         "publishedDate":1619774259106,
+         "rejectionReason":null,
+         "rejectionReasonFields":null,
+         "quantity":1.0,
+         "itemCondition":"Good",
+         "conditionType":null
+      },
+      {
+         "offerId":"1619768131831",
+         "seOId":"offer-test-suggest-oid-1619768131831",
+         "name":"Offer test suggest",
+         "description":"In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
+         "desire":{
+            "description":"",
+            "desireType":"Anything",
+            "tags":[
+               "string"
+            ],
+            "vertical":{
+               "id":"3c954ff3-6707-473c-8f49-3eeb8f455270",
+               "label":"Desktop"
+            },
+            "category":{
+               "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+               "type":"Item",
+               "label":"Hp Desktop",
+               "description":"Hp Desktop",
+               "leafNode":true,
+               "breadcrumbs":[
+                  "Hp Desktop"
+               ],
+               "hierarchy":[
+                  {
+                     "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+                     "label":"Hp Desktop"
+                  }
+               ],
+               "tags":[
+                  
+               ],
+               "vertical":{
+                  "id":"3c954ff3-6707-473c-8f49-3eeb8f455270",
+                  "label":"Desktop"
+               },
+               "synonyms":[
+                  
+               ],
+               "imagePath":null,
+               "fullSearchScore":null,
+               "completionSearchScore":null,
+               "seoId":"Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+               "url":"/category/Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c"
+            },
+            "amount":0.0
+         },
+         "auctioned":false,
+         "auctionResponseInfo":null,
+         "exchangeMode":"Anything",
+         "location":{
+            "lat":22.5698826,
+            "lng":88.51132400000002,
+            "area":"North 24 Parganas",
+            "zip":"700135",
+            "flatNo":"J9 block",
+            "city":"Kolkata",
+            "state":"West Bengal",
+            "country":"India",
+            "annotation":"Home",
+            "addressLine":"J9 block, Action Area III, shapoorji palonji, Newtown, Kolkata, West Bengal 700135, India"
+         },
+         "offerType":"Item",
+         "category":{
+            "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+            "type":"Item",
+            "label":"Hp Desktop",
+            "description":"Hp Desktop",
+            "leafNode":true,
+            "breadcrumbs":[
+               "Hp Desktop"
+            ],
+            "hierarchy":[
+               {
+                  "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+                  "label":"Hp Desktop"
+               }
+            ],
+            "tags":[
+               
+            ],
+            "vertical":{
+               "id":"3c954ff3-6707-473c-8f49-3eeb8f455270",
+               "label":"Desktop"
+            },
+            "synonyms":[
+               
+            ],
+            "imagePath":null,
+            "fullSearchScore":null,
+            "completionSearchScore":null,
+            "seoId":"Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+            "url":"/category/Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c"
+         },
+         "totalOfferValuation":null,
+         "unitOfferValuation":2000,
+         "images":[
+            {
+               "id":"e0157cd9-aff4-42a1-91fb-e29a4a9ac52b",
+               "name":"1619768132912.jpg",
+               "orgName":"loreal.jpg",
+               "url":"https://storage.googleapis.com/gintaa-develop/I/3c012f02-a670-4dd2-94fc-f70f477e6e0c/2021/4/30/1619768131831//1619768132912.jpg",
+               "keywords":null,
+               "displayIndex":"1",
+               "mimeType":null,
+               "cover":true
+            }
+         ],
+         "videos":[
+            
+         ],
+         "documents":[
+            
+         ],
+         "condition":null,
+         "hidden":false,
+         "hiddenPeriod":0,
+         "activeSince":"4 Days ago",
+         "facets":[
+            
+         ],
+         "user":{
+            "identityId":"0G5ZF3L0t6fsWRfWvnvSxIX3Is82",
+            "name":"Anik",
+            "averageRating":0.0
+         },
+         "currentUserOfferOwner":false,
+         "chatCount":0,
+         "dealCount":0,
+         "publishedDate":1619768136698,
+         "rejectionReason":null,
+         "rejectionReasonFields":null,
+         "quantity":996.0,
+         "itemCondition":"Good",
+         "conditionType":null
+      },
+      {
+         "offerId":"1619768108587",
+         "seOId":"offer-test-oid-1619768108587",
+         "name":"Offer test",
+         "description":"In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
+         "desire":{
+            "description":"",
+            "desireType":"Anything",
+            "tags":[
+               "string"
+            ],
+            "vertical":{
+               "id":"3c954ff3-6707-473c-8f49-3eeb8f455270",
+               "label":"Desktop"
+            },
+            "category":{
+               "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+               "type":"Item",
+               "label":"Hp Desktop",
+               "description":"Hp Desktop",
+               "leafNode":true,
+               "breadcrumbs":[
+                  "Hp Desktop"
+               ],
+               "hierarchy":[
+                  {
+                     "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+                     "label":"Hp Desktop"
+                  }
+               ],
+               "tags":[
+                  
+               ],
+               "vertical":{
+                  "id":"3c954ff3-6707-473c-8f49-3eeb8f455270",
+                  "label":"Desktop"
+               },
+               "synonyms":[
+                  
+               ],
+               "imagePath":null,
+               "fullSearchScore":null,
+               "completionSearchScore":null,
+               "seoId":"Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+               "url":"/category/Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c"
+            },
+            "amount":0.0
+         },
+         "auctioned":false,
+         "auctionResponseInfo":null,
+         "exchangeMode":"Anything",
+         "location":{
+            "lat":22.5698826,
+            "lng":88.51132400000002,
+            "area":"North 24 Parganas",
+            "zip":"700135",
+            "flatNo":"J9 block",
+            "city":"Kolkata",
+            "state":"West Bengal",
+            "country":"India",
+            "annotation":"Home",
+            "addressLine":"J9 block, Action Area III, shapoorji palonji, Newtown, Kolkata, West Bengal 700135, India"
+         },
+         "offerType":"Item",
+         "category":{
+            "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+            "type":"Item",
+            "label":"Hp Desktop",
+            "description":"Hp Desktop",
+            "leafNode":true,
+            "breadcrumbs":[
+               "Hp Desktop"
+            ],
+            "hierarchy":[
+               {
+                  "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+                  "label":"Hp Desktop"
+               }
+            ],
+            "tags":[
+               
+            ],
+            "vertical":{
+               "id":"3c954ff3-6707-473c-8f49-3eeb8f455270",
+               "label":"Desktop"
+            },
+            "synonyms":[
+               
+            ],
+            "imagePath":null,
+            "fullSearchScore":null,
+            "completionSearchScore":null,
+            "seoId":"Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+            "url":"/category/Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c"
+         },
+         "totalOfferValuation":null,
+         "unitOfferValuation":2000,
+         "images":[
+            {
+               "id":"e0157cd9-aff4-42a1-91fb-e29a4a9ac52b",
+               "name":"1619768109675.jpg",
+               "orgName":"loreal.jpg",
+               "url":"https://storage.googleapis.com/gintaa-develop/I/3c012f02-a670-4dd2-94fc-f70f477e6e0c/2021/4/30/1619768108587//1619768109675.jpg",
+               "keywords":null,
+               "displayIndex":"1",
+               "mimeType":null,
+               "cover":true
+            }
+         ],
+         "videos":[
+            
+         ],
+         "documents":[
+            
+         ],
+         "condition":null,
+         "hidden":false,
+         "hiddenPeriod":0,
+         "activeSince":"4 Days ago",
+         "facets":[
+            
+         ],
+         "user":{
+            "identityId":"0G5ZF3L0t6fsWRfWvnvSxIX3Is82",
+            "name":"Anik",
+            "averageRating":0.0
+         },
+         "currentUserOfferOwner":false,
+         "chatCount":0,
+         "dealCount":0,
+         "publishedDate":1619768113625,
+         "rejectionReason":null,
+         "rejectionReasonFields":null,
+         "quantity":1000.0,
+         "itemCondition":"Good",
+         "conditionType":null
+      },
+      {
+         "offerId":"1619767899403",
+         "seOId":"offer-test-oid-1619767899403",
+         "name":"Offer test",
+         "description":"In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.",
+         "desire":{
+            "description":"",
+            "desireType":"Anything",
+            "tags":[
+               "string"
+            ],
+            "vertical":{
+               "id":"3c954ff3-6707-473c-8f49-3eeb8f455270",
+               "label":"Desktop"
+            },
+            "category":{
+               "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+               "type":"Item",
+               "label":"Hp Desktop",
+               "description":"Hp Desktop",
+               "leafNode":true,
+               "breadcrumbs":[
+                  "Hp Desktop"
+               ],
+               "hierarchy":[
+                  {
+                     "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+                     "label":"Hp Desktop"
+                  }
+               ],
+               "tags":[
+                  
+               ],
+               "vertical":{
+                  "id":"3c954ff3-6707-473c-8f49-3eeb8f455270",
+                  "label":"Desktop"
+               },
+               "synonyms":[
+                  
+               ],
+               "imagePath":null,
+               "fullSearchScore":null,
+               "completionSearchScore":null,
+               "seoId":"Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+               "url":"/category/Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c"
+            },
+            "amount":0.0
+         },
+         "auctioned":false,
+         "auctionResponseInfo":null,
+         "exchangeMode":"Anything",
+         "location":{
+            "lat":22.5698826,
+            "lng":88.51132400000002,
+            "area":"North 24 Parganas",
+            "zip":"700135",
+            "flatNo":"J9 block",
+            "city":"Kolkata",
+            "state":"West Bengal",
+            "country":"India",
+            "annotation":"Home",
+            "addressLine":"J9 block, Action Area III, shapoorji palonji, Newtown, Kolkata, West Bengal 700135, India"
+         },
+         "offerType":"Item",
+         "category":{
+            "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+            "type":"Item",
+            "label":"Hp Desktop",
+            "description":"Hp Desktop",
+            "leafNode":true,
+            "breadcrumbs":[
+               "Hp Desktop"
+            ],
+            "hierarchy":[
+               {
+                  "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+                  "label":"Hp Desktop"
+               }
+            ],
+            "tags":[
+               
+            ],
+            "vertical":{
+               "id":"3c954ff3-6707-473c-8f49-3eeb8f455270",
+               "label":"Desktop"
+            },
+            "synonyms":[
+               
+            ],
+            "imagePath":null,
+            "fullSearchScore":null,
+            "completionSearchScore":null,
+            "seoId":"Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+            "url":"/category/Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c"
+         },
+         "totalOfferValuation":null,
+         "unitOfferValuation":2000,
+         "images":[
+            {
+               "id":"e0157cd9-aff4-42a1-91fb-e29a4a9ac52b",
+               "name":"1619767900547.jpg",
+               "orgName":"loreal.jpg",
+               "url":"https://storage.googleapis.com/gintaa-develop/I/3c012f02-a670-4dd2-94fc-f70f477e6e0c/2021/4/30/1619767899403//1619767900547.jpg",
+               "keywords":null,
+               "displayIndex":"1",
+               "mimeType":null,
+               "cover":true
+            }
+         ],
+         "videos":[
+            
+         ],
+         "documents":[
+            
+         ],
+         "condition":null,
+         "hidden":false,
+         "hiddenPeriod":0,
+         "activeSince":"4 Days ago",
+         "facets":[
+            
+         ],
+         "user":{
+            "identityId":"XHtGc7LGHzTwdQZ9seUhvBwQCa62",
+            "name":"Manish singh",
+            "averageRating":0.0
+         },
+         "currentUserOfferOwner":false,
+         "chatCount":0,
+         "dealCount":0,
+         "publishedDate":1619767905408,
+         "rejectionReason":null,
+         "rejectionReasonFields":null,
+         "quantity":996.0,
+         "itemCondition":"Good",
+         "conditionType":null
+      },
+      {
+         "offerId":"1619758690269",
+         "seOId":"watch-for-sale-oid-1619758690269",
+         "name":"Watch for sale",
+         "description":"I want to sell a watch. I want to sell a watch. I want to sell a watch. I want to sell a watch. I want to sell a watch. I want to sell a watch.",
+         "desire":{
+            "description":"I want a bottle in return.",
+            "desireType":"New",
+            "tags":[
+               "Alpha"
+            ],
+            "vertical":{
+               "id":"3c954ff3-6707-473c-8f49-3eeb8f455270",
+               "label":"Desktop"
+            },
+            "category":{
+               "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+               "type":"Item",
+               "label":"Hp Desktop",
+               "description":"Hp Desktop",
+               "leafNode":true,
+               "breadcrumbs":[
+                  "Hp Desktop"
+               ],
+               "hierarchy":[
+                  {
+                     "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+                     "label":"Hp Desktop"
+                  }
+               ],
+               "tags":[
+                  
+               ],
+               "vertical":{
+                  "id":"3c954ff3-6707-473c-8f49-3eeb8f455270",
+                  "label":"Desktop"
+               },
+               "synonyms":[
+                  
+               ],
+               "imagePath":null,
+               "fullSearchScore":null,
+               "completionSearchScore":null,
+               "seoId":"Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+               "url":"/category/Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c"
+            },
+            "amount":0.0
+         },
+         "auctioned":false,
+         "auctionResponseInfo":null,
+         "exchangeMode":"Item",
+         "location":{
+            "lat":22.5601,
+            "lng":88.3525,
+            "area":"Jadavpur",
+            "zip":"700086",
+            "flatNo":"3",
+            "city":"Kolkata",
+            "state":"West Bengal",
+            "country":"India",
+            "annotation":"Home",
+            "addressLine":"17 MG Road"
+         },
+         "offerType":"Item",
+         "category":{
+            "categoryId":"651cc332-594c-4d44-890f-b5291447c6b7",
+            "type":"Item",
+            "label":"laptop",
+            "description":"gaming laptop",
+            "leafNode":true,
+            "breadcrumbs":[
+               "laptop"
+            ],
+            "hierarchy":[
+               {
+                  "categoryId":"651cc332-594c-4d44-890f-b5291447c6b7",
+                  "label":"laptop"
+               }
+            ],
+            "tags":[
+               
+            ],
+            "vertical":{
+               "id":"3ea095b9-f9f5-4853-bfcb-60790d757e82",
+               "label":"laptop"
+            },
+            "synonyms":[
+               
+            ],
+            "imagePath":null,
+            "fullSearchScore":null,
+            "completionSearchScore":null,
+            "seoId":"asus_651cc332-594c-4d44-890f-b5291447c6b7",
+            "url":"/category/asus_651cc332-594c-4d44-890f-b5291447c6b7"
+         },
+         "totalOfferValuation":10,
+         "unitOfferValuation":2,
+         "images":[
+            
+         ],
+         "videos":[
+            
+         ],
+         "documents":[
+            
+         ],
+         "condition":null,
+         "hidden":false,
+         "hiddenPeriod":0,
+         "activeSince":"4 Days ago",
+         "facets":[
+            {
+               "name":"Size",
+               "label":"Size",
+               "values":[
+                  "L"
+               ]
+            }
+         ],
+         "user":{
+            "identityId":"uIvVPeKUQRYVjIjtn8LvXQxlOs82",
+            "name":"Agnis",
+            "averageRating":0.0
+         },
+         "currentUserOfferOwner":false,
+         "chatCount":0,
+         "dealCount":0,
+         "publishedDate":1619758692335,
+         "rejectionReason":null,
+         "rejectionReasonFields":null,
+         "quantity":0.0,
+         "itemCondition":"Good",
+         "conditionType":null
+      },
+      {
+         "offerId":"1619758401130",
+         "seOId":"brand-new-asus-laptop-oid-1619758401130",
+         "name":"brand new Asus laptop",
+         "description":"I want to sell asus gaming in good condition. The brand name is Asus. It has not been used yet. It is brand new. 15.6 inch laptop.",
+         "desire":{
+            "description":"I want a desktop in return.",
+            "desireType":"New",
+            "tags":[
+               "Alpha"
+            ],
+            "vertical":{
+               "id":"3c954ff3-6707-473c-8f49-3eeb8f455270",
+               "label":"Desktop"
+            },
+            "category":{
+               "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+               "type":"Item",
+               "label":"Hp Desktop",
+               "description":"Hp Desktop",
+               "leafNode":true,
+               "breadcrumbs":[
+                  "Hp Desktop"
+               ],
+               "hierarchy":[
+                  {
+                     "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+                     "label":"Hp Desktop"
+                  }
+               ],
+               "tags":[
+                  
+               ],
+               "vertical":{
+                  "id":"3c954ff3-6707-473c-8f49-3eeb8f455270",
+                  "label":"Desktop"
+               },
+               "synonyms":[
+                  
+               ],
+               "imagePath":null,
+               "fullSearchScore":null,
+               "completionSearchScore":null,
+               "seoId":"Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+               "url":"/category/Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c"
+            },
+            "amount":0.0
+         },
+         "auctioned":false,
+         "auctionResponseInfo":null,
+         "exchangeMode":"Item",
+         "location":{
+            "lat":22.5601,
+            "lng":88.3525,
+            "area":"Jadavpur",
+            "zip":"700086",
+            "flatNo":"3",
+            "city":"Kolkata",
+            "state":"West Bengal",
+            "country":"India",
+            "annotation":"Home",
+            "addressLine":"17 MG Road"
+         },
+         "offerType":"Item",
+         "category":{
+            "categoryId":"651cc332-594c-4d44-890f-b5291447c6b7",
+            "type":"Item",
+            "label":"laptop",
+            "description":"gaming laptop",
+            "leafNode":true,
+            "breadcrumbs":[
+               "laptop"
+            ],
+            "hierarchy":[
+               {
+                  "categoryId":"651cc332-594c-4d44-890f-b5291447c6b7",
+                  "label":"laptop"
+               }
+            ],
+            "tags":[
+               
+            ],
+            "vertical":{
+               "id":"3ea095b9-f9f5-4853-bfcb-60790d757e82",
+               "label":"laptop"
+            },
+            "synonyms":[
+               
+            ],
+            "imagePath":null,
+            "fullSearchScore":null,
+            "completionSearchScore":null,
+            "seoId":"asus_651cc332-594c-4d44-890f-b5291447c6b7",
+            "url":"/category/asus_651cc332-594c-4d44-890f-b5291447c6b7"
+         },
+         "totalOfferValuation":10,
+         "unitOfferValuation":2,
+         "images":[
+            
+         ],
+         "videos":[
+            
+         ],
+         "documents":[
+            
+         ],
+         "condition":null,
+         "hidden":false,
+         "hiddenPeriod":0,
+         "activeSince":"4 Days ago",
+         "facets":[
+            {
+               "name":"Size",
+               "label":"Size",
+               "values":[
+                  "L"
+               ]
+            }
+         ],
+         "user":{
+            "identityId":"uIvVPeKUQRYVjIjtn8LvXQxlOs82",
+            "name":"Agnis",
+            "averageRating":0.0
+         },
+         "currentUserOfferOwner":false,
+         "chatCount":0,
+         "dealCount":0,
+         "publishedDate":1619758404399,
+         "rejectionReason":null,
+         "rejectionReasonFields":null,
+         "quantity":0.0,
+         "itemCondition":"Good",
+         "conditionType":null
+      },
+      {
+         "offerId":"1619700948337",
+         "seOId":"ddeede-sdwe-sd--oid-1619700948337",
+         "name":"ddeede  sdwe sd ",
+         "description":"    dddddddddddddddddd  dddddddddddddddddvvvvvvvvvvvvvv ffffffffffffffffffffffffffffffffff fffffffffffffffffff",
+         "desire":{
+            "description":"",
+            "desireType":"Anything",
+            "tags":[
+               "string"
+            ],
+            "vertical":null,
+            "category":null,
+            "amount":0.0
+         },
+         "auctioned":false,
+         "auctionResponseInfo":null,
+         "exchangeMode":"Anything",
+         "location":{
+            "lat":22.5969376,
+            "lng":88.3896845,
+            "area":"Kolkata",
+            "zip":"700067",
+            "flatNo":"NA",
+            "city":"Kolkata",
+            "state":"West Bengal",
+            "country":"India",
+            "annotation":"Work",
+            "addressLine":"72, Canal Circular Rd, Ultadanga, Kolkata, West Bengal 700067, India"
+         },
+         "offerType":"Service",
+         "category":{
+            "categoryId":"eeb51585-6914-48bd-ad23-491f663b32bd",
+            "type":"Item",
+            "label":"string",
+            "description":"string",
+            "leafNode":true,
+            "breadcrumbs":[
+               "mobile"
+            ],
+            "hierarchy":[
+               {
+                  "categoryId":"eeb51585-6914-48bd-ad23-491f663b32bd",
+                  "label":"mobile"
+               }
+            ],
+            "tags":[
+               {
+                  "tagId":"5ea50670-205f-468f-a276-9becaaee0f7e",
+                  "name":"string",
+                  "description":"string",
+                  "label":"string",
+                  "values":[
+                     "string"
+                  ],
+                  "allowCompletionSearch":true,
+                  "allowFullSearch":true
+               },
+               {
+                  "tagId":"7102bf38-145d-4a42-9d15-23bc5d6b7137",
+                  "name":"string",
+                  "description":"string",
+                  "label":"string",
+                  "values":[
+                     "string"
+                  ],
+                  "allowCompletionSearch":true,
+                  "allowFullSearch":true
+               }
+            ],
+            "vertical":{
+               "id":"7bc56d7c-5f98-4b66-af0a-0d6f0ada789e",
+               "label":"mobile"
+            },
+            "synonyms":[
+               
+            ],
+            "imagePath":null,
+            "fullSearchScore":null,
+            "completionSearchScore":null,
+            "seoId":"mobile_eeb51585-6914-48bd-ad23-491f663b32bd",
+            "url":"/category/mobile_eeb51585-6914-48bd-ad23-491f663b32bd"
+         },
+         "totalOfferValuation":1000,
+         "unitOfferValuation":100,
+         "images":[
+            {
+               "id":"9c4cc857-c602-4f0b-908d-176fa67ef1fc",
+               "name":"1619700949213.jpg",
+               "orgName":"garden-service-500x500 (1).jpg",
+               "url":"https://storage.googleapis.com/gintaa-develop/S/eeb51585-6914-48bd-ad23-491f663b32bd/2021/4/29/1619700948337//1619700949213.jpg",
+               "keywords":null,
+               "displayIndex":"1",
+               "mimeType":null,
+               "cover":true
+            }
+         ],
+         "videos":[
+            
+         ],
+         "documents":[
+            
+         ],
+         "condition":null,
+         "hidden":false,
+         "hiddenPeriod":0,
+         "activeSince":"5 Days ago",
+         "facets":[
+            
+         ],
+         "user":{
+            "identityId":"xXb5y5ZLTog8g9px1CrdQDeP17J2",
+            "name":"Abhay Das",
+            "averageRating":0.0
+         },
+         "currentUserOfferOwner":false,
+         "chatCount":0,
+         "dealCount":0,
+         "publishedDate":1619700952830,
+         "rejectionReason":null,
+         "rejectionReasonFields":null,
+         "serviceTimingInfos":[
+            {
+               "dayOfWeek":"SUNDAY",
+               "timingInfoList":[
+                  {
+                     "startTime":"07:21:00",
+                     "endTime":"18:31:00"
+                  }
+               ]
+            }
+         ],
+         "ratePerHour":230.0,
+         "fixedRate":null,
+         "yourLocation":false,
+         "remote":false,
+         "myLocation":true
+      },
+      {
+         "offerId":"1619700878851",
+         "seOId":"brand-new-hp-laptop-oid-1619700878851",
+         "name":"brand new hp laptop",
+         "description":"I want to sell hp envy e4008 . The brand name is hp. It has not been used yet. It is brand new. 14 inch laptop.",
+         "desire":{
+            "description":"I want a apple laptop in return.",
+            "desireType":"New",
+            "tags":[
+               "Alpha"
+            ],
+            "vertical":{
+               "id":"3c954ff3-6707-473c-8f49-3eeb8f455270",
+               "label":"Desktop"
+            },
+            "category":{
+               "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+               "type":"Item",
+               "label":"Hp Desktop",
+               "description":"Hp Desktop",
+               "leafNode":true,
+               "breadcrumbs":[
+                  "Hp Desktop"
+               ],
+               "hierarchy":[
+                  {
+                     "categoryId":"3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+                     "label":"Hp Desktop"
+                  }
+               ],
+               "tags":[
+                  
+               ],
+               "vertical":{
+                  "id":"3c954ff3-6707-473c-8f49-3eeb8f455270",
+                  "label":"Desktop"
+               },
+               "synonyms":[
+                  
+               ],
+               "imagePath":null,
+               "fullSearchScore":null,
+               "completionSearchScore":null,
+               "seoId":"Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c",
+               "url":"/category/Hp-Desktop_3c012f02-a670-4dd2-94fc-f70f477e6e0c"
+            },
+            "amount":0.0
+         },
+         "auctioned":false,
+         "auctionResponseInfo":null,
+         "exchangeMode":"Item",
+         "location":{
+            "lat":22.5601,
+            "lng":88.3525,
+            "area":"Jadavpur",
+            "zip":"700086",
+            "flatNo":"3",
+            "city":"Kolkata",
+            "state":"West Bengal",
+            "country":"India",
+            "annotation":"Home",
+            "addressLine":"17 GM Road"
+         },
+         "offerType":"Item",
+         "category":{
+            "categoryId":"651cc332-594c-4d44-890f-b5291447c6b7",
+            "type":"Item",
+            "label":"laptop",
+            "description":"gaming laptop",
+            "leafNode":true,
+            "breadcrumbs":[
+               "laptop"
+            ],
+            "hierarchy":[
+               {
+                  "categoryId":"651cc332-594c-4d44-890f-b5291447c6b7",
+                  "label":"laptop"
+               }
+            ],
+            "tags":[
+               
+            ],
+            "vertical":{
+               "id":"3ea095b9-f9f5-4853-bfcb-60790d757e82",
+               "label":"laptop"
+            },
+            "synonyms":[
+               
+            ],
+            "imagePath":null,
+            "fullSearchScore":null,
+            "completionSearchScore":null,
+            "seoId":"asus_651cc332-594c-4d44-890f-b5291447c6b7",
+            "url":"/category/asus_651cc332-594c-4d44-890f-b5291447c6b7"
+         },
+         "totalOfferValuation":10,
+         "unitOfferValuation":2,
+         "images":[
+            
+         ],
+         "videos":[
+            
+         ],
+         "documents":[
+            
+         ],
+         "condition":null,
+         "hidden":false,
+         "hiddenPeriod":0,
+         "activeSince":"5 Days ago",
+         "facets":[
+            {
+               "name":"Size",
+               "label":"Size",
+               "values":[
+                  "L"
+               ]
+            }
+         ],
+         "user":{
+            "identityId":"B4i26FLSuAUNUxobDHuhHSbrzQi1",
+            "name":"Sandeep Chakraborty",
+            "averageRating":0.0
+         },
+         "currentUserOfferOwner":false,
+         "chatCount":0,
+         "dealCount":0,
+         "publishedDate":1619700881713,
+         "rejectionReason":null,
+         "rejectionReasonFields":null,
+         "quantity":1.0,
+         "itemCondition":"Good",
+         "conditionType":null
+      },
+      {
+         "offerId":"1619694934254",
+         "seOId":"gardening-everywhere-oid-1619694934254",
+         "name":"gardening everywhere",
+         "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+         "desire":{
+            "description":"",
+            "desireType":"Anything",
+            "tags":[
+               "string"
+            ],
+            "vertical":null,
+            "category":null,
+            "amount":0.0
+         },
+         "auctioned":false,
+         "auctionResponseInfo":null,
+         "exchangeMode":"Anything",
+         "location":{
+            "lat":22.915293,
+            "lng":88.29594759999999,
+            "area":"Hooghly",
+            "zip":"712305",
+            "flatNo":"NA",
+            "city":"Kashwara",
+            "state":"West Bengal",
+            "country":"India",
+            "annotation":"Home",
+            "addressLine":"Chunchura-Dhaniakali Rd, Kashwara, West Bengal 712305, India"
+         },
+         "offerType":"Service",
+         "category":{
+            "categoryId":"913b9515-26d9-4934-9410-406e021aba86",
+            "type":"Item",
+            "label":"iPhone",
+            "description":"Mobiles",
+            "leafNode":true,
+            "breadcrumbs":[
+               "iPhone"
+            ],
+            "hierarchy":[
+               {
+                  "categoryId":"913b9515-26d9-4934-9410-406e021aba86",
+                  "label":"iPhone"
+               }
+            ],
+            "tags":[
+               
+            ],
+            "vertical":{
+               "id":"235ad38d-316e-42b5-b7ba-91ff3d88496e",
+               "label":"Bottle"
+            },
+            "synonyms":[
+               
+            ],
+            "imagePath":null,
+            "fullSearchScore":null,
+            "completionSearchScore":null,
+            "seoId":"Mobile_913b9515-26d9-4934-9410-406e021aba86",
+            "url":"/category/Mobile_913b9515-26d9-4934-9410-406e021aba86"
+         },
+         "totalOfferValuation":1000,
+         "unitOfferValuation":100,
+         "images":[
+            {
+               "id":"6593bda4-eac3-4f56-b269-279c55a8c1bb",
+               "name":"1619694935165.jpg",
+               "orgName":"garden-service-500x500 (1).jpg",
+               "url":"https://storage.googleapis.com/gintaa-develop/S/913b9515-26d9-4934-9410-406e021aba86/2021/4/29/1619694934254//1619694935165.jpg",
+               "keywords":null,
+               "displayIndex":"1",
+               "mimeType":null,
+               "cover":true
+            }
+         ],
+         "videos":[
+            
+         ],
+         "documents":[
+            
+         ],
+         "condition":null,
+         "hidden":false,
+         "hiddenPeriod":0,
+         "activeSince":"5 Days ago",
+         "facets":[
+            
+         ],
+         "user":{
+            "identityId":"xXb5y5ZLTog8g9px1CrdQDeP17J2",
+            "name":"Abhay Das",
+            "averageRating":0.0
+         },
+         "currentUserOfferOwner":false,
+         "chatCount":0,
+         "dealCount":0,
+         "publishedDate":1619694939842,
+         "rejectionReason":null,
+         "rejectionReasonFields":null,
+         "serviceTimingInfos":[
+            {
+               "dayOfWeek":"MONDAY",
+               "timingInfoList":[
+                  {
+                     "startTime":"06:44:00",
+                     "endTime":"18:44:00"
+                  }
+               ]
+            },
+            {
+               "dayOfWeek":"SUNDAY",
+               "timingInfoList":[
+                  {
+                     "startTime":"06:44:00",
+                     "endTime":"18:44:00"
+                  }
+               ]
+            },
+            {
+               "dayOfWeek":"TUESDAY",
+               "timingInfoList":[
+                  {
+                     "startTime":"06:44:00",
+                     "endTime":"18:44:00"
+                  }
+               ]
+            },
+            {
+               "dayOfWeek":"WEDNESDAY",
+               "timingInfoList":[
+                  {
+                     "startTime":"06:44:00",
+                     "endTime":"18:44:00"
+                  }
+               ]
+            },
+            {
+               "dayOfWeek":"THURSDAY",
+               "timingInfoList":[
+                  {
+                     "startTime":"06:44:00",
+                     "endTime":"18:44:00"
+                  }
+               ]
+            },
+            {
+               "dayOfWeek":"FRIDAY",
+               "timingInfoList":[
+                  {
+                     "startTime":"06:44:00",
+                     "endTime":"18:44:00"
+                  }
+               ]
+            },
+            {
+               "dayOfWeek":"SATURDAY",
+               "timingInfoList":[
+                  {
+                     "startTime":"06:44:00",
+                     "endTime":"18:44:00"
+                  }
+               ]
+            }
+         ],
+         "ratePerHour":100.0,
+         "fixedRate":null,
+         "yourLocation":true,
+         "remote":true,
+         "myLocation":true
+      }
+   ]
+}

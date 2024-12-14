@@ -1,0 +1,383 @@
+.login-wrapper {
+  background: #ffffff;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  width: 800px;
+  height: auto;
+  position: relative;
+  float: left;  
+  box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2),
+    0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2),
+    0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 11px 15px -7px rgba(0, 0, 0, 0.2),
+    0 24px 38px 3px rgba(0, 0, 0, 0.14), 0 9px 46px 8px rgba(0, 0, 0, 0.12);
+}
+
+.login-left-wrapper {  
+  border-radius: 2px 0px 0px 2px;
+  -webkit-border-radius: 2px 0px 0px 2px;
+  -moz-border-radius: 2px 0px 0px 2px;
+  position: relative;
+    background-image: url(/assets/images/bg/login-left-bg.svg);         
+    background-repeat: no-repeat; 
+    background-position: top center; 
+    float: left;
+    width: 100%;     
+    min-height: 490px;
+}
+
+
+
+ul.social-login {
+  margin: 0 auto;  
+  width: 135px;
+}
+
+ul.social-login li {
+  float: left;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border: 1px solid #d4d4d4;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  cursor: pointer;
+}
+
+.group-padding {
+  padding: 22px 0px 22px 28px;
+}
+
+.group-paddings {
+  padding: 11px 0px 11px 15px;
+}
+
+.control-padding {
+  padding: 12px 20px;
+}
+
+.et-padding {
+  padding-top: 70px;
+  padding-bottom: 37px;
+}
+
+.um-padding {
+  padding-top: 25px;
+  padding-bottom: 50px;
+}
+
+.mail-details span {
+  color: #8bc63e;
+  padding-left: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.login-with {
+  position: relative;
+}
+.login-with h3 {
+  color: #797c92;
+  font-size: 15px;
+  font-family: $gt-font-poppins;
+  font-weight: 500;
+  width: 120px;
+  background-color: #ffffff;
+  z-index: 99;
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.login-with span {
+  color: #8bc63e;
+}
+
+.login-with .gt-hr {
+  border-top: 1px solid #707070;
+  width: 180px;
+  position: absolute;
+  top: 9px;
+  opacity: 36%;
+}
+
+.login-with-mt {
+  margin-top: 68px;
+}
+
+.gt-mt-233 {
+  margin-top: 233px;
+}
+.gt-pr-85 {
+  padding-right: 85px;
+}
+
+.gt-add-icon {
+  color: $gt-light !important;
+  padding: 0px !important;
+  cursor: inherit !important;
+  font-weight: bold;
+  vertical-align: middle;
+  font-size: 18px !important;
+}
+
+.color-ba {
+  color: #bababa;
+}
+
+.gt-border-bott {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.gt-mt-49 {
+  margin-top: 49px;
+}
+
+.gt-pr-170 {
+  padding-right: 170px;
+}
+.gt-pr-110 {
+  padding-right: 110px;
+}
+.gt-pr-115 {
+  padding-right: 115px;
+}
+.gt-mt-200 {
+  margin-top: 200px;
+}
+.gt-plr-135 {
+  padding: 0px 135px;
+}
+.gt-mt-155 {
+  margin-top: 155px;
+}
+.gt-mt-87 {
+  margin-top: 87px;
+}
+.gt-mt-150 {
+  margin-top: 150px;
+}
+.gt-mt-123 {
+  margin-top: 123px;
+}
+.gt-pr-155 {
+  padding-right: 155px;
+}
+.gt-mt-46 {
+  margin-top: 46px;
+}
+.gt-pr-215 {
+  padding-right: 215px;
+}
+.gt-mt-83 {
+  margin-top: 83px;
+}
+.gt-pr-185 {
+  padding-right: 185px;
+}
+.gt-mt-94 {
+  margin-top: 75px;
+}
+.gt-mb-54 {
+  margin-bottom: 54px;
+}
+.gt-mt-105 {
+  margin-top: 105px;
+}
+.gt-pr-210 {
+  padding-right: 210px;
+}
+
+.gt-opacity-50 {
+  opacity: 50%;
+}
+
+.name-group-padding {
+  padding: 11px 0px 11px 15px;
+}
+.name-control-padding {
+  padding: 12px 20px;
+  background-color: transparent;
+}
+.ph-group-padding {
+  padding: 11px 0px 11px 15px;
+}
+.ph-control-padding {
+  padding: 12px 20px;
+  background-color: transparent;
+}
+.input-icon-form {
+  color: #aaaab0;
+}
+
+.input-icon-map {
+  background-color: #eeeeee;
+}
+
+.map-group-padding {
+  padding: 16px 0px 16px 23px;
+}
+
+.map-control-padding {
+  padding: 15px 20px;
+}
+
+.map-input-shadow {
+  box-shadow: 0px 13px 24px -7px #cedada;
+  -webkit-box-shadow: 0px 13px 24px -7px #cedada;
+  -moz-box-shadow: 0px 13px 24px -7px #cedada;
+}
+
+.dob-date-select {
+  background-color: #ffffff;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+   height: 48px;
+  padding-left: 10px;
+  border: 1px solid rgba(197, 203, 213, 0.8);
+}
+
+.date-picker-btn {
+  padding: 2px 6px 4px 6px;
+  float: right;
+  margin: 6px;
+}
+
+.select-placeholder {
+  font-size: 10px !important;
+  font-weight: $gt-text-regular !important;
+  color: #b3b3b7 !important;
+}
+
+.gps-fixed span {
+  line-height: 34px;
+  color: #b3b4b5;
+}
+
+ul.loc_list {
+  position: absolute;
+  z-index: 999;
+  background: #eeeeee;
+  padding-left: 23px;
+}
+ul.loc_list li{
+  float: left;
+  width: 100%;
+}
+.user-profile-image {
+  width: 92px;
+  position: relative;
+}
+
+.avatar-container {
+  width: 92px;
+  height: 92px;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profile-photo-social {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+}
+.avatar-container .avatar-content {
+  width: 92px;
+  height: 92px;
+  background-color: #8bc63e;
+  font-size: 58px !important;
+  font-weight: 500 !important;
+  font-family: $gt-font-poppins !important;
+  margin: 0px !important;
+  padding: 0px !important;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-upload-btn {
+  float: right;
+  position: absolute;
+  right: -4px;
+  top: 66px;
+  cursor: pointer;
+}
+
+.my-avatar .avatar-container .avatar-content{
+  width: 40px;
+  height: 40px;
+  font-size: 16px !important;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.my-avatar-80 .avatar-container .avatar-content{
+  width: 80px;
+  height: 80px;
+  font-size: 20px !important;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.em-edit{
+  Width: 42px;
+  Height: 28px;
+  background: #74A7C5;
+  box-shadow: 0px 4px 8px rgba(191, 191, 191, 0.3);
+  -webkit-box-shadow: 0px 4px 8px rgba(191, 191, 191, 0.3);
+  -moz-box-shadow: 0px 4px 8px rgba(191, 191, 191, 0.3);
+}
+
+.bi-color{
+  color: #494949;
+}
+
+.user-login-photo {
+  width: 150px!important;
+  height: 150px!important;
+  margin-right: 0px!important;
+}
+
+.uphot-user{
+  width: 160px;
+  border: 2px solid #48CEF3;
+  margin: 0 auto;
+}
+
+.my-header-avatar .avatar-container .avatar-content {
+  width: 35px;
+  height: 35px;
+  font-size: 15px !important;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.user-loc-profile .gt-mb-30{
+  margin-bottom: 10px;
+}
+
+.resend-btnh{
+  font-size: 13px;
+  font-weight: normal;
+  color: $gt-sky;
+}
+
+.usersh-boxs .online-delete {
+  position: absolute;
+  z-index: 99;
+  top: 4px;
+  right: 4px;
+}
+
+.otp_resend, .otp_term p, .otp_term span{
+  font-family: $gt-font-poppins;
+}

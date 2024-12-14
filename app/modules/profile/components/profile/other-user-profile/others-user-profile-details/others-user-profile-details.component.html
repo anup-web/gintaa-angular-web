@@ -1,0 +1,152 @@
+<app-profile-skeleton *ngIf="isPageLoading"></app-profile-skeleton>
+
+<div class="gt-float-100 others-profile-left bg-change" *ngIf="userInfo && !isPageLoading">
+  <div class="gt-center gt-mt-25">
+    <div class="users-boxs user-bg user-box-border gt-center pro-img-primary">
+      <div class="online-custom" *ngIf="!isNotUser">
+        <button type="submit" class="
+            gt-btn-primary
+            block-btn
+            bg-change-secondary
+            dark-shadow
+            border-none
+          " (click)="openBlockUserDialog()">
+          <img src="assets/images/profile/profile-block-icon.svg" class="pro-res" alt="image" width="19" height="17" />
+        </button>
+      </div>
+      <app-profile-avatar [userName]="userName" [imageUrl]="userInfo.photoUrl" size="256">
+      </app-profile-avatar>
+    </div>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="gt-float-100 gt-pt-10 gt-pl-16 pro-name">
+          <h2 class="gt-fs-18 gt-lightblack gt-text-medium">
+            {{ profileName | trimTextToCertainNumberCharector: 15}}
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="gt-float-100 gt-pt-5 gt-pl-30 pro-name">
+          <div class="gt-display-flex online-user"
+            *ngIf="userStatus && userStatus.state =='online' else OfflineSection ">
+            <div class="online" style="left: 30px;top: 7px;"></div>
+            <div class="online-text dcolor-primary">online</div>
+          </div>
+          <ng-template #OfflineSection>
+            <div class="gt-display-flex online-user">
+              <div class="offline" style="left: 30px;top: 7px;"></div>
+              <div class="online-text">offline</div>
+            </div>
+          </ng-template>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="gt-float-100 gt-pt-5 gt-pl-25 rating-list">
+          <div class="gt-float-left gt-vcenter rating-list-primary" *ngIf="userInfo.averageRating > 0">
+            <div class="gt-float-left user-rating-comts ul-mt-zero">
+              <ul>
+                <li *ngFor="let i of ratingCountArray">
+                  <span class="material-icons">star</span>
+                </li>
+              </ul>
+            </div>
+            <h3 class="
+                gt-fs-14
+                pro-title-color
+                gt-text-medium gt-ml-10
+                rating-counts
+                dcolor-primary
+              ">
+              {{ userInfo.averageRating }}
+              <span class="gt-fs-14 gt-text-medium dcolor-primary">({{ userInfo.totalRatings }})</span>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="
+            gt-float-100 gt-pt-20 gt-pl-16 gt-center gt-justify-content-between
+            deals-count
+          ">
+          <div class="gt-float-left gt-center deals-count-primary">
+            <h4 class="
+                gt-fs-16
+                pro-title-color
+                gt-opacity-9
+                deals-count-secondary
+                dcolor-primary
+              ">
+              {{ userInfo.closedDealsCount }} successful offers
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="
+            gt-float-100 gt-pt-10 gt-pl-16 gt-center gt-justify-content-between
+            user-year
+          ">
+          <div class="gt-float-left gt-center user-year-primary">
+            <h5 class="
+                gt-fs-16
+                pro-title-color
+                gt-opacity-9
+                user-year-secondary
+                dcolor-primary
+              ">
+              {{ userInfo.profileSince ? userInfo.profileSince : "Now" }} on
+              gintaa
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12">
+        <div class="
+            gt-float-100 gt-pt-10 gt-pl-16 gt-center gt-justify-content-between
+            user-loction
+          ">
+          <div class="gt-float-left gt-center user-loction-primary">
+            <h6 class="
+                gt-fs-16
+                pro-title-color
+                gt-opacity-9
+                user-loction-secondary
+                dcolor-primary
+              ">
+              {{ location }}
+            </h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

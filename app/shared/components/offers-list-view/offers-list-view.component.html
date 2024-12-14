@@ -1,0 +1,121 @@
+<div class="gt-float-100 list-offer-wrapper">
+  <div class="gt-float-100 gt-mb-15">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 co-xs-12">
+        <div class="list-view-card">
+          <div class="list-view-left">
+            <div class="loffer-card-img">
+              <div class="loffer-img max-height-img-175">
+                <img [src]="offer?.images | coverImage" class="gt-img-responsive" alt="image"
+                  (click)="navigateToOffer(offer)" onError="this.src = 'assets/images/no-image.png'" />
+              </div>
+              <div class="arrivals-action offerl-location" *ngIf="offer.location">
+                <div class="offer-location" *ngIf="offer.location">
+                  {{ offer | offerLocation }}
+                </div>
+                <ng-container *ngIf="
+                    !offer.draftOfferId &&
+                    !offer.currentUserOfferOwner &&
+                    isAuth
+                  ">
+                  <span class="material-icons fav-btn" *ngIf="!isFavorite(offer.offerId)"
+                    (click)="addOfferToFavourite(offer.offerId)">favorite_border</span>
+                  <span class="material-icons fav-color-card" *ngIf="isFavorite(offer.offerId)"
+                    (click)="removeOfferFromFavourite(offer.offerId)">favorite
+                  </span>
+                </ng-container>
+              </div>
+            </div>
+          </div>
+          <div class="list-view-middle">
+            <div class="gt-float-100 gt-display-flex list-view-scondary">
+            <div class="gt-float-100 gt-pd-lr-20 offerl-details">
+              <div class="gt-float-100 gt-mt-19 offrel-name gt-ellipsis" ellipsis>
+                <h2>{{ offer.name }}</h2>
+              </div>
+              <div class="gt-vcenter gt-float-100 gt-mt-16 loffer-desire" *ngIf="offer.desire">
+                <img src="assets/images/home/desire-icon.svg" alt="image" class="tags-imgoff" />
+                <h3 class="gt-ml-9">{{ offer | offerDesire }}</h3>
+              </div>
+
+              <div class="gt-vcenter gt-float-100 gt-mt-16 loffer-desire" *ngIf="offer?.exchangeMode ==='Money'">
+                
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100 gt-vcenter">
+                      
+                      <div class="gt-vcenter gt-mr-20">
+                        <h3 class="gt-fs-18 gt-sky mvalue">
+                          <span class="icon-gt-money-new gt-fs-14"></span> {{offer?.price}}
+                        </h3>
+                      </div>
+                      <div class="gt-vcenter gt-position-relative gt-mr-20"
+                        *ngIf="offer?.unitOfferValuation && offer?.price !== offer?.unitOfferValuation">
+                        <h3 class="gt-fs-14 gt-black-60 gt-position-relative mvalue off-price">
+                          <span class="icon-gt-money-new gt-fs-14"></span> {{offer?.unitOfferValuation}}
+                        </h3>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gt-vcenter gt-float-100 gt-mt-16 loffer-desire" *ngIf="offer?.exchangeMode ==='Free'">
+                <img src="assets/images/home/desire-icon.svg" alt="image" class="tags-imgoff" />
+                <h3 class="gt-ml-9">{{ offer?.exchangeMode }}</h3>
+              </div>
+
+              <div class="gt-vcenter gt-float-100 gt-mt-16 loffer-desire" *ngIf="offer.auctioned">
+                <img src="assets/images/home/desire-icon.svg" alt="image" class="tags-imgoff" />
+                <h3 class="gt-ml-9">{{ offer?.exchangeMode }}</h3>
+              </div>
+              
+              <div class="gt-float-100 gt-mt-18 offerl-des">
+                <h4>
+                  {{ offer.description?.slice(0, 100) || "" }}
+                </h4>
+              </div>
+            </div>
+            <div class="gt-pt-19 offer-lvcount">
+              <div class="offer-value">
+                <h2 class="gt-fs-14 black-per"> Listings value</h2>
+                <div class="gt-vcenter gt-mt-4">
+                  <img src="assets/images/create-offer/rs-offers.svg" class="opry" width="30" height="30" alt="image" />
+                  <h3 class="gt-fs-15 black-per opgt" *ngIf="offer.offerType.toLowerCase() === 'item'">
+                    {{ offer.unitOfferValuation || 0 }}
+                  </h3>
+                  <h3 class="gt-fs-15 black-per opgt" *ngIf="offer.offerType.toLowerCase() === 'service'">
+                    {{ offer.rate || 0 }}
+                  </h3>
+                </div>
+              </div>
+
+              <div class="gt-pt-20 offer-quantity" *ngIf="offer.offerType.toLowerCase() !== 'service'">
+                <h2 class="gt-fs-14 black-per">Quantity</h2>
+                <div class="gt-vcenter gt-mt-4">
+                  <img src="assets/images/create-offer/hash-offers.svg" class="gt-mr-4 avftg" width="14" height="14"
+                    alt="image" />
+                  <h3 class="gt-fs-15 black-per">{{ offer.quantity || 0 }}</h3>
+                </div>
+              </div>
+            </div>
+            <div class="gt-pt-19 offers-favview">
+              <div class="gt-float-100 gt-vcenter list-location" *ngIf="offer.location">                
+                <span class="icon-popular-loc gt-fs-16 gt-mr-8"></span> 
+                <h2 class="gt-fs-12 gt-lightblack">{{ offer | offerLocation }} </h2>                                
+              </div>
+              <div class="gt-float-100 gt-center-end gt-pr-20 gt-mt-119 offer-status">
+                <span class="pvstaus"></span>
+                <h2 class="gt-fs-14 gt-sky gt-text-medium">
+                  {{ offer.offerStage || 'Draft' }}
+                </h2>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

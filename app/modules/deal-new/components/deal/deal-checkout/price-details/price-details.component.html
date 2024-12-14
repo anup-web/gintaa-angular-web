@@ -1,0 +1,86 @@
+<div class="gt-float-100 gt-border-radius-4 gt-pb-20 upload-noffer-right price-details-rph">
+    <div class="gt-float-100 gt-pt-10 gt-pb-2 gt-pd-lr-12">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="gt-float-100">                     
+                    <h2 class="gt-fs-15 gt-text-medium gt-black-70">Price details</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">                
+                    <div class="gt-float-100 gt-center-between">                       
+                        <div class="gt-vcenter">
+                            <h3 class="gt-fs-14 gt-black-70">Price (1 item)</h3>
+                        </div>
+                        <div class="gt-vcenter hs-price">
+                             <span class="icon-gt-currency gt-fs-20"></span>
+                             <h4 class="gt-fs-15 gt-letter-spacing gt-black-70">{{selectedOfferDetail?.unitOfferValuation | formatPriceDecemal }}</h4>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">                
+                    <div class="gt-float-100 gt-center-between">                       
+                        <div class="gt-vcenter">
+                            <h3 class="gt-fs-14 gt-black-70">Discount on MRP </h3>
+                        </div>
+                        <div class="gt-vcenter hsh-price">
+                            <span class="icon-horizontal_rule gt-fs-14"></span>
+                             <span class="icon-gt-currency gt-fs-20"></span>
+                             <h4 class="gt-fs-15 gt-letter-spacing nh-color">{{calculateDiscount() | formatPriceDecemal}}</h4>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+  
+    <div class="gt-float-100 gt-pd-lr-12 gt-mt-15" *ngIf="shippingVendor?.courier_company_id">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">                
+                    <div class="gt-float-100 gt-center-between">                       
+                        <div class="gt-vcenter">
+                            <h3 class="gt-fs-14 gt-black-70">Shipping charges</h3>
+                        </div>
+                        <div class="gt-vcenter hs-price">                            
+                             <span class="icon-gt-currency gt-fs-20"></span>
+                             <h4 class="gt-fs-15 gt-letter-spacing gt-black-70">{{calculateShip(shippingVendor?.rate) | formatPriceDecemal}}</h4>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">                
+                    <div class="gt-float-100 gt-center-between gt-pt-15 total-ph">                       
+                        <div class="gt-vcenter">
+                            <h3 class="gt-fs-14 gt-black-90">Total payble amount</h3>
+                        </div>
+                        <div class="gt-vcenter hs-price">                            
+                             <span class="icon-gt-currency gt-fs-25"></span>
+                             <h4 class="gt-fs-18 gt-letter-spacing gt-text-medium gt-black-90">{{getTotalPayableAmount() | formatPriceDecemal}}</h4>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+
+
+
+
+
+
+</div>

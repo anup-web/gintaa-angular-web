@@ -1,0 +1,85 @@
+<!-- <app-loading-spinner loaderType="drops-fading" fullPage="false" loader="true" *ngIf="isLoading" addBackDrop="true" backDropColor="#000000" loadingMessage="Please wait..."></app-loading-spinner> -->
+<!-- <app-spinner *ngIf="isLoading" timeOut="7000"></app-spinner> -->
+<div class="gt-float-100 gt-pd-lr-24 gt-mb-15 chat-offer-search" [ngClass]="{'gt-pd-lr-8': screenType === 'small'}">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="money-hash">
+            <div class="currency-group">                  
+              <div class="currency-input-group gt-border-none gt-bg-white gt-height-40 gt-border-radius-8">
+                <div class="currency-input-group-prepend">
+                  <div class="currency-input-group-text hash-group-text">
+                    <img src="assets/images/chat/search-chat.svg" alt="image" class="has-tag" width="20"
+                      height="20" />
+                  </div>
+                </div>
+                <input type="text" class="currency-form-control hash-control gt-height-40 gt-bg-white" placeholder="Search in Trading Chat" (keyup)="filterOffers(searchText)" #searchText/>
+              </div>
+            </div>
+          </div>
+       
+      </div>
+    </div>
+</div>
+<ng-container *ngIf="allOfferCommunications?.length>0 then list;else emptyList">
+
+</ng-container>
+<ng-template #list>
+
+<div class="gt-float-100 clist-scroll"  infiniteScroll [infiniteScrollDistance]="2"
+[infiniteScrollUpDistance]="1.5" [infiniteScrollThrottle]="50" (scrolled)="onScroll()"
+(scrolledDown)="onScrollDown()" [scrollWindow]="false"> 
+<div class="gt-float-100 gt-cursor-pointer" *ngFor="let communication of allOfferCommunications" (click)="getOfferUsersOrOpenChat(communication)">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100 gt-pd-lr-24 gt-pd-tb-6 gt-mb-5 chat-offer-card user-active bg-change-secondary" [ngClass]="{'offerlist-small-rp': screenType === 'small'}">
+                <div class="gt-center-between chatoffer-card" [ngClass]="{'rs-chat-offer-card': screenType === 'small'}">
+                    <div class="gt-vcenter img-offer-rp" [ngClass]="{'rs-display-flex': screenType === 'small'}">
+                        <div class="image-users" (click)="clickOnTitleOrImage(communication.offerDetails?.offerId,$event)">
+                            <img [src]="communication.offerDetails?.offerImage || communication.offerImage || noImage" class="image-width-40 border-radius-100" alt="image"/>
+                        </div>
+
+                        <div class="detail-chat-offer">
+                            <div class="gt-ml-8 detail-chat-offer">
+                                <div class="chat-offer-title" (click)="clickOnTitleOrImage(communication.offerDetails?.offerId,$event)">
+                                    <h1 class="gt-fs-14 gt-mb-2 gt-lightblack dcolor-primary">{{communication.offerDetails?.offerName || communication.offerName}}</h1>
+                                </div>
+                                <div class="name-update-rp">
+                                    <h2 class="gt-fs-12 gt-text-medium hyoff-msg gt-lightgrayish dcolor-secondary gt-vcenter">
+                                       <span class="fst-mgs" *ngIf="communication.fromName">{{communication.fromName}}: </span>
+                                       <ng-container *ngIf="communication.lastMessageSenderIsLoginUser">
+                                            <div class="singal-check gt-mr-8" *ngIf="communication.lastMessageIsSent && communication.lastMessageIsDelivered==false"><span class="material-icons">done</span></div> 
+                                            <div class="double-check gt-mr-8" *ngIf="communication.lastMessageIsDelivered && communication.lastMessageIsRead==false"><span class="material-icons">done_all</span></div>
+                                            <div class="double-check-send gt-mr-8" *ngIf="communication.lastMessageIsRead"><span class="material-icons">done_all</span></div>
+                                       </ng-container>
+                                       <span [innerHtml]="communication.lastMessage" class="gt-vcenter last-mgs"></span>
+                                       
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="offer-dates chat-odate-rp" [ngClass]="{'rs-chat-odate-rp': screenType === 'small'}">
+                        <div class="gt-flex-end">
+                            <h3 class="gt-fs-12 gt-lightgrayish dcolor-secondary">{{communication.lastMessageTime | formatChatTime}}</h3>
+                        </div>
+                        <div class="gt-flex-end gt-mt-5">
+                            <div class="gt-center image-width-24 border-radius-100 h4 chat-active" *ngIf="communication.totalUnReadMsgCount>0">{{communication.totalUnReadMsgCount}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ </div> 
+
+</ng-template>
+<ng-template #emptyList>
+    <div class="empty-chat text-center">
+        <!-- <app-empty-chat-animation></app-empty-chat-animation> -->
+        <div class="pt-3 dcolor-secondary">
+            You have no listing chat yet
+        </div>
+    </div>
+</ng-template>

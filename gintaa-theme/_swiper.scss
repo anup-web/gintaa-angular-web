@@ -1,0 +1,69 @@
+
+@import "~swiper/swiper";
+@import "~swiper/components/navigation/navigation";
+@import "~swiper/components/thumbs/thumbs";
+
+
+
+.mySwiper .swiper-slide {
+  width: 57px!important;
+  height: 51px;
+  opacity: 0.7;
+  border: 2px solid #bcbcbc;
+  padding: 2px;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+  border: 2px solid #98eca6;
+    padding: 2px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.swiper-primary{
+  background: #FFFFFF;
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.08);
+  -webkit-box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.08);
+  padding: 12px;
+  margin-bottom: 14px;
+  .swiper-container{
+    height: 450px;
+    float: left;
+    width: 100%;
+    .swiper-wrapper{
+      .swiper-slide {        
+        width: 100%!important;
+        height: 450px;    
+        float: left;
+        img{
+          float: left;
+          width: 100%;
+          height: 100%;
+        }
+    }
+    }
+  }
+}
+
+
+
+.swiper-button-prev:after, .swiper-button-next:after {  
+  font-size: 20px;
+}
+
+.drift-zoom-pane {
+  overflow: hidden;
+  width: 500px;
+  height: 500px;
+  top: 0;
+  left: 0;
+  z-index: 99;  
+}

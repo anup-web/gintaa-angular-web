@@ -1,0 +1,174 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Trade-Notification successfully fetched",
+    "payload": [{
+        "type": "OfferApproved",
+        "notificationId": 123,
+        "entityId": "7PAY96A6GD6jKwzFhPKfJM",
+        "notiMessage": "Offer created successfully.",
+        "notifyOn": "now",
+        "isRead":false
+    },
+    {
+        "type": "OfferBidReceived",
+        "notificationId": 122,
+        "entityId": "7PAY96A6GD6jKwzFhPKfJM",
+        "notiMessage": "Offer Bid Received.",
+        "notifyOn": "Yesterday 4.24 am",
+        "isRead": false
+    },
+    {
+        "type": "NewDealSuggestion",
+        "notificationId": 124,
+        "entityId": 14566,
+        "notiMessage": "Deal initiated successfully.",
+        "notifyOn": "3h ago",
+        "isRead": true
+    },
+    {
+        "type": "NewMatch",
+        "notificationId": 125,
+        "entityId": 1234,
+        "notiMessage": "Deal initiated successfully.",
+        "notifyOn": "Yesterday 4.24 am",
+        "isRead": true
+    },
+    {
+        "type": "DealAcceptance",
+        "notificationId": 146,
+        "entityId": 14567,
+        "notiMessage": "Deal initiated successfully.",
+        "notifyOn": "3h ago",
+        "isRead": true
+    },
+    {
+        "type": "SuccessDealClose",  
+        "notificationId": 156,
+        "entityId": 14568,
+        "notiMessage": "Deal initiated successfully.",
+        "notifyOn": "3h ago",
+        "isRead": true
+    },
+    {
+        "type": "OfferApproved",
+        "notificationId": 126,
+        "entityId": 1619008841777,
+        "notiMessage": "Offer created successfully.",
+        "notifyOn": "now",
+        "isRead":false
+    },
+    {
+        "type": "NewDealSuggestion",
+        "notificationId": 127,
+        "entityId": 14566,
+        "notiMessage": "Deal initiated successfully.",
+        "notifyOn": "3h ago",
+        "isRead": true
+    },
+    {
+        "type": "NewMatch",
+        "notificationId": 128,
+        "entityId": 1234,
+        "notiMessage": "Deal initiated successfully.",
+        "notifyOn": "Yesterday 4.24 am",
+        "isRead": true
+    },
+    {
+        "type": "OfferApproved",
+        "notificationId": 129,
+        "entityId": 1619008841777,
+        "notiMessage": "Offer created successfully.",
+        "notifyOn": "now",
+        "isRead":false
+    },
+    {
+        "type": "NewDealSuggestion",
+        "notificationId": 130,
+        "entityId": 14566,
+        "notiMessage": "Deal initiated successfully.",
+        "notifyOn": "3h ago",
+        "isRead": true
+    },
+    {
+        "type": "NewMatch",
+        "notificationId": 131,
+        "entityId": 1234,
+        "notiMessage": "Deal initiated successfully.",
+        "notifyOn": "Yesterday 4.24 am",
+        "isRead": true
+    },
+    {
+        "type": "OfferApproved",
+        "notificationId": 132,
+        "entityId": "7PAY96A6GD6jKwzFhPKfJM",
+        "notiMessage": "Offer created successfully.",
+        "notifyOn": "now",
+        "isRead":false
+    },
+    {
+        "type": "NewDealSuggestion",
+        "notificationId": 133,
+        "entityId": 14566,
+        "notiMessage": "Deal initiated successfully.",
+        "notifyOn": "3h ago",
+        "isRead": true
+    },
+    {
+        "type": "NewMatch",
+        "notificationId": 134,
+        "entityId": 1234,
+        "notiMessage": "Deal initiated successfully.",
+        "notifyOn": "Yesterday 4.24 am",
+        "isRead": true
+    },
+    {
+        "type": "OfferApproved",
+        "notificationId": 135,
+        "entityId": "7PAY96A6GD6jKwzFhPKfJM",
+        "notiMessage": "Offer created successfully.",
+        "notifyOn": "now",
+        "isRead":false
+    },
+    {
+        "type": "NewDealSuggestion",
+        "notificationId": 136,
+        "entityId": 14566,
+        "notiMessage": "Deal initiated successfully.",
+        "notifyOn": "3h ago",
+        "isRead": true
+    },
+    {
+        "type": "NewMatch",
+        "notificationId": 137,
+        "entityId": 1234,
+        "notiMessage": "Deal initiated successfully.",
+        "notifyOn": "Yesterday 4.24 am",
+        "isRead": true
+    },
+    {
+        "type": "OfferApproved",
+        "notificationId": 138,
+        "entityId": "7PAY96A6GD6jKwzFhPKfJM",
+        "notiMessage": "Offer created successfully.",
+        "notifyOn": "now",
+        "isRead":false
+    },
+    {
+        "type": "NewDealSuggestion",
+        "notificationId": 139,
+        "entityId": 14566,
+        "notiMessage": "Deal initiated successfully.",
+        "notifyOn": "3h ago",
+        "isRead": true
+    },
+    {
+        "type": "NewMatch",
+        "notificationId": 140,
+        "entityId": 1234,
+        "notiMessage": "Deal initiated successfully.",
+        "notifyOn": "Yesterday 4.24 am",
+        "isRead": true
+    }
+    ]
+}

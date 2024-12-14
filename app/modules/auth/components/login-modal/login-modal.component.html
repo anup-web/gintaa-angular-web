@@ -1,0 +1,111 @@
+<div class="login-wrapper bg-change">
+  <div class="user-login gt-float-100 bg-change" *ngIf="currentAuthModal$ | async as currentAuthModal">
+
+
+
+    <div class="popup-closed lpc-rp" *ngIf="showPopupCloseButton(currentAuthModal) | async" (click)="onDialogClose()">
+      <span class="material-icons">close</span>
+    </div>
+
+    <button
+      class="gt-btn-primary gt-btn-clear popup-closed gt-mr-30 gt-pd-zero gt-border-none gt-back gb-rp bg-change-secondary dark-shadow border-none"
+      (click)="backToPreviousScreen(currentAuthModal)" *ngIf="showBackButton(currentAuthModal) | async">
+      <h2><span class="material-icons"> keyboard_arrow_left </span> back</h2>
+    </button>
+    <button *ngIf="showSkipButton(currentAuthModal) | async"
+      class="gt-btn-primary gt-btn-clear popup-closed gt-text-decoration-underline gt-mr-30 gt-mt-2 gt-pd-zero skp-rp"
+      (click)="skipToNextScreen(currentAuthModal)">
+      Skip
+    </button>
+    <div class="row">
+      <div class="col-lg-6 col-md-6">
+        <div class="login-left-wrapper gt-width-100 gt-height-100 gt-pt-50 lw-rp dark-shadow bg-change">
+          <div class="slider-user gt-float-100">
+            <app-login-slider></app-login-slider>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <app-login *ngIf="currentAuthModal === allPossibleAuthModals.SIGN_IN_WITH_MOBILE"></app-login>
+
+        <app-new-user-otp-verify *ngIf="
+            currentAuthModal === allPossibleAuthModals.VERIFY_OTP_WITH_MOBILE
+          ">
+        </app-new-user-otp-verify>
+
+        <app-new-user-email-verify *ngIf="
+            currentAuthModal === allPossibleAuthModals.UPDATE_PROFILE_PASSWORD
+          "></app-new-user-email-verify>
+
+        <app-profile-name *ngIf="currentAuthModal === allPossibleAuthModals.UPDATE_PROFILE_NAME && isLoggedIn">
+        </app-profile-name>
+
+        <app-profile-phone-email *ngIf="
+            currentAuthModal ===
+            allPossibleAuthModals.UPDATE_PROFILE_EMAIL_OR_PHONE && isLoggedIn
+          "></app-profile-phone-email>
+
+        <app-user-profile-photo *ngIf="
+          currentAuthModal ===
+          allPossibleAuthModals.UPDATE_PROFILE_IMAGE && isLoggedIn
+        "></app-user-profile-photo>
+
+        <app-profile-dob-gender *ngIf="
+            currentAuthModal === allPossibleAuthModals.UPDATE_PROFILE_DOB_GENDER && isLoggedIn
+          "></app-profile-dob-gender>
+
+        <app-profile-location *ngIf="
+            currentAuthModal === allPossibleAuthModals.UPDATE_PROFILE_LOCATION && isLoggedIn
+          "></app-profile-location>
+
+        <app-profile-user-address *ngIf="
+            currentAuthModal === allPossibleAuthModals.UPDATE_PROFILE_ADDRESS && isLoggedIn
+          "></app-profile-user-address>
+
+        <app-existing-user-password-verify *ngIf="
+            currentAuthModal ===
+            allPossibleAuthModals.VERIFY_PASSWORD_WITH_MOBILE
+          "></app-existing-user-password-verify>
+
+        <app-heads-up-social-login *ngIf="
+            currentAuthModal ===
+            allPossibleAuthModals.SOCIAL_LOGIN_HEADS_UP_START
+          "></app-heads-up-social-login>
+
+
+        <app-email-login-link-send-success *ngIf="
+          currentAuthModal ===
+          allPossibleAuthModals.EMAIL_LOGIN_LINK_SEND_SUCCESS
+        "></app-email-login-link-send-success>
+
+        <app-email-login-link-verify *ngIf="
+          currentAuthModal ===
+          allPossibleAuthModals.EMAIL_LOGIN_LINK_VERIFY
+        "></app-email-login-link-verify>
+
+        <ng-container *ngIf="
+          (
+            currentAuthModal === allPossibleAuthModals.UPDATE_PROFILE_NAME
+            || currentAuthModal === allPossibleAuthModals.UPDATE_PROFILE_EMAIL_OR_PHONE
+            || currentAuthModal === allPossibleAuthModals.UPDATE_PROFILE_IMAGE
+            || currentAuthModal === allPossibleAuthModals.UPDATE_PROFILE_DOB_GENDER
+            || currentAuthModal === allPossibleAuthModals.UPDATE_PROFILE_LOCATION
+            || currentAuthModal === allPossibleAuthModals.UPDATE_PROFILE_ADDRESS
+          )
+          && !isLoggedIn
+        ">
+          <div class="section-close-modal">
+            <p>Your session has been expired</p>
+            <p class="mt-3">
+              <button class="btn" (click)="onDialogClose()">close popup</button>
+            </p>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-loading-spinner loaderType="drops-fading" [fullPage]="true" [loader]="authLoader" addBackDrop="true"
+  backDropColor="#fff"></app-loading-spinner>

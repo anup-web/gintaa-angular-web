@@ -1,0 +1,31 @@
+<div class="gt-float-100">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="gt-float-100">
+        <div class="gt-float-left gt-display-flex bredcum-title">
+          <div class="brdcum-icon" [routerLink]="'/'">
+            <img src="assets/images/breadcum-home-icon.svg" alt="icon" width="20" height="22"
+              class="gt-img-responsive" />
+          </div>
+          <ul class="gt-display-flex bredcum-nav">
+            <li>
+              <span class="material-icons">navigate_next</span>
+              <div class="brelink">
+                <a [routerLink]="bredCrumbInput.link ? bredCrumbInput.link : '/'"
+                  [fragment]="bredCrumbInput.fragment">{{ bredCrumbInput.text }}</a>
+              </div>
+            </li>
+            <li *ngIf="bredCrumbInput.currentPage.show">
+              <span class="material-icons">navigate_next</span>
+              <div class="brelink">
+                <a href="javascript:void(0);">{{
+                  bredCrumbInput.currentPage.text
+                  }}</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="gt-float-100 gt-pb-100 item-wrapper">
+  <div class="container rp-col-fluid">
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 gt-pr-8 custom-col-3 ak-col-11" [ngClass]="{
+            'disable-offer-section': !sectionToggles.sectionUploadImages
+          }">
+          <div class="gt-float-100 gt-border-radius-4 offer-left">
+            <app-media-upload></app-media-upload>
+          </div>
+        </div>
+        <div class="
+            col-xl-6 col-lg-6 col-md-12 col-sm-12
+            gt-pl-8 gt-pr-8
+            custom-col-6 ak-col-17
+          " [ngClass]="{
+            'disable-offer-section': !sectionToggles.sectionAccordionOne
+          }">
+          <app-create-offer-primary-info offerType="Service" [customError]="serviceOfferErrors">
+          </app-create-offer-primary-info>
+        </div>
+        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 gt-pl-8 custom-cos-3 ak-col-18">
+          <div class="gt-float-100">
+            <app-document-upload></app-document-upload>
+            <app-post-offer></app-post-offer>
+            <app-create-offer-tips></app-create-offer-tips>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,129 @@
+<div class="login-right-wrapper gt-float-100 gt-pb-15 gt-pr-25 nuov-rp">
+
+    <div class="gt-float-100 gt-mt-80 rp-nuov">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="user-register gt-float-100">
+          
+          <h5 class="gt-fs-16 gt-lightgrayish gt-text-center dcolor-primary">
+            Verify mobile
+          </h5>
+          <p class="gt-mt-18 gt-mb-8 gt-font-poppins gt-fs-13 gt-black-60 otp-text text-center">The OTP was sent to  </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="user-mail gt-float-100 gt-pt-10 gt-pb-40 unc-rp">
+          <div class="mail-details gt-center">
+            <h2
+              class="
+                 gt-fs-16 gt-lightblack gt-text-center
+                dcolor-primary
+              "
+            >
+             
+              {{ this.userInfo.mblNo }}
+            </h2>
+            <span class="material-icons" (click)="movetoEnterPhoneScreen()"
+              >create</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-mb-24">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-text-danger" *ngIf="!isValidOtp">
+          <div class="error">Invalid OTP</div>
+        </div>
+        <div class="gt-text-danger" *ngIf="errorMessage">
+          <div class="error">Invalid OTP</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="userh-otp-wrapper">
+        
+          <div class="otp_box">
+            <ng-otp-input
+              #ngOtpInput
+              (onInputChange)="onOtpChange($event)"
+              [config]="config"
+              (keyup)="onKeyupEvent($event)"
+              (paste)="onPasteOtp($event)"
+              (change)="isOpen = true"
+            >
+            </ng-otp-input>
+          </div>
+
+          <div class="password-strength gt-float-100 gt-pt-25 gt-pb-15">
+            <h3
+              class="
+                gt-float-left gt-fs-13 gt-lightgrayish 
+                dcolor-primary
+              "
+            >
+              Haven't received  OTP ?
+            </h3>
+            <h3
+              class="
+                gt-fs-14 gt-sky gt-float-right
+              "
+            >
+              <span *ngIf="showTimer && counter !== 0">{{
+                countDown | async | formatTimer
+              }}</span>
+              <button type="submit"
+                *ngIf="counter === 0"
+                type="submit"
+                class="gt-bg-transparent resend-btnh dcolor-primary"
+                (click)="resendOtp()"
+              >
+                Resend
+              </button>
+            </h3>
+
+            <div id="recaptcha-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <button
+          [@btnFadeInOut]="isOpen ? 'open' : 'closed'"
+          class="
+            gt-btn-primary gt-width-100 gt-btn-shadow gt-border-radius-2
+            bg-change-secondary
+            dark-shadow
+            border-none
+          "
+          (click)="verfyOtpAndLogin()"
+          [disabled]="isVerifyOtp() || isProcessVerify"
+        >
+          <span>{{ isProcessVerify ? "verifying" : "verify" }} </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <div class="user-social-login gt-float-100 gt-mt-45 rp-slogin">
+    <app-user-social-login></app-user-social-login>
+  </div>
+</div>

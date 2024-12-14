@@ -1,0 +1,138 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Offer Search Result",
+    "payload": {
+        "searchResult": [
+            {
+                "unitOfferValuation": 10.0,
+                "images": null,
+                "name": "test offer 1",
+                "oid": "1613662300233",
+                "totalOfferValuation": 1000.0,
+                "location": {
+                    "lat": 20.9517,
+                    "lng": 85.0985,
+                    "city": "Bhubaneswar",
+                    "addressLine": "Bhubaneswar"
+                }
+            }
+        ],
+        "count": 1,
+        "maxPrice": 10.0,
+        "minPrice": 10.0,
+        "categories": [
+            {
+                "categoryId": "1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                "label": "Testing testing",
+                "children": []
+            }
+        ],
+        "locations": [
+            {
+                "lat": 20.9517,
+                "lng": 85.0985,
+                "city": "Bhubaneswar",
+                "addressLine": "Bhubaneswar"
+            },
+            {
+                "lat": 20.9517,
+                "lng": 85.0985,
+                "city": "Kolkata",
+                "addressLine": "Kolkata"
+            },
+            {
+                "lat": 20.9517,
+                "lng": 85.0985,
+                "city": "Delhi",
+                "addressLine": "Delhi"
+            }
+        ],
+        "primaryFacets": [
+            {
+                "key": "Brand",
+                "value": 1,
+                "secondaryFacets": [
+                    {
+                        "key": "Olympus",
+                        "value": 1
+                    }
+                ]
+            },
+            {
+                "key": "City",
+                "value": 1,
+                "secondaryFacets": [
+                    {
+                        "key": "Near Me",
+                        "value": null
+                    },
+                    {
+                        "key": "Bhubaneswar",
+                        "value": 1
+                    }
+                ]
+            },
+            {
+                "key": "Color",
+                "value": 1,
+                "secondaryFacets": [
+                    {
+                        "key": "Red",
+                        "value": 1
+                    }
+                ]
+            },
+            {
+                "key": "Exchange Mode",
+                "value": 1,
+                "secondaryFacets": [
+                    {
+                        "key": "Item",
+                        "value": 1
+                    }
+                ]
+            },
+            {
+                "key": "Mega Pixel",
+                "value": 1,
+                "secondaryFacets": [
+                    {
+                        "key": "128",
+                        "value": 1
+                    }
+                ]
+            },
+            {
+                "key": "Sensor",
+                "value": 1,
+                "secondaryFacets": [
+                    {
+                        "key": "CMOS",
+                        "value": 1
+                    }
+                ]
+            },
+            {
+                "key": "State",
+                "value": 1,
+                "secondaryFacets": [
+                    {
+                        "key": "Odisha",
+                        "value": 1
+                    }
+                ]
+            },
+            {
+                "key": "Viewfinder",
+                "value": 1,
+                "secondaryFacets": [
+                    {
+                        "key": "Pentaprism",
+                        "value": 1
+                    }
+                ]
+            }
+        ]
+    }
+}

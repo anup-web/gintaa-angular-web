@@ -1,0 +1,240 @@
+<div class="gt-float-100">
+  <div class="gt-float-100 gt-pt-10 gt-pd-lr-12 gt-mt-10 gt-pl-50 drpy-ert">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="gt-float-100 gtr-ept">
+          <h2 class="gt-fs-15 gt-text-medium gt-black-60"> Delivery address </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="gt-float-100 gt-pl-32 gt-pr-12 eryu-phk">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 gt-pl-20 gtfy-opt">
+        <mat-radio-group class="dp-radio-group address-radio-group gt-pb-0" aria-label="Select an option" [(ngModel)]="selectedAddress">
+          <ng-template ngFor let-i="index" let-c="count" let-address [ngForOf]="addressList">
+            <div class="sugg-check">
+              <mat-radio-button [value]="address.id" (change)="updateDeliveryOption($event)">
+                <app-address-card [data]="address" [suggestPage]="true"> </app-address-card>
+              </mat-radio-button>
+            </div>
+          </ng-template>
+        </mat-radio-group>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="gt-float-100 gt-mt-20 gt-pr-12 gt-pl-64 dryp-wry">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <button type="button" class="gt-btn-primary gt-center gt-border-radius-2 gt-bg-transparent nobh-btn"
+          (click)="addAddress()">
+          <span class="icon-gt-add gt-fs-13 gt-mr-2"></span>
+          <h2 class="gt-fs-14 gt-sky neda">add new address</h2>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="gt-float-100 gt-pd-lr-12" *ngIf="!calledFromAccept else ShowCardPay">
+  <div class="gt-float-100 gt-mt-20" *ngIf="showAssureDelivery()">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 my-loction custom-check-size">
+          <mat-checkbox class="gt-float-left my-locs" (change)="selectAssureDelivery($event)"
+            [(ngModel)]="selectedAssureDelivery">
+            <h2 class="gt-fs-15 gt-vcenter sh-para dcolor-primary">Assure delivery 
+              <span class="icon-gt-currency gt-fs-20"></span>
+              <span class="gt-lightgrayish dcolor-secondary"> {{selectedAssureAmount | formatPriceDecemal}}</span>
+            </h2>
+          </mat-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-mt-20">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100">
+          <h2 class="gt-fs-15 gt-lightblack dcolor-primary">You will pay</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-mt-12 gt-pl-32">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100">
+          <h2 class="gt-fs-15 gt-text-medium gt-lightgrayish gt-vcenter dcolor-secondary"
+            *ngIf="calculateShipping else shippingCalculatLater">
+            <ng-container *ngIf="exchangeMode == 'Free' else ShowAmount">
+              <span class="icon-gt-currency gt-fs-20"></span> 0 (Free Product) 
+              <ng-container *ngIf="shippingVendor?.courier_company_id else addShipping">
+                + {{shippingVendor?.rate | formatPriceDecemal}} (Shipping charge)
+              </ng-container>
+              <ng-template #addShipping>
+                + Shipping charge
+              </ng-template>
+            </ng-container>
+            <ng-template #ShowAmount>
+              <span class="icon-gt-currency gt-fs-20"></span> {{totalAmount}}
+              <ng-container *ngIf="!isbusinessOffer && selectedAssureDelivery && totalAmount >= '5000'">
+                + {{selectedAssureAmount | formatPriceDecemal}} (Insurance charge)
+              </ng-container>
+              <ng-container *ngIf="shippingVendor?.courier_company_id">
+                + {{shippingVendor?.rate | formatPriceDecemal}} (Shipping charge)
+              </ng-container>
+            </ng-template>
+           
+          </h2>
+          <ng-template #shippingCalculatLater>
+            <h2 class="gt-fs-15 gt-text-medium gt-lightgrayish gt-vcenter dcolor-secondary">
+              <ng-container *ngIf="exchangeMode == 'Free' else ShowAmount">
+                <span class="icon-gt-currency gt-fs-20"></span> 0 (Free Product) + Shipping charge
+              </ng-container>
+              <ng-template #ShowAmount>
+                <span class="icon-gt-currency gt-fs-20"></span> {{totalAmount | formatPriceDecemal}}
+                <ng-container *ngIf="!isbusinessOffer && selectedAssureDelivery && totalAmount >= '5000'">
+                  + {{selectedAssureAmount | formatPriceDecemal}} (Insurance charge)
+                </ng-container>
+                 + Shipping charge
+              </ng-template>
+            </h2>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="gt-float-100 gt-mt-12 gt-pl-32 gt-mb-15" *ngIf="!calculateShipping">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100">
+          <h2 class="gt-fs-13 sh-para dcolor-primary">Shipping will calculated after your partner will fill
+            dimensions and weight of his package</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #ShowCardPay>
+  <div class="gt-float-100 gt-border-radius-4 gt-pb-10">
+    <div class="gt-float-100 gt-pt-10 gt-pb-2 gt-pd-lr-12">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="gt-float-100">
+            <h2 class="gt-fs-15 gt-text-medium gt-black-70">
+              You will pay</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="gt-float-100 gt-center-between">
+            <div class="gt-vcenter">
+              <h3 class="gt-fs-14 gt-black-70"> Offered Price </h3>
+            </div>
+            <div class="gt-vcenter hs-price">
+              <span class="icon-gt-currency gt-fs-20"></span>
+              <h4 class="gt-fs-15 gt-black-70"> {{totalAmount | formatPriceDecemal}} </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="gt-float-100 gt-center-between">
+            <div class="gt-vcenter">
+              <h3 class="gt-fs-14 gt-black-70">Shipping charges</h3>
+            </div>
+            <div class="gt-vcenter hs-price">
+              <span class="icon-gt-currency gt-fs-20"></span>
+              <h4 class="gt-fs-15 gt-black-70" *ngIf="shippingVendor?.rate else showZeroShip">
+                {{shippingVendor?.rate | formatPriceDecemal}}
+              </h4>
+              <ng-template #showZeroShip>
+                <h4 class="gt-fs-15 gt-black-70">
+                  0.00
+                </h4>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-pd-lr-12 gt-mt-15" *ngIf="selectedAssureDelivery else addInsuranceSec">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="gt-float-100 gt-center-between">
+            <div class="gt-vcenter gt-float-100" style="display: flex;flex-direction: column; align-items: flex-start;">
+              <h3 class="gt-fs-14 gt-black-70">Co-insurance</h3>
+              <button type="button" class="gt-fs-13 gt-sky gt-btn-small glh verify gt-mt-10" (click)="removeAssureDelivery()">
+                remove
+              </button>
+            </div>
+            <div class="gt-vcenter hs-price">
+              <span class="icon-gt-currency gt-fs-20"></span>
+              <h4 class="gt-fs-15 gt-black-70">
+                {{selectedAssureAmount | formatPriceDecemal}}
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 gt-mt-15">
+          <div class="gt-float-100 gt-center-between gt-pt-15 total-ph"> </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #addInsuranceSec>
+      <div class="gt-float-100 gt-pd-lr-12 gt-mt-15" *ngIf="showAssureDelivery()">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 gt-mt-15">
+            <div class="gt-float-100 gt-center-between gt-pt-15 total-ph"> </div>
+          </div>
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+            <div class="gt-float-100 gt-center-between">
+              <div class="gt-vcenter gt-float-100"
+                style="display: flex;flex-direction: column; align-items: flex-start;">
+                <mat-checkbox class="gt-float-left my-locs" (change)="selectAssureDelivery($event)"
+                  [(ngModel)]="selectedAssureDelivery">
+                  <h3 class="gt-fs-13 gt-sky gt-btn-small glh verify gt-mt-10">Add Co-insurance</h3>
+                </mat-checkbox>
+              </div>
+              <div class="gt-vcenter hs-price">
+                <span class="icon-gt-currency gt-fs-20"></span>
+                <h4 class="gt-fs-15 gt-black-70">
+                  {{selectedAssureAmount | formatPriceDecemal}}
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+    <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="gt-float-100 gt-center-between gt-pt-15">
+            <div class="gt-vcenter">
+              <h3 class="gt-fs-14 gt-black-70">Total payble amount</h3>
+            </div>
+            <div class="gt-vcenter hs-price">
+              <span class="icon-gt-currency gt-fs-25"></span>
+              <h4 class="gt-fs-15 gt-black-70">{{totalPay() | formatPriceDecemal}}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

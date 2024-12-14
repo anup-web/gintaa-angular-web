@@ -1,0 +1,226 @@
+<div class="gt-float-100 pt-5 pb-5 addvet-secondary">
+  <div class="container">
+    <div class="row how-gintaa-work-sec">
+      <div class="col-md-12">
+        <h3 class="text-center mb-5 gintaa-works">How gintaa works</h3>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 text-center">
+        <div class="step-content-home step-home-1">
+          <h2 class="mb-4">Create Account</h2>
+
+          <div class="step-content-description mb-4">
+            <p>
+              Connect with gintaa, either with your phone number or email
+              address & complete your profile.
+            </p>
+          </div>
+
+          <div class="step-img">
+            <img
+              src="https://dev.cdn.gintaa.com/web/home-step-images/step-1.png"
+              alt="step 1"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 text-center">
+        <div class="step-content-home step-home-2">
+          <h2 class="mb-4">Browse, Buy or List</h2>
+          <!-- <div class="live-oct">
+            <img src="assets/images/home/buy_new.png" class="img-fluid" />
+          </div> -->
+
+          <div class="step-content-description mb-4">
+            <p>
+              Browse and buy brand-new products. Sell or barter.
+              Start by creating your listing.
+            </p>
+          </div>
+
+          <div class="step-img">
+            <img
+              src="https://dev.cdn.gintaa.com/web/home-step-images/step-2.png"
+              class="img-fluid"
+              alt="step 2"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 text-center">
+        <div class="step-content-home step-home-3">
+          <!-- <div class="live-oct">
+            <img src="assets/images/live_icon_new.png" class="img-fluid" />
+          </div> -->
+          <h2 class="mb-4">Suggest Offer</h2>
+
+          <div class="step-content-description mb-4">
+            <p>
+              Want to negotiate/sell/barter your services/products? Do it all,
+              but first, suggest an offer.
+            </p>
+          </div>
+
+          <div class="step-img">
+            <img
+              src="https://dev.cdn.gintaa.com/web/home-step-images/step-3.png"
+              class="img-fluid"
+              alt="step 3"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12 text-center">
+        <div class="step-content-home step-home-4">
+          <!-- <div class="live-oct">
+            <img src="assets/images/live_icon_new.png" class="img-fluid" />
+          </div> -->
+          <h2 class="mb-4">Close Offer</h2>
+
+          <div class="step-content-description mb-4">
+            <p>
+              Close offer with buyer/seller & rate your experience to help us
+              make gintaa a better experience.
+            </p>
+          </div>
+
+          <div class="step-img">
+            <img
+              src="https://dev.cdn.gintaa.com/web/home-step-images/step-4.png"
+              class="img-fluid"
+              alt="step 4"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
+        *ngIf="!isAuthenticated()"
+      >
+        <div class="gt-center mt-4 text-center">
+          <button
+            (click)="navigateToLoginPage()"
+            type="button"
+            class="
+              gt-btn-primary
+              gt-center
+              gt-height-56
+              gt-pl-60
+              gt-pr-60
+              gt-fs-20
+              gt-border-radius-2
+              regi-nowh
+            "
+          >
+            register now
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="gt-float-100">
+        <div class="row">
+           <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
+              <div class="gt-float-100 castep-1">
+
+              <div class="gt-float-100 step-group-h1">  
+              <div class="gt-float-100 gt-center gt-mb-15 step-1">
+                 <h2 class="gt-fs-18 gt-text-center step-color-1">Create Account</h2>
+              </div>
+
+              <div class="gt-float-100 gt-center step-1">
+                 <h3 class="gt-fs-13 gt-text-center gt-line-height-20 gt-black-60 step-text-1">Connect with gintaa, either with your phone number or email address & complete your profile.</h3>
+              </div>
+             </div>
+
+              <div class="gt-float-100">
+                 <div class="gt-center step-8">
+                    <img src="assets/images/hw-step1.svg"  alt="image" class="step-img-rp">
+                 </div>
+              </div>
+
+              </div>
+
+           </div>
+
+           <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
+             <div class="gt-float-100 castep-2">
+                <div class="gt-float-100 step-group-h1">
+              <div class="gt-float-100 gt-center gt-mb-15 step-1">
+                 <h2 class="gt-fs-18 gt-text-center step-color-2">Browse, Buy or Create Listing</h2>
+              </div>
+
+              <div class="gt-float-100 gt-center step-1">
+                 <h3 class="gt-fs-13 gt-text-center gt-line-height-20 gt-black-60 step-text-1">Wish to buy brand-new products? Browse and buy!.
+                    Wish to sell or exchange your products & services? Start creating your listing!
+                 </h3>
+              </div>
+              </div>
+
+              <div class="gt-float-100">
+                 <div class="gt-center step-7">
+                    <img src="assets/images/hw-step2.svg"  alt="image" class="step-img-rp">
+                 </div>
+              </div>
+              </div>
+           </div>
+
+           <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
+             <div class="gt-float-100 castep-3">
+                <div class="gt-float-100 step-group-h1">
+              <div class="gt-float-100 gt-center gt-mb-15 step-1">
+                 <h2 class="gt-fs-18 gt-text-center step-color-3">Suggest Offer</h2>
+              </div>
+
+              <div class="gt-float-100 gt-center gt-mb-35 step-1">
+                 <h3 class="gt-fs-13 gt-text-center gt-line-height-20 gt-black-60 step-text-1">Want to negotiate to get amazing discounts on products? Or do you wish to sell and exchange services/products for better profits? Do it all, but first, suggest an offer.</h3>
+              </div>
+              </div>
+
+              <div class="gt-float-100">
+                 <div class="gt-center step-6">
+                    <img src="assets/images/hw-step3.svg"  alt="image" class="step-img-rp">
+                 </div>
+              </div>
+              </div>
+           </div>
+
+           <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-xs-12">
+             <div class="gt-float-100 castep-4">
+                <div class="gt-float-100 step-group-h1">
+              <div class="gt-float-100 gt-center gt-mb-15 step-1">
+                 <h2 class="gt-fs-18 gt-text-center step-color-4">Close Offer</h2>
+              </div>
+
+              <div class="gt-float-100 gt-center step-1">
+                 <h3 class="gt-fs-13 gt-text-center gt-line-height-20 gt-black-60 step-text-1">Close offer with buyer/seller & rate your experience to help us make gintaa a better experience.</h3>
+              </div>
+              </div>
+
+              <div class="gt-float-100">
+                 <div class="gt-center step-5">
+                    <img src="assets/images/hw-step4.svg"  alt="image" class="step-img-rp">
+                 </div>
+              </div>
+              </div>
+           </div>
+
+        </div>
+     </div> -->
+
+    <!-- <div class="gt-float-100" *ngIf = !isAuthenticated()>
+        <div class="row">
+           <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="gt-center gt-mt-55 gt-float-100">
+                 <button (click)="navigateToLoginPage()" type="button" class="gt-btn-primary gt-center gt-height-56 gt-pl-60 gt-pr-60 gt-fs-20 gt-border-radius-2 regi-nowh"> register now </button>
+              </div>
+              
+           </div>
+        </div>
+     </div> -->
+  </div>
+</div>

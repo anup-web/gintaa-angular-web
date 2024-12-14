@@ -1,0 +1,420 @@
+<!-- <app-loading-spinner
+  loaderType="drops-fading"
+  fullPage="false"
+  loader="true"
+  *ngIf="chatService.anyFileUploading"
+  addBackDrop="true"
+  backDropColor="#ffffff"
+  loadingMessage="Uploading please wait..."
+></app-loading-spinner> -->
+
+<!-- <app-spinner *ngIf="chatService.anyFileUploading" timeOut="7000"></app-spinner> -->
+
+<div class="primary-card-body msg-card-body chatbodyclas" *ngIf="offerDetail || dealDetail">
+
+     
+    <div class="gt-flo-100 gt-pd-tb-4 bg-deal-chat deal-border gt-pl-16 chat-offer-top bg-change-secondary" >
+        <div class="gt-width-100 gt-vcenter">
+            <ng-container *ngIf="chatType===chatTypeEnums.offer">
+                <div class="image-user-fd">
+                    <img [src]="offerDetail?.images?.length>0?offerDetail?.images[0].url:noImage" class="image-width-24 border-radius-100" alt="image" />
+                </div>
+                <div class="gt-ml-8">
+                    <h2 class="gt-fs-13 gt-lightblack dcolor-primary">{{offerDetail?.name}}</h2>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="chatType===chatTypeEnums.deal">
+                <app-chat-deal-item-showcase [dealDetails]="dealDetail"></app-chat-deal-item-showcase>
+            </ng-container>
+        </div>
+    </div> 
+    
+  
+    <ng-container *ngFor="let item of chatHistoryMsg | keyvalue">
+        <div class="gt-float-100">
+            <div class="chat-date gt-center gt-pt-14 gt-pb-16" [ngClass]="{'rs-chat-date': screenType === 'small'}">
+                <h3 class="gt-fs-12 gt-lightblack bg-change dcolor-secondary">{{ getDateOrName(item.key) }}</h3>
+                <div class="gt-hr"></div>
+        </div>
+        </div>
+
+        <ng-container *ngFor="let msg of item.value; let msgIndex = index">
+            <ng-container *ngIf="isMessageAvailable(msg)">
+                <div class="gt-float-100 gt-mb-16 gt-pd-lr-15 orgMsg{{msgIndex}}" [ngClass]="isMsgSentByLoggedInUser(msg)? 'gt-flex-end':'gt-flex-start'" #orgMsg>
+                    <div class="msg-reply-group" [ngClass]="{'rs-msg-reply-group': screenType === 'small', 'gt-flex-end': isMsgSentByLoggedInUser(msg), 'gt-flex-start msg-box-white': isMsgNotSentByLoggedInUser(msg)}">  
+                        <div class="msg-cotainer" [ngClass]="isMsgSentByLoggedInUser(msg)? 'mgs-before-right':'mgs-before-left'">
+                            <ng-container *ngIf="msg.isReply && msg.replyObj?.orgMsgId">
+                                <div class="gt-width-100" [ngClass]="{'replyu-msg-right': isMsgSentByLoggedInUser(msg), 'msg-text replyu-msg-left': isMsgNotSentByLoggedInUser(msg),  'gt-vcenter': msg.replyObj.messageType === msgTypeEnum.IMAGE || msg.replyObj.messageType === msgTypeEnum.VIDEO || msg.replyObj.messageType === msgTypeEnum.AUDIO || msg.replyObj.messageType === msgTypeEnum.OFFER}" (click)="replyMsgScrollTo(msg.replyObj)">
+                                    <ng-container *ngIf="msg.replyObj.messageType === msgTypeEnum.HTML || msg.replyObj.messageType === msgTypeEnum.AUDIO || msg.replyObj.messageType === msgTypeEnum.FILE">
+                                        <h1 [ngClass]="isMsgSentByLoggedInUser(msg)? 'replyu-name-right':'replyu-name-left'">{{checkIsLoggedInUser(msg.replyObj.senderId,msg.replyObj.senderName)}}</h1>
+
+                                    
+                                        
+
+
+                                        <h2 class="gt-width-100" [ngClass]="{'reply-msg-right': isMsgSentByLoggedInUser(msg),'reply-msg-left': isMsgNotSentByLoggedInUser(msg)}" *ngIf="msg.replyObj.messageType === msgTypeEnum.HTML || msg.replyObj.messageType === msgTypeEnum.FILE"><span *ngIf="msg.replyObj.messageBody.length>chatService.chatTextCntForReadMore && !isShowReadMoreMsgReply[msg.id]">{{msg.replyObj.messageBody.substr(0,chatService.chatTextCntForReadMore+1)}}...
+                                        </span>        
+                                        <span *ngIf="msg.replyObj.messageBody.length<=chatService.chatTextCntForReadMore || isShowReadMoreMsgReply[msg.id]">{{msg.replyObj.messageBody}}
+                                        </span></h2>
+
+                                        <div class="gt-width-100 gt-flex-end" (click)="isShowReadMoreMsgReply[msg.id]=!isShowReadMoreMsgReply[msg.id]" *ngIf="msg.replyObj.messageBody.length>chatService.chatTextCntForReadMore">
+                                            <h2 class="cremore-left" *ngIf="!isShowReadMoreMsgReply[msg.id]">read more <span class="material-icons">arrow_drop_down </span></h2>
+                                            <h2 class="cremore-left" *ngIf="isShowReadMoreMsgReply[msg.id]">Read less <span class="material-icons">arrow_drop_up </span></h2>
+                                        </div>
+                                        
+                                        <h2 class="gt-width-100 gt-vcenter reply-msg-left" *ngIf="msg.replyObj.messageType === msgTypeEnum.AUDIO">
+                                            <span class="material-icons gt-fs-16 gt-mr-2">headphones</span>
+                                            Audio
+                                        </h2>
+                                    </ng-container>
+                                    <!-- <span class="material-icons replys-close">close</span> -->
+                                    <ng-container *ngIf="msg.replyObj.messageType === msgTypeEnum.IMAGE">
+                                        <div class="gt-mr-20 photo-left-txt">
+                                            <h1 [ngClass]="isMsgSentByLoggedInUser(msg)? 'replyu-name-right':'replyu-name-left'">{{checkIsLoggedInUser(msg.replyObj.senderId,msg.replyObj.senderName)}}</h1>
+                                            <h2 class="gt-width-100 gt-vcenter" [ngClass]="isMsgSentByLoggedInUser(msg)? 'reply-msg-right':'reply-msg-left'">
+                                                <span class="material-icons gt-fs-16 gt-mr-2">photo_camera</span> Photo                            
+                                            </h2>
+                                        </div>
+                                        <img [src]="msg.replyObj.messageAttr.mediaUrls[0]" alt="image" class="photo-reply"/>
+                                    </ng-container>
+                                    <ng-container *ngIf="msg.replyObj.messageType === msgTypeEnum.VIDEO">
+                                        <div class="gt-mr-20 photo-left-txt">
+                                            <h1 [ngClass]="isMsgSentByLoggedInUser(msg)? 'replyu-name-right':'replyu-name-left'">{{checkIsLoggedInUser(msg.replyObj.senderId,msg.replyObj.senderName)}}</h1>
+                                            <h2 class="gt-width-100 gt-vcenter" [ngClass]="isMsgSentByLoggedInUser(msg)? 'reply-msg-right':'reply-msg-left'">
+                                                <span class="material-icons gt-fs-20 gt-mr-2">videocam</span> video                          
+                                            </h2>
+                                        </div>
+                                        <video controls class="video-reply">
+                                            <source [src]="msg.replyObj.messageAttr.mediaUrls[0]" type="video/mp4">                                    
+                                        </video>
+                                    </ng-container>
+                                    <ng-container *ngIf="msg.replyObj.messageType === 'OFFER'">
+                                            <img [src]="msg.replyObj.messageAttr.offerUrl || noImage" alt="image" class="gt-mr-10 photo-reply-offer"> 
+                                            <div class="gt-mr-20 photo-left-txt">
+                                                <h2 class="gt-width-100" [ngClass]="isMsgSentByLoggedInUser(msg)? 'reply-msg-right':'reply-msg-left'">
+                                                    Offer                           
+                                                </h2>
+                                                <h2 class="gt-width-100" [ngClass]="isMsgSentByLoggedInUser(msg)? 'reply-msg-right':'reply-msg-left'">
+                                                    {{msg.replyObj.messageAttr.offerName}}                         
+                                                </h2>
+                                            </div>
+                                    </ng-container>
+                                    <ng-container *ngIf="msg.replyObj.messageType === 'AUDIO_RECORDING'">
+                                            <h1 [ngClass]="isMsgSentByLoggedInUser(msg)? 'replyu-name-right':'replyu-name-left'">{{checkIsLoggedInUser(msg.replyObj.senderId,msg.replyObj.senderName)}}</h1>
+                                            <h2 class="gt-width-100 gt-vcenter" [ngClass]="isMsgSentByLoggedInUser(msg)? 'reply-msg-right':'reply-msg-left'"><span class="material-icons gt-fs-18 gt-mr-2">mic</span>
+                                                Voice message <!--({{msg.replyObj.messageAttr?.recordingTime}})--></h2>
+                                    </ng-container>
+                                    
+                                </div>
+                                
+                                <!-- <span class="material-icons replys-close">close</span> -->
+                            </ng-container>
+                            <ng-container *ngIf="msg.messageType === 'HTML'">
+                                <!-- <span style="color:#fff">{{chatService.chatTextCntForReadMore}}</span> -->
+                                <div class="gt-width-100 gt-flex-start gt-fs-14 gt-white msg-text"><span *ngIf="msg.messageBody.length>chatService.chatTextCntForReadMore && !isShowReadMoreMsg[msg.id]">{{msg.messageBody.substr(0,chatService.chatTextCntForReadMore+1)}}...
+                                </span>        
+                                <span *ngIf="msg.messageBody.length<=chatService.chatTextCntForReadMore || isShowReadMoreMsg[msg.id]">{{msg.messageBody}}
+                                </span></div>
+                                <div class="gt-width-100 gt-flex-end" (click)="isShowReadMoreMsg[msg.id]=!isShowReadMoreMsg[msg.id]" *ngIf="msg.messageBody.length>chatService.chatTextCntForReadMore">
+                                    <h2 class="cremore-left" *ngIf="!isShowReadMoreMsg[msg.id]">read more <span class="material-icons">arrow_drop_down </span></h2>
+                                    <h2 class="cremore-left" *ngIf="isShowReadMoreMsg[msg.id]">Read less <span class="material-icons">arrow_drop_up </span></h2>
+                                </div>
+                                <div class="gt-width-100 gt-flex-end gt-mt-3 msg-time-bottom">
+                                    <div class="gt-fs-12 msg-time-color msg-time">{{showTime(msg.messageTime)}}</div> 
+                                    <ng-container *ngIf="isMsgSentByLoggedInUser(msg)">
+                                        <div class="singal-check" *ngIf="msg.isSent && msg.isDelivered==false"><span class="material-icons">done</span></div> 
+                                        <div class="double-check" *ngIf="msg.isDelivered && msg.isRead==false"><span class="material-icons">done_all</span></div>
+                                        <div class="double-check-send" *ngIf="msg.isRead"><span class="material-icons">done_all</span></div>
+                                    </ng-container>    
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="msg.messageType === 'FILE'">
+                                <div class="gt-width-100 gt-flex-start gt-center msg-file">
+                                    <div class="gt-center gt-border-radius-8 gt-mr-8 file-icon" (click)="downloadFile(msg)" style="cursor:pointer"><span class="material-icons">save_alt</span></div>
+                                    <h2 class="gt-fs-16 gt-text-medium" [ngClass]="isMsgSentByLoggedInUser(msg)? 'gt-white':''">{{ msg.messageBody }}</h2>
+                                </div> 
+                                <div class="gt-width-100 gt-flex-end gt-mt-3 msg-time-bottom">
+                                    <div class="gt-fs-12 msg-time-color msg-time">{{showTime(msg.messageTime)}}</div> 
+                                    <ng-container *ngIf="isMsgSentByLoggedInUser(msg)">
+                                        <div class="singal-check" *ngIf="msg.isSent && msg.isDelivered==false"><span class="material-icons">done</span></div> 
+                                        <div class="double-check" *ngIf="msg.isDelivered && msg.isRead==false"><span class="material-icons">done_all</span></div>
+                                        <div class="double-check-send" *ngIf="msg.isRead"><span class="material-icons">done_all</span></div>
+                                    </ng-container>
+                                </div> 
+                            </ng-container>
+                            <ng-container *ngIf="msg.messageType === 'IMAGE' || msg.messageType === 'VIDEO'">
+                                <ng-container  *ngIf="msg.messageAttr.mediaUrls.length==1">
+                                    <ng-container *ngIf="msg.messageType === 'IMAGE'">
+                                        <div class="single-arrivals-products gt-cursor-pointer gt-offer-224 offer-send">
+                                            <div class="arrivals-products-image" >
+                                                <div class="pr-image max-height-img-221">
+                                                    <img [src]="msg.messageAttr.mediaUrls[0]" alt="image" class="img-fluid view-cimg" (click)="openImageViewModal('view', msg.messageAttr.mediaUrls, false)"/>                 
+                                                </div>                    
+                                            </div>
+                                
+                                            <!-- <div class="arrivals-products-content product-content-pd gt-mb-8">
+                                            <div class="offer-name-primary gt-ellipsis" ellipsis>Coach Tabby 26 for sale</div>
+                                            <div class="pr-desire">
+                                                    <span class="material-icons">compare_arrows</span>
+                                                    <div class="offer-desire-primary">Mobile, Laptop</div>
+                                            </div>
+                                            </div> -->
+                                        </div>
+                                    </ng-container>
+                                    <ng-container *ngIf="msg.messageType === 'VIDEO'">
+                                        <video controls class="video-attach">
+                                            <source [src]="msg.messageAttr.mediaUrls[0]" type="video/mp4" (click)="openImageViewModal('view', msg.messageAttr.mediaUrls, true)">                                    
+                                        </video>
+                                    </ng-container>
+                                    <div class="gt-width-100 gt-flex-start gt-fs-14 gt-white msg-text">{{ msg.messageBody }}</div> 
+                                    <div class="gt-width-100 gt-flex-end gt-mt-3 msg-time-bottom">
+                                        <div class="gt-fs-12 msg-time-color msg-time">{{ showTime(msg.messageTime) }}</div>                
+                                        <ng-container *ngIf="isMsgSentByLoggedInUser(msg)">
+                                            <div class="singal-check" *ngIf="msg.isSent && msg.isDelivered==false"><span class="material-icons">done</span></div> 
+                                            <div class="double-check" *ngIf="msg.isDelivered && msg.isRead==false"><span class="material-icons">done_all</span></div>
+                                            <div class="double-check-send" *ngIf="msg.isRead"><span class="material-icons">done_all</span></div>
+                                        </ng-container>
+                                    </div>
+                                </ng-container>
+                                <ng-container  *ngIf="msg.messageAttr.mediaUrls.length>1">
+                                    <ng-container *ngIf="msg.messageType === 'IMAGE'">
+                                        <div class="send-image-view"> 
+                                            <div class="image-1" *ngFor="let image of msg.messageAttr.mediaUrls | slice: 0: (msg.messageAttr.mediaUrls.length > 4 ? 4 : msg.messageAttr.mediaUrls.length); index as i">
+                                                <img [src]="image" alt="image" class="img-fluid view-cimg" (click)="openImageViewModal('view', msg.messageAttr.mediaUrls, false)"/>
+                                                <ng-container *ngIf="i === 3 && msg.messageAttr.mediaUrls.length > 4">
+                                                    <div class="all-image-attach" (click)="openImageViewModal('view', msg.messageAttr.mediaUrls, false)">
+                                                        <div class="gt-vcenter attach-image-list">
+                                                            <span class="material-icons">attachment</span> 
+                                                        
+                                                            <span class="gt-ml-5 list-image">+ {{ msg.messageAttr.mediaUrls.length - 3 }}</span>
+                                                        </div>
+                                                </div>  
+                                                </ng-container>
+                                            </div>
+                                            <div class="gt-width-100 gt-flex-start gt-fs-14 gt-white msg-text">{{ msg.messageBody }}</div>
+                                                <div class="gt-width-100 gt-flex-end gt-mt-3 msg-time-bottom">
+                                                <div class="gt-fs-12 msg-time" [ngClass]="isMsgSentByLoggedInUser(msg) ? 'msg-time-color': ''">{{ showTime(msg.messageTime) }}</div>                
+                                                
+                                                <ng-container *ngIf="isMsgSentByLoggedInUser(msg)">
+                                                    <div class="singal-check" *ngIf="msg.isSent && msg.isDelivered==false"><span class="material-icons">done</span></div> 
+                                                    <div class="double-check" *ngIf="msg.isDelivered && msg.isRead==false"><span class="material-icons">done_all</span></div>
+                                                    <div class="double-check-send" *ngIf="msg.isRead"><span class="material-icons">done_all</span></div>
+                                                </ng-container>
+                                            </div> 
+                                        </div>
+                                    </ng-container>  
+                                    <ng-container *ngIf="msg.messageType === 'VIDEO'">
+                                        <div class="send-image-view">
+                                            <div class="image-1" *ngFor="let image of msg.messageAttr.mediaUrls | slice: 0: (msg.messageAttr.mediaUrls.length > 4 ? 4 : msg.messageAttr.mediaUrls.length); index as i">
+                                                <video controls class="video-attach">
+                                                    <source [src]="image" type="video/mp4" (click)="openImageViewModal('view', msg.messageAttr.mediaUrls, true)">                                    
+                                                </video>
+                                                <ng-container *ngIf="i === 3 && msg.messageAttr.mediaUrls.length > 4">
+                                                    <div class="all-image-attach" (click)="openImageViewModal('view', msg.messageAttr.mediaUrls, true)">
+                                                        <div class="gt-vcenter attach-image-list">
+                                                            <span class="material-icons">video</span> 
+                                                        
+                                                            <span class="gt-ml-5 list-image">+ {{ msg.messageAttr.mediaUrls.length - 3 }}</span>
+                                                        </div>
+                                                </div>  
+                                                </ng-container>
+                                            </div>
+                                            <div class="gt-width-100 gt-flex-start gt-fs-14 gt-white msg-text">{{ msg.messageBody }}</div>
+                                            <div class="gt-width-100 gt-flex-end gt-mt-3 msg-time-bottom">
+                                                <div class="gt-fs-12 msg-time" [ngClass]="isMsgSentByLoggedInUser(msg) ? 'gt-white': ''">{{ showTime(msg.messageTime) }}</div>                
+                                            
+                                                <ng-container *ngIf="isMsgSentByLoggedInUser(msg)">
+                                                    <div class="singal-check" *ngIf="msg.isSent && msg.isDelivered==false"><span class="material-icons">done</span></div> 
+                                                    <div class="double-check" *ngIf="msg.isDelivered && msg.isRead==false"><span class="material-icons">done_all</span></div>
+                                                    <div class="double-check-send" *ngIf="msg.isRead"><span class="material-icons">done_all</span></div>
+                                                </ng-container>
+                                            </div>
+                                        </div>
+                                    </ng-container>
+                                </ng-container>
+                            </ng-container>
+                            <ng-container *ngIf="msg.messageType === 'OFFER'">
+                                <div class="single-arrivals-products gt-cursor-pointer gt-offer-224 offer-send">
+                                    <div class="arrivals-products-image" >
+                                        <div class="pr-image max-height-img-221">
+                                            <img [src]="msg.messageAttr.offerUrl || noImage" alt="image" class="img-fluid view-cimg" [routerLink]="['/offer', msg.messageAttr.offerId]" target="_blank">                 
+                                        </div>                    
+                                    </div>
+                        
+                                    <div class="arrivals-products-content product-content-pd gt-mb-8">
+                                    <div class="offer-name-primary gt-ellipsis" ellipsis>{{msg.messageAttr.offerName}}</div>
+                                    <!-- <div class="pr-desire">
+                                            <span class="material-icons">compare_arrows</span>
+                                            <div class="offer-desire-primary">Mobile, Laptop</div>
+                                    </div> -->
+                                    </div>
+                                </div> 
+                                <div class="gt-width-100 gt-flex-start gt-fs-14 gt-white msg-text">{{ msg.messageBody }}</div> 
+                                <div class="gt-width-100 gt-flex-end gt-mt-3 msg-time-bottom">
+                                    <div class="gt-fs-12 msg-time-color msg-time">{{ showTime(msg.messageTime) }}</div>                
+                                
+                                    <ng-container *ngIf="isMsgSentByLoggedInUser(msg)">
+                                        <div class="singal-check" *ngIf="msg.isSent && msg.isDelivered==false"><span class="material-icons">done</span></div> 
+                                        <div class="double-check" *ngIf="msg.isDelivered && msg.isRead==false"><span class="material-icons">done_all</span></div>
+                                        <div class="double-check-send" *ngIf="msg.isRead"><span class="material-icons">done_all</span></div>
+                                    </ng-container>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="msg.messageType === 'AUDIO'">
+                                <audio controls class="video-attach">
+                                    <source [src]="msg.messageAttr.mediaUrls[0]" type="audio/mpeg">                                    
+                                </audio>
+                                <div class="gt-width-100 gt-flex-start gt-center msg-file">
+                                    <h2 class="gt-fs-16 gt-text-medium" [ngClass]="isMsgSentByLoggedInUser(msg)? 'gt-white':''">{{ msg.messageBody }}</h2>
+                                </div> 
+                                <div class="gt-width-100 gt-flex-end gt-mt-3 msg-time-bottom">
+                                    <div class="gt-fs-12 msg-time-color msg-time">{{showTime(msg.messageTime)}}</div> 
+                                    <ng-container *ngIf="isMsgSentByLoggedInUser(msg)">
+                                        <div class="singal-check" *ngIf="msg.isSent && msg.isDelivered==false"><span class="material-icons">done</span></div> 
+                                        <div class="double-check" *ngIf="msg.isDelivered && msg.isRead==false"><span class="material-icons">done_all</span></div>
+                                        <div class="double-check-send" *ngIf="msg.isRead"><span class="material-icons">done_all</span></div>
+                                    </ng-container>
+                                </div>
+                            </ng-container>
+                            <ng-container *ngIf="msg.messageType === 'AUDIO_RECORDING'">
+                               <ng-container  *ngIf="isMsgSentByLoggedInUser(msg)">
+                                    <div class="gt-width-100 msg-text gt-vcenter">
+                                        <div class="audio-right">
+                                            <audio controls class="asend-attach">
+                                                <source  [src]="msg.messageAttr.mediaUrls[0]" type="audio/mpeg">                                    
+                                            </audio>                           
+                                        </div> 
+                                        <div class="audio-suser-send">
+                                            <img [src]="showrUserImage(msg)"  class="audio-simg"  alt="image" [ngClass]="isUserImageAvailable(msg)? 'org-profile-img':'no-profile-img'">
+                                            <span class="material-icons send-amic">mic</span>
+                                        </div> 
+                                    </div> 
+                               </ng-container>
+                               <ng-container  *ngIf="isMsgNotSentByLoggedInUser(msg)">
+                                    <div class="gt-width-100 msg-text gt-vcenter">
+                                        <div class="audio-suser">
+                                            <img [src]="showrUserImage(msg)"  class="audio-simg"  alt="image" [ngClass]="isUserImageAvailable(msg)? 'org-profile-img':'no-profile-img'">
+                                            <span class="material-icons send-amic">mic</span>
+                                        </div>
+                                        <div class="audio-right">
+                                            <audio controls class="asend-attach">
+                                                <source [src]="msg.messageAttr.mediaUrls[0]" type="audio/mpeg">                                    
+                                            </audio>                           
+                                        </div> 
+                                    </div> 
+                                </ng-container>
+                                <div class="gt-width-100 gt-flex-end gt-mt-3 msg-time-bottom">
+                                    <div class="gt-fs-12 msg-time-color msg-time">{{showTime(msg.messageTime)}}</div>                
+                                    <ng-container *ngIf="isMsgSentByLoggedInUser(msg)">
+                                        <div class="singal-check" *ngIf="msg.isSent && msg.isDelivered==false"><span class="material-icons">done</span></div> 
+                                        <div class="double-check" *ngIf="msg.isDelivered && msg.isRead==false"><span class="material-icons">done_all</span></div>
+                                        <div class="double-check-send" *ngIf="msg.isRead"><span class="material-icons">done_all</span></div>
+                                    </ng-container>
+                                </div>
+                            </ng-container>
+                        </div>
+
+                        <div class="dropdown reply-leftm">
+                            <button class="dropdown-toggles custom-toggles" type="button"  data-toggle="dropdown">
+                                <span class="icon-gt-more-vert gt-fs-16"></span>
+                            </button>
+                            <div class="dropdown-menu chat-replys">
+                                 <div class="gt-float-100 chathtop">                                    
+                                    <button class="chat-item" (click)="replyMessage(msg)"><h2 class="gt-fs-14 gt-lightgrayish">Reply</h2></button>
+                                    <button class="chat-item" (click)="copyMessage(msg)" *ngIf="msg.messageType === msgTypeEnum.HTML"><h2 class="gt-fs-13 gt-lightgrayish">Copy</h2></button>
+                                    <!-- <button class="chat-item" *ngIf="isMsgNotSentByLoggedInUser(msg)" (click)="reportMessage(msg)"><h2 class="gt-fs-13 gt-lightgrayish">Report message</h2></button> -->
+                                    <button class="chat-item" *ngIf="isMsgSentByLoggedInUser(msg)" (click)="deleteMessage(msg)"><h2 class="gt-fs-13 gt-lightgrayish">Delete for me</h2></button>   
+                                </div>
+                            </div>
+                          </div>
+
+                        <!-- <div class="reply-leftm">
+                            <button mat-icon-button [matMenuTriggerFor]="menu">
+                                <span class="material-icons gt-lightgrayish">more_vert</span>
+                            </button>
+                            <mat-menu #menu="matMenu" class="ft-attach-manu">
+                                <button mat-menu-item (click)="replyMessage(msg)"><h2 class="gt-fs-14 gt-lightgrayish">Reply</h2></button>
+                                <button mat-menu-item (click)="copyMessage(msg)" *ngIf="msg.messageType === msgTypeEnum.HTML"><h2 class="gt-fs-14 gt-lightgrayish">Copy</h2></button>
+                                <button mat-menu-item *ngIf="msg.senderId != loggedInUserId" (click)="reportMessage(msg)"><h2 class="gt-fs-14 gt-lightgrayish">Report message</h2></button>
+                                <button mat-menu-item *ngIf="isMsgSentByLoggedInUser(msg)" (click)="deleteMessage(msg)"><h2 class="gt-fs-14 gt-lightgrayish">Delete for me</h2></button>    
+                            </mat-menu>
+                        </div> -->
+
+
+                    </div>
+                </div> 
+            </ng-container>     
+        </ng-container>
+    </ng-container>
+
+    <div class="gt-float-100 gt-mb-16 gt-pd-lr-15 gt-flex-start chat-reply-box" [hidden]="!isReply && replyObj.messageType === ''">        
+        <div class="gt-flex-start msg-reply-group msg-box-white">           
+                <div class="msg-cotainer mgs-before-left">
+                    <div class="gt-width-100 msg-text replyu-msg-left" [ngClass]="{'gt-vcenter': replyObj.messageType === msgTypeEnum.IMAGE || replyObj.messageType === msgTypeEnum.VIDEO || replyObj.messageType === msgTypeEnum.AUDIO || replyObj.messageType === msgTypeEnum.OFFER}">
+                        <ng-container *ngIf="replyObj.messageType === msgTypeEnum.HTML || replyObj.messageType === msgTypeEnum.AUDIO || replyObj.messageType === msgTypeEnum.FILE">
+                            <h1 class="replyu-name-left">{{checkIsLoggedInUser(replyObj.senderId,replyObj.senderName)}}</h1>
+                            <h2 class="gt-width-100 reply-msg-left" *ngIf="replyObj.messageType === msgTypeEnum.HTML || replyObj.messageType === msgTypeEnum.FILE">{{replyObj.messageBody}}</h2>
+                            <h2 class="gt-width-100 gt-vcenter reply-msg-left" *ngIf="replyObj.messageType === msgTypeEnum.AUDIO">
+                                <span class="material-icons gt-fs-16 gt-mr-2">headphones</span>
+                                Audio
+                            </h2>
+                        </ng-container>
+                        <!-- <span class="material-icons replys-close">close</span> -->
+                        <ng-container *ngIf="replyObj.messageType === msgTypeEnum.IMAGE">
+                            <div class="gt-mr-20 photo-left-txt">
+                                <h1 class="replyu-name-left">{{checkIsLoggedInUser(replyObj.senderId,replyObj.senderName)}}</h1>
+                                <h2 class="gt-width-100 gt-vcenter reply-msg-left">
+                                    <span class="material-icons gt-fs-16 gt-mr-2">photo_camera</span> Photo                            
+                                </h2>
+                            </div>
+                            <img [src]="replyObj.messageAttr.mediaUrls[0]" alt="image" class="photo-reply"/>
+                        </ng-container>
+                        <ng-container *ngIf="replyObj.messageType === msgTypeEnum.VIDEO">
+                            <div class="gt-mr-20 photo-left-txt">
+                                <h1 class="replyu-name-left">{{checkIsLoggedInUser(replyObj.senderId,replyObj.senderName)}}</h1>
+                                <h2 class="gt-width-100 gt-vcenter reply-msg-left">
+                                    <span class="material-icons gt-fs-20 gt-mr-2">videocam</span> video                          
+                                </h2>
+                            </div>
+                            <video controls class="video-reply">
+                                <source [src]="replyObj.messageAttr.mediaUrls[0]" type="video/mp4">                                    
+                            </video>
+                        </ng-container>
+                        <ng-container *ngIf="replyObj.messageType === 'OFFER'">
+                                <img [src]="replyObj.messageAttr.offerUrl || noImage" alt="image" class="gt-mr-10 photo-reply-offer"> 
+                                <div class="gt-mr-20 photo-left-txt">
+                                    <h2 class="gt-width-100 'reply-msg-left">
+                                        Offer                           
+                                    </h2>
+                                    <h2 class="gt-width-100 reply-msg-left">
+                                        {{replyObj.messageAttr.offerName}}                         
+                                    </h2>
+                                </div>
+                        </ng-container>
+                        <ng-container *ngIf="replyObj.messageType === 'AUDIO_RECORDING'">
+                            <div class="gt-mr-20 photo-left-txt">
+                                <h1 class="replyu-name-left">{{checkIsLoggedInUser(replyObj.senderId,replyObj.senderName)}}</h1>
+                                <h2 class="gt-width-100 gt-vcenter reply-msg-left">
+                                    <span class="material-icons gt-fs-18 gt-mr-2">mic</span>
+                                     Voice message <!--({{replyObj.messageAttr.mediaUrls[0].duraion}})-->                         
+                                </h2>
+                            </div>
+                        </ng-container>
+                        <span class="material-icons replys-close" (click)="closeReply()">close</span>
+                    </div>
+                </div>      
+            </div>
+    </div>
+
+
+    
+
+
+
+
+
+</div>
+
+
+
+

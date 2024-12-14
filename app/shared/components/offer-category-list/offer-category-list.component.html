@@ -1,0 +1,120 @@
+<div class="gt-float-100 gt-mt-20 gt-pd-lr-32 gt-pt-10 gt-pb-10 tag-list-bg bg-change">
+    
+    <div class="row" *ngIf="items.length">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100">
+          <h1 class="gt-fs-16 gt-lightblack gt-text-medium tag-title dcolor-primary">
+            Tags
+          </h1>
+        </div>
+        <div class="gt-float-100 gt-mt-16">
+          <h2 class="gt-fs-16 gt-text-mediumtag-sub-color tag-seltitle dcolor-primary">
+            Selected
+          </h2>
+        </div>
+        <div class="gt-float-100 selected-chips">
+          <div class="gt-float-100 chips-selected">
+            <mat-form-field class="example-chip-list add-tags">
+              <mat-chip-list class="mat-selected-chip" #chipList aria-label="Tag selection">
+                <mat-chip *ngFor="let item of items; index as i" [selectable]="selectable"
+                  [removable]="removable" (removed)="remove(item, i)">
+                  {{item.label}}              
+                  <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                </mat-chip>
+                <input #selectedTagInput readonly 
+                  [matChipInputFor]="chipList"
+                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes" 
+                  [matChipInputAddOnBlur]="addOnBlur"
+                  (matChipInputTokenEnd)="add($event)">
+              </mat-chip-list>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="gt-float-100">
+        <h3 class="gt-fs-16 gt-text-medium tag-sub-color tag-seltitle dcolor-primary">
+            Suggested
+        </h3>
+    </div>
+    <div class="gt-float-left gt-mt-12 chips-Suggested">
+        <mat-chip-list aria-label="Suggested Tag selection">
+          <ng-container *ngIf="!itemTagPresent && (allDesireCategories$ | async) as suggestions">
+            <mat-chip matChipRemove  *ngFor="let suggestion of suggestions; index as i" 
+              [selectable]="selectable"
+              [removable]="removable" 
+              (removed)="removeSuggestedCategories(suggestion, i)">
+              {{ suggestion.label }}
+            </mat-chip>
+          </ng-container>
+          <ng-template [ngIf]="itemTagPresent">
+            <div class="gt-float-100 gt-pl-4 gt-mb-12" *ngFor="let tag of (allTags$ | async) as tagArray; index as p">
+              <div class="row">
+                <div class="col-lg-3 col-md-12 col-sm-12">
+                  <div class="gt-float-100">
+                    <h4 class="gt-mt-4 gt-fs-16 gt-text-medium dcolor-primary">{{ tag.name || tag.label }}:</h4>
+                  </div>
+                </div>
+                <div class="col-lg-9 col-md-12 col-sm-12">
+                  <div class="tag-listing-group">
+                    <mat-chip matChipRemove 
+                      *ngFor="let value of tag.values as tagValues; index as s"
+                      [selectable]="selectable" 
+                      [removable]="removable"
+                      (removed)="removeSuggestedTags(value, s, p, tagArray)">
+                      {{ value }}
+                    </mat-chip>
+                  </div>
+                </div>
+              </div>
+            </div> 
+          </ng-template>
+          <div class="gt-float-left add-tags" *ngIf="itemTagPresent || (allDesireCategories$ | async)?.length">
+            <button class="gt-btn-primary gt-btn-outline gt-center add-tags-btn" *ngIf="!addTagPresent" (click)="addTagPresent = true">
+              <span class="material-icons gt-fs-16">add</span> add
+              tag
+            </button>
+          </div>
+        </mat-chip-list>
+       
+      </div>
+    
+    <div class="gt-float-100">
+        <div class="row" *ngIf="addTagPresent">
+          <div class="col-lg-12 col-md-12">
+            <div class="input-tags-box">
+              <mat-form-field class="example-chip-list add-tags-box">
+                <mat-placeholder class="placeholder custom-taglist">Add #tags to increase search visibility. ( Separate by ; )
+                </mat-placeholder>
+                <mat-chip-list #chipChildList class="mat-selected-chip chips-selected" aria-label="Add Tag selection">
+                  <mat-chip *ngFor="let tag of customTags" 
+                        [selectable]="selectable" 
+                        [removable]="removable"
+                        (removed)="removeCustomTag(tag)">
+                    {{ tag }}
+                    <mat-icon matChipRemove *ngIf="removable" class="material-icons">cancel</mat-icon>
+                  </mat-chip>
+                  <input #addTagInput matInput class="add-tag-input" 
+                    [matChipInputFor]="chipChildList" 
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    [matChipInputAddOnBlur]="addOnBlurTagInput" 
+                    (matChipInputTokenEnd)="addCustomTag($event)">
+                 
+                  <div class="gt-float-left add-tags">
+                    <button class="gt-btn-primary gt-btn-outline gt-center add-tags-btn" (click)="saveCustomTags()">
+                      <span class="material-icons gt-fs-16">save</span> save
+                      tag
+                    </button>
+                  </div>
+                </mat-chip-list>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="!items.length">
+            <ng-content select="div.category-invalid.gt-text-danger"></ng-content>
+        </div>
+    </div>
+   
+</div>

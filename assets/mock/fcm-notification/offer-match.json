@@ -1,0 +1,11 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Offer successfully fetched",
+    "payload": {
+        "offerId": "1234",
+        "offerImage": "assets/pro/31.jpg",
+        "offerName": "Captain’s Koontz watchesssss",
+        "matchPercentage": "87"
+    }
+}

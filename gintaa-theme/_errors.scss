@@ -1,0 +1,52 @@
+.primary-error {
+  position: absolute;
+  font-size: $gt-fs-11;
+  color: red;
+  font-family: $gt-font-poppins;
+  font-weight: normal;
+  margin-top: 5px;  
+}
+.primary-error .frmtxt-guide {
+  color: dark;
+}
+
+
+
+.gt-text-danger {
+  color: #ff0000;
+  font-size: $gt-fs-11;
+  position: absolute;
+  font-weight: 400;
+  font-family: $gt-font-poppins;
+  margin-top: 1px;
+ 
+}
+
+.gt-text-success {
+  color: $gt-primary;
+  font-size: $gt-fs-11;
+  position: absolute;
+  font-weight: 400;
+  font-family: $gt-font-poppins;
+  margin-top: 1px;
+  
+}
+.error-bottom-business {
+  position: relative;
+}
+.error-bottom-business .gt-text-danger{
+
+  width: 100%;
+  left: 0;
+  bottom: -18px;
+
+}
+.error-next-disable .error-next {
+  display: none !important;
+}
+
+.noshow-error .error-next {
+  display: none !important;
+}
+
+

@@ -1,0 +1,269 @@
+<div class="gt-bg-white gt-border-radius-16 gt-pd-24 add-bankh-account">
+    <div class="popup-closed close-pops" (click)="onDialogClose()"><span class="material-icons">close</span></div>
+
+    <div class="gt-float-100">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 gt-display-flex">
+                    <h1 class="gt-fs-16 gt-lightblack">Select payment options</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form [formGroup]="accountDetailsForm" (ngSubmit)="saveAccountCredential()">
+        <div class="gt-float-100 gt-mt-20">
+            <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+
+                <mat-radio-group formControlName="paymentType">
+                    <div class="gt-float-100 gt-center-space-between">  
+                        <div class="sugg-check">
+                            <mat-radio-button  
+                                [disabled]="accountDetails && accountDetails.id && accountDetails.paymentType != 'BANK'"
+                                value="BANK" 
+                                name="paymentType">                
+                                    <div class="gt-float-100 gt-vcenter gt-cursor-pointer home-oaddress">
+                                        <span class="icon-account_balance gt-fs-22 gt-mr-8 locp-tag"></span>
+                                        <h2 class="gt-fs-14 gt-lightblack dcolor-primary">Bank</h2>
+                                    </div>                 
+                            </mat-radio-button>
+                        </div>
+                
+                        <div class="sugg-check">
+                            <mat-radio-button 
+                                [disabled]="accountDetails && accountDetails.id && accountDetails.paymentType != 'UPI'"
+                                value="UPI" 
+                                name="paymentType">            
+                                    <div class="gt-float-100 gt-vcenter gt-cursor-pointer mh-left home-oaddress">
+                                        <img src="assets/images/payment/upi.svg" alt="icon" width="30" height="30" class="upi-id gt-mr-1">
+                                        <h2 class="gt-fs-14 gt-lightblack dcolor-primary">UPI Id</h2>
+                                    </div>                
+                            </mat-radio-button>
+                        </div>
+
+                        <div class="sugg-check">
+                            <!-- <mat-radio-button 
+                                [disabled]="accountDetails && accountDetails.id && accountDetails.paymentType != 'PAYTM'"
+                                value="PAYTM" 
+                                name="paymentType">                  
+                                    <div class="gt-float-100 gt-vcenter gt-cursor-pointer home-oaddress">
+                                        <img src="assets/images/payment/paytm.svg" alt="icon" width="50" height="15" class="upi-id">
+                                    </div>                   
+                            </mat-radio-button> -->
+                        </div>
+
+                        <!-- <div class="sugg-check">
+                            <mat-radio-button value="4">                 
+                                <div class="gt-float-100 gt-vcenter gt-cursor-pointer home-oaddress">
+                                    <img src="assets/images/payment/gpay.svg" alt="icon" width="54" height="22" class="upi-id">
+                                </div>                   
+                            </mat-radio-button>
+                        </div> -->
+                        
+                    </div>
+                </mat-radio-group>
+
+            </div>
+            </div>
+        </div>
+    
+        <div class="gt-float-100 gt-mt-20">  
+            
+            <div class="gt-float-100 gt-mt-10">
+                <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="secondary_group">
+                            <div class="secondary-wrap validate-input">
+                                <span class="secondary-label label-ml"> Your name </span>
+                                <input 
+                                    appAlphabetOnly
+                                    formControlName="nickName" 
+                                    class="secondary-input" 
+                                    type="text" 
+                                    name="nickName" 
+                                    [customErrors]="addReceiveAccountError.nickName"
+                                    placeholder="Enter your name as per bank account">
+                            </div>
+                            <!-- <div class="gt-text-danger">
+                                <div class="error error-next"> Description is required </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div 
+                *ngIf="accountDetailsForm.value.paymentType == 'BANK'"                 
+                class="bank-credential-container">                
+                    
+                <div class="gt-float-100">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="secondary_group">
+                                <div class="secondary-wrap validate-input">
+                                    <span class="secondary-label label-ml">Bank name</span>
+                                    <input 
+                                        appAlphabetOnly
+                                        formControlName="name" 
+                                        class="secondary-input" 
+                                        type="text" 
+                                        name="name" 
+                                        [customErrors]="addReceiveAccountError.name"
+                                        placeholder="Enter bank name">
+                                </div>
+                                <!-- <div class="gt-text-danger">
+                                    <div class="error error-next"> Enter bank name </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gt-float-100">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="secondary_group">
+                                <div class="secondary-wrap validate-input">
+                                    <span class="secondary-label label-ml">Account number </span>
+                                    <input 
+                                        formControlName="accountNumber" 
+                                        class="secondary-input" 
+                                        type="text" 
+                                        name="accountNumber" 
+                                        [customErrors]="addReceiveAccountError.accountNumber"
+                                        placeholder="Enter account number" numbersOnly>
+                                </div>
+                                <!-- <div class="gt-text-danger">
+                                    <div class="error error-next"> Enter account number </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gt-float-100 gt-mt-10">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="secondary_group">
+                                <div class="secondary-wrap validate-input">
+                                    <span class="secondary-label label-ml"> IFSC code </span>
+                                    <input 
+                                        formControlName="ifsc"
+                                        class="secondary-input" 
+                                        type="text" 
+                                        name="ifsc" 
+                                        [customErrors]="addReceiveAccountError.ifsc"
+                                        placeholder="Enter IFSC code">
+                                </div>
+                                <!-- <div class="gt-text-danger">
+                                    <div class="error error-next"> Enter IFSC code</div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gt-float-100 gt-mt-10">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="secondary_group">
+                                <div class="secondary-wrap validate-input">
+                                    <span class="secondary-label label-ml"> Branch name </span>
+                                    <input 
+                                        appAlphabetOnly
+                                        formControlName="branch"
+                                        class="secondary-input" 
+                                        type="text" 
+                                        name="branch" 
+                                        [customErrors]="addReceiveAccountError.branch"
+                                        placeholder="Branch name">
+                                </div>
+                                <!-- <div class="gt-text-danger">
+                                    <div class="error error-next"> Branch name </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>            
+            
+            <div *ngIf="accountDetailsForm.value.paymentType == 'UPI'" class="upi-credential">
+                
+                <div class="gt-float-100">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="secondary_group">
+                                <div class="secondary-wrap validate-input">
+                                    <span class="secondary-label label-ml"> UPI Id </span>
+                                    <input 
+                                        formControlName="upiId" 
+                                        class="secondary-input" 
+                                        type="text" 
+                                        name="upiId" 
+                                        [customErrors]="addReceiveAccountError.upiId"
+                                        placeholder="Enter UPI ID">
+                                </div>
+                                <!-- <div class="gt-text-danger">
+                                    <div class="error error-next"> Enter account number</div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div *ngIf="accountDetailsForm.value.paymentType == 'PAYTM'" class="paytm-credential">
+                
+                <div class="gt-float-100">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="secondary_group">
+                                <div class="secondary-wrap validate-input">
+                                    <span class="secondary-label label-ml"> Paytm mobile number </span>
+                                    <input 
+                                        formControlName="number" 
+                                        class="secondary-input" 
+                                        type="text" 
+                                        name="number" 
+                                        [customErrors]="addReceiveAccountError.number"
+                                        placeholder="Enter account number">
+                                </div>
+                                <!-- <div class="gt-text-danger">
+                                    <div class="error error-next"> Enter account number </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="gt-float-100">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-mt-20 gt-float-100 gt-center back-finish">
+                        <!--  -->
+                        <!-- {{accountDetailsForm.valid}} -->
+                        <button
+                            [class]="!accountDetailsForm.valid || isSaveButtonDisable ? 'disable-button' : ''"
+                            type="submit"
+                            [disabled]="!accountDetailsForm.valid || isSaveButtonDisable"
+                            class="gt-btn-primary gt-width-100 gt-center gt-height-48 gt-fs-16 gt-border-radius-2">submit</button>
+                    </div>
+                    <div class="gt-text-danger" *ngIf="errorMessage">
+                        <div class="error"> {{errorMessage}} </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- <app-spinner *ngIf="showLoader" timeOut="5000"></app-spinner> -->
+
+<app-loading-spinner loaderType="drops-fading" [fullPage]="true" [loader]="showLoader"
+                    addBackDrop="true" backDropColor="#fff"></app-loading-spinner>

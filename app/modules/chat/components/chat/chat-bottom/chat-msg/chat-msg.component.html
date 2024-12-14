@@ -1,0 +1,13 @@
+<div class="gt-float-100 chat-msg-wrapper">
+     <div class="gt-float-100 gt-bg-white gt-pd-lr-20 gt-pt-8 gt-pb-8 header-shadow chat-header-top bg-change">
+          <app-chat-header></app-chat-header>
+     </div>
+     <div class="gt-float-100 chat-container-content" infiniteScroll [infiniteScrollDistance]="2"
+          [infiniteScrollUpDistance]="1.5" [infiniteScrollThrottle]="50" (scrolled)="onScrollDown()"
+          (scrolledUp)="onScrollUp()" [scrollWindow]="false" #myScrollContainer>
+          <app-chat-body [chatType]="chatType" [screenType]="screenType" (parentScrollToBottom)="scrollToBottom()"></app-chat-body>
+     </div>
+     <div class="gt-float-100 gt-bg-white gt-pd-tb-13 gt-pl-18 gt-pr-16 gt-mt-10 chat-footer-bottom bg-change dark-shadow">
+          <app-chat-footer></app-chat-footer>
+     </div>
+</div>

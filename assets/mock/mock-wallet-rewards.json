@@ -1,0 +1,49 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Gintaa Wallet Result",
+    "payload": {
+        "rewardsDetails": [
+            {                
+                "type": "gift",
+                "userDetails":{
+                    "count": 0,
+                    "username": "K Konstantinopolskiy",
+                    "fullname": "Konstantin Konstantinopolskiy"
+                }
+            },
+            {                
+                "type": "coins",
+                "userDetails":{
+                    "count": 10,
+                    "username": "R Das",
+                    "fullname": "Rajib Das"
+                }
+            },
+            {                
+                "type": "coins",
+                "userDetails":{
+                    "count": 50,
+                    "username": "S Test",
+                    "fullname": "S Test"
+                }
+            },
+            {                
+                "type": "gift",
+                "userDetails":{
+                    "count": 0,
+                    "username": "M Sha",
+                    "fullname": "Mithun Sha"
+                }
+            },
+            {                
+                "type": "coins",
+                "userDetails":{
+                    "count": 40,
+                    "username": "K Konstantinopolskiy",
+                    "fullname": "Konstantin Konstantinopolskiy"
+                }
+            }
+        ]        
+    }
+}

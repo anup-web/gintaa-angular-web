@@ -1,0 +1,141 @@
+<div class="single-arrivals-products gt-cursor-pointer">
+  <div class="arrivals-products-image">
+    <div class="pr-image max-height-img-241">
+      <ng-container [ngSwitch]="from">
+        <ng-container *ngSwitchCase="'matchbox'">
+          <img *ngIf="offer?.image; else AllMatchesOffers" [src]="offer?.image | coverMatchImage"
+            class="gt-img-responsive" alt="image" (click)="navigateToOfferDetails(offer)"
+            onError="this.src = 'assets/images/no-image.png'" />
+          <ng-template #AllMatchesOffers>
+            <img [src]="offer?.images | coverImage" class="gt-img-responsive" alt="image"
+              (click)="navigateToOfferDetails(offer)" onError="this.src = 'assets/images/no-image.png'" />
+          </ng-template>
+        </ng-container>
+
+        <img 
+          *ngSwitchCase="'searchResult'"
+          [defaultImage]="'assets/images/no-image.png'" 
+          [errorImage]="'assets/images/no-image.png'"
+          [lazyLoad]="offer?.image?.url || 'assets/images/create-offer/uplaod-default-img.png'"
+          class="gt-img-responsive" 
+          alt="image" 
+          (click)="navigateToOfferDetails(offer)"/>
+          <img
+            *ngSwitchCase="'myOfferPublished'"
+            [defaultImage]="'assets/images/no-image.png'" 
+            [errorImage]="'assets/images/no-image.png'"
+            [lazyLoad]="offer?.images | coverImage" 
+            class="gt-img-responsive" alt="image"
+            (click)="navigateToOfferDetails(offer)" />
+        <!-- <img *ngSwitchDefault [src]="offer?.images | coverImage" class="gt-img-responsive" alt="image"
+          (click)="navigateToOffer(offer)" onError="this.src = 'assets/images/no-image.png'" /> -->
+        <img 
+          *ngSwitchDefault 
+          [defaultImage]="'assets/images/no-image.png'" 
+          [errorImage]="'assets/images/no-image.png'"
+          [lazyLoad]="offer?.images | coverImage" 
+          [alt]="offer.name" 
+          (click)="navigateToOffer(offer)" />
+      </ng-container>
+      <div class="color-overlay"></div>
+
+      <div class="draft-delete gt-center" *ngIf="offer.draftOfferId">
+        <img src="assets/images/profile/profile-photo-delete.svg" alt="image" width="16" height="18" class="del-memh"
+          (click)="openDraftDeleteDialog(offer.draftOfferId)" />
+      </div>
+      <div *ngIf="from == 'myOfferPublished'" class="draft-tag">
+        {{ offer.offerStage || "Draft" }}
+      </div>
+    </div>
+    <div class="arrivals-action">
+      <div class="offer-location" *ngIf="offer.location">
+        {{ offer | offerLocation }}
+      </div>
+      <ng-container *ngIf="
+          !offer.draftOfferId &&
+          !offer.currentUserOfferOwner &&
+          from !== 'searchResult'
+        ">
+        <ng-container *ngIf="from == 'matchbox'; else defaultOfferId">
+          <!-- NOT NEEDED NOW -->
+        </ng-container>
+        <ng-template #defaultOfferId>
+          <span class="material-icons fav-btn" *ngIf="!isFavorite(offer.offerId)"
+            (click)="addOfferToFavourite(offer.offerId)">favorite_border</span>
+          <span class="material-icons fav-btn fav-color-card" *ngIf="isFavorite(offer.offerId)"
+            (click)="removeOfferFromFavourite(offer.offerId)">favorite
+          </span>
+        </ng-template>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="arrivals-products-content product-content-pd" (click)="navigateToOffer(offer)">
+    <div class="offer-name-primary gt-ellipsis" ellipsis>
+      {{ offer.name | trimTextToCertainNumberCharector: 18 }}
+    </div>
+    <div class="pr-desire" *ngIf="!offer.auctioned && offer.desire">
+      <img src="assets/images/home/desire-icon.svg" class="desire-img" alt="image" />
+      <div class="offer-desire-primary gt-ellipsis" ellipsis>
+        {{ offer | offerDesire | trimTextToCertainNumberCharector: 18 }}
+      </div>
+    </div>
+
+    <div class="pr-desire" *ngIf="offer?.exchangeMode ==='Money'">
+      <div class="gt-float-100 gt-mt-3 gt-vcenter">
+        <div class="gt-vcenter gt-mr-20">
+          <h3 class="gt-fs-14 gt-vcenter gt-letter-spacing gt-sky mvalue">
+            <span class="icon-gt-money-new gt-mr-5 gt-fs-14"></span> {{offer?.price}}
+            <span class="gt-fs-10 gt-pd-lr-5" *ngIf="offer?.duration">/</span> <span class="gt-fs-14"
+              *ngIf="offer?.duration">{{ offer?.duration }}</span>
+          </h3>
+        </div>
+        <div class="gt-vcenter gt-position-relative"
+          *ngIf="offer?.unitOfferValuation && offer?.price !== offer?.unitOfferValuation">
+          <h3 class="gt-fs-14 gt-black-60 gt-position-relative mvalue off-price">
+            <span class="icon-gt-money-new gt-fs-14"></span> {{offer?.unitOfferValuation}}
+          </h3>
+        </div>
+      </div>
+    </div>
+    <div class="pr-desire" *ngIf="offer?.exchangeMode === 'Free'">
+      <img src="assets/images/home/free_icon.svg" class="desire-img" alt="image" />
+      <div class="offer-desire-primary gt-ellipsis" ellipsis>
+        {{ offer?.exchangeMode }}
+      </div>
+    </div>
+  
+    <div class="pr-desire" *ngIf="offer.auctioned">
+      <img src="assets/images/create-offer/auction-od.svg" class="desire-img" alt="image" />
+      <div class="offer-desire-primary gt-ellipsis" ellipsis>Auction</div>
+    </div>
+  </div>
+  <div class="offer-all-count" *ngIf="showOfferStat && !offer.draftOfferId">
+    <div class="fav-btn-count">
+      <span class="icon-gt-favorite-border gt-fs-19 fav-border"></span>
+      <span class="count-num">0</span>
+    </div>
+    <div class="fav-btn-count">
+      <div class="chat-bubble-box cbx-h">
+        <span class="material-icons-outlined chat-bubb">chat_bubble_outline</span>
+        <div class="chat-bubble-active">
+          <span class="icon-gt-unread-two gt-fs-30"><span class="path1"></span><span class="path2"></span></span>
+        </div>
+      </div>
+      <span class="count-num">{{
+          offer.chatCount ? offer.chatCount : "0"
+        }}</span>
+    </div>
+    <div class="fav-btn-count gt-mr">
+      <div class="chat-bubble-box">
+        <img src="assets/images/create-offer/offer-hand.svg" class="offer-hand" width="16" height="12" alt="image" />
+        <div class="chat-bubble-active">
+          <span class="icon-gt-unread-two gt-fs-30"><span class="path1"></span><span class="path2"></span></span>
+        </div>
+      </div>
+      <span class="count-num">{{
+          offer.dealCount ? offer.dealCount : "0"
+        }}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,459 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Home Page Results",
+    "payload": {
+        "popularCategory": {
+            "title": "Essential Services for you",
+            "categoryLists": [
+                {
+                    "name": "Animals & Pet Supplies",
+                    "image": "assets/images/new-cat/ncat-1.svg",
+                    "category": {
+                       "name": "pet",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "Apparel & Acessories",
+                    "image": "assets/images/new-cat/ncat-2.svg",
+                    "category": {
+                       "name": "apparel",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "Baby & Toddler Supplies",
+                    "image": "assets/images/new-cat/ncat-3.svg",
+                    "category": {
+                       "name": "baby",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "Luggage & Travel",
+                    "image": "assets/images/new-cat/ncat-5.svg",
+                    "category": {
+                       "name": "Travel",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "Baby & Toddler Supplies",
+                    "image": "assets/images/new-cat/ncat-6.svg",
+                    "category": {
+                       "name": "Baby",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "Luggage & Travel",
+                    "image": "assets/images/new-cat/ncat-7.svg",
+                    "category": {
+                       "name": "Travel",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "Animals & Pet Supplies",
+                    "image": "assets/images/new-cat/ncat-1.svg",
+                    "category": {
+                       "name": "pet",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "Apparel & Acessories",
+                    "image": "assets/images/new-cat/ncat-2.svg",
+                    "category": {
+                       "name": "apparel",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "Baby & Toddler Supplies",
+                    "image": "assets/images/new-cat/ncat-3.svg",
+                    "category": {
+                       "name": "baby",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "Luggage & Travel",
+                    "image": "assets/images/new-cat/ncat-5.svg",
+                    "category": {
+                       "name": "Travel",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "Baby & Toddler Supplies",
+                    "image": "assets/images/new-cat/ncat-6.svg",
+                    "category": {
+                       "name": "Baby",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "Luggage & Travel",
+                    "image": "assets/images/new-cat/ncat-7.svg",
+                    "category": {
+                       "name": "Travel",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "Animals & Pet Supplies",
+                    "image": "assets/images/new-cat/ncat-1.svg",
+                    "category": {
+                       "name": "pet",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "Apparel & Acessories",
+                    "image": "assets/images/new-cat/ncat-2.svg",
+                    "category": {
+                       "name": "apparel",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "Baby & Toddler Supplies",
+                    "image": "assets/images/new-cat/ncat-3.svg",
+                    "category": {
+                       "name": "baby",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "Luggage & Travel",
+                    "image": "assets/images/new-cat/ncat-5.svg",
+                    "category": {
+                       "name": "Travel",
+                       "categoryId": ""
+                    }
+                }
+                
+               
+    
+            ]
+        },
+        "topBrands": {
+            "title": "",
+            "topBrandLists": [
+                {
+                    "name": "BannerOne",
+                    "image": "assets/images/addv-img/h-1.png",
+                    "category": {
+                       "name": "beauty",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "BannerTwo",
+                    "image": "assets/images/addv-img/h-2.png",
+                    "category": {
+                       "name": "deal",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "BannerThree",
+                    "image": "assets/images/addv-img/h-3.png",
+                    "category": {
+                       "name": "brands",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "BannerFour",
+                    "image": "assets/images/addv-img/h-4.png",
+                    "category": {
+                       "name": "salon",
+                       "categoryId": ""
+                    }
+                }
+            ]
+        },
+        "offerCategories": {
+            "title": "",
+            "leftBannerLists": [
+                {
+                    "name": "Explore Food and catering service",
+                    "image": "assets/images/addv-img/catering-new.png",
+                    "category": {
+                       "name": "food",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "Reserve your Community Hall",
+                    "image": "assets/images/addv-img/community-hall.png",
+                    "category": {
+                       "name": "community",
+                       "categoryId": ""
+                    }
+                }
+            ],            
+            "rightBannerLists": [
+                {
+                    "name": "Store closure - items at discount",
+                    "image": "assets/images/addv-img/sale-discount.png",
+                    "category": {
+                       "name": "store",
+                       "categoryId": ""
+                    }
+                },
+                {
+                    "name": "Exchange or Borrow Books",
+                    "image": "assets/images/addv-img/books-sale.png",
+                    "category": {
+                       "name": "books",
+                       "categoryId": ""
+                    }
+                }
+            ],
+            "leftoverExchange": {
+              "title": "Exchange with your leftover items",
+              "exchangeList": [
+                {
+                  "name": "Captain Coons Watches",
+                  "image": "assets/trading/tr-5.jpg",
+                  "category": {
+                    "name": "store",
+                    "categoryId": ""
+                  }
+                },
+                {
+                  "name": "Captain Coons Watches",
+                  "image": "assets/trading/tr-6.jpg",
+                  "category": {
+                    "name": "store",
+                    "categoryId": ""
+                  }
+                },
+                {
+                  "name": "Captain Coons Watches",
+                  "image": "assets/trading/tr-8.jpg",
+                  "category": {
+                    "name": "store",
+                    "categoryId": ""
+                  }
+                },
+                {
+                  "name": "Captain Coons Watches",
+                  "image": "assets/trading/tr-7.jpg",
+                  "category": {
+                    "name": "store",
+                    "categoryId": ""
+                  }
+                }
+              ]
+            },
+            "beautyProducts": {
+              "title": "Beauty Products",
+              "productList": [
+                {
+                  "name": "Captain Coons Watches",
+                  "image": "assets/trading/tr-9.jpg",
+                  "category": {
+                    "name": "store",
+                    "categoryId": ""
+                  }
+                },
+                {
+                  "name": "Captain Coons Watches",
+                  "image": "assets/trading/tr-10.jpg",
+                  "category": {
+                    "name": "store",
+                    "categoryId": ""
+                  }
+                },
+                {
+                  "name": "Captain Coons Watches",
+                  "image": "assets/trading/tr-11.jpg",
+                  "category": {
+                    "name": "store",
+                    "categoryId": ""
+                  }
+                },
+                {
+                  "name": "Captain Coons Watches",
+                  "image": "assets/trading/tr-12.jpg",
+                  "category": {
+                    "name": "store",
+                    "categoryId": ""
+                  }
+                }
+              ]
+            }
+        },
+        "offerBottomBanner": {            
+            "titie": "",
+            "bannerLists": [
+                {
+                    "name": "Bottom Banner",
+                    "image": "assets/images/addv-img/banner-2.png",
+                    "category": {
+                        "name": "Camera",
+                        "categoryId": ""
+                    }
+                }
+            ]
+        },
+        "buyNewProducts": {
+            "title": "Buy New Products",
+            "productList": [
+              {
+                "name": "Captain Coons Watches",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/buy-new-products/tr-1.jpg",
+                "category": {
+                  "name": "store",
+                  "categoryId": ""
+                }
+              },
+              {
+                "name": "Captain Coons Watches",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/buy-new-products/tr-2.jpg",
+                "category": {
+                  "name": "store",
+                  "categoryId": ""
+                }
+              },
+              {
+                "name": "Captain Coons Watches",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/buy-new-products/tr-3.jpg",
+                "category": {
+                  "name": "store",
+                  "categoryId": ""
+                }
+              },
+              {
+                "name": "Captain Coons Watches",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/buy-new-products/tr-4.jpg",
+                "category": {
+                  "name": "store",
+                  "categoryId": ""
+                }
+              }
+            ]
+          },          
+          "promotionalBanners": {
+            "title": "",
+            "bannerList": [
+              {
+                "name": "Banner-1",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/business-banners/business-11.jpg",
+                "queryUrl": "",
+                "target": ""
+              },
+              {
+                "name": "Banner-2",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/business-banners/business-5.jpg",
+                "queryUrl": "",
+                "target": ""
+              },
+              {
+                "name": "Banner-3",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/business-banners/business-22.jpg",
+                "queryUrl": "",
+                "target": ""
+              },
+              {
+                "name": "Banner-4",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/business-banners/business-3.png",
+                "queryUrl": "",
+                "target": ""
+              }
+            ]
+          },
+          "download_our_app": {
+            "title": "Download our app",
+            "dataList": [
+              {
+                "name": "Mobile-1",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/download-our-app/footer-app.svg",
+                "queryUrl": "",
+                "target": ""
+              },
+              {
+                "name": "IOS-App-Store",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/download-our-app/app-store.png",
+                "queryUrl": "",
+                "target": ""
+              },
+              {
+                "name": "Google-Play-Store",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/download-our-app/google-store.png",
+                "queryUrl": "",
+                "target": ""
+              }
+            ]
+          },
+          "auctionOfTheDay": {
+            "title": "",
+            "dataList": [
+              {
+                "name": "",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/auction-banners/legal.jpg",
+                "queryUrl": "",
+                "target": ""
+              },
+              {
+                "name": "",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/auction-banners/fitness-banner.png",
+                "queryUrl": "",
+                "target": ""
+              },
+              {
+                "name": "",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/auction-banners/business-1.jpeg",
+                "queryUrl": "",
+                "target": ""
+              },
+              {
+                "name": "",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/auction-banners/sell.png",
+                "queryUrl": "",
+                "target": ""
+              }
+            ]
+          },
+          "lastViewedOffer": {
+            "title": "",
+            "dataList": [
+              {
+                "name": "",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/auction-banners/legal.jpg",
+                "queryUrl": "",
+                "target": ""
+              },
+              {
+                "name": "",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/auction-banners/fitness-banner.png",
+                "queryUrl": "",
+                "target": ""
+              },
+              {
+                "name": "",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/auction-banners/business-1.jpeg",
+                "queryUrl": "",
+                "target": ""
+              },
+              {
+                "name": "",
+                "image": "https://storage.googleapis.com/gintaa-assets-app/web/auction-banners/sell.png",
+                "queryUrl": "",
+                "target": ""
+              }
+            ]
+          },
+          "socialBanner": {
+            "name": "",
+            "image": "assets/images/addv-img/covid-gintaa.png",
+            "queryUrl": "",
+            "target": ""
+          }
+    }
+}

@@ -1,0 +1,73 @@
+<div
+  class="gt-float-100 aall-caye"
+  *ngIf="(allPopularCategories | async)?.length as popularCategoryLength"
+>
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div
+        class="carousel-pnext pre_next gt-vcenter"
+        *ngIf="popularCategoryLength > defaultCategoryLength"
+      >
+        <a class="arrow_left" (click)="owlCar.prev()" *ngIf="isShowPrev"
+          ><span
+            class="
+              material-icons
+              gt-center
+              dark-shadow-import
+              bg-change-secondary-import
+            "
+            >keyboard_arrow_left</span
+          ></a
+        >
+        <a class="arrow_right" (click)="owlCar.next(); isShowPrev = true"
+          ><span
+            class="
+              material-icons
+              gt-center
+              dark-shadow-import
+              bg-change-secondary-import
+            "
+            >keyboard_arrow_right</span
+          ></a
+        >
+      </div>
+      <owl-carousel-o
+        [options]="customOptions"
+        (translated)="getPassedData($event)"
+        #owlCar
+      >
+        <ng-template
+          ngFor
+          let-i="index"
+          let-c="count"
+          let-categories
+          [ngForOf]="allPopularCategories | async"
+        >
+          <ng-template carouselSlide>
+            <div class="cate-list">
+              <div
+                class="gt-center cate-icon cate-color-1 dark-shadow bg-change"
+              >
+                <img
+                  [src]="
+                    (categories && categories.imagePath) ||
+                    'assets/images/cat-icon/Animals-Pet-supplies.svg'
+                  "
+                  alt="icon"
+                  width="40"
+                  height="40"
+                  class="cate-image"
+                />
+              </div>
+              <div class="gt-center gt-mt-10 gt-text-center cate-title">
+                <h2 class="gt-fs-13 cate-title-color">
+                  {{ categories && categories?.vertical?.label }}
+                </h2>
+              </div>
+            </div>
+          </ng-template>
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+  </div>
+</div>

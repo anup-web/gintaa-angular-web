@@ -1,0 +1,24 @@
+<div class="close-deal-popup user-feedback-wrapper feedback-scroll">
+    <div class="popup-closed close-skips">
+        <h4 class="gt-fs-18" (click)="close()" style="cursor: pointer;">Skip</h4>
+    </div>
+    <div class="popup-closed close-pops"><span class="material-icons" (click)="close()">close</span></div>
+    <div class="gt-float-100">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 gt-display-flex">
+                    <h1 class="gt-fs-16 gt-text-medium gt-lightblack">Feedback</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gt-float-100">
+        <div class="gt-center">
+            <div class="feed-image">
+                <img src="assets/images/logo.png" alt="logo" width="159" height="40" class="footer-logo">
+            </div>
+        </div>
+        <app-gintaa-rating (onClickStar)="onClickStar($event)" (saveRating)="finishRate($event)"
+            [questionList]="questionList" [errorMessage]="errorMessage" [gintaaRating]="true"></app-gintaa-rating>
+    </div>
+</div>

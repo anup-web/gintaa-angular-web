@@ -1,0 +1,296 @@
+<app-loading-spinner
+  loaderType="drops-fading"
+  fullPage="false"
+  loader="true"
+  *ngIf="pageLoading"
+  addBackDrop="true"
+  backDropColor="#000000"
+  loadingMessage="Uploading Offers! Please wait..."
+></app-loading-spinner>
+
+<div class="item-offer-bg gt-pt-104 gt-pb-100">
+  <div class="container">
+    <div class="user-profile-wrapper">
+      <div class="gt-float-100 offer-create-wrapper gt-mheight-705">
+        <div class="gt-float-100 gt-mt-8">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="gt-float-100 gt-center">
+                <h1 class="gt-fs-24 gt-text-semi-bold gt-lightgrayish">
+                  Bulk Offer Upload
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gt-float-100 gt-mt-20">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <form #form class="upload_progress">
+                <div class="gt-float-100">
+                  <input
+                    type="file"
+                    #fileUpload
+                    id="upload-bulk-offers"
+                    name="fileUpload"
+                    accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+                    style="display: none"
+                  />
+
+                  <button
+                    type="submit"
+                    class="
+                      gt-btn-primary
+                      gt-btn-outline
+                      gt-center
+                      gt-width-300
+                      gt-mr-auto
+                      upload-btn
+                    "
+                    (click)="uploadFile()"
+                  >
+                    <img
+                      src="assets/images/create-offer/bulk-upload.svg"
+                      class="bulk-img"
+                      alt="block-icons"
+                      width="18"
+                      height="22"
+                    />
+                    <h2 class="gt-fs-18 gt-text-medium gt-ml-10">upload</h2>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <div class="gt-float-100 gt-mt-10">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="gt-float-100 gt-center">
+                <h6 class="gt-fs-16 gt-text-medium gt-lightgrayish">
+                  Formats : excel , csv
+                </h6>
+
+                <div class="gt-text-danger mt-5" *ngIf="fileTypeError">
+                  <div class="error">{{ fileTypeError }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gt-float-100 gt-mt-30">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="gt-float-100">
+                <div class="bulk-hr"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gt-float-100">
+          <div class="gt-float-100 gt-mt-54">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <a
+                  href="https://file-examples-com.github.io/uploads/2017/02/file_example_XLS_10.xls"
+                  [download]="downloadFileName"
+                  title="download {{ downloadFileName }}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="
+                    gt-center
+                    gt-border-radius-12
+                    gt-bg-white
+                    gt-width-278
+                    gt-height-64
+                    gt-cursor-pointer
+                    gt-mr-auto
+                    auth-settings
+                  "
+                >
+                  <div class="gt-vcenter">
+                    <div class="image-user-fd">
+                      <img
+                        src="assets/images/create-offer/download-tem.svg"
+                        class="sting-image"
+                        alt="block-icons"
+                        width="20"
+                        height="20"
+                      />
+                    </div>
+                    <div class="user-stauth gt-ml-13 gt-mr-16">
+                      <h1 class="gt-fs-16 gt-text-medium gt-lightgrayish">
+                        Download template
+                      </h1>
+                    </div>
+                    <div class="gt-center barrow">
+                      <span class="material-icons gt-fs-22 arrow-color"
+                        >arrow_downward</span
+                      >
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="gt-float-100 gt-mt-28">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 gt-pl-170 gt-pr-170">
+                  <h2 class="gt-fs-14 gt-lightgrayish gt-text-center">
+                    Please download our guideline template to learn how to
+                    properly format your .CSV file before uploading
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+
+        <div class="gt-float-100 gt-mt-75">
+          <ng-container *ngIf="uploadedFiles.length">
+            <div
+              class="gt-float-100 gt-mt-20"
+              *ngFor="let uploadedFile of uploadedFiles; let i = index"
+            >
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="gt-float-100 gt-center-between gt-pl-34 gt-pr-72">
+                    <div class="gt-vcenter">
+                      <div class="success-csv gt-center">
+                        <span class="material-icons gt-lightgrayish gt-fs-20"
+                          >done</span
+                        >
+                      </div>
+                      <div class="gt-vcenter gt-ml-12">
+                        <h1 class="gt-fs-16 gt-text-medium gt-lightgrayish">
+                          {{ uploadedFile.name }}
+                        </h1>
+                      </div>
+                    </div>
+                    <div class="gt-center close">
+                      <span
+                        class="
+                          material-icons
+                          gt-danger gt-fs-18 gt-cursor-pointer
+                        "
+                        (click)="clearUploadedPopup(i)"
+                        >close</span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+
+        <ng-container *ngIf="contentUploadedSuccess">
+          <div class="gt-float-100 gt-mt-41 gt-pd-tb-14 bg-upload-offer">
+            <div class="gt-float-100 gt-mb-6" *ngIf="processedOffers.length">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="gt-float-100 gt-center-between gt-pl-24 gt-pr-46">
+                    <div class="gt-vcenter">
+                      <h1 class="gt-fs-20 gt-text-medium gt-lightblack">
+                        Your Items
+                      </h1>
+                    </div>
+
+                    <div class="gt-center close">
+                      <h2 class="gt-fs-14 gt-sky">
+                        {{ processedOffers.length }} items
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <ng-container *ngIf="processedOffers.length">
+              <div
+                class="gt-float-100 gt-mt-24"
+                *ngFor="let offer of processedOffers"
+              >
+                <div class="row">
+                  <div
+                    class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                  >
+                    <div
+                      class="gt-float-100 gt-center-between gt-pl-26 gt-pr-57"
+                    >
+                      <div
+                        class="gt-vcenter"
+                        (click)="redirectToDraft(offer.offerId)"
+                        style="cursor: pointer"
+                      >
+                        <div class="success-csv gt-center">
+                          <span
+                            *ngIf="offer.validated"
+                            class="material-icons gt-primary gt-fs-20"
+                            >done</span
+                          >
+                          <img
+                            *ngIf="!offer.validated"
+                            src="assets/images/create-offer/bulk-error.svg"
+                            class="bo-img"
+                            alt="block-icons"
+                            width="23"
+                            height="25"
+                          />
+                        </div>
+                        <div class="gt-vcenter gt-ml-12">
+                          <h1 class="gt-fs-16 gt-text-medium offer-bdes">
+                            {{ offer.name }}
+                          </h1>
+                        </div>
+                      </div>
+                      <div
+                        class="gt-center gt-cursor-pointer"
+                        (click)="removeSelectedOffer(offer.offerId)"
+                      >
+                        <img
+                          src="assets/images/create-offer/bo-delete.svg"
+                          class="bo-img"
+                          alt="block-icons"
+                          width="23"
+                          height="25"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+
+          <div class="gt-float-100 gt-mt-28 gt-pl-37 gt-pr-37">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <button
+                  class="
+                    gt-btn-primary
+                    gt-center
+                    gt-width-100
+                    gt-btn-shadow
+                    gt-height-45
+                  "
+                  (click)="publishOffers()"
+                >
+                  next
+                </button>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

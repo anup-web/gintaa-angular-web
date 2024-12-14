@@ -1,0 +1,100 @@
+<div class="gt-float-100 gt-border-radius-4 gt-pb-20 gt-mt-20 gt-bg-white review-order">
+    <div class="gt-float-100 gt-pt-10 gt-pb-14 gt-pd-lr-12">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="gt-float-100 ">
+                    <h2 class="gt-fs-15 gt-text-medium gt-black-70">Review order & payments</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+        <div class="row">
+            <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12">
+                <div class="gt-float-100 revie0-paymenth">
+                    <div class="gt-float-100 poffer-card" *ngIf="selectedOfferDetail?.offerId">
+                        <div class="gt-float-left gt-mr-20 image-boxh">
+                            <img [src]="selectedOfferDetail?.images | coverImage" class="gt-img-responsive" alt="image"
+                                (click)="goToOffer(selectedOfferDetail.offerId)"
+                                onError="this.src = 'assets/images/no-image.png'" />
+                        </div>
+                        <div class="gt-float-left poffer-des">
+                            <h2 class="gt-float-100 gt-fs-13 gt-black-70">{{selectedOfferDetail?.name}}</h2>
+                            <h3 class="gt-float-100 gt-fs-13 gt-mt-10 gt-black-60">Condition:
+                                <span class="gt-black-80">{{selectedOfferDetail?.itemCondition}}</span>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="gt-float-100 gt-mt-20 offer-count-hk" *ngIf="maxitemQuantity > 1">
+                        <div class="gt-center-around gt-border-radius-4 ofcon-yu">
+                            <div class="minus-hp gt-cursor-pointer">
+                                <button class="icon-horizontal_rule gt-fs-20 bg-none"
+                                    [ngClass]="minitemQuantity >= itemQuantity ? '':'gt-sky'"
+                                    (click)="clickAction('minus')"
+                                    [disabled]="minitemQuantity >= itemQuantity"></button>
+                            </div>
+                            <div class="gt-fs-14 gt-text-medium gt-sky nincy-hp">{{itemQuantity}}</div>
+                            <div class="minus-hp gt-cursor-pointer">
+                                <button class="icon-add gt-fs-20 bg-none"
+                                    [ngClass]="itemQuantity >= maxitemQuantity ? '':'gt-sky'"
+                                    (click)="clickAction('add')" [disabled]="itemQuantity >= maxitemQuantity"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
+                <div class="gt-float-100 revire-paynowk">
+                    <div class="gt-float-100 gt-flex-end">
+                        <div class="gt-vcenter hs-price">
+                            <span class="icon-gt-currency gt-fs-20"></span>
+                            <h4 class="gt-fs-15 gt-letter-spacing gt-black-70">{{selectedOfferDetail?.price *
+                                itemQuantity | formatPriceDecemal}}</h4>
+                        </div>
+                    </div>
+                    <div class="gt-float-100 gt-mt-20 gt-center-end" *ngIf="shippingVendor?.courier_company_id">
+                        <div class="gt-vcenter gt-mr-15">
+                            <h3 class="gt-fs-14 gt-black-70">Delivery within {{shippingVendor?.estimated_delivery_days}}
+                                days -</h3>
+                        </div>
+                        <div class="gt-vcenter hs-price">
+                            <span class="icon-gt-currency gt-fs-20"></span>
+                            <h4 class="gt-fs-15 gt-letter-spacing gt-black-70">{{ calculateShip(shippingVendor?.rate) |
+                                formatPriceDecemal}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gt-float-100 gt-mt-15">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="gt-float-100 gt-center-end gt-pd-lr-12 gt-pt-15 total-ph">
+                    <div class="gt-vcenter gt-mr-20">
+                        <h3 class="gt-fs-14 gt-black-90">Total payble amount</h3>
+                    </div>
+                    <div class="gt-vcenter hs-price">
+                        <span class="icon-gt-currency gt-fs-25"></span>
+                        <h4 class="gt-fs-18 gt-letter-spacing gt-text-medium gt-black-90">{{getTotalPayableAmount() |
+                            formatPriceDecemal}}
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="gt-float-100 gt-center-end gt-pt-15 ">
+                    <button class="gt-btn-primary gt-border-radius-2 gt-height-39 gt-pd-lr-16 gt-center"
+                        [ngClass]="disableSuggestBtn ? 'disabled':''" [disabled]="disableSuggestBtn" (click)="payNow()">
+                        <h5 class="gt-fs-14 gt-text-medium">pay now </h5>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

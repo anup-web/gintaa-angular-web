@@ -1,0 +1,66 @@
+.bids-box{
+    background: #FFFFFF;
+    box-shadow: 4px 12px 16px rgba(224, 232, 239, 0.8);
+    -webkit-box-shadow: 4px 12px 16px rgba(224, 232, 239, 0.8);
+    -moz-box-shadow: 4px 12px 16px rgba(224, 232, 239, 0.8);    
+    padding: 12px;
+    position: relative;
+
+    .bids-box-top{
+       display: flex;
+       justify-content: space-between;
+       position: relative;
+    }    
+}
+
+.img-sizes {
+    width: 40px!important;
+    height: 40px!important;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+}
+
+.inacive-bids{
+    opacity: 0.5;
+}
+
+.active-bids{
+    opacity: 1;
+}
+
+.single-bid{
+    float: left;
+    max-width: 30%;
+}
+
+.award-btn{
+    border: 1px solid #8BC63E;
+    border-radius: 20px;
+    width: 65px;
+    height: 28px;
+}
+
+.border-red{
+    border: 1px solid #FA2525;
+}
+
+.border-green{
+    border: 1px solid #1BA318;
+}
+
+.bowner-img {
+    position: absolute;
+    top: -11px;
+    left: 10px;
+    width: 20px!important;
+    height: 17px;
+}
+
+.bid-awribon{
+    width: 107px!important;
+    height: 64px;
+    position: absolute;
+    bottom: 0px;
+    right: -1px;
+}

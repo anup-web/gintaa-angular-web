@@ -1,0 +1,129 @@
+<div class="gt-float-100 gt-mt-200 gt-pt-9 offers-topbs" *ngIf="false">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gt-float-100 gt-vcenter">
+        <div class="gt-float-left gt-vcenter">
+          <h2 class="
+              gt-fs-16 gt-lightblack gt-font-poppins 
+              dcolor-primary
+            ">
+            Listings
+          </h2>
+        </div>
+
+        <div class="gt-ml-51 lserch-hash">
+          <div class="currency-group match-box-shadow gt-border-radius-12">
+            <div class="
+                currency-input-group
+                gt-border-radius-12 gt-border-none
+                ldris-serch
+              ">
+              <input type="text" class="gt-border-radius-12 currency-form-control"
+                placeholder="Search by offer name or member name" />
+              <div class="currency-input-group-append">
+                <div class="gt-cursor-pointer currency-input-group-text">
+                  <img src="assets/images/search-icon.png" width="20" height="20" alt="icon" class="ser-icons" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gt-ml-25 show-all">
+          <button type="submit" class="
+              gt-btn-primary gt-center gt-height-52 gt-wh-btn
+              lshow-all
+              bg-change-secondary
+              dark-shadow
+              border-none
+            ">
+            view all <span class="count">(12)</span>
+          </button>
+        </div>
+
+        <div class="
+            gt-ml-25 gt-center gt-cursor-pointer gt-border-radius-6
+            image-width-40
+            gt-mr-17
+            list-btn
+          ">
+          <img src="assets/images/create-offer/list-view.svg" alt="image" class="list-img" />
+        </div>
+
+        <div class="
+            gt-center gt-cursor-pointer gt-border-radius-6
+            image-width-40
+            grid-btn
+            active-grid
+          ">
+          <img src="assets/images/create-offer/grid-view.svg" alt="image" class="grid-img" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="gt-mt-40 gt-float-100 list-offer-wrapper" *ngIf="offers.length" @fadeIn>
+  <div class="gt-float-100 gt-mb-30 blist-vhu" *ngFor="let offer of offers">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 co-xs-12">
+        <div class="list-view-card lvc-ru">
+          <div class="list-view-left rp-lvy" [routerLink]="['/offer/' + offer.offerId]">
+            <div class="loffer-card-img rp-ocimg">
+              <div class="loffer-img max-height-img-175 rp-gpy">
+                <img [src]="offer?.images | coverImage" [alt]="offer.name" class="gt-img-responsive"
+                  onError="this.src = 'assets/images/no-image.png'" />
+              </div>
+              <div class="offerl-location wyu-pry">
+                <h2 class="gt-center">{{ offer | offerLocation }}</h2>
+              </div>
+            </div>
+          </div>
+          <div class="list-view-middle rp-lvmh">
+            <div class="gt-float-100 gt-between list-hpyu">
+            <div class="gt-float-100 gt-pd-lr-20 offerl-details rph-odrh" [routerLink]="['/offer/' + offer.offerId]">
+              <div class="gt-float-100 gt-mt-19 offrel-name ghyp-rg gt-ellipsis" ellipsis>
+                <h2>{{ offer.name }}</h2>
+              </div>
+
+              <div class="gt-vcenter gt-float-100 gt-mt-16 loffer-desire hpyu-ghf">
+                <img src="assets/images/create-offer/desire-icon.svg" alt="image" class="tags-imgoff" />
+                <h3 class="gt-ml-9 gt-fs-14 ght-ry">{{ offer | offerDesire }}</h3>
+              </div>
+
+              <div class="gt-float-100 gt-mt-18 offerl-des redy-ptr">
+                <h4 class="gt-fs-13 gt-black-70"> {{ offer.desc }} </h4>
+              </div>
+            </div>
+            <div class="list-view-right rp-lvrih">
+              <div class="offer-right rp-dgry">
+                <!-- <div class="gt-float-100 gt-mt-29 gt-vcenter hrgy-ndh">
+                  <div class="name-loff wrs-ypr">
+                    <img [src]="offer.user.imageUrl" onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'"
+                      class="image-width-30 border-radius-100" [alt]="offer.user.name" />
+                  </div>
+                  <div class="gt-ml-12 wedf-kpm">
+                    <h2 class="gt-fs-14 gt-text-medium gt-lightblack wecf-mghb">
+                      {{ offer.user.name }}
+                    </h2>
+                  </div>
+                </div> -->
+  
+                <div class="gt-float-left gt-mt-24 offer-lcount werct-putn">
+                  <div class="gt-vcenter tag-offer wedr-mdbg">
+                    <img src="assets/images/create-offer/lcompare.svg" alt="image" class="tag-imgoff" />
+                    <span>02</span>
+                  </div>
+                </div>
+  
+               
+              </div>
+            </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

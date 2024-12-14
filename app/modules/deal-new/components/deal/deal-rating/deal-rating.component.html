@@ -1,0 +1,50 @@
+<div class="gt-float-100 gt-border-radius-4 gt-pb-20 gt-bg-white">
+    <div class="gt-float-100 gt-pt-10 gt-pb-14 gt-pd-lr-12">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="gt-float-100 gt-vcenter">
+                    <h2 class="gt-fs-14 gt-text-medium gt-ml-10 gt-lightgrayish">Your rate</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gt-float-100 gt-pd-lr-12">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="gt-float-100">
+                    <div class="gt-center gt-justify-content-between gt-mt-12 deal-user-incoming">
+                        <div class="gt-display-flex gt-align-items-center dincome-card">
+                            <div class="image-width gt-center gt-position-relative chat-noimg">
+                                <img [src]="userDetails?.imageUrl" class="com-res image-width" [alt]="userDetails.name"
+                                    onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'"
+                                    *ngIf="userDetails?.imageUrl; else avatarSec3" />
+                                <ng-template #avatarSec3>
+                                    <img [src]="userNoImage" class="comh-res" [alt]="userDetails?.name" />
+                                </ng-template>
+                            </div>
+                            <div class="gt-ml-8 gt-pt-3 feed-rating">
+                                <div class="user-name-fd">
+                                    <h1 class="gt-fs-14 gt-lightblack name-fd dcolor-primary">
+                                        {{ userDetails.name }}
+                                    </h1>
+                                </div>
+                                <div class="gt-mt-4 user-name-fd">
+                                    <div class="gt-float-left user-rating-comts ul-mt-zero close-ratings">
+                                        <ng-container *ngIf="dealDetails?.callerIsReceiver;else receiverRating">
+                                            <app-show-rating [ratingNumber]="dealDetails?.dealReceiverRating">
+                                            </app-show-rating>
+                                        </ng-container>
+                                        <ng-template #receiverRating>
+                                            <app-show-rating [ratingNumber]="dealDetails?.dealSenderRating">
+                                            </app-show-rating>
+                                        </ng-template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

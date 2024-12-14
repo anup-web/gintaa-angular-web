@@ -1,0 +1,22 @@
+<div class="gt-display-flex osc-secondary" (click)="goToOfferDetail(offerDetails.offerId)" *ngIf="offerDetails">
+  <div class="osc-image">
+    <img [src]="offerDetails.images.length>0?offerDetails.images[0].url : defaultImage" class="image-width-48 border-radius-100" alt="image" />
+  </div>
+  <div class="gt-ml-12 noti-box">
+    <div class="noti-title">
+      <h1 class="gt-fs-16 gt-text-medium gt-lightblack dcolor-primary">
+        Your offer was
+        <span class="gt-primary">approved</span>
+      </h1>
+    </div>
+    <div class="gt-mt-8 noti-text">
+      <h2 class="gt-fs-14 gt-lightblack dcolor-primary">
+        You offer {{offerDetails.name}} was
+        approved
+      </h2>
+    </div>
+    <div class="gt-mt-8 noti-date">
+      <h3 class="gt-fs-14 gt-lightgrayish dcolor-primary">{{data.notifyOn}}</h3>
+    </div>
+  </div>
+</div>

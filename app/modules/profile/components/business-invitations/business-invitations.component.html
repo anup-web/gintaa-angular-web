@@ -1,0 +1,112 @@
+<app-loading-spinner
+  loaderType="drops-fading"
+  fullPage="false"
+  loader="true"
+  *ngIf="pageLoading"
+  addBackDrop="true"
+  backDropColor="#000000"
+  loadingMessage="Fetching Business Accounts! Please wait..."
+></app-loading-spinner>
+
+
+<div class="match-offer-bg gt-pt-20 addcomy-wrapper">
+  <div class="container">
+     
+      <div class="gt-float-100">
+        <app-bread-crumb [breadcrumbs]="bredCrumbInput"></app-bread-crumb>          
+      </div>
+
+      <div class="gt-float-100 gt-mt-30 gt-mb-30">
+          <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="gt-float-100 gt-center-between">
+                      <h1 class="gt-fs-16 gt-text-medium account-color">
+                          My business invitations
+                      </h1>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="gt-float-100">
+          <div class="row" *ngIf="allBusinessInvitations.length">
+
+              <div 
+                *ngFor="let businessInvite of allBusinessInvitations"
+                class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12 ">
+                  <div class="gt-float-100 gt-bg-white gt-border-radius-8 gt-mb-25 gt-pb-20 gt-cursor-pointer biness-member-list bg-change dark-shadow">
+                      <div class="gt-float-100 business-member">
+                          <div class="gt-center gt-pt-20 member-img">
+                            <img class="image-width-125 border-radius-100"
+                            [src]="
+                              businessInvite.logoUrl
+                                ? businessInvite.logoUrl
+                                : defaultBusinessProfileImage
+                              "
+                              [alt]="businessInvite.name">
+                          </div>
+                          <div class="gt-float-100 gt-center">
+                              <h2 class="gt-fs-15 gt-mt-10 gt-fs-14 gt-white"> 
+                                {{ businessInvite.businessName }}
+                              </h2>
+                          </div>
+                      </div>
+                      <div class="gt-center gt-float-100 gt-mt-10 member-name">
+                          <h3 class="gt-fs-16 gt-text-medium gt-lightblack dcolor-primary"> Role - {{ businessInvite.businessRole }} </h3>
+                      </div>
+                      <div class="gt-center gt-float-100 gt-mt-10 meber-name">
+                          <h4 class="gt-fs-14 gt-lightgrayish gt-lightblack dcolor-secondary"> Invitation Date : {{businessInvite.invitationDate | date: 'dd/MM/yyyy'}}  </h4>
+                      </div>
+
+                      <div class="gt-vcenter gt-float-100 gt-mt-20 gt-pd-lr-16 meber-name"
+                        *ngIf="businessInvite.status === 'PENDING'"
+                        >
+                          <button 
+                            type="button" 
+                            role="button" 
+                            class="gt-btn-primary gt-height-42 gt-width-100 gt-mr-10 gt-center"
+                            (click)="acceptInvitation(businessInvite.businessId)"
+                          >
+                            <h5 class="gt-fs-16">accept</h5>
+                          </button>
+                          <button 
+                            type="button" 
+                            role="button" 
+                            class="gt-btn-primary gt-height-42 gt-width-100 gt-ml-10 gt-btn-outline gt-center"
+                            (click)="rejectInvitation(businessInvite.businessId)"
+                          >
+                            <h6 class="gt-fs-16">reject</h6>
+                         </button>
+                      </div>
+                      <div
+                        *ngIf="businessInvite.status === 'DENIED'"
+                        class="gt-vcenter gt-float-100 gt-mt-20 gt-pd-lr-16 meber-name"
+                      >
+                      <h1
+                        class="gt-fs-14 gt-text-danger"
+                        style="margin-left: 100px; margin-top: -10px"
+                      >
+                        Invitation rejected
+                      </h1>
+                    </div>
+                  </div>
+              </div>
+
+              
+
+          </div>
+          <ng-container *ngIf="!allBusinessInvitations.length">
+            <div class="gt-float-100 gt-mb-16">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  No business invites as of now!
+                </div>
+              </div>
+            </div>
+          </ng-container>
+      </div>
+
+  </div>
+</div>
+
+

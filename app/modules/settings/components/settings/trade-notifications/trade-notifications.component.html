@@ -1,0 +1,100 @@
+<div class="settings-user-bg gt-pt-20 gt-pb-100">
+    <div class="container">
+
+        <div class="gt-float-100">
+            <div class="user-profile-wrapper">
+                <div class="gt-float-100">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="gt-float-100">
+                                <div class="gt-float-left gt-display-flex bredcum-title">
+                                    <div class="brdcum-icon"  routerLink="/">
+                                        <img src="assets/images/breadcum-home-icon.svg" alt="icon" width="20" height="22"
+                                            class="gt-img-responsive" />
+                                    </div>
+                                    <ul class="gt-display-flex bredcum-nav">
+                                        <li>
+                                            <span class="material-icons">navigate_next</span>
+                                            <div class="brelink">
+                                                <a routerLink="/settings">Settings</a>
+                                            </div>
+                                            <span class="material-icons">navigate_next</span>
+                                            <div class="brelink">
+                                                <a routerLink="/settings/trade-notification">Trade Notification</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <div class="gt-float-100 gt-mt-25">
+            <div class="user-profile-wrapper">
+
+                <div class="gt-float-100 gt-border-radius-12 gt-pd-lr-17 gt-pd-tb-24 gt-height-580 settings-wrapper trade-notiwrapper bg-change">
+
+                    
+
+                    <div *ngIf="tabList.length > 0" class="gt-float-100">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <nav>
+                                    <div class="nav nav-tabs nav-fill custom-tabs" id="nav-tab" role="tablist">
+                                        <a *ngFor="let tab of tabList; let i = index;" class="nav-item nav-link nav-item-settings dcolor-primary {{!i?'active':''}}" id="{{tab.tabId}}" data-toggle="tab" href="#nav-{{tab.tabId}}" role="tab" aria-controls="nav-home" aria-selected="!i?true:false">{{tab.tabName}}
+                                            <!-- <div class="noti-unread oa-tr">
+                                                <img src="assets/images/allimg/gt-unread-one.svg" alt="logo" class="urone" />
+                                              </div> -->
+                                        </a>
+                                        <!-- <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Deals</a>
+                                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Offers</a>
+                                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Messages</a>
+                                        <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" href="#nav-about" role="tab" aria-controls="nav-about" aria-selected="false">Matching</a>
+                                        <a class="nav-item nav-link" id="nav-comment-tab" data-toggle="tab" href="#nav-comment" role="tab" aria-controls="nav-comment" aria-selected="false">Comments</a> -->
+                                    </div>
+                                </nav>
+                                <div class="tab-content py-3 px-3 px-sm-0 tab-content-custom" id="nav-tabContent">
+                                    <div *ngFor="let tab of tabList; let i = index;"  class="tab-pane fade  {{!i?'show active':''}}" id="nav-{{tab.tabId}}" role="tabpanel" aria-labelledby="'nav-'+tab.tabId+'-tab'">
+                                        <!-- {{tab.tabId}} -->
+                                         <app-common-notification [tabEventLists]="tab.eventList"></app-common-notification>
+                                         
+                                    </div>
+                                    <!-- <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                        <app-deals-notifications></app-deals-notifications>
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                         <app-offers-notifications></app-offers-notifications>
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                                         <app-messages-notifications></app-messages-notifications>
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                                         <app-matching-notifications></app-matching-notifications>
+                                    </div>
+                                    <div class="tab-pane fade" id="nav-comment" role="tabpanel" aria-labelledby="nav-comment-tab">
+                                       <app-comments-notifications></app-comments-notifications>
+                                   </div> -->
+                                </div>
+                            
+                            </div>
+                        </div>
+                      </div> 
+
+
+                  
+
+
+                    
+
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

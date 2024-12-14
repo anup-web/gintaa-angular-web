@@ -1,0 +1,21 @@
+<div id="user-delete-confirm-component" class="modal-wrapper confirm-bpop">
+  <div class="popup-closed">
+    <span class="material-icons" (click)="onClick(false)">close</span>
+  </div>
+
+  <div class="gt-float-100 gt-center gt-mt-30 gt-text-center">
+    <h2 class="gt-fs-16 gt-text-medium gt-lightgrayish">{{pageTitle}}</h2>
+  </div>
+
+  <div class="gt-float-100 gt-center-between gt-mt-85 ">
+    <button type="button" class="gt-btn-primary gt-btn-outline gt-width-100 gt-center gt-text-medium gt-height-48 cancel-color gt-mr-10"
+    (click)="onClick(false)">cancel</button>
+
+    <button type="button" (click)="onClick(true)" class="gt-btn-primary gt-width-100 gt-center gt-text-medium gt-height-48 gt-pd-tb-15 gt-ml-10">
+      proceed
+   </button>
+
+  </div>
+
+
+</div>

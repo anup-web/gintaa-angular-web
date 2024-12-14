@@ -1,0 +1,33 @@
+<div class="gt-float-100" *ngIf="utilitySuccessMessage">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div
+        class="gt-float-100 gt-border-radius-8 offer-success"
+        style="padding: 15px"
+      >
+        <div class="gt-float-100 gt-vcenter">
+          <div class="gt-vcenter">
+            <img
+              src="assets/images/create-offer/help-os.svg"
+              alt="images"
+              width="32"
+              height="32"
+              class="excelle-icon"
+            />
+          </div>
+          <div class="gt-ml-10 del-text">
+            <h2 class="gt-fs-16 gt-width-100 gt-lightblack dcolor-primary">
+              {{ utilitySuccessMessage || "Operation Successful" }}
+            </h2>
+            <h3
+              *ngIf="showOtherErrors"
+              class="gt-fs-16 gt-mt-5 gt-width-100 gt-lightblack dcolor-primary"
+            >
+              Usually review takes 10-30 mins
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Offer Auction Result",
+    "payload": {
+        "addressList": [
+            {
+                "addressId": "7504c298-cc55-4c6b-88ad-51b9911b175d",
+                "addressLine": "Unnamed Road, Action Area III, Newtown, Kolkata, West Bengal 700135, India",
+                "lat": 22.5779169,
+                "lng": 88.5082923,
+                "flatNo": "801",
+                "landmark": "Newtown",
+                "area": "North 24 Parganas",
+                "annotation": "Home",
+                "zip": "700135",
+                "city": "Kolkata",
+                "state": "West Bengal",
+                "country": "India",
+                "default": true
+            }
+        ],
+        "vendorList": [
+            {
+                "id": "1",
+               "name": "Mega delivery",
+               "rating": "4.1",
+               "estimatePrice": 50,
+                "logo": "assets/images/deal/mega-delivery.svg"
+            }
+        ],
+        "packingList": [
+            {
+                "id": "1",
+                "boxSize": "1ft x 1ft",
+                "logo": "assets/images/deal/six-box.svg"
+            }
+        ],
+        "insuranceVendorList": [
+            {
+                "id": "1",
+               "name": "Insurance forever",
+               "rating": "4.1",
+               "estimatePrice": 50,
+                "logo": "assets/images/deal/ins-forever.svg"
+            }
+        ]
+    }
+}

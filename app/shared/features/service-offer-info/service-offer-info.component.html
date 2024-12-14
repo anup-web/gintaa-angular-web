@@ -1,0 +1,387 @@
+<form [formGroup]="form">
+  <div class="gt-mt-20 gt-float-100 gt-pd-lr-12 offer-new-start">
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="secondary_group">
+            <div class="secondary-wrap validate-input">
+              <span class="secondary-label">{{ offerTitle }}</span>
+              <textarea
+                class="secondary-input gtm-height height-textarea"
+                rows="2"
+                type="textarea"
+                formControlName="description"
+                [customErrors]="offerErrors.description"
+                placeholder="Enter service description"
+              >
+              </textarea>
+            </div>
+          </div>
+          <div class="gt-float-100" *ngIf="offerTitleHelp">
+            <h2 class="gt-fs-12 gt-black-50 title-pad-bottom">
+              {{ offerTitleHelp }}
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-offer-all-categories></app-offer-all-categories>
+    <div class="gt-float-100 gt-vcenter gt-mb-20" *ngIf="isService">
+      <div controlErrorContainer>
+        <mat-radio-group
+          class="dp-radiog-group gt-vcenter gt-pb-0"
+          aria-label="Select an option"
+          formControlName="exchangeMode"
+        >
+          <mat-radio-button
+            class="gt-mt-16 examp-radio-button"
+            *ngFor="let exchangeMode of exchangeTypeArr; let i = index"
+            [ngClass]="{ 'gt-ml-20': i > 0 }"
+            id="{{ exchangeMode }}"
+            [value]="exchangeMode"
+            (change)="setExchangeType($event.value)"
+          >
+            <div class="choose-signup">
+              <h2 class="gt-fs-14 new-color">{{ exchangeMode }}</h2>
+            </div>
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+    </div>
+    <div class="gt-float-100 gt-mt-20" *ngIf="exchangeMoney">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-display-flex toggle-wrapper">
+            <div class="toogle-input" *ngIf="false">
+              <div class="secondary_group">
+                <div class="secondary-wrap validate-input">
+                  <span class="secondary-label label-ml">
+                    <span
+                      class="icon-gt-money-new gt-fs-13 gt-pr-7 gt-text-medium"
+                    ></span>
+                    Selling price
+                  </span>
+                  <input
+                    class="secondary-input"
+                    type="text"
+                    appTwoDigitDecimaNumber
+                    formControlName="price"
+                    placeholder="0"
+                    [customErrors]="offerErrors.price"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="new-toggle">
+              <div class="gt-float-100">
+                <h2 class="gt-fs-14 new-color">
+                  <span [ngClass]="{ 'toggle-inactive': negotiable }"
+                    >Fixed</span
+                  >
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <span [ngClass]="{ 'toggle-inactive': !negotiable }"
+                    >Negotiable</span
+                  >
+                </h2>
+              </div>
+              <div class="gt-float-100 gt-mt-10 gt-pl-25 custom-toggle">
+                <mat-slide-toggle
+                  formControlName="negotiable"
+                  [checked]="negotiable"
+                ></mat-slide-toggle>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- service part start -->
+    <div class="gt-float-100 gt-mt-10">
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div class="secondary_group">
+            <div class="secondary-wrap validate-input">
+              <span class="secondary-label label-ml"
+                ><span
+                  class="icon-gt-money-new gt-fs-13 gt-pr-7 gt-text-medium"
+                ></span>
+                Rate
+              </span>
+              <input
+                class="secondary-input"
+                type="text"
+                appTwoDigitDecimaNumber
+                placeholder="0"
+                formControlName="rate"
+                [customErrors]="offerErrors.rate"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div class="gt-form-primary">
+            <label
+              for="inputState"
+              class="gt-form-label gt-sky gt-mb-zero gt-fs-14"
+              >Duration</label
+            >
+            <select
+              class="gt-form-select nform-control nform-control-border"
+              formControlName="duration"
+              [customErrors]="offerErrors.duration"
+            >
+              <option selected>Choose...</option>
+              <option
+                *ngFor="let duration of serviceDurationOptions"
+                [value]="duration"
+              >
+                {{ duration }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-10" *ngIf="currentBusinessId">
+      <div class="row">
+        <div
+          class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+          *ngIf="!exchangeFree"
+        >
+          <div
+            class="gt-form-primary secondary-wrap gt-mb-14 validate-input"
+            controlErrorContainer
+          >
+            <div class="gt-vcenter gt-float-100 gt-mb-5">
+              <label
+                for="inputState"
+                class="gt-forms-label gt-sky gt-mb-zero gt-fs-14"
+                style="width: auto"
+                >Tax class</label
+              >
+              <div class="gt-vcenter gt-ml-5 info-trip">
+                <span
+                  class="gt-vcenter"
+                  tooltip="Specify tax bracket for your service"
+                  flow="right"
+                >
+                  <span class="material-icons-outlined gt-fs-20 gt-sky"
+                    >info</span
+                  ></span
+                >
+              </div>
+            </div>
+
+            <select
+              class="gt-form-select nform-control"
+              formControlName="taxClass"
+              [customErrors]="offerErrors.taxClass"
+            >
+              <option selected>NO TAX</option>
+              <option>GST - 5</option>
+              <option>GST - 10</option>
+              <option>GST - 18</option>
+              <option>GST - 28</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div class="secondary_group">
+            <div class="secondary-wrap validate-input" controlErrorContainer>
+              <span class="secondary-label"
+                >SAC Code
+                <div class="gt-vcenter gt-ml-5 info-trip">
+                  <span
+                    class="gt-vcenter"
+                    tooltip="For classifying service under GST"
+                    flow="right"
+                  >
+                    <span class="material-icons-outlined gt-fs-20 gt-sky"
+                      >info</span
+                    ></span
+                  >
+                </div>
+              </span>
+              <input
+                class="secondary-input"
+                type="text"
+                name="name"
+                formControlName="hsnCode"
+                [customErrors]="offerErrors.hsnCode"
+                autocomplete="off"
+                placeholder="68000000"
+              />
+              <div class="gt-text-danger" *ngIf="hsnCodeError">
+                <div class="error error-next">{{ hsnCodeError }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-10">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100">
+            <app-service-new-timings></app-service-new-timings>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-20">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 servicel-title">
+            <h2 class="gt-fs-14 gt-lightblack">Service location</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gt-float-100 gt-mt-20">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-vcenter servicel-btitle">
+            <div
+              class="
+                gt-vcenter
+                gt-border-radius-4
+                gt-mr-15
+                gt-cursor-pointer
+                gt-pd-lr-12
+                home-nloc
+              "
+              [ngClass]="{ 'home-active': isMyLocation }"
+              (click)="isMyLocation = !isMyLocation; setMyLocation()"
+            >
+              <span class="icon-home gt-mr-8 gt-fs-17"></span>
+              <h2 class="gt-fs-14 gt-white">My location</h2>
+            </div>
+            <div
+              class="
+                gt-vcenter
+                gt-border-radius-4
+                gt-pd-lr-12
+                gt-mr-15
+                gt-cursor-pointer
+                home-nloc
+              "
+              [ngClass]="{ 'home-active': isCustomerLocation }"
+              (click)="
+                isCustomerLocation = !isCustomerLocation; setYourLocation()
+              "
+            >
+              <span class="icon-location gt-mr-8 gt-fs-17"></span>
+              <h2 class="gt-fs-14 gt-white">Customer location</h2>
+            </div>
+            <div
+              class="
+                gt-vcenter gt-border-radius-4 gt-pd-lr-12 gt-cursor-pointer
+                home-nloc
+              "
+              [ngClass]="{ 'home-active': isOnline }"
+              (click)="isOnline = !isOnline; setOnline()"
+            >
+              <span class="icon-location gt-mr-8 gt-fs-17"></span>
+              <h2 class="gt-fs-14 gt-white">Online</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-container *ngIf="isMyLocation">
+      <!-- service address start -->
+      <div class="gt-float-100 gt-mt-10">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="sugg-check">
+              <mat-radio-group aria-label="Select an option">
+                <mat-radio-button
+                  *ngFor="let address of allAddressSub$ | async; let i = index"
+                  [value]="address.id"
+                  (change)="setLocation($event, address)"
+                  [checked]="getIsChecked(address)"
+                >
+                  <div class="gt-float-100 gt-mt-11 gt-cursor-pointer">
+                    <div class="gt-float-100 gt-vcenter home-oaddress">
+                      <span
+                        class="icon-icons-home gt-fs-22 gt-mr-10 locp-tag"
+                        *ngIf="address.value?.annotation === 'Home'"
+                      ></span>
+                      <span
+                        class="material-icons gt-mr-10 gt-fs-19 gt-mt-2"
+                        *ngIf="address.value?.annotation === 'Work'"
+                        >business</span
+                      >
+                      <span
+                        class="
+                          material-icons-outlined
+                          gt-mr-10 gt-fs-19 gt-mt-2
+                        "
+                        *ngIf="
+                          address.value?.annotation !== 'Home' &&
+                          address.value?.annotation !== 'Work'
+                        "
+                        >location_on</span
+                      >
+                      <h2
+                        class="gt-fs-14 gt-lightblack dcolor-primary"
+                        *ngIf="!currentBusinessId"
+                      >
+                        {{ address.value?.annotation }}
+                      </h2>
+                      <h2
+                        class="gt-fs-14 gt-lightblack dcolor-primary"
+                        *ngIf="currentBusinessId"
+                      >
+                        {{ address.addressTitle }}
+                      </h2>
+                    </div>
+                    <div class="gt-float-100">
+                      <h3
+                        class="gt-fs-13 new-color gt-mt-2 gt-pl-27"
+                        *ngIf="!currentBusinessId"
+                      >
+                        {{ address.id | trimTextToCertainNumberCharector: 40 }}
+                      </h3>
+                      <h3
+                        class="gt-fs-13 new-color gt-mt-2 gt-pl-27"
+                        *ngIf="currentBusinessId"
+                      >
+                        {{
+                          address.addressLine1
+                            | trimTextToCertainNumberCharector: 40
+                        }}
+                      </h3>
+                    </div>
+                  </div>
+                </mat-radio-button>
+              </mat-radio-group>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- service address end -->
+      <div class="gt-float-100 gt-mt-20">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <button
+              type="button"
+              class="
+                gt-btn-primary gt-center gt-border-radius-6 gt-bg-transparent
+                nob-btn
+              "
+              (click)="openAddressModal()"
+            >
+              <span class="icon-gt-add gt-fs-13 gt-mr-2"></span>
+              <h2 class="gt-fs-14 gt-sky neda">add new address</h2>
+            </button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</form>

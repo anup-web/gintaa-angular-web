@@ -1,0 +1,612 @@
+<div class="see-all-comments gt-pb-100 gt-pt-20">
+  <div class="container">
+    <div class="user-profile-wrapper">
+      <div class="gt-float-100">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <!-- bread-crumbs part start -->
+            <app-bread-crumb [breadcrumbs]="breadcrumb"> </app-bread-crumb>
+            <!-- bread-crumbs part end -->
+
+            <div class="gt-float-100 gt-mt-20 gt-pb-40 user-profile-edit bg-change">
+              <ng-container>
+                <div class="gt-float-100 gt-mb-40 gt-pt-22 profile-edit-top">
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="
+                          gt-center
+                          user-profile-imgs
+                          profile-loader-content
+                        ">
+                        <div class="
+                            users-boxs
+                            user-bg user-box-border
+                            profile-edit-primary
+                            user-initials
+                          ">
+                          <div class="online-delete" *ngIf="profileImageUrl">
+                            <button type="submit" class="
+                                gt-btn-primary
+                                edit-delete-btn
+                                edb-shadow
+                                dark-shadow
+                                bg-change
+                              " (click)="removeProfileImage()">
+                              <img src="assets/images/profile/profile-photo-delete.svg" class="pro-res" alt="image"
+                                width="20" height="20" />
+                            </button>
+                          </div>
+
+                          <div class="online-edit">
+                            <input type="file" #fileUpload id="profile-photo" name="fileUpload" accept="image/*"
+                              style="display: none" />
+
+                            <div class="image-preview mb-3" *ngIf="previewUrl">
+                              <img [src]="previewUrl" alt="Profile Image" height="300" />
+                            </div>
+
+                            <button class="
+                                gt-btn-primary
+                                edit-delete-btn
+                                ppe-shadow
+                                dark-shadow
+                                bg-change
+                              " (click)="openUploadImageDialog()">
+                              <img src="assets/images/profile/profile-photo-edit.svg" class="pro-res" alt="image"
+                                width="20" height="20" />
+                            </button>
+                          </div>
+
+                          <div class="profile-loader" *ngIf="isImgLoading; else profileImage">
+                            <app-loading-spinner loaderType="drops-fading" [fullPage]="true" [loader]="isImgLoading"
+                            addBackDrop="true" backDropColor="#fff"></app-loading-spinner>
+                            <!-- <app-spinner *ngIf="isImgLoading" [fullPage]="false" timeOut="10000"></app-spinner> -->
+                            <ngx-avatar [name]="avatarImageInitials()" size="100" bgColor="#a7a7a7"
+                              *ngIf="!profileImageUrl"></ngx-avatar>
+                          </div>
+                          <ng-template #profileImage>
+                            <img [src]="profileImageUrl" class="com-res edit-profiles" [alt]="profileName" width="240"
+                              height="240" onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'"
+                              *ngIf="profileImageUrl; else avatarSec4" />
+                            <ng-template #avatarSec4>
+                              <img [src]="userNoImage" class="com-res edit-profiles" [alt]="profileName" width="240"
+                                height="240" />
+                            </ng-template>
+                          </ng-template>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <form class="gt-float-100 gt-pl-17 gt-pr-20" [formGroup]="profileForm"
+                  (ngSubmit)="onSubmitProfileForm()">
+                  <div class="gt-float-100 gt-mb-38" *ngIf="message && isProfileUpdated" @fadeIn>
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12 col-sm-12 jc">
+                        <div class="gt-text-danger">
+                          <div class="error">{{ message }}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="gt-float-100 gt-mb-38" *ngIf="errorMessage" @fadeIn>
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12 col-sm-12 jc">
+                        <div class="gt-text-danger">
+                          <div class="error">{{ errorMessage }}</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <ng-container *ngIf="userInfo && !isPageLoading">
+                    <div class="gt-float-100">
+                      <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                          <div class="gt-float-100 gt-display-flex pr-info">
+                            <div class="gt-float-left gt-vcenter prinfo-primary">
+                              <h1 class="
+                                gt-fs-16 gt-lightgrayish gt-text-semi-bold
+                                dcolor-primary
+                              ">
+                                Personal information
+                              </h1>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="gt-float-100 gt-mt-10">
+                      <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                          <div class="gt-form-primary input-bg-change">
+                            <label for="inputAddress" class="
+                              gt-form-label
+                              gt-fs-14
+                              gt-text-medium
+                              gt-lightblack
+                              dcolor-primary
+                            ">Name</label>
+                            <input type="input" class="
+                              gt-form-control
+                              input-pro-bg
+                              gt-border-radius-12 gt-height-48 gt-pd-tb-12
+                            " placeholder="Enter your Name" id="displayNameId" formControlName="displayName"
+                              name="displayName" required (change)="onChangeEvent($event)"
+                              (keyup)="onChangeEvent($event)" appAlphabetOnly />
+                          </div>
+                          <div class="gt-text-danger" *ngIf="userProfileValidator.displayName.invalid" @fadeIn>
+                            <div class="error">
+                              {{ userProfileValidator.displayName.error }}
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                          <div class="gt-float-100 gt-mb-4 date-birth-custom">
+                            <h2 class="
+                              gt-fs-14 gt-text-medium gt-lightblack
+                              dcolor-primary
+                            ">
+                              Date of birth
+                            </h2>
+                          </div>
+                          <div class="gt-float-100 pro-date-select">
+                            <mat-form-field class="example-full-width">
+                              <input matInput [min]="minDatePicker" [max]="maxDatePicker" [matDatepicker]="picker"
+                                formControlName="dob" (dateChange)="setUserDOB($event)" />
+                              <mat-datepicker #picker (closed)="enableScroll()"></mat-datepicker>
+                            </mat-form-field>
+                            <button type="button" class="gt-btn-primary date-pro-btn g-center"
+                              (click)="picker.open(); disableScroll();">
+                              <img src="assets/images/profile/date-icon-wh.svg" width="20" height="22" alt="icon"
+                                class="gt-img-responsive" />
+                            </button>
+                            <div class="gt-text-danger gt-mt-7" *ngIf="userProfileValidator.dob.invalid" @fadeIn>
+                              <div class="error">
+                                {{ userProfileValidator.dob.error }}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="gt-float-100 gt-mt-12" [ngClass]="{
+                      'gt-mb-10':
+                        !isMobileVerifyButtonDisabled ||
+                        !isEmailVerifyButtonDisabled
+                    }">
+                      <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                          <div class="gt-form-primary input-bg-change">
+                            <label for="inputUserMobile" class="
+                              gt-form-label
+                              gt-fs-14
+                              gt-text-medium
+                              gt-lightblack
+                              dcolor-primary
+                            ">Mobile</label>
+                            <ng-container *ngIf="
+                              userInfo && isUserMobileDisabled;
+                              else VerifyPhoneInput
+                            ">
+                              <input type="text" id="inputUserMobile" class="
+                                gt-form-control
+                                input-pro-bg
+                                gt-border-radius-12 gt-height-48 gt-pd-tb-12
+                              " placeholder="Mobile number" formControlName="mobile" name="mobile"
+                                readonly="readonly" />
+                            </ng-container>
+                            <ng-template #VerifyPhoneInput>
+                              <input type="text" id="inputUserMobile" class="
+                                gt-form-control
+                                input-pro-bg
+                                gt-border-radius-12 gt-height-48 gt-pd-tb-12
+                              " placeholder="Mobile number" formControlName="mobile" name="mobile"
+                                (keyup)="onValidateMobile($event)" required maxlength="10" numbersOnly />
+                            </ng-template>
+                          </div>
+
+                          <div class="gt-text-success" *ngIf="userInfo && isUserMobileDisabled" @fadeIn>
+                            <div class="error">Mobile Number is Verified</div>
+                          </div>
+                          <div class="gt-text-danger" *ngIf="
+                            userInfo &&
+                            !isUserMobileDisabled &&
+                            profileForm?.value?.mobile?.length > 0
+                          " @fadeIn>
+                            <div class="error errorflex" *ngIf="updateType === 'phone'">
+                              <div @fadeIn>
+                                <ng-container *ngIf="
+                                  message && !isProfileUpdated;
+                                  else verifyMessage
+                                ">
+                                  {{ message }}
+                                </ng-container>
+                                <ng-template #verifyMessage>
+                                  Please verify your mobile:
+                                </ng-template>
+                              </div>
+                              <button type="button" class="gt-btn-outline gt-btn-small glh verify"
+                                (click)="sendVerificationMobile()" [disabled]="isMobileVerifyButtonDisabled">
+                                Verify
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                          <div class="
+                            gt-form-primary
+                            input-bg-change
+                            profile-edit-user
+                          ">
+                            <label for="inputUserEmail" class="
+                              gt-form-label
+                              gt-fs-14
+                              gt-text-medium
+                              gt-lightblack
+                              dcolor-primary
+                            ">Email</label>
+                            <ng-container *ngIf="
+                              userInfo && userInfo.emailVerified;
+                              else VerifyEmailInput
+                            ">
+                              <input type="text" id="inputUserEmail" class="
+                                gt-form-control
+                                input-pro-bg
+                                gt-border-radius-12 gt-height-48 gt-pd-tb-12
+                              " placeholder="Email" formControlName="email" name="email" readonly="readonly" />
+                            </ng-container>
+                            <ng-template #VerifyEmailInput>
+                              <input type="text" id="inputUserEmail" class="
+                                gt-form-control
+                                input-pro-bg
+                                gt-border-radius-12 gt-height-48 gt-pd-tb-12
+                              " placeholder="Email" formControlName="email" name="email" (keyup)="onValidateEmail()"
+                                required />
+                            </ng-template>
+                          </div>
+                          <div class="gt-text-success" *ngIf="userInfo && userInfo.emailVerified" @fadeIn>
+                            <div class="error">Email is Verified</div>
+                          </div>
+                          <div class="gt-text-danger" *ngIf="
+                            userInfo &&
+                            !userInfo.emailVerified &&
+                            profileForm?.value?.email?.length > 0
+                          " @fadeIn>
+                            <div class="error errorflex" @fadeIn *ngIf="updateType === 'email'">
+                              <div>
+                                <ng-container *ngIf="
+                                  message && !isProfileUpdated;
+                                  else verifyMessage
+                                ">
+                                  {{ message }}
+                                </ng-container>
+                                <ng-template #verifyMessage>
+                                  Please verify your email:
+                                </ng-template>
+                              </div>
+                              <button type="button" class="gt-btn-outline gt-btn-small glh verify"
+                                (click)="sendVerificationEmail()" [disabled]="isEmailVerifyButtonDisabled">
+                                Verify
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="gt-float-100">
+                      <div class="row">
+                        <div class="
+                          col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12
+                        ">
+                          <div class="gender-group pro-gd-group">
+                            <label class="
+                              user-gender
+                              gt-fs-16
+                              gt-lightgrayish
+                              gt-text-semi-bold
+                              gt-mt-20
+                              gt-mb-10
+                              dcolor-primary
+                            ">Gender</label>
+                            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                              formControlName="gender">
+                              <mat-radio-button value="Male" (click)="setUserGender('Male')">
+                                <h2 class="gt-fs-14 gt-lightgrayish">
+                                  Male
+                                </h2>
+                              </mat-radio-button>
+                              <mat-radio-button value="Female" (click)="setUserGender('Female')">
+                                <h2 class="gt-fs-14 gt-lightgrayish">
+                                  Female
+                                </h2>
+                              </mat-radio-button>
+                              <mat-radio-button value="Other" (click)="setUserGender('Other')">
+                                <h2 class="gt-fs-14 gt-lightgrayish">Other</h2>
+                              </mat-radio-button>
+                            </mat-radio-group>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="gt-float-100 gt-mt-20 gt-mb-10" *ngIf="profileUpdated">
+                      <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                          <div class="gt-float-100 recom-offer-secondary respon-top">
+                            <button type="button" class="
+                              gt-btn-primary
+                              gt-btn-outline
+                              gt-width-100
+                              gt-center
+                              gt-text-medium
+                              cancel-color
+                              bg-change-secondary
+                              dark-shadow
+                              border-none
+                            " (click)="cancelUpdate()">
+                              cancel
+                            </button>
+                          </div>
+                        </div>
+
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                          <div class="gt-float-100 recom-offer-secondary">
+                            <button type="submit" class="
+                              gt-btn-primary
+                              gt-width-100
+                              gt-center
+                              gt-text-medium
+                              gt-pd-tb-15
+                              bg-change-secondary
+                              dark-shadow
+                              border-none
+                            ">
+                              save
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </ng-container>
+
+                  <div class="gt-float-100 gt-mt-10 gt-mb-10">
+                    <div class="row">
+                      <div class="
+                          col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12
+                        ">
+                        <div class="
+                            gt-float-100 gt-center gt-justify-content-between
+                            recom-offer
+                          ">
+                          <div class="
+                              gt-float-left gt-vcenter
+                              recom-offer-primary
+                              respon-top
+                            ">
+                            <h3 class="
+                                gt-fs-16 gt-lightgrayish gt-text-semi-bold
+                                dcolor-primary-import
+                              ">
+                              Addresses
+                            </h3>
+                          </div>
+
+                          <div class="gt-float-right recom-offer-secondary">
+                            <button type="button" class="
+                                gt-btn-primary gt-btn-outline gt-center
+                                pro-btn-custom
+                              " (click)="openAddressModal()">
+                              <span class="material-icons"> add </span>
+                              add new address
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="gt-float-100">
+                    <div class="row" *ngIf="addressList && addressList?.length > 0;
+                        else noaddress
+                      ">
+                      <ng-template ngFor let-i="index" let-c="count" let-address [ngForOf]="addressList">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                          <div class="
+                              gt-float-100
+                              profile-address-wrapper
+                              dark-shadow
+                              bg-change
+                            ">
+                            <div class="gt-float-100 profile-address-box" *ngIf="!address.isEditMode; else showEdit">
+                              <div class="
+                                  gt-float-100
+                                  gt-center
+                                  gt-justify-content-between
+                                  recom-offer
+                                ">
+                                <h4 class="
+                                    gt-fs-15 gt-lightblack gt-text-medium
+                                    dcolor-primary-import
+                                  ">
+                                  {{ address.annotation }}
+                                </h4>
+                                <h5 class="
+                                    gt-fs-13 gt-primary gt-text-medium
+                                    dcolor-primary
+                                  " *ngIf="address.default">
+                                  Default address
+                                </h5>
+                              </div>
+                              <div class="gt-float-100 gt-mt-10 user-address">
+                                <h6 class="
+                                    add-color
+                                    gt-fs-13 gt-line-height-20
+                                    dcolor-primary
+                                  ">
+                                  {{ address.addressLine }}
+                                  <!-- {{ address.area }}, {{ address.city }},
+                                  {{ address.state }}, {{ address.country }},
+                                  {{ address.zip }} -->
+                                </h6>
+                              </div>
+
+                              <div class="gt-float-100 gt-display-flex gt-mt-20">
+                                <button type="button"
+                                  class="gt-btn-primary gt-btn-clear gt-center edit-btn set-default dcolor-primary"
+                                  (click)="
+                                    setDefaultAddress(address.id, address)
+                                  " *ngIf="!address.default">
+                                  set as default
+                                </button>
+                                <!-- <button
+                                  type="button"
+                                  class="
+                                    gt-btn-primary gt-btn-clear gt-center
+                                    edit-btn
+                                    dcolor-primary
+                                  "
+                                  (click)="editAddress(address.id, i)"
+                                >
+                                        <span class="icon-gt-edit"></span>
+                                </button> -->
+
+                                <button class="
+                                  gt-btn-primary
+                                  edit-delete-btn
+                                  border-add
+                                  dark-shadow
+                                  bg-change
+                                " (click)="editAddress(address.id, i)">
+                                  <img src="assets/images/profile/profile-photo-edit.svg" class="pro-res" alt="image"
+                                    width="20" height="20" />
+                                </button>
+                                <ng-container *ngIf="
+                                    addressList &&
+                                    addressList.length > 1 &&
+                                    !address.default
+                                  ">
+
+                                  <button class="
+                                    gt-btn-primary
+                                    edit-delete-btn
+                                    border-add
+                                    dark-shadow
+                                    bg-change gt-ml-10
+                                    " type="button" (click)="deleteAddress(address.id)">
+                                    <img src="assets/images/profile/profile-photo-delete.svg" class="pro-res"
+                                      alt="image" width="20" height="20" />
+                                  </button>
+                                </ng-container>
+                              </div>
+                            </div>
+
+                            <ng-template #showEdit>
+                              <div class="user-edit-address">
+                                <div class="edit-addrss-pro">
+                                  <div class="gt-form-primary">
+                                    <input type="text" class="
+                                        gt-form-control
+                                        gt-border-none
+                                        gt-border-radius-12
+                                        gt-pd-tb-12
+                                        address-ec
+                                      " placeholder="Office" value="{{ address.annotation }}" readonly="readonly" />
+                                  </div>
+                                </div>
+
+                                <div class="edit-addrss-pro gt-mt-20 gt-pb-14">
+                                  <div class="gt-form-primary">
+                                    <input type="text" class="
+                                        gt-form-control
+                                        gt-border-none
+                                        gt-border-radius-12
+                                        gt-pd-tb-12
+                                        address-ec
+                                      " placeholder="Kolkata, sector-1 " value="{{ address.fullAddress }}"
+                                      readonly="readonly" data-toggle="tooltip" data-placement="top"
+                                      title="{{ address.fullAddress }}" />
+                                  </div>
+                                  <button type="button" class="
+                                      gt-btn-primary
+                                      date-pro-btn
+                                      g-center
+                                      btn-bg-edit
+                                    " (click)="openAddressModal(address, 'edit')">
+                                    <img src="assets/images/profile/edit-address-icon.svg" width="20" height="24"
+                                      alt="icon" class="gt-img-responsive" />
+                                  </button>
+                                </div>
+                                <div class="
+                                    gt-float-100
+                                    gt-center
+                                    gt-justify-content-end
+                                    recom-offer
+                                  ">
+                                  <button type="button" class="
+                                      gt-btn-primary gt-btn-clear gt-center
+                                      edit-btn-cancel
+                                      gt-mt-zero
+                                      dcolor-primary
+                                    " (click)="
+                                      editAddress(address.id, i, 'cancel')
+                                    ">
+                                    cancel
+                                  </button>
+                                </div>
+                              </div>
+                            </ng-template>
+                          </div>
+                        </div>
+                      </ng-template>
+                    </div>
+                    <ng-template #noaddress>
+                      <div class="row">
+                        <div class="
+                            col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12
+                          ">
+                          <div class="
+                              gt-float-100
+                              profile-address-wrapper
+                              gt-pd-10
+                            ">
+                            You don't have any saved address
+                          </div>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </div>
+                </form>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="verify-email-section" *ngIf="showVerifyEmailSection">
+  <app-verify-email-otp
+    module="profile"
+    [transactionId]="verificationTransactionId"
+    [email]="profileForm.value.email"
+  >
+  </app-verify-email-otp>
+</div>
+
+<div class="verify-email-section" *ngIf="showVerifyMobileSection">
+  <app-verify-email-otp
+    module="profile"
+    [transactionId]="verificationTransactionId"
+    [phone]="profileForm.value.mobile"
+  >
+  </app-verify-email-otp>
+</div> -->
+
+<!-- <app-spinner *ngIf="profileLoader" timeOut="7000"></app-spinner> -->
+<app-loading-spinner loaderType="drops-fading" [fullPage]="true" [loader]="profileLoader"
+                            addBackDrop="true" backDropColor="#fff"></app-loading-spinner>

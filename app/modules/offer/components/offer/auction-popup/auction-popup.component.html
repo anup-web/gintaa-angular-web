@@ -1,0 +1,10 @@
+<div class="auction-popup bg-change dark-shadow">
+    <div class="popup-closed close-pop">
+        <span class="material-icons" (click)="onDialogClose()">close</span>
+    </div>
+    <ng-container *ngIf="currentAuctionModal$ | async as currentAuctionModal">
+        <!-- <app-auction-close *ngIf="currentAuctionModal === allAuctionModals.AUCTION_CLOSE"></app-auction-close> -->
+        <app-auction-buy [offerId]="offerId" [buyoutPrice]="buyoutPrice" *ngIf="currentAuctionModal === allAuctionModals.AUCTION_CLOSE"></app-auction-buy>
+        <app-auction-success [offerId]="offerId"  *ngIf="currentAuctionModal === allAuctionModals.AUCTION_SUCCESS" (dialogClose)="onDialogClose()"></app-auction-success>
+    </ng-container>
+</div>

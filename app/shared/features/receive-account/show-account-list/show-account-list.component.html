@@ -1,0 +1,111 @@
+
+<div class="gt-float-100 gt-pd-lr-16 nborder-top gt-pt-20 add-accounth">
+
+    <div *ngIf="!allReceiveAccountList.length" class="gt-float-100 gt-mb-20">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100">
+                    <h2 class="gt-fs-16 gt-text-medium gt-black-70">Withdraw funds</h2>
+                </div>
+                <div class="gt-float-100 gt-center gt-mt-40">
+                    <h3 class="gt-fs-14 gt-black-50">Add your bank account or any UPI account to withdraw your money from gintaa</h3>
+                </div>
+                <div class="gt-float-100 gt-center gt-mt-45">
+                    <button type="button" class="gt-btn-primary gt-center gt-height-48 gt-bg-sky gt-border-none gt-border-radius-2 gt-pd-lr-30 dcolor-primary" (click)="addBankDialog()">
+                        add account
+                </button>  
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <div class="gt-float-100" *ngIf="allReceiveAccountList.length">
+        <div class="gt-float-100 gt-mb-20">
+            <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100">
+                <h2 class="gt-fs-16 gt-text-medium gt-black-70">Account receiver</h2>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="gt-float-100">
+            <div class="row">
+            <div  
+                class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+                *ngFor="let item of allReceiveAccountList; let i = index;"
+                >
+                <div class="gt-float-100 profile-addressh-wrapper dark-shadow bg-change">
+
+                <div class="gt-float-100 gt-vcenter" *ngIf="item.paymentType=='BANK'">
+                    <h3 class="gt-fs-14 gt-black-90">Account number - </h3>
+                    <div class="gt-vcenter gt-ml-5">
+                    <!-- <div class="star-hnumber gt-vcenter">
+                        <span class="icon-star1"></span>
+                        <span class="icon-star1"></span>
+                        <span class="icon-star1"></span>
+                        <span class="icon-star1"></span>
+                        <span class="icon-star1"></span>
+                        <span class="icon-star1"></span>
+                    </div> -->
+                    <div class="bnumber">
+                        <h2 class="gt-fs-16 gt-black-70">{{item.bankAccountDetails.accountNumber}}</h2>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="gt-float-100 gt-vcenter" *ngIf="item.paymentType=='UPI'">
+                    <h3 class="gt-fs-14 gt-black-90">UPI Id - </h3>
+                    <div class="gt-vcenter gt-ml-5">
+                    <!-- <div class="star-hnumber gt-vcenter">
+                        <span class="icon-star1"></span>
+                        <span class="icon-star1"></span>
+                        <span class="icon-star1"></span>
+                        <span class="icon-star1"></span>
+                        <span class="icon-star1"></span>
+                        <span class="icon-star1"></span>
+                    </div> -->
+                    <div class="bnumber">
+                        <h2 class="gt-fs-16 gt-black-70">{{item.upiId}}</h2>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="gt-float-100 gt-vcenter" *ngIf="item.paymentType=='PAYTM'">
+                    <h3 class="gt-fs-14 gt-black-90">Paytm number - </h3>
+                    <div class="gt-vcenter gt-ml-5">                              
+                    <div class="bnumber">
+                        <h2 class="gt-fs-16 gt-black-70">{{item.number}}</h2>
+                    </div>
+                    </div>
+                </div>
+
+                <div class="gt-float-100 gt-mt-20">
+                    <!-- <h3 class="gt-fs-14 gt-black-70">Rakesh mondol</h3> -->
+                    <h3 class="gt-fs-14 gt-black-70">{{item.nickName}}</h3>
+                </div>
+
+
+                <div class="gt-float-100 gt-display-flex gt-mt-20">
+                    <button (click)="editAccount(item)" class="gt-btn-primary edit-delete-btn border-add dark-shadow bg-change">
+                    <img src="assets/images/profile/profile-photo-edit.svg" class="pro-res" alt="image"
+                        width="20" height="20" />
+                    </button>
+
+                    <button (click)="deleteAccount(item)" class="gt-btn-primary edit-delete-btn border-add dark-shadow bg-change gt-ml-10
+                        " type="button">
+                    <img src="assets/images/profile/profile-photo-delete.svg" class="pro-res" alt="image"
+                        width="20" height="20" />
+                    </button>
+
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+ 

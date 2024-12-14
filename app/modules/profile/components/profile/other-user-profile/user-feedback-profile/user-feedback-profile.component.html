@@ -1,0 +1,34 @@
+<div class="gt-float-100 gt-mb-33 gt-feedback-user">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div
+        class="gt-float-100 gt-center gt-justify-content-between user-feedback"
+      >
+        <div class="gt-float-left gt-center user-feedback-primary">
+          <h1 class="gt-fs-18 gt-black-80 gt-text-medium dcolor-primary">
+            User feedback
+          </h1>
+        </div>
+
+        <div
+          class="gt-float-right user-feedback-secondary"
+          *ngIf="userAllFeedback && userAllFeedback.length > 4"
+        >
+          <button
+            type="submit"
+            class="
+              gt-btn-primary gt-center gt-wh-btn
+              bg-change-secondary
+              dark-shadow
+              border-none
+            "
+            (click)="viewAll()"
+          >
+            view all
+            <span class="count gt-ml-5">({{ userAllFeedback.length | trimTextToCertainNumberCharector: 15 }})</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

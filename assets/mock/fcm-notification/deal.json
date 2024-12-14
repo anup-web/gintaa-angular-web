@@ -1,0 +1,25 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Offer successfully fetched",
+    "payload": {
+        "dealRefId":"14566",
+        "dealSendItems": [
+            {
+                "url":"assets/pro/31.jpg"
+            },
+            {
+                "url":"assets/pro/39.jpg"
+            }
+        ],
+        "dealReceiveItems": [
+            {
+                "url":"assets/pro/31.jpg"
+            },
+            {
+                "url":"assets/pro/39.jpg"
+            }
+        ],
+        "dealInitiatorName": "Konstantin Konstantinopolskiy"
+    }
+}

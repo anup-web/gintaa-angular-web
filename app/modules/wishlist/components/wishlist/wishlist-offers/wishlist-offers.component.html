@@ -1,0 +1,274 @@
+<div class="gt-float-100 gt-mt-20">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="gt-float-100">
+                <h6 class="gt-fs-19 gt-lightgrayish gt-text-semi-bold dcolor-primary">{{allRelativeOffers.length}} Relative Offers </h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="gt-float-100">
+    <div class="gt-float-100 wisho-wrapper">
+
+
+    
+    <div class="gt-float-100 gt-mt-20 sugg-slider">
+        
+    
+        <div class="row">    
+    
+            <div class="col-lg-12 col-md-12 col-sm-12 ">
+            <div class="gt-float-100 custom-carosl">
+            <div class="carousel-pnext pre_next gt-vcenter match-pre-next wog-rp">
+                <a class="arrow_left" (click)="owlCar.prev()"><span class="material-icons gt-center dark-shadow-import bg-change-secondary-import">keyboard_arrow_left</span></a>
+                <a class="arrow_right" (click)="owlCar.next()"><span class="material-icons gt-center dark-shadow-import bg-change-secondary-import">keyboard_arrow_right</span></a>
+            </div>
+            <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)" #owlCar>
+            
+                <ng-template carouselSlide  *ngFor="let item of allRelativeOffers; let i = index">
+                    <div  mat-dialog-close class="single-arrivals-products gt-cursor-pointer gt-mb-32" [routerLink]="['/offer/',item.offerId]">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img-237">
+                                <!-- <img src="assets/images/create-offer/uplaod-default-img.png" class="gt-img-responsive"
+                                    alt="image"> -->
+                                <img 
+                                    [src]="item.images.length> 0? item.images[0].url : noImageUrl" 
+                                    class="gt-img-responsive" 
+                                    alt="image"
+                                    onError="this.src = 'assets/images/no-image.png'">
+                                    
+                                <div class="color-overlay"></div>
+                                                         
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">{{ item | offerLocation }}</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>{{item.name}}</div>
+                            <div class="pr-desire">
+                                <img src="assets/images/home/desire-icon.svg" class="desire-img"  alt="image">
+                                <div class="offer-desire-primary">{{item | offerCategory}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+            
+                <!--                 
+                <ng-template carouselSlide >
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img-237">
+                                <img src="assets/images/create-offer/uplaod-default-img.png" class="gt-img-responsive"
+                                    alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>                           
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>Captain Coons Watches</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img-237">
+                                <img src="assets/images/create-offer/uplaod-default-img.png" class="gt-img-responsive"
+                                    alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>Captain Coons Watches</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img-237">
+                                <img src="assets/images/create-offer/uplaod-default-img.png" class="gt-img-responsive"
+                                    alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>Captain Coons Watches</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img-237">
+                                <img src="assets/images/create-offer/uplaod-default-img.png" class="gt-img-responsive"
+                                    alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                            
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>Captain Coons Watches</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img-237">
+                                <img src="assets/images/create-offer/uplaod-default-img.png" class="gt-img-responsive"
+                                    alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                            
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>Captain Coons Watches</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img-237">
+                                <img src="assets/images/create-offer/uplaod-default-img.png" class="gt-img-responsive"
+                                    alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>Captain Coons Watches</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                <ng-template carouselSlide>
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img-237">
+                                <img src="assets/images/create-offer/uplaod-default-img.png" class="gt-img-responsive"
+                                    alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>Captain Coons Watches</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-template>
+                 -->
+
+            </owl-carousel-o>
+    
+            </div>
+            </div>  
+        </div>
+        
+        </div>
+    
+    
+        
+    
+
+    
+    </div>
+</div>
+  
+  

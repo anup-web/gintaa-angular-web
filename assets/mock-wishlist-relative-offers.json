@@ -1,0 +1,3224 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Relative offer fetched successfully",
+    "payload": [
+        {
+            "offerId": "1615186759515",
+            "seOId": "test-watch-offer-oid-1615186759515",
+            "name": "Test Watch Offer",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "desire": {
+                "description": "Laptop",
+                "desireType": "Item",
+                "tags": [
+                    "string"
+                ],
+                "vertical": {
+                    "id": "0aef5dfc-3736-447d-83bd-6e41629cc075",
+                    "label": "Electronics"
+                },
+                "category": {
+                    "categoryId": "1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                    "type": "Service",
+                    "label": "Testing testing",
+                    "description": "Testing testing",
+                    "leafNode": true,
+                    "breadcrumbs": [
+                        "Testing testing"
+                    ],
+                    "hierarchy": [
+                        {
+                            "categoryId": "1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                            "label": "Testing testing"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "tagId": "a8335228-f23e-4e51-a60b-aed98e4fbcc7",
+                            "name": "test",
+                            "description": "test",
+                            "label": "test",
+                            "values": [
+                                "string"
+                            ],
+                            "allowCompletionSearch": true,
+                            "allowFullSearch": true
+                        }
+                    ],
+                    "vertical": {
+                        "id": "0aef5dfc-3736-447d-83bd-6e41629cc075",
+                        "label": "Electronics"
+                    },
+                    "synonyms": [
+                        "check",
+                        "maintain",
+                        "repair",
+                        "mend",
+                        "recondition",
+                        "servicing"
+                    ],
+                    "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1609573025960.png",
+                    "fullSearchScore": null,
+                    "completionSearchScore": null,
+                    "seoId": "Testing-testing_1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                    "url": "/category/Testing-testing_1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                    "themeImagePaths": [
+                        "https://storage.googleapis.com/gintaa-develop/S/1c4b7fe2-47d8-427e-a61e-7017cca4d463/1609573026311.png"
+                    ]
+                },
+                "amount": 0.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Item",
+            "location": {
+                "lat": 22.5935946,
+                "lng": 88.3725517,
+                "area": "Kolkata",
+                "zip": "700006",
+                "flatNo": "10A",
+                "city": "Kolkata",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Home",
+                "addressLine": "10A, Manicktala, Goa Bagan, Kolkata, West Bengal 700006, India"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                "type": "Service",
+                "label": "Testing testing",
+                "description": "Testing testing",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Testing testing"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                        "label": "Testing testing"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "a8335228-f23e-4e51-a60b-aed98e4fbcc7",
+                        "name": "test",
+                        "description": "test",
+                        "label": "test",
+                        "values": [
+                            "string"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "0aef5dfc-3736-447d-83bd-6e41629cc075",
+                    "label": "Electronics"
+                },
+                "synonyms": [
+                    "check",
+                    "maintain",
+                    "repair",
+                    "mend",
+                    "recondition",
+                    "servicing"
+                ],
+                "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1609573025960.png",
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Testing-testing_1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                "url": "/category/Testing-testing_1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                "themeImagePaths": [
+                    "https://storage.googleapis.com/gintaa-develop/S/1c4b7fe2-47d8-427e-a61e-7017cca4d463/1609573026311.png"
+                ]
+            },
+            "totalOfferValuation": null,
+            "unitOfferValuation": 45000,
+            "images": [
+                {
+                    "id": "c9458358-3e7e-4799-ae5e-0d1ec939b232",
+                    "name": "1615186760574.jpg",
+                    "orgName": "Hf1d217c3787f420583cb8b3758cb4d8cn.jpg_q50.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/1c4b7fe2-47d8-427e-a61e-7017cca4d463/2021/3/8/1615186759515//1615186760574.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "c2f74210-8aa4-4316-b2a8-65fc682f1c55",
+                    "name": "1615186760904.jpg",
+                    "orgName": "2020-watch-men-stainless-steel-male-clock-senior-brand-men-sports-watch-men-s-watch-casual-1.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/1c4b7fe2-47d8-427e-a61e-7017cca4d463/2021/3/8/1615186759515//1615186760904.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "f73228d8-8901-460b-a830-1c050cb744d3",
+                    "name": "1615186761186.jpg",
+                    "orgName": "images.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/1c4b7fe2-47d8-427e-a61e-7017cca4d463/2021/3/8/1615186759515//1615186761186.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "49978f8a-14b9-49f1-891f-17b81ed371a4",
+                    "name": "1615186761471.jpg",
+                    "orgName": "product-image-1436360695_2000x.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/1c4b7fe2-47d8-427e-a61e-7017cca4d463/2021/3/8/1615186759515//1615186761471.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "4eef5216-0050-4335-ba40-2edb21ce6d3a",
+                    "name": "1615186761734.jpg",
+                    "orgName": "watch-1.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/1c4b7fe2-47d8-427e-a61e-7017cca4d463/2021/3/8/1615186759515//1615186761734.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "15 Days ago",
+            "facets": [],
+            "user": {
+                "identityId": "6ftcrkZ0g7XLswgcQra6ETpyFI42",
+                "name": "Biswanath Test",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 1,
+            "publishedDate": 1615186765252,
+            "quantity": 0.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        },
+        {
+            "offerId": "1615199951504",
+            "seOId": "watch-offer-2-oid-1615199951504",
+            "name": "Watch Offer-2",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "desire": {
+                "description": "Mobile",
+                "desireType": "Item",
+                "tags": [
+                    "string"
+                ],
+                "vertical": {
+                    "id": "0aef5dfc-3736-447d-83bd-6e41629cc075",
+                    "label": "Electronics"
+                },
+                "category": {
+                    "categoryId": "1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                    "type": "Service",
+                    "label": "Testing testing",
+                    "description": "Testing testing",
+                    "leafNode": true,
+                    "breadcrumbs": [
+                        "Testing testing"
+                    ],
+                    "hierarchy": [
+                        {
+                            "categoryId": "1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                            "label": "Testing testing"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "tagId": "a8335228-f23e-4e51-a60b-aed98e4fbcc7",
+                            "name": "test",
+                            "description": "test",
+                            "label": "test",
+                            "values": [
+                                "string"
+                            ],
+                            "allowCompletionSearch": true,
+                            "allowFullSearch": true
+                        }
+                    ],
+                    "vertical": {
+                        "id": "0aef5dfc-3736-447d-83bd-6e41629cc075",
+                        "label": "Electronics"
+                    },
+                    "synonyms": [
+                        "check",
+                        "maintain",
+                        "repair",
+                        "mend",
+                        "recondition",
+                        "servicing"
+                    ],
+                    "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1609573025960.png",
+                    "fullSearchScore": null,
+                    "completionSearchScore": null,
+                    "seoId": "Testing-testing_1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                    "url": "/category/Testing-testing_1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                    "themeImagePaths": [
+                        "https://storage.googleapis.com/gintaa-develop/S/1c4b7fe2-47d8-427e-a61e-7017cca4d463/1609573026311.png"
+                    ]
+                },
+                "amount": 0.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Item",
+            "location": {
+                "lat": 22.5997171,
+                "lng": 88.4140319,
+                "area": "North 24 Parganas",
+                "zip": "700064",
+                "flatNo": "AE-565",
+                "city": "Kolkata",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Home",
+                "addressLine": "AE-565, A.E. Block sector 1, AE Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064, India"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f",
+                "type": "Item",
+                "label": "Smartwatches",
+                "description": "Smartwatches",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Fashion",
+                    "Smartwatches"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "34a508af-37bb-4b03-afbb-555dc56f5f56",
+                        "label": "Fashion"
+                    },
+                    {
+                        "categoryId": "9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f",
+                        "label": "Smartwatches"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "9b0b5d21-c0db-4709-961b-1a65715becb9",
+                        "name": "Brand",
+                        "description": "Brand",
+                        "label": "Brand",
+                        "values": [
+                            "Amazfit",
+                            "Apple",
+                            "Diesel",
+                            "Fastrack",
+                            "Fitbit",
+                            "Fossil",
+                            "Garmin",
+                            "Gionee",
+                            "Samsung"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "558c5658-ed59-4f7c-a902-99fb8a85bf06",
+                        "name": "Dial Shape",
+                        "description": "Dial Shape",
+                        "label": "Dial Shape",
+                        "values": [
+                            "Round",
+                            "Square"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "11b85f6e-1705-4c94-b7e1-ee93e85fd88b",
+                        "name": "Strap Color",
+                        "description": "Strap Color",
+                        "label": "Strap Color",
+                        "values": [
+                            "Red",
+                            "Black",
+                            "White",
+                            "Blue",
+                            "Green",
+                            "Silver",
+                            "Golden"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "d718bece-9b14-4b7d-90ac-fecdcc69cbf1",
+                        "name": "Ideal For",
+                        "description": "Ideal For",
+                        "label": "Ideal For",
+                        "values": [
+                            "Men",
+                            "Women",
+                            "Boys",
+                            "Girl"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "5c75ae6f-afb9-4e5c-a840-44b7534512b0",
+                        "name": "Ideal For",
+                        "description": "Ideal For",
+                        "label": "Ideal For",
+                        "values": [
+                            "Men",
+                            "Women",
+                            "Boys",
+                            "Girl"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "3cfe0441-29ea-4635-a525-3d38e056dd9c",
+                        "name": "Compatible Os",
+                        "description": "Compatible Os",
+                        "label": "Compatible Os",
+                        "values": [
+                            "iOS",
+                            "Android",
+                            "Windows"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "ff9bb663-c334-4adf-9069-aadaeca5ed85",
+                        "name": "Strap Material",
+                        "description": "Strap Material",
+                        "label": "Strap Material",
+                        "values": [
+                            "Silicon",
+                            "Letaher",
+                            "Stainless steel"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "13ce12e7-84be-4b11-ba87-59f325b8c569",
+                        "name": "Display Type",
+                        "description": "Display Type",
+                        "label": "Display Type",
+                        "values": [
+                            "Amoled",
+                            "LCD"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "ae475293-2e27-40c1-9972-9329c800ad7e",
+                    "label": "Home & Lifestyle"
+                },
+                "synonyms": [
+                    "wearables",
+                    "smartglasses",
+                    "wristwatches",
+                    "cellphones",
+                    "webpads",
+                    "smartwatch"
+                ],
+                "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1602860630724.jpg",
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Smartwatches_9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f",
+                "url": "/category/Smartwatches_9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f"
+            },
+            "totalOfferValuation": null,
+            "unitOfferValuation": 25000,
+            "images": [
+                {
+                    "id": "af6c0b7f-aefa-49a8-8fef-589893e23398",
+                    "name": "1615199951695.jpg",
+                    "orgName": "2020-watch-men-stainless-steel-male-clock-senior-brand-men-sports-watch-men-s-watch-casual-1.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f/2021/3/8/1615199951504//1615199951695.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "380d42be-97ed-45ab-a5e3-f4fc14c68190",
+                    "name": "1615199952029.jpg",
+                    "orgName": "images.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f/2021/3/8/1615199951504//1615199952029.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "15 Days ago",
+            "facets": [
+                {
+                    "name": "Brand",
+                    "label": "Brand",
+                    "values": [
+                        "Apple",
+                        "Garmin"
+                    ]
+                },
+                {
+                    "name": "Strap Color",
+                    "label": "Strap Color",
+                    "values": [
+                        "Blue"
+                    ]
+                },
+                {
+                    "name": "Ideal For",
+                    "label": "Ideal For",
+                    "values": [
+                        "Men",
+                        "Men"
+                    ]
+                }
+            ],
+            "user": {
+                "identityId": "6ftcrkZ0g7XLswgcQra6ETpyFI42",
+                "name": "Biswanath Test",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 1,
+            "publishedDate": 1615199953970,
+            "quantity": 0.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        },
+        {
+            "offerId": "1615200750083",
+            "seOId": "test-camera-offer-oid-1615200750083",
+            "name": "Test Camera offer",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [
+                    "string"
+                ],
+                "vertical": null,
+                "category": null,
+                "amount": 50000.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.6653267,
+                "lng": 88.1753696,
+                "area": "Hooghly",
+                "zip": "711404",
+                "flatNo": "NA",
+                "city": "Kanaidanga",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Home",
+                "addressLine": "Unnamed Road, Kanaidanga, West Bengal 711404, India"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "accffcc5-dceb-4436-a13d-b16335a32e37",
+                "type": "Item",
+                "label": "Camera & Optic Accessories",
+                "description": "A camera is an optical instrument used to record images. At their most basic, cameras are sealed boxes the camera body with a small hole the aperture that allow light in to capture an image on a light-sensitive surface usually photographic film or a digital sensor. Cameras have various mechanisms to control how the light falls onto the light-sensitive surface. Lenses focus the light entering the camera, the size of the aperture can be widened or narrowed to let more or less light into the camera, and a shutter mechanism determines the amount of time the photo-sensitive surface is exposed to the light. ",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Camera & Optic Accessories"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "accffcc5-dceb-4436-a13d-b16335a32e37",
+                        "label": "Camera & Optic Accessories"
+                    }
+                ],
+                "tags": [],
+                "vertical": {
+                    "id": "ad5aa20f-ef5a-4668-a73d-53244b0c0d3c",
+                    "label": "Cameras & Optics"
+                },
+                "synonyms": [
+                    "Camera - Accessories"
+                ],
+                "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1602759953549.jpg",
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Camera-Optic-Accessories_accffcc5-dceb-4436-a13d-b16335a32e37",
+                "url": "/category/Camera-Optic-Accessories_accffcc5-dceb-4436-a13d-b16335a32e37"
+            },
+            "totalOfferValuation": null,
+            "unitOfferValuation": 50000,
+            "images": [
+                {
+                    "id": "855f879f-4b69-4ded-a52b-08b1d56a6b71",
+                    "name": "1615200750215.jpg",
+                    "orgName": "dz6m4nqZnJrcZ4qjsobk4k-480-80.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/accffcc5-dceb-4436-a13d-b16335a32e37/2021/3/8/1615200750083//1615200750215.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "cb4bf149-391d-444d-b486-4444ff844299",
+                    "name": "1615200750506.jpg",
+                    "orgName": "Nikon-Nikkor-Z-24-70mm-f2.8-S-lens1.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/accffcc5-dceb-4436-a13d-b16335a32e37/2021/3/8/1615200750083//1615200750506.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "5ffcbfc3-60b0-4fdb-9a90-f715f51d565e",
+                    "name": "1615200750807.jpg",
+                    "orgName": "shutterstock_450671881-new-1024x4808501991029573163437-1.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/accffcc5-dceb-4436-a13d-b16335a32e37/2021/3/8/1615200750083//1615200750807.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "15 Days ago",
+            "facets": [],
+            "user": {
+                "identityId": "6ftcrkZ0g7XLswgcQra6ETpyFI42",
+                "name": "Biswanath Test",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 0,
+            "publishedDate": 1615200757487,
+            "quantity": 1.0,
+            "itemCondition": "Good",
+            "conditionType": null
+        },
+        {
+            "offerId": "1615389845856",
+            "seOId": "test-mobile-offer-bt-oid-1615389845856",
+            "name": "Test Mobile Offer BT",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [
+                    "string"
+                ],
+                "vertical": null,
+                "category": null,
+                "amount": 20000.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.5997171,
+                "lng": 88.4140319,
+                "area": "North 24 Parganas",
+                "zip": "700064",
+                "flatNo": "AE-565",
+                "city": "Kolkata",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Work",
+                "addressLine": "AE-565, A.E. Block sector 1, AE Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064, India"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "e6b0e8c8-9b0b-454d-82df-71218f402a66",
+                "type": "Item",
+                "label": "Mobiles",
+                "description": "A mobile phone, cellular phone, cell phone, cellphone, handphone, or hand phone, sometimes shortened to simply mobile, cell or just phone, is a portable telephone that can make and receive calls over a radio frequency link while the user is moving within a telephone service area.",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Mobiles"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "e6b0e8c8-9b0b-454d-82df-71218f402a66",
+                        "label": "Mobiles"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "f13976b4-0593-4261-a31e-43582bf79e25",
+                        "name": "RAM",
+                        "description": "RAM",
+                        "label": "RAM",
+                        "values": [
+                            "2GB",
+                            "4GB",
+                            "6GB",
+                            "8GB",
+                            "16GB"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "6f210a9d-3d38-484c-8d89-d1147dedd686",
+                        "name": "string",
+                        "description": "string",
+                        "label": "test",
+                        "values": [
+                            "string"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "cbff5835-9642-4a2a-a677-cdb86e8dcd8f",
+                        "name": "Brands",
+                        "description": "Top Brands for Computers and Laptops",
+                        "label": "Brands",
+                        "values": [
+                            "Asus",
+                            "Lenovo",
+                            "Hp",
+                            "Dell",
+                            "Acer"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "0aef5dfc-3736-447d-83bd-6e41629cc075",
+                    "label": "Electronics"
+                },
+                "synonyms": [
+                    "Mobiles",
+                    "phone",
+                    "phones"
+                ],
+                "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1602696419970.jpeg",
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Mobiles_e6b0e8c8-9b0b-454d-82df-71218f402a66",
+                "url": "/category/Mobiles_e6b0e8c8-9b0b-454d-82df-71218f402a66"
+            },
+            "totalOfferValuation": null,
+            "unitOfferValuation": 20000,
+            "images": [
+                {
+                    "id": "4428950e-0e29-4429-a5fa-d5d2519ee6b9",
+                    "name": "1615389847007.jpg",
+                    "orgName": "download.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/e6b0e8c8-9b0b-454d-82df-71218f402a66/2021/3/10/1615389845856//1615389847007.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "8d828438-0872-4987-b64a-bd709bfacfb5",
+                    "name": "1615389847295.jpg",
+                    "orgName": "images (1).jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/e6b0e8c8-9b0b-454d-82df-71218f402a66/2021/3/10/1615389845856//1615389847295.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "13 Days ago",
+            "facets": [
+                {
+                    "name": "RAM",
+                    "label": "RAM",
+                    "values": [
+                        "6GB"
+                    ]
+                },
+                {
+                    "name": "Brands",
+                    "label": "Brands",
+                    "values": [
+                        "Lenovo"
+                    ]
+                }
+            ],
+            "user": {
+                "identityId": "6ftcrkZ0g7XLswgcQra6ETpyFI42",
+                "name": "Biswanath Test",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 1,
+            "publishedDate": 1615389849400,
+            "quantity": 0.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        },
+        {
+            "offerId": "1615604911838",
+            "seOId": "test-watch-offer-bt-oid-1615604911838",
+            "name": "Test watch Offer BT",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [
+                    "string"
+                ],
+                "vertical": null,
+                "category": null,
+                "amount": 35000.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.5997171,
+                "lng": 88.4140319,
+                "area": "North 24 Parganas",
+                "zip": "700064",
+                "flatNo": "AE-565",
+                "city": "Kolkata",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Work",
+                "addressLine": "AE-565, A.E. Block sector 1, AE Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064, India"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f",
+                "type": "Item",
+                "label": "Smartwatches",
+                "description": "Smartwatches",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Fashion",
+                    "Smartwatches"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "34a508af-37bb-4b03-afbb-555dc56f5f56",
+                        "label": "Fashion"
+                    },
+                    {
+                        "categoryId": "9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f",
+                        "label": "Smartwatches"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "9b0b5d21-c0db-4709-961b-1a65715becb9",
+                        "name": "Brand",
+                        "description": "Brand",
+                        "label": "Brand",
+                        "values": [
+                            "Amazfit",
+                            "Apple",
+                            "Diesel",
+                            "Fastrack",
+                            "Fitbit",
+                            "Fossil",
+                            "Garmin",
+                            "Gionee",
+                            "Samsung"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "558c5658-ed59-4f7c-a902-99fb8a85bf06",
+                        "name": "Dial Shape",
+                        "description": "Dial Shape",
+                        "label": "Dial Shape",
+                        "values": [
+                            "Round",
+                            "Square"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "11b85f6e-1705-4c94-b7e1-ee93e85fd88b",
+                        "name": "Strap Color",
+                        "description": "Strap Color",
+                        "label": "Strap Color",
+                        "values": [
+                            "Red",
+                            "Black",
+                            "White",
+                            "Blue",
+                            "Green",
+                            "Silver",
+                            "Golden"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "d718bece-9b14-4b7d-90ac-fecdcc69cbf1",
+                        "name": "Ideal For",
+                        "description": "Ideal For",
+                        "label": "Ideal For",
+                        "values": [
+                            "Men",
+                            "Women",
+                            "Boys",
+                            "Girl"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "5c75ae6f-afb9-4e5c-a840-44b7534512b0",
+                        "name": "Ideal For",
+                        "description": "Ideal For",
+                        "label": "Ideal For",
+                        "values": [
+                            "Men",
+                            "Women",
+                            "Boys",
+                            "Girl"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "3cfe0441-29ea-4635-a525-3d38e056dd9c",
+                        "name": "Compatible Os",
+                        "description": "Compatible Os",
+                        "label": "Compatible Os",
+                        "values": [
+                            "iOS",
+                            "Android",
+                            "Windows"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "ff9bb663-c334-4adf-9069-aadaeca5ed85",
+                        "name": "Strap Material",
+                        "description": "Strap Material",
+                        "label": "Strap Material",
+                        "values": [
+                            "Silicon",
+                            "Letaher",
+                            "Stainless steel"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "13ce12e7-84be-4b11-ba87-59f325b8c569",
+                        "name": "Display Type",
+                        "description": "Display Type",
+                        "label": "Display Type",
+                        "values": [
+                            "Amoled",
+                            "LCD"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "ae475293-2e27-40c1-9972-9329c800ad7e",
+                    "label": "Home & Lifestyle"
+                },
+                "synonyms": [
+                    "wearables",
+                    "smartglasses",
+                    "wristwatches",
+                    "cellphones",
+                    "webpads",
+                    "smartwatch"
+                ],
+                "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1602860630724.jpg",
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Smartwatches_9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f",
+                "url": "/category/Smartwatches_9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f"
+            },
+            "totalOfferValuation": null,
+            "unitOfferValuation": 40000,
+            "images": [
+                {
+                    "id": "59eea364-fb1b-43b5-b029-dd4c83880846",
+                    "name": "1615604912034.jpg",
+                    "orgName": "product-image-1436360695_2000x.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f/2021/3/13/1615604911838//1615604912034.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "9567df17-f975-4655-abf7-39ea69dd7b76",
+                    "name": "1615604912317.jpg",
+                    "orgName": "watch-1.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f/2021/3/13/1615604911838//1615604912317.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "10 Days ago",
+            "facets": [
+                {
+                    "name": "Brand",
+                    "label": "Brand",
+                    "values": [
+                        "Garmin"
+                    ]
+                },
+                {
+                    "name": "Dial Shape",
+                    "label": "Dial Shape",
+                    "values": [
+                        "Round"
+                    ]
+                },
+                {
+                    "name": "Strap Color",
+                    "label": "Strap Color",
+                    "values": [
+                        "Blue"
+                    ]
+                },
+                {
+                    "name": "Ideal For",
+                    "label": "Ideal For",
+                    "values": [
+                        "Men"
+                    ]
+                },
+                {
+                    "name": "Compatible Os",
+                    "label": "Compatible Os",
+                    "values": [
+                        "iOS"
+                    ]
+                },
+                {
+                    "name": "Display Type",
+                    "label": "Display Type",
+                    "values": [
+                        "Amoled"
+                    ]
+                },
+                {
+                    "name": "Strap Material",
+                    "label": "Strap Material",
+                    "values": [
+                        "Stainless steel"
+                    ]
+                }
+            ],
+            "user": {
+                "identityId": "6ftcrkZ0g7XLswgcQra6ETpyFI42",
+                "name": "Biswanath Test",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 1,
+            "publishedDate": 1615604913810,
+            "quantity": 0.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        },
+        {
+            "offerId": "1614929432691",
+            "seOId": "test-mob-offer-8-oid-1614929432691",
+            "name": "Test Mob Offer 8",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [
+                    "string"
+                ],
+                "vertical": null,
+                "category": null,
+                "amount": 24000.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.5901124,
+                "lng": 88.3652815,
+                "area": "Kolkata",
+                "zip": "700006",
+                "flatNo": "NA",
+                "city": "Kolkata",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "My home",
+                "addressLine": "66A, Beadon Row, Hedua, Kolkata, West Bengal 700006, India"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "7f52b27f-6298-4a74-bbd3-597d18486f62",
+                "type": "Item",
+                "label": "Used Mobile",
+                "description": "Used Mobile",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Mobile phone",
+                    "Used Mobile"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "d42616ea-eb6c-48d3-8e4b-25f673a10650",
+                        "label": "Mobile phone"
+                    },
+                    {
+                        "categoryId": "7f52b27f-6298-4a74-bbd3-597d18486f62",
+                        "label": "Used Mobile"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "d2b097dc-6622-41b8-b061-2a5b3aa5fdc0",
+                        "name": "RAM",
+                        "description": "RAM",
+                        "label": "RAM",
+                        "values": [
+                            "2GB",
+                            "4GB",
+                            "6GB",
+                            "8GB",
+                            "16GB"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "d87fbcbd-7b52-42a7-bb45-c6f48cbea563",
+                        "name": "Brand",
+                        "description": "Brand",
+                        "label": "Brand",
+                        "values": [
+                            "Apple",
+                            "Google",
+                            "Samsung",
+                            "Xiomi",
+                            "Oppo",
+                            "One plus 7",
+                            "Redmi",
+                            "Realme"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "db44f7c3-f565-4151-bfe8-dbf023a79ba4",
+                        "name": "Internal Storage",
+                        "description": "Internal Storage",
+                        "label": "Internal Storage",
+                        "values": [
+                            "32GB",
+                            "64GB",
+                            "128GB",
+                            "256GB"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "a918cd8e-a281-4adf-a451-ba559b01efc4",
+                        "name": "Battery Capacity",
+                        "description": "Battery Capacity",
+                        "label": "Battery Capacity",
+                        "values": [
+                            "<1000mh",
+                            "1000mh-2000mh",
+                            "2000mh-3000mh",
+                            "3000mh-4000mh",
+                            "4000mh-5000mh"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "d16a57f0-ac54-4d58-93bd-cc8f44f0b4c5",
+                        "name": "Operating System",
+                        "description": "Operating System",
+                        "label": "Operating System",
+                        "values": [
+                            "iOS",
+                            "Android",
+                            "Windows"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "afdae6d1-88d3-48a5-9efa-a6f0902fabc3",
+                        "name": "Screen Size",
+                        "description": "Screen Size",
+                        "label": "Screen Size",
+                        "values": [
+                            "<4inch",
+                            "4inch-5inch",
+                            "5inch-6inch",
+                            "6inhc>"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "6a598e2e-7f6d-4d1f-ad16-b5ebea67ef80",
+                        "name": "Sim Type",
+                        "description": "Sim Type",
+                        "label": "Sim Type",
+                        "values": [
+                            "Nano",
+                            "Micro",
+                            "Normal"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "fbf959ba-f925-428b-81cd-6187125e8435",
+                        "name": "Primary Camera",
+                        "description": "Primary Camera",
+                        "label": "Primary Camera",
+                        "values": [
+                            "3MP",
+                            "5MP",
+                            "8MP",
+                            "12 MP",
+                            "48MP",
+                            "64MP"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "cc35b3f1-d66c-4592-ac5c-4daa0404a8a1",
+                        "name": "Secondary Camera",
+                        "description": "Secondary Camera",
+                        "label": "Secondary Camera",
+                        "values": [
+                            "2MP",
+                            "5MP",
+                            "3MP",
+                            "8MP"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "1f148179-5448-4923-aaa1-77360bba2d4b",
+                        "name": "Connectivity",
+                        "description": "Connectivity",
+                        "label": "Connectivity",
+                        "values": [
+                            "3G",
+                            "4G",
+                            "2G",
+                            "5G"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "4d9017e3-dc83-4efc-bf23-bf95db4167a1",
+                        "name": "Color",
+                        "description": "Color",
+                        "label": "Color",
+                        "values": [
+                            "BLACK",
+                            "WHTE",
+                            "BLUE",
+                            "RED",
+                            "YELLOW"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "9ce80910-3cb3-41bf-8a50-b2b45a1eecaa",
+                    "label": "Electronics & Appliances"
+                },
+                "synonyms": [
+                    "telephone",
+                    "mobile",
+                    "cell phone",
+                    "radiotelephone",
+                    "videophone",
+                    "Device"
+                ],
+                "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1602846131993.jpg",
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Used-Mobile_7f52b27f-6298-4a74-bbd3-597d18486f62",
+                "url": "/category/Used-Mobile_7f52b27f-6298-4a74-bbd3-597d18486f62"
+            },
+            "totalOfferValuation": null,
+            "unitOfferValuation": 25000,
+            "images": [
+                {
+                    "id": "f806eca2-e27e-4b1f-802e-c64e12a8f79d",
+                    "name": "1614929432857.jpg",
+                    "orgName": "download.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/7f52b27f-6298-4a74-bbd3-597d18486f62/2021/3/5/1614929432691//1614929432857.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "c4ed6b0d-8027-4ad0-8e68-7738fd2e1655",
+                    "name": "1614929433159.jpg",
+                    "orgName": "images (1).jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/7f52b27f-6298-4a74-bbd3-597d18486f62/2021/3/5/1614929432691//1614929433159.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "d096a2e3-ff69-4a93-a0cb-57f10f239df9",
+                    "name": "1614929433469.jpg",
+                    "orgName": "images (2).jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/7f52b27f-6298-4a74-bbd3-597d18486f62/2021/3/5/1614929432691//1614929433469.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "0883bf3f-9c11-49ba-8f28-a1a9f1030ee1",
+                    "name": "1614929433758.jpg",
+                    "orgName": "images.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/7f52b27f-6298-4a74-bbd3-597d18486f62/2021/3/5/1614929432691//1614929433758.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "17 Days ago",
+            "facets": [
+                {
+                    "name": "RAM",
+                    "label": "RAM",
+                    "values": [
+                        "16GB"
+                    ]
+                },
+                {
+                    "name": "Brand",
+                    "label": "Brand",
+                    "values": [
+                        "Samsung"
+                    ]
+                },
+                {
+                    "name": "Internal Storage",
+                    "label": "Internal Storage",
+                    "values": [
+                        "128GB"
+                    ]
+                },
+                {
+                    "name": "Battery Capacity",
+                    "label": "Battery Capacity",
+                    "values": [
+                        "4000mh-5000mh"
+                    ]
+                },
+                {
+                    "name": "Operating System",
+                    "label": "Operating System",
+                    "values": [
+                        "Android"
+                    ]
+                },
+                {
+                    "name": "Screen Size",
+                    "label": "Screen Size",
+                    "values": [
+                        "6inhc>"
+                    ]
+                },
+                {
+                    "name": "Sim Type",
+                    "label": "Sim Type",
+                    "values": [
+                        "Nano"
+                    ]
+                },
+                {
+                    "name": "Primary Camera",
+                    "label": "Primary Camera",
+                    "values": [
+                        "12 MP"
+                    ]
+                },
+                {
+                    "name": "Secondary Camera",
+                    "label": "Secondary Camera",
+                    "values": [
+                        "8MP"
+                    ]
+                },
+                {
+                    "name": "Connectivity",
+                    "label": "Connectivity",
+                    "values": [
+                        "3G",
+                        "4G"
+                    ]
+                },
+                {
+                    "name": "Color",
+                    "label": "Color",
+                    "values": [
+                        "BLACK",
+                        "BLUE"
+                    ]
+                }
+            ],
+            "user": {
+                "identityId": "f4wcba0MQPUidcK6sf0FJ51015k1",
+                "name": "Biswanath",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 1,
+            "publishedDate": 1614929436174,
+            "quantity": 1.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        },
+        {
+            "offerId": "1614921463478",
+            "seOId": "demo-offer-laptop-oid-1614921463478",
+            "name": "Demo offer laptop",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [
+                    "string"
+                ],
+                "vertical": null,
+                "category": null,
+                "amount": 45000.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.6343016,
+                "lng": 88.40932889999999,
+                "area": "North 24 Parganas",
+                "zip": "700065",
+                "flatNo": "321",
+                "city": "South Dumdum",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Work",
+                "addressLine": "321, Dum Dum Cantonment, Subhash Nagar, Dum Dum, South Dumdum, West Bengal 700065, India"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "49916f5a-4764-4c62-b50b-c99d0a2f9513",
+                "type": "Item",
+                "label": "Laptop",
+                "description": "Laptop",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Laptop"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "49916f5a-4764-4c62-b50b-c99d0a2f9513",
+                        "label": "Laptop"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "5bcb2592-f53d-48dc-91d7-4610ce4e95b4",
+                        "name": "Brand",
+                        "description": "Brand",
+                        "label": "Brand",
+                        "values": [
+                            "Intel",
+                            "Apple",
+                            "Acer",
+                            "HP",
+                            "Dell",
+                            "Sony",
+                            "Asus"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "f71487f9-b547-42c0-bf78-1d3b7a0829b2",
+                        "name": "Display Size",
+                        "description": "Display Size",
+                        "label": "Display Size",
+                        "values": [
+                            "12 inch",
+                            "13 inch",
+                            "14 inch",
+                            "15 inch",
+                            "16 inch",
+                            "17 inch",
+                            "19 inch",
+                            " 21 inch",
+                            "27 inch",
+                            " >27 inch"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "537683a8-1dea-4ce7-8022-78c84c7d61f1",
+                        "name": "RAM",
+                        "description": "RAM",
+                        "label": "RAM",
+                        "values": [
+                            "2 GB",
+                            "4GB",
+                            "6GB",
+                            "8GB",
+                            "12GB",
+                            "16GB",
+                            "32GB",
+                            "64GB",
+                            "128GB",
+                            "256GB"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "53223cf1-14cc-45ff-ae9b-6cd128dd8175",
+                        "name": "Graphics",
+                        "description": "Graphics",
+                        "label": "Graphics",
+                        "values": [
+                            "Inbult",
+                            "External",
+                            " Internal"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "2f730f6e-38b7-4008-9069-00a0fec1c2ee",
+                        "name": "Number of CPU Cores",
+                        "description": "Number of CPU Cores",
+                        "label": "Number of CPU Cores",
+                        "values": [
+                            "2",
+                            " 4",
+                            "6",
+                            "8",
+                            "12",
+                            "16"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "c1ca1011-9d84-4027-95d7-38b7b1c30aa4",
+                        "name": "Weight",
+                        "description": "Weight",
+                        "label": "Weight",
+                        "values": [
+                            " <1KG",
+                            "1KG-2.5KG",
+                            "2.5KG>"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "04f2a9b8-e5b3-4728-bf04-81d556a920aa",
+                        "name": "Operating System",
+                        "description": "Operating System",
+                        "label": "Operating System",
+                        "values": [
+                            "Windows",
+                            "iOS",
+                            "OSX",
+                            "Linux",
+                            "Android",
+                            "Chrome Computer Processor Type"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "9ce80910-3cb3-41bf-8a50-b2b45a1eecaa",
+                    "label": "Electronics & Appliances"
+                },
+                "synonyms": [
+                    "laptop",
+                    "microcomputer",
+                    "minicomputer",
+                    "notebook computer",
+                    "palmtop",
+                    "Device"
+                ],
+                "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1602846942929.jpg",
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Laptop_49916f5a-4764-4c62-b50b-c99d0a2f9513",
+                "url": "/category/Laptop_49916f5a-4764-4c62-b50b-c99d0a2f9513"
+            },
+            "totalOfferValuation": null,
+            "unitOfferValuation": 50000,
+            "images": [
+                {
+                    "id": "bc73ca5d-38b6-4a5a-a316-3bfee22406ee",
+                    "name": "1614921464441.jpg",
+                    "orgName": "best-laptops-cover.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/49916f5a-4764-4c62-b50b-c99d0a2f9513/2021/3/5/1614921463478//1614921464441.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "b35562c5-cb0e-476d-8cf4-7bc1361901e3",
+                    "name": "1614921464786.png",
+                    "orgName": "mibookpro_0.png",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/49916f5a-4764-4c62-b50b-c99d0a2f9513/2021/3/5/1614921463478//1614921464786.png",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "206da708-f11d-4daf-991f-29cb898a410c",
+                    "name": "1614921465089.jpg",
+                    "orgName": "vEcELHdn998wRTcCzqV5m9.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/49916f5a-4764-4c62-b50b-c99d0a2f9513/2021/3/5/1614921463478//1614921465089.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "17 Days ago",
+            "facets": [
+                {
+                    "name": "Display Size",
+                    "label": "Display Size",
+                    "values": [
+                        "15 inch"
+                    ]
+                },
+                {
+                    "name": "RAM",
+                    "label": "RAM",
+                    "values": [
+                        "16GB"
+                    ]
+                },
+                {
+                    "name": "Graphics",
+                    "label": "Graphics",
+                    "values": [
+                        "Inbult"
+                    ]
+                },
+                {
+                    "name": "Number of CPU Cores",
+                    "label": "Number of CPU Cores",
+                    "values": [
+                        "8"
+                    ]
+                },
+                {
+                    "name": "Weight",
+                    "label": "Weight",
+                    "values": [
+                        "1KG-2.5KG"
+                    ]
+                },
+                {
+                    "name": "Operating System",
+                    "label": "Operating System",
+                    "values": [
+                        "Windows",
+                        "Linux"
+                    ]
+                }
+            ],
+            "user": {
+                "identityId": "f4wcba0MQPUidcK6sf0FJ51015k1",
+                "name": "Biswanath",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 1,
+            "publishedDate": 1614921468111,
+            "quantity": 0.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        },
+        {
+            "offerId": "1614601315740",
+            "seOId": "test-offer-samsung-m30-mobile-oid-1614601315740",
+            "name": "Test Offer Samsung M30 Mobile",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [
+                    "string"
+                ],
+                "vertical": null,
+                "category": null,
+                "amount": 22000.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.60107,
+                "lng": 88.39220879999999,
+                "area": "North 24 Parganas",
+                "zip": "700037",
+                "flatNo": "2",
+                "city": "Kolkata",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Home",
+                "addressLine": "2, Milk Colony, Belgachia, Kolkata, West Bengal 700037, India"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "e6b0e8c8-9b0b-454d-82df-71218f402a66",
+                "type": "Item",
+                "label": "Mobiles",
+                "description": "A mobile phone, cellular phone, cell phone, cellphone, handphone, or hand phone, sometimes shortened to simply mobile, cell or just phone, is a portable telephone that can make and receive calls over a radio frequency link while the user is moving within a telephone service area.",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Mobiles"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "e6b0e8c8-9b0b-454d-82df-71218f402a66",
+                        "label": "Mobiles"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "f13976b4-0593-4261-a31e-43582bf79e25",
+                        "name": "RAM",
+                        "description": "RAM",
+                        "label": "RAM",
+                        "values": [
+                            "2GB",
+                            "4GB",
+                            "6GB",
+                            "8GB",
+                            "16GB"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "6f210a9d-3d38-484c-8d89-d1147dedd686",
+                        "name": "string",
+                        "description": "string",
+                        "label": "test",
+                        "values": [
+                            "string"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "cbff5835-9642-4a2a-a677-cdb86e8dcd8f",
+                        "name": "Brands",
+                        "description": "Top Brands for Computers and Laptops",
+                        "label": "Brands",
+                        "values": [
+                            "Asus",
+                            "Lenovo",
+                            "Hp",
+                            "Dell",
+                            "Acer"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "0aef5dfc-3736-447d-83bd-6e41629cc075",
+                    "label": "Electronics"
+                },
+                "synonyms": [
+                    "Mobiles",
+                    "phone",
+                    "phones"
+                ],
+                "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1602696419970.jpeg",
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Mobiles_e6b0e8c8-9b0b-454d-82df-71218f402a66",
+                "url": "/category/Mobiles_e6b0e8c8-9b0b-454d-82df-71218f402a66"
+            },
+            "totalOfferValuation": null,
+            "unitOfferValuation": 22000,
+            "images": [
+                {
+                    "id": "775a55a6-2bef-4e2b-acd1-d8d35c6cbf0d",
+                    "name": "1614601317450.jpg",
+                    "orgName": "download.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/e6b0e8c8-9b0b-454d-82df-71218f402a66/2021/3/1/1614601315740//1614601317450.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "5e8c732e-2f69-407b-b464-7b6c28de7430",
+                    "name": "1614601317778.jpg",
+                    "orgName": "images (2).jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/e6b0e8c8-9b0b-454d-82df-71218f402a66/2021/3/1/1614601315740//1614601317778.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "491a1bc4-3be2-4ed2-bdfd-71ae52eb8a53",
+                    "name": "1614601318103.jpg",
+                    "orgName": "images.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/e6b0e8c8-9b0b-454d-82df-71218f402a66/2021/3/1/1614601315740//1614601318103.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "f7213f4b-4725-4e25-a5fa-f808250ec152",
+                    "name": "1614601318422.jpg",
+                    "orgName": "images.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/e6b0e8c8-9b0b-454d-82df-71218f402a66/2021/3/1/1614601315740//1614601318422.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "21 Days ago",
+            "facets": [
+                {
+                    "name": "RAM",
+                    "label": "RAM",
+                    "values": [
+                        "6GB"
+                    ]
+                }
+            ],
+            "user": {
+                "identityId": "f4wcba0MQPUidcK6sf0FJ51015k1",
+                "name": "Biswanath",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 0,
+            "publishedDate": 1614601321196,
+            "quantity": 2.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        },
+        {
+            "offerId": "1614762256411",
+            "seOId": "test-offer-laptop-2-oid-1614762256411",
+            "name": "Test Offer Laptop-2",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [
+                    "string"
+                ],
+                "vertical": null,
+                "category": null,
+                "amount": 50000.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.60107,
+                "lng": 88.39220879999999,
+                "area": "North 24 Parganas",
+                "zip": "700037",
+                "flatNo": "2",
+                "city": "Kolkata",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Home",
+                "addressLine": "2, Milk Colony, Belgachia, Kolkata, West Bengal 700037, India"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "49916f5a-4764-4c62-b50b-c99d0a2f9513",
+                "type": "Item",
+                "label": "Laptop",
+                "description": "Laptop",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Laptop"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "49916f5a-4764-4c62-b50b-c99d0a2f9513",
+                        "label": "Laptop"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "5bcb2592-f53d-48dc-91d7-4610ce4e95b4",
+                        "name": "Brand",
+                        "description": "Brand",
+                        "label": "Brand",
+                        "values": [
+                            "Intel",
+                            "Apple",
+                            "Acer",
+                            "HP",
+                            "Dell",
+                            "Sony",
+                            "Asus"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "f71487f9-b547-42c0-bf78-1d3b7a0829b2",
+                        "name": "Display Size",
+                        "description": "Display Size",
+                        "label": "Display Size",
+                        "values": [
+                            "12 inch",
+                            "13 inch",
+                            "14 inch",
+                            "15 inch",
+                            "16 inch",
+                            "17 inch",
+                            "19 inch",
+                            " 21 inch",
+                            "27 inch",
+                            " >27 inch"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "537683a8-1dea-4ce7-8022-78c84c7d61f1",
+                        "name": "RAM",
+                        "description": "RAM",
+                        "label": "RAM",
+                        "values": [
+                            "2 GB",
+                            "4GB",
+                            "6GB",
+                            "8GB",
+                            "12GB",
+                            "16GB",
+                            "32GB",
+                            "64GB",
+                            "128GB",
+                            "256GB"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "53223cf1-14cc-45ff-ae9b-6cd128dd8175",
+                        "name": "Graphics",
+                        "description": "Graphics",
+                        "label": "Graphics",
+                        "values": [
+                            "Inbult",
+                            "External",
+                            " Internal"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "2f730f6e-38b7-4008-9069-00a0fec1c2ee",
+                        "name": "Number of CPU Cores",
+                        "description": "Number of CPU Cores",
+                        "label": "Number of CPU Cores",
+                        "values": [
+                            "2",
+                            " 4",
+                            "6",
+                            "8",
+                            "12",
+                            "16"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "c1ca1011-9d84-4027-95d7-38b7b1c30aa4",
+                        "name": "Weight",
+                        "description": "Weight",
+                        "label": "Weight",
+                        "values": [
+                            " <1KG",
+                            "1KG-2.5KG",
+                            "2.5KG>"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "04f2a9b8-e5b3-4728-bf04-81d556a920aa",
+                        "name": "Operating System",
+                        "description": "Operating System",
+                        "label": "Operating System",
+                        "values": [
+                            "Windows",
+                            "iOS",
+                            "OSX",
+                            "Linux",
+                            "Android",
+                            "Chrome Computer Processor Type"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "9ce80910-3cb3-41bf-8a50-b2b45a1eecaa",
+                    "label": "Electronics & Appliances"
+                },
+                "synonyms": [
+                    "laptop",
+                    "microcomputer",
+                    "minicomputer",
+                    "notebook computer",
+                    "palmtop",
+                    "Device"
+                ],
+                "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1602846942929.jpg",
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Laptop_49916f5a-4764-4c62-b50b-c99d0a2f9513",
+                "url": "/category/Laptop_49916f5a-4764-4c62-b50b-c99d0a2f9513"
+            },
+            "totalOfferValuation": null,
+            "unitOfferValuation": 55000,
+            "images": [
+                {
+                    "id": "5a86b07e-1d6a-4eeb-87d8-951f5c11cd88",
+                    "name": "1614762257642.jpg",
+                    "orgName": "best-laptops-cover.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/49916f5a-4764-4c62-b50b-c99d0a2f9513/2021/3/3/1614762256411//1614762257642.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "4710da65-548c-4995-9406-627d97c99885",
+                    "name": "1614762257967.png",
+                    "orgName": "mibookpro_0.png",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/49916f5a-4764-4c62-b50b-c99d0a2f9513/2021/3/3/1614762256411//1614762257967.png",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "c690134b-d906-4d3c-9fbe-95950a17f879",
+                    "name": "1614762258256.jpg",
+                    "orgName": "vEcELHdn998wRTcCzqV5m9.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/49916f5a-4764-4c62-b50b-c99d0a2f9513/2021/3/3/1614762256411//1614762258256.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "19 Days ago",
+            "facets": [
+                {
+                    "name": "Brand",
+                    "label": "Brand",
+                    "values": [
+                        "Intel",
+                        "Dell"
+                    ]
+                },
+                {
+                    "name": "Display Size",
+                    "label": "Display Size",
+                    "values": [
+                        "15 inch"
+                    ]
+                },
+                {
+                    "name": "RAM",
+                    "label": "RAM",
+                    "values": [
+                        "16GB"
+                    ]
+                },
+                {
+                    "name": "Number of CPU Cores",
+                    "label": "Number of CPU Cores",
+                    "values": [
+                        "8"
+                    ]
+                },
+                {
+                    "name": "Weight",
+                    "label": "Weight",
+                    "values": [
+                        "1KG-2.5KG"
+                    ]
+                },
+                {
+                    "name": "Operating System",
+                    "label": "Operating System",
+                    "values": [
+                        "Windows",
+                        "Linux"
+                    ]
+                }
+            ],
+            "user": {
+                "identityId": "f4wcba0MQPUidcK6sf0FJ51015k1",
+                "name": "Biswanath",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 1,
+            "publishedDate": 1614762265551,
+            "quantity": 0.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        },
+        {
+            "offerId": "1614926576791",
+            "seOId": "demo-mobile-offer-oid-1614926576791",
+            "name": "Demo Mobile Offer",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [
+                    "string"
+                ],
+                "vertical": null,
+                "category": null,
+                "amount": 15000.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.6343016,
+                "lng": 88.40932889999999,
+                "area": "North 24 Parganas",
+                "zip": "700065",
+                "flatNo": "321",
+                "city": "South Dumdum",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Work",
+                "addressLine": "321, Dum Dum Cantonment, Subhash Nagar, Dum Dum, South Dumdum, West Bengal 700065, India"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "49916f5a-4764-4c62-b50b-c99d0a2f9513",
+                "type": "Item",
+                "label": "Laptop",
+                "description": "Laptop",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Laptop"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "49916f5a-4764-4c62-b50b-c99d0a2f9513",
+                        "label": "Laptop"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "5bcb2592-f53d-48dc-91d7-4610ce4e95b4",
+                        "name": "Brand",
+                        "description": "Brand",
+                        "label": "Brand",
+                        "values": [
+                            "Intel",
+                            "Apple",
+                            "Acer",
+                            "HP",
+                            "Dell",
+                            "Sony",
+                            "Asus"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "f71487f9-b547-42c0-bf78-1d3b7a0829b2",
+                        "name": "Display Size",
+                        "description": "Display Size",
+                        "label": "Display Size",
+                        "values": [
+                            "12 inch",
+                            "13 inch",
+                            "14 inch",
+                            "15 inch",
+                            "16 inch",
+                            "17 inch",
+                            "19 inch",
+                            " 21 inch",
+                            "27 inch",
+                            " >27 inch"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "537683a8-1dea-4ce7-8022-78c84c7d61f1",
+                        "name": "RAM",
+                        "description": "RAM",
+                        "label": "RAM",
+                        "values": [
+                            "2 GB",
+                            "4GB",
+                            "6GB",
+                            "8GB",
+                            "12GB",
+                            "16GB",
+                            "32GB",
+                            "64GB",
+                            "128GB",
+                            "256GB"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "53223cf1-14cc-45ff-ae9b-6cd128dd8175",
+                        "name": "Graphics",
+                        "description": "Graphics",
+                        "label": "Graphics",
+                        "values": [
+                            "Inbult",
+                            "External",
+                            " Internal"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "2f730f6e-38b7-4008-9069-00a0fec1c2ee",
+                        "name": "Number of CPU Cores",
+                        "description": "Number of CPU Cores",
+                        "label": "Number of CPU Cores",
+                        "values": [
+                            "2",
+                            " 4",
+                            "6",
+                            "8",
+                            "12",
+                            "16"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "c1ca1011-9d84-4027-95d7-38b7b1c30aa4",
+                        "name": "Weight",
+                        "description": "Weight",
+                        "label": "Weight",
+                        "values": [
+                            " <1KG",
+                            "1KG-2.5KG",
+                            "2.5KG>"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "04f2a9b8-e5b3-4728-bf04-81d556a920aa",
+                        "name": "Operating System",
+                        "description": "Operating System",
+                        "label": "Operating System",
+                        "values": [
+                            "Windows",
+                            "iOS",
+                            "OSX",
+                            "Linux",
+                            "Android",
+                            "Chrome Computer Processor Type"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "9ce80910-3cb3-41bf-8a50-b2b45a1eecaa",
+                    "label": "Electronics & Appliances"
+                },
+                "synonyms": [
+                    "laptop",
+                    "microcomputer",
+                    "minicomputer",
+                    "notebook computer",
+                    "palmtop",
+                    "Device"
+                ],
+                "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1602846942929.jpg",
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Laptop_49916f5a-4764-4c62-b50b-c99d0a2f9513",
+                "url": "/category/Laptop_49916f5a-4764-4c62-b50b-c99d0a2f9513"
+            },
+            "totalOfferValuation": null,
+            "unitOfferValuation": 20000,
+            "images": [
+                {
+                    "id": "c2ac87ca-f2d7-4447-a582-a0fccb23f58c",
+                    "name": "1614926576964.jpg",
+                    "orgName": "download.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/49916f5a-4764-4c62-b50b-c99d0a2f9513/2021/3/5/1614926576791//1614926576964.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "c227b8e6-19ee-441e-90a2-6383a689b0e4",
+                    "name": "1614926577271.jpg",
+                    "orgName": "images (1).jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/49916f5a-4764-4c62-b50b-c99d0a2f9513/2021/3/5/1614926576791//1614926577271.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "2c8c047a-8983-40f2-8638-9f122b5a532e",
+                    "name": "1614926577564.jpg",
+                    "orgName": "images (2).jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/49916f5a-4764-4c62-b50b-c99d0a2f9513/2021/3/5/1614926576791//1614926577564.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "980e5a33-eaf5-4fae-9de2-2e8b5dbb8f7d",
+                    "name": "1614926577889.jpg",
+                    "orgName": "images.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/49916f5a-4764-4c62-b50b-c99d0a2f9513/2021/3/5/1614926576791//1614926577889.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "17 Days ago",
+            "facets": [
+                {
+                    "name": "Brand",
+                    "label": "Brand",
+                    "values": [
+                        "Dell"
+                    ]
+                },
+                {
+                    "name": "Display Size",
+                    "label": "Display Size",
+                    "values": [
+                        "15 inch"
+                    ]
+                },
+                {
+                    "name": "RAM",
+                    "label": "RAM",
+                    "values": [
+                        "16GB"
+                    ]
+                },
+                {
+                    "name": "Graphics",
+                    "label": "Graphics",
+                    "values": [
+                        "External"
+                    ]
+                },
+                {
+                    "name": "Number of CPU Cores",
+                    "label": "Number of CPU Cores",
+                    "values": [
+                        "12"
+                    ]
+                },
+                {
+                    "name": "Operating System",
+                    "label": "Operating System",
+                    "values": [
+                        "Windows",
+                        "Linux"
+                    ]
+                }
+            ],
+            "user": {
+                "identityId": "f4wcba0MQPUidcK6sf0FJ51015k1",
+                "name": "Biswanath",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 0,
+            "publishedDate": 1614926580239,
+            "quantity": 1.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        },
+        {
+            "offerId": "1614600063031",
+            "seOId": "samsung-m30-mobile-phone-oid-1614600063031",
+            "name": "Samsung M30 Mobile Phone",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [
+                    "string"
+                ],
+                "vertical": null,
+                "category": null,
+                "amount": 20000.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.60107,
+                "lng": 88.39220879999999,
+                "area": "North 24 Parganas",
+                "zip": "700037",
+                "flatNo": "2",
+                "city": "Kolkata",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Home",
+                "addressLine": "2, Milk Colony, Belgachia, Kolkata, West Bengal 700037, India"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "e6b0e8c8-9b0b-454d-82df-71218f402a66",
+                "type": "Item",
+                "label": "Mobiles",
+                "description": "A mobile phone, cellular phone, cell phone, cellphone, handphone, or hand phone, sometimes shortened to simply mobile, cell or just phone, is a portable telephone that can make and receive calls over a radio frequency link while the user is moving within a telephone service area.",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Mobiles"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "e6b0e8c8-9b0b-454d-82df-71218f402a66",
+                        "label": "Mobiles"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "f13976b4-0593-4261-a31e-43582bf79e25",
+                        "name": "RAM",
+                        "description": "RAM",
+                        "label": "RAM",
+                        "values": [
+                            "2GB",
+                            "4GB",
+                            "6GB",
+                            "8GB",
+                            "16GB"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "6f210a9d-3d38-484c-8d89-d1147dedd686",
+                        "name": "string",
+                        "description": "string",
+                        "label": "test",
+                        "values": [
+                            "string"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "cbff5835-9642-4a2a-a677-cdb86e8dcd8f",
+                        "name": "Brands",
+                        "description": "Top Brands for Computers and Laptops",
+                        "label": "Brands",
+                        "values": [
+                            "Asus",
+                            "Lenovo",
+                            "Hp",
+                            "Dell",
+                            "Acer"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "0aef5dfc-3736-447d-83bd-6e41629cc075",
+                    "label": "Electronics"
+                },
+                "synonyms": [
+                    "Mobiles",
+                    "phone",
+                    "phones"
+                ],
+                "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1602696419970.jpeg",
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Mobiles_e6b0e8c8-9b0b-454d-82df-71218f402a66",
+                "url": "/category/Mobiles_e6b0e8c8-9b0b-454d-82df-71218f402a66"
+            },
+            "totalOfferValuation": null,
+            "unitOfferValuation": 25000,
+            "images": [
+                {
+                    "id": "8e7a5ed6-d033-44fe-a7a1-8b63d91b1d32",
+                    "name": "1614600064741.jpg",
+                    "orgName": "download.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/e6b0e8c8-9b0b-454d-82df-71218f402a66/2021/3/1/1614600063031//1614600064741.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "79473d69-6197-4fd2-8e79-5aa169a97e5e",
+                    "name": "1614600065293.jpg",
+                    "orgName": "images (1).jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/e6b0e8c8-9b0b-454d-82df-71218f402a66/2021/3/1/1614600063031//1614600065293.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "f67a2735-02ab-43e2-a169-dafaf92b9220",
+                    "name": "1614600065613.jpg",
+                    "orgName": "images (2).jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/e6b0e8c8-9b0b-454d-82df-71218f402a66/2021/3/1/1614600063031//1614600065613.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "0268d811-958b-4d17-87fc-8ed58e14b108",
+                    "name": "1614600065940.jpg",
+                    "orgName": "images.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/e6b0e8c8-9b0b-454d-82df-71218f402a66/2021/3/1/1614600063031//1614600065940.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "21 Days ago",
+            "facets": [
+                {
+                    "name": "RAM",
+                    "label": "RAM",
+                    "values": [
+                        "6GB"
+                    ]
+                }
+            ],
+            "user": {
+                "identityId": "f4wcba0MQPUidcK6sf0FJ51015k1",
+                "name": "Biswanath",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 0,
+            "publishedDate": 1614600069593,
+            "quantity": 2.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        },
+        {
+            "offerId": "1614688665848",
+            "seOId": "test-offer-laptop-oid-1614688665848",
+            "name": "Test Offer Laptop",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [
+                    "string"
+                ],
+                "vertical": null,
+                "category": null,
+                "amount": 40000.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.6343016,
+                "lng": 88.40932889999999,
+                "area": "North 24 Parganas",
+                "zip": "700065",
+                "flatNo": "321",
+                "city": "South Dumdum",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Home",
+                "addressLine": "321, Dum Dum Cantonment, Subhash Nagar, Dum Dum, South Dumdum, West Bengal 700065, India"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "49916f5a-4764-4c62-b50b-c99d0a2f9513",
+                "type": "Item",
+                "label": "Laptop",
+                "description": "Laptop",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Laptop"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "49916f5a-4764-4c62-b50b-c99d0a2f9513",
+                        "label": "Laptop"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "5bcb2592-f53d-48dc-91d7-4610ce4e95b4",
+                        "name": "Brand",
+                        "description": "Brand",
+                        "label": "Brand",
+                        "values": [
+                            "Intel",
+                            "Apple",
+                            "Acer",
+                            "HP",
+                            "Dell",
+                            "Sony",
+                            "Asus"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "f71487f9-b547-42c0-bf78-1d3b7a0829b2",
+                        "name": "Display Size",
+                        "description": "Display Size",
+                        "label": "Display Size",
+                        "values": [
+                            "12 inch",
+                            "13 inch",
+                            "14 inch",
+                            "15 inch",
+                            "16 inch",
+                            "17 inch",
+                            "19 inch",
+                            " 21 inch",
+                            "27 inch",
+                            " >27 inch"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "537683a8-1dea-4ce7-8022-78c84c7d61f1",
+                        "name": "RAM",
+                        "description": "RAM",
+                        "label": "RAM",
+                        "values": [
+                            "2 GB",
+                            "4GB",
+                            "6GB",
+                            "8GB",
+                            "12GB",
+                            "16GB",
+                            "32GB",
+                            "64GB",
+                            "128GB",
+                            "256GB"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "53223cf1-14cc-45ff-ae9b-6cd128dd8175",
+                        "name": "Graphics",
+                        "description": "Graphics",
+                        "label": "Graphics",
+                        "values": [
+                            "Inbult",
+                            "External",
+                            " Internal"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "2f730f6e-38b7-4008-9069-00a0fec1c2ee",
+                        "name": "Number of CPU Cores",
+                        "description": "Number of CPU Cores",
+                        "label": "Number of CPU Cores",
+                        "values": [
+                            "2",
+                            " 4",
+                            "6",
+                            "8",
+                            "12",
+                            "16"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "c1ca1011-9d84-4027-95d7-38b7b1c30aa4",
+                        "name": "Weight",
+                        "description": "Weight",
+                        "label": "Weight",
+                        "values": [
+                            " <1KG",
+                            "1KG-2.5KG",
+                            "2.5KG>"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "04f2a9b8-e5b3-4728-bf04-81d556a920aa",
+                        "name": "Operating System",
+                        "description": "Operating System",
+                        "label": "Operating System",
+                        "values": [
+                            "Windows",
+                            "iOS",
+                            "OSX",
+                            "Linux",
+                            "Android",
+                            "Chrome Computer Processor Type"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "9ce80910-3cb3-41bf-8a50-b2b45a1eecaa",
+                    "label": "Electronics & Appliances"
+                },
+                "synonyms": [
+                    "laptop",
+                    "microcomputer",
+                    "minicomputer",
+                    "notebook computer",
+                    "palmtop",
+                    "Device"
+                ],
+                "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1602846942929.jpg",
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Laptop_49916f5a-4764-4c62-b50b-c99d0a2f9513",
+                "url": "/category/Laptop_49916f5a-4764-4c62-b50b-c99d0a2f9513"
+            },
+            "totalOfferValuation": null,
+            "unitOfferValuation": 45000,
+            "images": [
+                {
+                    "id": "90509f62-16c2-4915-909b-de5da7dad887",
+                    "name": "1614688666064.jpg",
+                    "orgName": "best-laptops-cover.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/49916f5a-4764-4c62-b50b-c99d0a2f9513/2021/3/2/1614688665848//1614688666064.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "4f80fa9a-a3b4-4f5a-b3c1-a333646d6db4",
+                    "name": "1614688666416.png",
+                    "orgName": "mibookpro_0.png",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/49916f5a-4764-4c62-b50b-c99d0a2f9513/2021/3/2/1614688665848//1614688666416.png",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "f04f02ff-efea-47bd-8382-b445870332db",
+                    "name": "1614688666705.jpg",
+                    "orgName": "vEcELHdn998wRTcCzqV5m9.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/49916f5a-4764-4c62-b50b-c99d0a2f9513/2021/3/2/1614688665848//1614688666705.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "20 Days ago",
+            "facets": [
+                {
+                    "name": "Brand",
+                    "label": "Brand",
+                    "values": [
+                        "Intel",
+                        "Dell"
+                    ]
+                },
+                {
+                    "name": "Display Size",
+                    "label": "Display Size",
+                    "values": [
+                        "15 inch"
+                    ]
+                },
+                {
+                    "name": "RAM",
+                    "label": "RAM",
+                    "values": [
+                        "16GB"
+                    ]
+                },
+                {
+                    "name": "Graphics",
+                    "label": "Graphics",
+                    "values": [
+                        "Inbult"
+                    ]
+                },
+                {
+                    "name": "Number of CPU Cores",
+                    "label": "Number of CPU Cores",
+                    "values": [
+                        "12"
+                    ]
+                },
+                {
+                    "name": "Weight",
+                    "label": "Weight",
+                    "values": [
+                        "1KG-2.5KG"
+                    ]
+                },
+                {
+                    "name": "Operating System",
+                    "label": "Operating System",
+                    "values": [
+                        "Windows",
+                        "Linux"
+                    ]
+                }
+            ],
+            "user": {
+                "identityId": "f4wcba0MQPUidcK6sf0FJ51015k1",
+                "name": "Biswanath",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 1,
+            "publishedDate": 1614688669635,
+            "quantity": 0.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        },
+        {
+            "offerId": "1614927011456",
+            "seOId": "demo-offer-mobile-5-oid-1614927011456",
+            "name": "Demo Offer Mobile 5",
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [
+                    "string"
+                ],
+                "vertical": null,
+                "category": null,
+                "amount": 20000.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.4532849,
+                "lng": 88.2828629,
+                "area": "South 24 Parganas",
+                "zip": "700063",
+                "flatNo": "NA",
+                "city": "Kolkata",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "My House",
+                "addressLine": "151,Kalagachia,Sankharipota road,Hanspuku, Kalagachia Main Rd, Dari Bagpota, Bagpota, Kolkata, West Bengal 700063, India"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "49916f5a-4764-4c62-b50b-c99d0a2f9513",
+                "type": "Item",
+                "label": "Laptop",
+                "description": "Laptop",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Laptop"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "49916f5a-4764-4c62-b50b-c99d0a2f9513",
+                        "label": "Laptop"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "5bcb2592-f53d-48dc-91d7-4610ce4e95b4",
+                        "name": "Brand",
+                        "description": "Brand",
+                        "label": "Brand",
+                        "values": [
+                            "Intel",
+                            "Apple",
+                            "Acer",
+                            "HP",
+                            "Dell",
+                            "Sony",
+                            "Asus"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "f71487f9-b547-42c0-bf78-1d3b7a0829b2",
+                        "name": "Display Size",
+                        "description": "Display Size",
+                        "label": "Display Size",
+                        "values": [
+                            "12 inch",
+                            "13 inch",
+                            "14 inch",
+                            "15 inch",
+                            "16 inch",
+                            "17 inch",
+                            "19 inch",
+                            " 21 inch",
+                            "27 inch",
+                            " >27 inch"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "537683a8-1dea-4ce7-8022-78c84c7d61f1",
+                        "name": "RAM",
+                        "description": "RAM",
+                        "label": "RAM",
+                        "values": [
+                            "2 GB",
+                            "4GB",
+                            "6GB",
+                            "8GB",
+                            "12GB",
+                            "16GB",
+                            "32GB",
+                            "64GB",
+                            "128GB",
+                            "256GB"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "53223cf1-14cc-45ff-ae9b-6cd128dd8175",
+                        "name": "Graphics",
+                        "description": "Graphics",
+                        "label": "Graphics",
+                        "values": [
+                            "Inbult",
+                            "External",
+                            " Internal"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "2f730f6e-38b7-4008-9069-00a0fec1c2ee",
+                        "name": "Number of CPU Cores",
+                        "description": "Number of CPU Cores",
+                        "label": "Number of CPU Cores",
+                        "values": [
+                            "2",
+                            " 4",
+                            "6",
+                            "8",
+                            "12",
+                            "16"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "c1ca1011-9d84-4027-95d7-38b7b1c30aa4",
+                        "name": "Weight",
+                        "description": "Weight",
+                        "label": "Weight",
+                        "values": [
+                            " <1KG",
+                            "1KG-2.5KG",
+                            "2.5KG>"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "04f2a9b8-e5b3-4728-bf04-81d556a920aa",
+                        "name": "Operating System",
+                        "description": "Operating System",
+                        "label": "Operating System",
+                        "values": [
+                            "Windows",
+                            "iOS",
+                            "OSX",
+                            "Linux",
+                            "Android",
+                            "Chrome Computer Processor Type"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "9ce80910-3cb3-41bf-8a50-b2b45a1eecaa",
+                    "label": "Electronics & Appliances"
+                },
+                "synonyms": [
+                    "laptop",
+                    "microcomputer",
+                    "minicomputer",
+                    "notebook computer",
+                    "palmtop",
+                    "Device"
+                ],
+                "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1602846942929.jpg",
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Laptop_49916f5a-4764-4c62-b50b-c99d0a2f9513",
+                "url": "/category/Laptop_49916f5a-4764-4c62-b50b-c99d0a2f9513"
+            },
+            "totalOfferValuation": null,
+            "unitOfferValuation": 22000,
+            "images": [
+                {
+                    "id": "f739aa23-563d-48fb-8791-afd2b75f1a4c",
+                    "name": "1614927011610.jpg",
+                    "orgName": "download.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/49916f5a-4764-4c62-b50b-c99d0a2f9513/2021/3/5/1614927011456//1614927011610.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "42525b31-da7e-4c3f-b8ed-78800980b252",
+                    "name": "1614927011907.jpg",
+                    "orgName": "images (1).jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/49916f5a-4764-4c62-b50b-c99d0a2f9513/2021/3/5/1614927011456//1614927011907.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "fed8e163-21f6-4296-bd96-f8f71980435c",
+                    "name": "1614927012248.jpg",
+                    "orgName": "images (2).jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/49916f5a-4764-4c62-b50b-c99d0a2f9513/2021/3/5/1614927011456//1614927012248.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "71948c59-f003-454f-a69b-bba09d8ffd04",
+                    "name": "1614927012597.jpg",
+                    "orgName": "images.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/49916f5a-4764-4c62-b50b-c99d0a2f9513/2021/3/5/1614927011456//1614927012597.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "17 Days ago",
+            "facets": [
+                {
+                    "name": "Brand",
+                    "label": "Brand",
+                    "values": [
+                        "Dell"
+                    ]
+                },
+                {
+                    "name": "Display Size",
+                    "label": "Display Size",
+                    "values": [
+                        "15 inch"
+                    ]
+                },
+                {
+                    "name": "RAM",
+                    "label": "RAM",
+                    "values": [
+                        "16GB"
+                    ]
+                },
+                {
+                    "name": "Number of CPU Cores",
+                    "label": "Number of CPU Cores",
+                    "values": [
+                        "8"
+                    ]
+                },
+                {
+                    "name": "Weight",
+                    "label": "Weight",
+                    "values": [
+                        "1KG-2.5KG"
+                    ]
+                },
+                {
+                    "name": "Operating System",
+                    "label": "Operating System",
+                    "values": [
+                        "Windows",
+                        "Linux"
+                    ]
+                }
+            ],
+            "user": {
+                "identityId": "f4wcba0MQPUidcK6sf0FJ51015k1",
+                "name": "Biswanath",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 0,
+            "publishedDate": 1614927014810,
+            "quantity": 1.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        }
+    ]
+}

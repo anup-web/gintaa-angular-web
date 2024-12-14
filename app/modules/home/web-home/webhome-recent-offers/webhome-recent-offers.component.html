@@ -1,0 +1,53 @@
+<div class="gt-float-100 recent-offer-wrapper pb-4 pt-4" *ngIf="(totalOffersLength$ | async) as recentOfferLength">
+    <div class="container">
+      <div class="gt-float-100">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="gt-float-100 gt-center-between item-offer">
+              <div class="gt-float-left gt-vcenter item-offer-primary">
+                <h2 class="gt-fs-18 gt-black dcolor-secondary">Recent listings</h2>
+              </div>
+              <div class="gt-float-right item-offer-secondary" *ngIf="recentOfferLength > 6">
+                <button type="button" (click)="showAll();" class="gt-btn-primary gt-center gt-wh-btn dark-shadow bg-change-secondary"> view all
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="gt-float-100 gt-mt-20 recentoffer-slide">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="gt-float-100 recento-slider">
+              <div class="carousel-pnext pre_next gt-vcenter auctions-prenext" *ngIf="recentOfferLength > defaultProductsLength">
+                <a *ngIf="isShowPrev" class="arrow_left" (click)="owlCar.prev()">
+                  <span class="material-icons gt-center dark-shadow-import bg-change-secondary-import">keyboard_arrow_left</span>
+                </a>
+                <a *ngIf="isShowNext" class="arrow_right" (click)="owlCar.next();">
+                  <span class="material-icons gt-center dark-shadow-import bg-change-secondary-import">keyboard_arrow_right</span>
+                </a>
+              </div>
+              <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event, recentOfferLength)" #owlCar>
+                <ng-container *ngFor="let products of allRecentOffers$ | async; index as i">
+                  <ng-template carouselSlide>
+                    <app-offer-card-default
+                      [offer]="products"
+                      from="recentOffer"
+                      [showOfferStat]="false">
+                    </app-offer-card-default>
+                  </ng-template>
+                </ng-container>
+
+                <!-- <ng-template carouselSlide *ngFor="let item of staticBanners;">
+                  <a href="javascript:;" >
+                    <img (click)="redirectToQueryUrl(item)" src="{{item.image}}" class="last-view-image" alt="image">
+                  </a>
+                </ng-template> -->
+
+              </owl-carousel-o>  
+            </div>  
+          </div>  
+        </div>  
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,27 @@
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-top: 12px;
+}
+
+mat-form-field {
+  margin-right: 12px;
+}
+
+.gt-btn-primary:disabled {
+  cursor: not-allowed;
+  // background-color: #acda77;
+  // border-color: #acda77;
+  background-color: #8bc63e;
+  border: 1px solid #8bc63e;
+  opacity: 0.5;
+  transition: all 0.2s ease-in-out 0s;
+}

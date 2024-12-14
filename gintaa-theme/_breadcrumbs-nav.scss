@@ -1,0 +1,38 @@
+
+ul.bredcum-nav{
+    float: $gt-float-left;
+}
+
+ul.bredcum-nav li{
+    float: $gt-float-left;
+    display: $gt-display-flex;
+    align-items: $gt-align-items-center;
+}
+ul.bredcum-nav li span{
+    font-size: $gt-fs-20;    
+}
+ul.bredcum-nav li .brelink .link-rh, ul.bredcum-nav li .brelink .no-link, ul.bredcum-nav li .brelink .link-ph{
+    float: $gt-float-left;
+    text-decoration: $gt-text-decoration-none;   
+    font-family: $gt-font-poppins;
+    font-style: $gt-text-normal;
+    font-weight: $gt-text-regular;
+    font-size: $gt-fs-12;
+    color: $gt-lightgrayish;
+    line-height: $gt-line-height-28;
+}
+
+.breadcrumb-active{
+    float: $gt-float-left;
+    text-decoration: $gt-text-decoration-none;    
+    font-family: $gt-font-poppins;
+    font-style: $gt-text-normal;
+    font-weight: $gt-text-regular;
+    font-size: $gt-fs-12;
+    color: $gt-sky;
+    line-height: $gt-line-height-28;
+}
+
+ul.bredcum-nav li:last-child .no-link{
+   color: $gt-sky;
+}    

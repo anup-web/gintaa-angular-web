@@ -1,0 +1,378 @@
+
+
+textarea {
+    resize: none;
+}
+
+input[type="password"] {
+    letter-spacing: 0.3em;
+}
+
+.primary-label {
+    color: #0c2239;
+    font-size: $gt-fs-16;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 0.3125em;
+    top: 0.625em;
+    -webkit-transition: 300ms ease all;
+    transition: 300ms ease all;
+    font-family: $gt-font-poppins;
+}
+
+.primary-bar {
+    position: relative;
+    display: block;
+    width: 100%;
+
+    &:before {
+        content: '';
+        height: 0.125em;
+        width: 0em;
+        bottom: 0em;
+        position: absolute;
+        background: #51c878;
+        -webkit-transition: 300ms ease all;
+        transition: 300ms ease all;
+        left: 0%;
+    }
+}
+
+.primary-input {
+    width: 100%;
+}
+
+input {
+    &:focus {
+        &::-webkit-input-placeholder {
+            color: transparent;
+        }
+
+        &:-moz-placeholder {
+            color: transparent;
+        }
+
+        &::-moz-placeholder {
+            color: transparent;
+        }
+
+        &:-ms-input-placeholder {
+            color: transparent;
+        }
+    }
+
+    &::-webkit-input-placeholder {
+        color: #adadad;
+    }
+
+    &:-moz-placeholder {
+        color: #adadad;
+    }
+
+    &::-moz-placeholder {
+        color: #adadad;
+    }
+
+    &:-ms-input-placeholder {
+        color: #adadad;
+    }
+}
+
+.secondary_group {
+    margin-bottom: 14px;
+}
+
+.secondary-wrap {
+    width: 100%;
+    position: relative;
+    border-bottom: 0.0625em solid #c2c2c2;
+}
+
+.secondary-label {
+    color: $gt-sky;
+    font-weight: normal;
+    font-size: $gt-fs-15;
+    font-family: $gt-font-poppins;
+    display: inline-block;
+    margin-bottom: 4px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.validate-input {
+    position: relative;
+}
+
+input.secondary-input {
+    height: 30px;   
+}
+
+.label-space {
+    margin-bottom: 10px;
+}
+
+.secondary-input {
+    display: block;
+    width: 100%;
+    background: transparent;
+    font-size: $gt-fs-15;
+    font-weight: normal;
+    color: $gt-lightblack;
+    font-family: $gt-font-poppins;
+
+    &:focus {
+        + {
+            .secondary-focus {
+                &::before {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.secondary-focus {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: auto;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: -0.125em;
+        left: 0;
+        width: 0;
+        height: 0.125em;
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        transition: all 0.4s;
+        background: #7f7f7f;
+    }
+}
+
+.has-val.secondary-input {
+    + {
+        .secondary-focus {
+            &::before {
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+
+
+.currency-group {    
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+}
+
+.currency-sr-only {
+    color: #4B6E82;
+    font-weight: 400;
+    font-size: $gt-fs-15;
+    font-family: $gt-font-poppins;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+
+.currency-input-group {
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    width: 100%;
+    border: 1px solid #D2D2D2;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background-color: white;
+}
+
+.currency-input-group-prepend {
+    margin-right: -1px;
+    display: flex;
+}
+.currency-input-group-append {
+    margin-left: -1px;
+    display: flex;
+}
+.currency-input-group-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: $gt-fs-16;
+    font-weight: 400;
+    line-height: 24px;
+    color: #495057;
+    text-align: center;
+    white-space: nowrap;    
+}
+
+.currency-input-group>.currency-form-control {
+    position: relative;
+    -webkit-box-flex: 1;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+}
+
+.currency-form-control {
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    font-size: $gt-fs-16;
+    line-height: 24px;   
+    color: #000000;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    font-family: $gt-font-poppins;
+}
+
+.visib-cursor span{ cursor: pointer;}
+
+
+// normal input
+
+ .gt-form-label {
+    margin-bottom: 4px;
+    display: inline-block;
+    width: 100%;
+    font-family: $gt-font-poppins;
+}
+
+.gt-form-control {
+    display: block;
+    width: 100%;
+    padding: 6px 12px;
+    font-size: $gt-fs-14;
+    font-weight: 400;
+    line-height: 24px;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    font-family: $gt-font-poppins;
+}
+
+
+.gt-form-select {
+    display: block;
+    width: 100%;
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-size: $gt-fs-16;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;    
+    background-color: #fff;
+    background-image: url(/assets/images/select-drop-icon.svg);
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 13px 14px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: $gt-font-poppins;
+}
+
+.gt-secodary-select {
+    display: block;
+    width: 100%;
+    padding: .375rem 1.75rem .375rem .75rem;
+    font-size: $gt-fs-16;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;    
+    background-color: #fff;
+    background-image: url(/assets/images/select-secon-icon.svg);
+    background-repeat: no-repeat;
+    background-position: right .75rem center;
+    background-size: 13px 14px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-family: $gt-font-poppins;
+}
+
+
+ ::-webkit-input-placeholder {  color:$gt-lightgrayish; }      
+ :-ms-input-placeholder {  color:$gt-lightgrayish; }
+ ::-ms-input-placeholder {  color:$gt-lightgrayish; }
+ :-moz-placeholder {  color:$gt-lightgrayish;} 
+ ::-moz-placeholder {  color:$gt-lightgrayish; }  
+ :placeholder-shown {  color:$gt-lightgrayish; }
+ ::placeholder {  color:$gt-lightgrayish; }
+
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active,
+input:-webkit-autofill:focus {
+	box-shadow: 0 0 0 50px white inset;
+	-webkit-box-shadow: 0 0 0 50px white inset;
+	-webkit-text-fill-color: $gt-lightgrayish;
+}
+
+
+.gt-input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+}
+
+.gt-input-group > .secondaryfm-control {
+    position: relative;
+    flex: 1 1 auto;
+    width: 1%;
+    margin-bottom: 0;
+}
+
+.secondaryfm-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: $gt-fs-16;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.gt-input-group > .secondaryfm-control:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+

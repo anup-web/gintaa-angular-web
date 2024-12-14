@@ -1,0 +1,277 @@
+// .search_box{    
+//     width: 320px;    
+//     display: inline-flex;
+//     margin-left: 100px;  
+//   }
+  
+//   .search-full-width {
+//     width: 100%;
+//   }
+  
+//   .search-btn{
+//     background: transparent;
+//   }
+  
+//   .search-btn:hover{
+//       cursor: pointer;
+//   }
+  
+//   .search-form .ng-autocomplete .autocomplete-container .input-container input {
+//     &:focus {
+//       &::-webkit-input-placeholder {
+//         color: transparent!important;
+//       }
+//       &:-moz-placeholder {
+//         color: transparent!important;
+//       }
+//       &::-moz-placeholder {
+//         color: transparent!important;
+//       }
+//       &:-ms-input-placeholder {
+//         color: transparent!important;
+//       }
+//     }
+//     &::-webkit-input-placeholder {
+//       color: #cecece!important;
+//     }
+//     &:-moz-placeholder {
+//       color: #cecece!important;
+//     }
+//     &::-moz-placeholder {
+//       color: #cecece!important;
+//     }
+//     &:-ms-input-placeholder {
+//       color: #cecece!important;
+//     }
+//   }
+  
+//   .search-form .ng-autocomplete {
+//     width:100%;
+//     max-width: 600px;
+//     display: table;
+//     margin: 0 auto;
+//     background: white;
+//   }
+  
+//   :host ::ng-deep .autocomplete-container .suggestions-container {
+//     z-index: 1;  
+//     &::placeholder {
+//       color: #cecece;
+//     }
+//   }
+  
+//   :host ::ng-deep .autocomplete-container .input-container div.x{
+//     display: none;
+//   }
+    
+//   ::ng-deep .mat-autocomplete-panel .mat-option.mat-selected:not(.mat-active):not(:hover) {
+//     background: transparent;
+//   }
+  
+//   ::ng-deep .mat-autocomplete-panel {
+//     background: #fff;
+//     max-height: 500px !important;
+//     margin-top: 30px;
+//   }
+  
+//   ::ng-deep .mat-option {
+//     color: #000;
+//   }
+  
+//   .search-form .btn-search-icon:disabled {
+//     opacity: 0.5;
+//   }
+  
+//   .custom-srarch-img{
+//     border-radius: 7px !important;
+//     -webkit-border-radius: 7px !important;
+//     -moz-border-radius: 7px !important;
+//     object-fit: cover;
+//     position: relative;
+//     width: 100%;
+//     height: 100%;
+//   }
+  
+//   .custom-result{
+//     float: left;
+//       width: 100%;
+//       display: inline-flex;
+//       margin-bottom: 10px;
+//   }
+  
+//   .search-group-result{
+//       float: left;
+//       // width: 100%;
+//       line-height: 20px;
+      
+//   }
+  
+//   .search-group-result .search-pro-name{
+//       float: left;
+//       width: 100%;
+//       font-weight: normal;
+//       font-family: "Montserrat", sans-serif;
+//       font-size: 14px;
+//       color: #000000;
+//       font-family: "Open Sans", sans-serif;
+//       text-transform: lowercase;
+//   }
+  
+//   .search-group-result .search-pro-des{
+//     float: left;
+//     width: 100%;
+//     color: #7a7a7a;
+//     font-weight: normal;
+//     font-size: 12px;
+//     font-family: "Open Sans", sans-serif;
+//     text-transform: lowercase;
+//   }
+  
+//   .search-input-focus{
+//     background-color: #ffffff;  
+//     border-radius: 7px 7px 0px 0px;
+//     -webkit-border-radius: 7px 7px 0px 0px;
+//     -moz-border-radius: 7px 7px 0px 0px;
+//     box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12); 
+//     -webkit-box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+//     -moz-box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);  
+//   }
+  
+  
+//   .search-input-focus .btn-search-icon {  
+//     right: 20px;
+//   }
+  
+//   .search-title {
+//     font-size: 12px;
+//     font-family: "Open Sans", sans-serif;
+//     font-weight: normal;
+//     color: #000000;
+//     float: left;
+//     width: 100%;
+//     display: flex;
+//     background-color: #f8fdf2;
+//     padding: 10px;
+//     margin-bottom: 10px;
+//   }
+  
+//   .suggest-part{
+//     float: left;
+//     width: 100%;
+//   }
+  
+//   .suggest-part .search-res{
+//     float: left;
+//     width: 100%;
+    
+//   }
+  
+//   .suggest-part .search-res .custom-icon{
+//     float: left;
+//     width: 11%;
+//     font-size: 18px;
+//     color: #707b84;
+//     line-height: 40px;
+//     padding-left: 10px;
+//   }
+  
+//   .suggest-secondary-part .title-suggest{
+//     float: left;
+//     color: #000000;
+//     font-size: 14px;
+//     font-weight: normal;
+//     font-family: "Open Sans", sans-serif;
+//     text-transform: lowercase;
+//   }
+  
+//   .suggest-secondary-part{
+//     float: left;
+//     width: 89%;
+//     border-bottom: 1px solid #e3e3e3;
+//     padding: 10px 0px;
+//   }
+//   .suggest-secondary-part .suggest-west{
+//     float: right;
+//     padding-right: 10px;
+//   }
+  
+//   .suggest-secondary-part .suggest-west span{
+//       font-size: 18px;
+//       color: #c7c7c7;
+//   }
+  
+  
+  
+//   .history-sub{
+//     float: left;
+//     width: 100%;
+//   }
+  
+//   .history-sub .history-icon{
+//       float: left;
+//       width: 11%;
+//       font-size: 18px;
+//       color: #707b84;
+//       line-height: 40px;
+//       padding-left: 10px;
+//   }
+  
+//   .history-secondary-group .history-text{
+//       float: left;
+//       color: #000000;
+//       font-size: 14px;
+//       font-weight: normal;
+//       font-family: "Open Sans", sans-serif;
+//       text-transform: lowercase;
+//       overflow: hidden;
+//       white-space: nowrap;
+//       text-overflow: ellipsis;
+//       max-width: 325px;
+//   }
+//   .history-secondary-group .history-text::first-letter, .suggest-secondary-part .title-suggest::first-letter, 
+//   .search-group-result .search-pro-name::first-letter, .search-group-result .search-pro-des::first-letter{
+//     text-transform: capitalize;
+//   }
+  
+//   .history-secondary-group{
+//     float: left;
+//     width: 89%;
+//     border-bottom: 1px solid #e3e3e3;
+//     padding: 10px 0px;
+//   }
+  
+//   .history-secondary-group .history-west{
+//     float: right;
+//     padding-right: 10px;
+//   }
+  
+//   .history-secondary-group .history-west span{
+//       font-size: 18px;
+//       color: #c7c7c7;
+//   }
+  
+//   .search-img{
+//       float: left;
+//       width: 40px;
+//       height: 40px;
+//       margin-right: 10px;
+//   }
+  
+//   .search-result-secondary{
+//     float: left;
+//     border-bottom: 1px solid #e3e3e3;
+//     width: 89%;
+//     padding-bottom: 5px;
+//     margin-bottom: 5px;
+//   }
+  
+//   .search-result-secondary .sugg-west{
+//     float: right;
+//     padding-right: 10px;
+//     line-height: 40px;
+//   }
+  
+//   .search-result-secondary .sugg-west span{
+//       font-size: 18px;
+//       color: #c7c7c7;
+//   }

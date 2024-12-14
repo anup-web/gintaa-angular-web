@@ -1,0 +1,1714 @@
+<app-loading-spinner *ngIf="pageLoading" loaderType="drops-fading" fullPage="false" loader="true" addBackDrop="true"
+  backDropColor="#000000" loadingMessage="Updating your offer! Please wait...">
+</app-loading-spinner>
+<div class="details-all-offers" *ngIf="selectedOfferDetail">
+  <div class="container">
+    <div class="gt-float-100">
+      <!-- bread-crumbs part start -->
+      <app-bread-crumb *ngIf="breadcrumb.length" [breadcrumbs]="breadcrumb"
+        (onClickBreadCrumb)="onClickBreadCrumb($event)">
+      </app-bread-crumb>
+      <!-- bread-crumbs part end -->
+    </div>
+    <div class="gt-float-100" *ngIf="isNewOffer || isReviewOffer">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-border-radius-8 offer-success">
+            <div class="gt-float-100 gt-vcenter">
+              <div class="gt-vcenter">
+                <img src="assets/images/create-offer/help-os.svg" alt="images" width="32" height="32"
+                  class="excelle-icon" />
+              </div>
+              <div class="gt-ml-10 del-text">
+                <h2 class="gt-fs-16 gt-width-100 gt-lightblack dcolor-primary">
+                  You offer is under review.
+                </h2>
+                <h3 class="
+                    gt-fs-16 gt-mt-5 gt-width-100 gt-lightblack
+                    dcolor-primary
+                  ">
+                  Usually review takes 10-30 mins
+                </h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gt-float-100 gt-mt-20">
+      <div class="row">
+        <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-width-100 slider-heiyu">
+            <app-media-swiper [medias]="medias" [quantity]="quantity"></app-media-swiper>
+          </div>
+        </div>
+        <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12 detail">
+          <div class="gt-float-100 gt-display-flex offer-details-wcol">
+            <div class="gt-float-100 offerd-left">
+              <div class="gt-float-100">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-pb-12 offer-bbttom offer-title">
+                      <h3 class="
+                          gt-fs-20 gt-black-70 gt-text-medium
+                          hyoffer-name
+                          dcolor-primary
+                        ">
+                        {{ selectedOfferDetail?.name }}
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="gt-float-100 gt-pb-12 gt-mt-10 offer-bbttom">
+                <div class="gt-float-100 gt-mb-20" *ngIf="!isOfferOwner">
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                      <div class="gt-vcenter gt-float-100">
+                        <div class="view-offers">
+                          <h1 class="gt-fs-14 gt-vcenter gt-black-60">
+                            <span class="gt-mr-5">{{
+                              currentOfferActivityCounts?.viewCount
+                              }}</span>
+                            Views
+                          </h1>
+                        </div>
+                        <div class="v-lineh"></div>
+                        <div class="view-loffers">
+                          <h1 class="gt-fs-14 gt-vcenter gt-black-60">
+                            <span class="gt-mr-5">{{
+                              currentOfferActivityCounts?.favouriteCount
+                              }}</span>
+                            Like{{
+                            currentOfferActivityCounts?.favouriteCount
+                            | multiItemItems
+                            }}
+                          </h1>
+                        </div>
+                        <div class="v-lineh"></div>
+                        <!-- *ngIf="!selectedOfferDetail.auctioned" -->
+                        <div class="gt-vcenter offer-time">
+                          <h3 class="
+                              gt-fs-14 gt-font-poppins gt-black-60
+                              dcolor-primary
+                            ">
+                            Posted on
+                            <span>{{
+                              selectedOfferDetail.publishedDate | date: "medium"
+                              }}</span>
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="gt-float-100 gt-mb-20" *ngIf="isOfferOwner">
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                      <div class="gt-vcenter gt-float-100">
+                        <!-- <div class="v-lineh"></div> -->
+                        <!-- *ngIf="!selectedOfferDetail.auctioned" -->
+                        <div class="gt-vcenter offer-time">
+                          <h3 class="
+                              gt-fs-14 gt-font-poppins gt-black-60
+                              dcolor-primary
+                            ">
+                            Posted on
+                            <span>{{
+                              selectedOfferDetail.publishedDate | date: "medium"
+                              }}</span>
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="gt-float-100 gt-mb-20" *ngIf="isOfferOwner">
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="gt-float-100 offer-title">
+                        <div class="offer-all-counts offer-all-counts-no-cursor">
+                          <div class="fav-btn-counts gthy-ewq">
+                            <h1 class="gt-fs-14 gt-vcenter gt-black-60" title="Views">
+                              <span class="img_view">
+                                <img src="assets/images/view-icon.svg" class="offer-hand" width="24" alt="view" />
+                              </span>
+                              <span class="count-nums dcolor-primary-import">{{
+                                currentOfferActivityCounts?.viewCount
+                                }}</span>
+                            </h1>
+                          </div>
+
+                          <div class="fav-btn-counts vdew-rd" title="Favourites">
+                            <div class="gt-vcenter gtrd-rp">
+                              <span class="material-icons fav-borders">{{
+                                selectedOfferDetail.favourite
+                                ? "favorite"
+                                : "favorite_border"
+                                }}</span>
+                              <span class="count-nums hyp-nm dcolor-primary-import">{{ currentOfferFavouriteCount
+                                }}</span>
+                            </div>
+                          </div>
+
+                          <div class="fav-btn-counts gbhv-dnm" title="Question & answers">
+                            <div class="gt-vcenter gtrd-rp">
+                              <span class="material-icons-outlined chat-bubbs">chat_bubble_outline</span>
+                              <span class="count-nums hyr-ep dcolor-primary-import">{{
+                                currentOfferActivityCounts?.commentCount
+                                }}</span>
+                            </div>
+                          </div>
+
+                          <div class="fav-btn-counts vdws-fr" title="Offer">
+                            <div class="gt-vcenter gtrd-rp">
+                              <img src="assets/images/create-offer/offer-icon-handshake.svg" class="offer-hand"
+                                width="20" alt="Offer" />
+                              <span class="count-nums grd-rw dcolor-primary-import">{{
+                                currentOfferActivityCounts?.dealCount
+                                }}</span>
+                            </div>
+                          </div>
+
+                          <div class="fav-btn-counts mku-ws" *ngIf="selectedOfferDetail.auctioned">
+                            <div class="gt-vcenter gtrd-rp">
+                              <img src="assets/images/create-offer/bid-od.svg" class="offer-hand" width="20" height="18"
+                                alt="image" />
+                              <span class="count-nums dfe-yt">{{
+                                bids ? bids.length : 0
+                                }}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- <div class="gt-float-100 gt-mb-20" *ngIf="isOfferOwner">
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="offer-title">
+                        <div class="offer-all-counts">
+
+                          <div class="view-offers">
+                            <h1 class="gt-fs-14 gt-vcenter gt-black-60"><span class="gt-mr-5">{{currentOfferActivityCounts?.viewCount}}</span> Views</h1>
+                          </div>
+                          <div class="v-lineh"></div>
+                          <div class="fav-btn-counts">
+                            <span class="material-icons fav-borders">{{
+                              selectedOfferDetail.favourite
+                              ? "favorite"
+                              : "favorite_border"
+                              }}</span>
+                            <span class="count-nums dcolor-primary-import">{{currentOfferActivityCounts?.favouriteCount}}</span>
+                          </div>
+                          <div class="fav-btn-counts">
+                            <span class="material-icons-outlined chat-bubbs">chat_bubble_outline</span>
+                            <span class="count-nums dcolor-primary-import">{{ currentOfferActivityCounts?.commentCount }}</span>
+                          </div>
+                          <div class="fav-btn-counts">
+                            <img src="assets/images/create-offer/offer-hand.svg" class="offer-hand" width="18" height="16"
+                              alt="image" />
+                            <span class="count-nums dcolor-primary-import">{{ currentOfferActivityCounts?.dealCount }}</span>
+                          </div>
+                          <div class="fav-btn-counts" *ngIf="selectedOfferDetail.auctioned">
+                            <img src="assets/images/create-offer/bid-od.svg" class="offer-hand" width="20" height="18"
+                              alt="image" />
+                            <span class="count-nums">{{ bids ? bids.length : 0 }}</span>
+                          </div>
+                          <div class="v-lineh"></div>
+                          <div class="gt-vcenter offer-time">
+                            <h3 class="gt-fs-14 gt-font-poppins gt-black-60 dcolor-primary">
+                              Posted on
+                              <span>{{ selectedOfferDetail?.publishedDate | date: "medium" }}</span>
+                            </h3>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+
+                <div class="gt-float-100 excellent-section" *ngIf="selectedOfferDetail.itemCondition">
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                      <div class="gt-float-100 left-excell">
+                        <div class="gt-mr-30 gt-float-left gt-mb-20 excellent-left">
+                          <div class="gt-vcenter">
+                            <h2 class="gt-fs-14 gt-black-80 gt-mr-8">
+                              Condition :
+                            </h2>
+                            <h1 class="gt-fs-14 gt-lightgrayish">
+                              {{ selectedOfferDetail?.itemCondition }}
+                            </h1>
+                          </div>
+                        </div>
+
+                        <div class="gt-mr-30 gt-float-left gt-mb-20" *ngIf="!isService">
+                          <div class="gt-vcenter offer-locs">
+                            <!-- <h4 class="gt-fs-14 gt-danger" *ngIf="!selectedOfferDetail.quantity">Sold Out</h4> -->
+
+                            <h2 class="gt-fs-14 gt-black-80 dcolor-primary" *ngIf="selectedOfferDetail.quantity">
+                              Quantity :
+                              <span class="gt-lightgrayish">{{
+                                selectedOfferDetail.quantity | formatPrice
+                                }}
+                                {{ selectedOfferDetail.unit
+                                }}<span *ngIf="selectedOfferDetail.quantity > 1">s</span>
+                              </span>
+                            </h2>
+                          </div>
+
+                          <!-- Moq Listing -->
+                        </div>
+                        <div class="gt-float-left gt-mb-20">
+                          <div class="gt-vcenter offer-locs hyu-pl">
+                            <span class="icon-popular-loc gt-fs-17"></span>
+                            <h2 class="
+                                gt-fs-14 gt-ml-8 gt-font-poppins gt-black-80
+                                dcolor-primary
+                              ">
+                              {{ selectedOfferDetail | offerLocation }}
+                            </h2>
+                          </div>
+                        </div>
+
+                        
+                        <div
+                        class="gt-mr-30 gt-float-left gt-mb-20"
+                        *ngIf="selectedOfferDetail.quantity && selectedOfferDetail?.moq "
+                      >
+
+                        <div class="gt-vcenter offer-locs">
+                          <h2
+                            class="gt-fs-14 gt-black-80 dcolor-primary"
+                            *ngIf="selectedOfferDetail.quantity && selectedOfferDetail?.moq "
+                          >
+                            Minimum Order Qty :
+                            <span class="gt-lightgrayish"
+                              >{{
+                                selectedOfferDetail.moq 
+                              }}      
+                            </span>
+
+                            {{ selectedOfferDetail.unit
+                            }}<span *ngIf="selectedOfferDetail.quantity > 1"
+                              >s</span
+                            >
+
+                            <!-- <span class="gt-lightgrayish"
+                            >Pc<span *ngIf="selectedOfferDetail.moq > 1"
+                              >s</span
+                            >
+                          </span> -->
+                          </h2>
+                        </div>
+                        </div>
+
+                        <!-- <div class="gt-mr-30 gt-float-left gt-mb-20" *ngIf="!isService">
+                          <div class="gt-vcenter offer-locs" >
+                            <h2 class="gt-fs-14 gt-black-80 dcolor-primary">
+                              <span class="gt-lightgrayish">{{ selectedOfferDetail?.publishedDate | date: "medium" }}
+                              </span>
+                            </h2>
+                          </div>
+                          </div> -->
+
+                    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="gt-float-100 gt-mb-20 excellent-section" *ngIf="selectedOfferDetail.auctioned">
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                      <div class="gt-float-100 gt-center-between hauction-hpd">
+                        <div class="gt-mr-30 gt-float-left gretd-plu">
+                          <div class="gt-vcenter barter-right">
+                            <img src="assets/images/create-offer/auction-od.svg" alt="icon" width="18" height="18"
+                              class="excelle-compare gt-mr-8" />
+                            <h2 class="gt-fs-14 gt-text-medium gt-primary">
+                              Auction
+                            </h2>
+                          </div>
+                        </div>
+
+                        <div class="gt-vcenter auction-timer grfet-uyt">
+                          <img src="assets/images/create-offer/bid-watch.svg" alt="icon" width="37" height="41"
+                            class="excelle-compare gt-mr-8" />
+                          <div class="gt-float-100 gt-center-between">
+                            <div class="gt-bg-white" [ngClass]="{
+                                'auction-timings-bar': !checkAuctionComplete()
+                              }">
+                              <div class="gt-center timing-bar" *ngIf="!checkAuctionComplete()">
+                                <div class="time-2">
+                                  <h2 class="
+                                      gt-width-100
+                                      gt-center
+                                      gt-lightblack
+                                      gt-text-medium
+                                      gt-fs-15
+                                    " [ngStyle]="{
+                                      color:
+                                        cdDays === 0 && cdHours === 0
+                                          ? 'red'
+                                          : ''
+                                    }">
+                                    {{ cdDays }}
+                                  </h2>
+                                  <h3 class="
+                                      gt-width-100
+                                      gt-center
+                                      gt-lightgrayish
+                                      gt-text-medium
+                                      gt-mt-4
+                                      gt-fs-13
+                                    ">
+                                    day(s)
+                                  </h3>
+                                </div>
+                                <div class="time-2">
+                                  <h2 class="
+                                      gt-width-100
+                                      gt-center
+                                      gt-lightblack
+                                      gt-text-medium
+                                      gt-fs-15
+                                    " [ngStyle]="{
+                                      color:
+                                        cdDays === 0 && cdHours === 0
+                                          ? 'red'
+                                          : ''
+                                    }">
+                                    {{ cdHours }}
+                                  </h2>
+                                  <h3 class="
+                                      gt-width-100
+                                      gt-center
+                                      gt-lightgrayish
+                                      gt-text-medium
+                                      gt-mt-4
+                                      gt-fs-13
+                                    ">
+                                    hr(s)
+                                  </h3>
+                                </div>
+                                <div class="time-2">
+                                  <h2 class="
+                                      gt-width-100
+                                      gt-center
+                                      gt-lightblack
+                                      gt-text-medium
+                                      gt-fs-15
+                                    " [ngStyle]="{
+                                      color:
+                                        cdDays === 0 && cdHours === 0
+                                          ? 'red'
+                                          : ''
+                                    }">
+                                    {{ cdMins }}
+                                  </h2>
+                                  <h3 class="
+                                      gt-width-100
+                                      gt-center
+                                      gt-lightgrayish
+                                      gt-text-medium
+                                      gt-mt-4
+                                      gt-fs-13
+                                    ">
+                                    min(s)
+                                  </h3>
+                                </div>
+                                <div class="time-2 gt-borderne">
+                                  <h2 class="
+                                      gt-width-100
+                                      gt-center
+                                      gt-lightblack
+                                      gt-text-medium
+                                      gt-fs-15
+                                    " [ngStyle]="{
+                                      color:
+                                        cdDays === 0 && cdHours === 0
+                                          ? 'red'
+                                          : ''
+                                    }">
+                                    {{ cdSecs }}
+                                  </h2>
+                                  <h3 class="
+                                      gt-width-100
+                                      gt-center
+                                      gt-lightgrayish
+                                      gt-text-medium
+                                      gt-mt-4
+                                      gt-fs-13
+                                    ">
+                                    sec(s)
+                                  </h3>
+                                </div>
+                              </div>
+                              <div class="gt-float-100 gt-mt-6" *ngIf="checkAuctionComplete()">
+                                <h4 class="gt-fs-14 gt-danger">
+                                  Auction ended in:
+                                  {{
+                                  selectedOfferDetail.auctionInfo.end
+                                  | date: "mediumDate"
+                                  }}
+                                </h4>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="gt-float-100" *ngIf="
+                    selectedOfferDetail?.exchangeMode === 'Exchange' ||
+                    selectedOfferDetail?.exchangeMode === 'Barter'
+                  ">
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="gt-vcenter">
+                        <div class="gt-vcenter gt-mr-15 wants-return">
+                          <img src="assets/images/new-offers/gt-exchange.svg" alt="icon" width="20" height="20"
+                            class="gt-mr-10 excelle-icon" />
+                          <h5 class="
+                              gt-fs-15 gt-black-80 gt-text-medium
+                              dcolor-primary
+                            ">
+                            Barter :
+                          </h5>
+                        </div>
+                        <div class="
+                            gt-border-radius-20 gt-center gt-mr-10
+                            wants-return-desire
+                          " *ngIf="!selectedOfferDetail?.desire?.description">
+                          <h2 class="gt-fs-13 gt-lightgrayish">
+                            {{ selectedOfferDetail?.desire?.desireType }}
+                          </h2>
+                        </div>
+                        <div class="
+                            gt-border-radius-20 gt-center gt-mr-10
+                            wants-return-desire
+                          " *ngIf="selectedOfferDetail?.desire?.description">
+                          <h2 class="gt-fs-13 gt-lightgrayish">
+                            {{ selectedOfferDetail?.desire?.description }}
+                          </h2>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="gt-float-100" *ngIf="selectedOfferDetail.exchangeMode === 'Money'">
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="gt-float-100 gt-vcenter" *ngIf="!isService">
+                        <h2 class="gt-fs-14 gt-text-medium gt-black-60 gt-mr-10">
+                          Price :
+                        </h2>
+                        <div class="gt-vcenter gt-mr-20">
+                          <!-- If quantity is zero the product price will show instead of selling price -->
+                          <h3 class="gt-fs-18 gt-sky mvalue" *ngIf="
+                              selectedOfferDetail.quantity ||
+                              selectedOfferDetail.quantity === undefined
+                            ">
+                            <span class="icon-gt-money-new gt-fs-14"></span>
+                            {{ selectedOfferDetail.price }}
+                          </h3>
+                          <h3 class="gt-fs-18 gt-sky mvalue" *ngIf="
+                              !selectedOfferDetail.quantity &&
+                              selectedOfferDetail.offerType !== 'Service'
+                            ">
+                            <span class="icon-gt-money-new gt-fs-14"></span>
+                            {{ selectedOfferDetail?.unitOfferValuation }}
+                          </h3>
+                        </div>
+                        <div class="d-flex" *ngIf="selectedOfferDetail.offerType !== 'Service'">
+                          <div class="gt-vcenter gt-position-relative gt-mr-20" *ngIf="
+                              selectedOfferDetail?.unitOfferValuation &&
+                              selectedOfferDetail.price !==
+                                selectedOfferDetail?.unitOfferValuation &&
+                              selectedOfferDetail.quantity
+                            ">
+                            <h3 class="
+                                gt-fs-14 gt-black-60 gt-position-relative
+                                mvalue
+                                off-price
+                              ">
+                              <span class="icon-gt-money-new gt-fs-14"></span>
+                              {{ selectedOfferDetail?.unitOfferValuation }}
+                            </h3>
+                          </div>
+                          <div class="gt-vcenter" *ngIf="
+                              isItem &&
+                              checkPercentage(discount) &&
+                              selectedOfferDetail.quantity
+                            ">
+                            <h3 class="gt-fs-14 gt-primary mvalue">
+                              ({{ discount | number: "0.0-0" }}% Off)
+                            </h3>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="gt-float-100 gt-vcenter" *ngIf="isService">
+                        <div class="row">
+                          <div class="
+                              col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12
+                            ">
+                            <div class="gt-vcenter gt-mt-20 product-plt">
+                              <h2 class="
+                                  gt-fs-14 gt-text-medium gt-black-60 gt-mr-10
+                                ">
+                                Rate :
+                              </h2>
+                              <div class="gt-vcenter gt-mr-20 offer-money">
+                                <img src="assets/images/create-offer/money.svg" alt="icon" width="25" height="25"
+                                  class="excelle-icon" />
+                                <h2 class="gt-fs-18 gt-sky mvalue">
+                                  {{ selectedOfferDetail.rate }} /
+                                  {{ selectedOfferDetail.duration }}
+                                </h2>
+                                <!-- <h3 class="gt-fs-18 gt-sky mvalue" *ngIf = "selectedOfferDetail.quantity ||selectedOfferDetail.quantity === undefined  " >
+                                  <span class="icon-gt-money-new gt-fs-14"></span> {{selectedOfferDetail.price}}
+                                </h3> -->
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="gt-float-100" *ngIf="selectedOfferDetail?.exchangeMode === 'Free'">
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="gt-vcenter">
+                        <div class="gt-vcenter gt-mr-15 wants-return">
+                          <img src="assets/images/new-offers/free_icon.svg" alt="icon" width="20" height="20"
+                            class="gt-mr-10 excelle-icon" />
+                          <h5 class="
+                              gt-fs-15 gt-black-80 gt-text-medium
+                              dcolor-primary
+                            ">
+                            {{ selectedOfferDetail?.exchangeMode }}
+                          </h5>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="gt-float-100 gt-mt-20 gt-pb-10 offer-bbttom">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100 gt-mb-20 gt-center-between ghyf-upkj">
+                      <h2 class="gt-fs-16 gt-text-medium gt-black-90">
+                       <span *ngIf = "selectedOfferDetail?.offerType === 'Service' ">Service</span> 
+                       <span *ngIf = "selectedOfferDetail?.offerType !== 'Service' ">Product</span>
+                       features
+                      </h2>
+                      <div class="gt-vcenter" *ngIf="
+                          !isService &&
+                          selectedOfferDetail.exchangeMode !== 'Money'
+                        ">
+                        <h3 class="gt-fs-16 gt-black-60 mvalue">
+                          Market value :
+                          <span class="icon-gt-money-new gt-fs-14"></span>
+                          {{ selectedOfferDetail.unitOfferValuation }}
+                        </h3>
+                      </div>
+                    </div>
+                    <div class="gt-float-100" *ngIf="offerFacets?.length">
+                      <div class="gt-float-100 gtk-vcenter gt-mb-10" *ngFor="let facet of offerFacets">
+                        <span class="
+                            gt-fs-14
+                            gt-text-medium
+                            gt-font-poppins
+                            gt-lightblack
+                            gt-mr-10
+                            bnh-size
+                            feature-tittle
+                          ">{{ facet.name }} :</span>
+                        <span class="
+                            gt-fs-14 gt-font-poppins gt-lightgrayish
+                            feature-tittle-name
+                          ">{{ facet.values[0] }}</span>
+                        <div style="clear: both"></div>
+                      </div>
+                    </div>
+                    <div class="gt-float-100">
+                      <div class="gt-float-100 gtk-vcenter gt-mb-10">
+                        <span class="
+                            gt-fs-14
+                            gt-text-medium
+                            gt-font-poppins
+                            gt-lightblack
+                            gt-mr-10
+                            bnh-size
+                            feature-tittle
+                          ">Country of origin :</span>
+                        <span class="
+                            gt-fs-14 gt-font-poppins gt-lightgrayish
+                            feature-tittle-name
+                          ">{{ selectedOfferDetail.originCountry }}</span>
+                        <div style="clear: both"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             
+
+              <div class="gt-float-100 gt-mt-15 gt-mb-20 offer-bbttom">
+                <div class="gt-float-100">
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="offer-des">
+                        <h5 class="gt-mb-5 gt-fs-16 gt-text-medium dcolor-primary">
+                          Description
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="gt-float-100 ">
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="product-description product-description-details ">
+                        <p class="gt-float-100 h4 dcolor-primary gt-mb-10">
+                          {{ descriptions }}
+                        </p>
+                        <div class="gt-float-100">
+                          <div *ngIf="selectedOfferDetail.description.length > 500" class="
+                              gt-float-right
+                              gt-align-items-center
+                              gt-display-flex
+                              gt-mt-10
+                              read-more
+                            " (click)="isReadMore = !isReadMore">
+                            {{ isReadMore ? "Read less" : "Read more" }}
+                            <span class="material-icons gt-lightgrayish">arrow_drop_down</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Stared Of Added Extra Feature -->
+
+              <div *ngIf="businessInfo && isOfferOwner" class="gt-float-100 gt-mt-20 gt-pb-10 offer-bbttom">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100 gt-mb-20 gt-center-between ghyf-upkj">
+                      <h2 class="gt-fs-16 gt-text-medium gt-black-90">
+                      Product Info
+                      </h2>
+                     
+                    </div>
+                    <div class="gt-float-100" >
+                      <div  *ngIf="selectedOfferDetail?.sku" class="gt-float-100 gtk-vcenter gt-mb-10" >
+                        <span class="
+                            gt-fs-14
+                            gt-text-medium
+                            gt-font-poppins
+                            gt-lightblack
+                            gt-mr-10
+                            bnh-size
+                            feature-tittle
+                          ">SKU :</span>
+                        <span class="
+                            gt-fs-14 gt-font-poppins gt-lightgrayish
+                            feature-tittle-name
+                          ">{{selectedOfferDetail?.sku}}</span>
+                          
+                        <div style="clear: both"></div>
+                      </div>
+
+                      <div *ngIf="selectedOfferDetail?.taxClass" class="gt-float-100 gtk-vcenter gt-mb-10" >
+                        <span class="
+                            gt-fs-14
+                            gt-text-medium
+                            gt-font-poppins
+                            gt-lightblack
+                            gt-mr-10
+                            bnh-size
+                            feature-tittle
+                          ">Tax class :</span>
+                        <span class="
+                            gt-fs-14 gt-font-poppins gt-lightgrayish
+                            feature-tittle-name
+                          ">{{selectedOfferDetail?.taxClass}}</span>
+                        <div style="clear: both"></div>
+                      </div>
+
+                      <div *ngIf="selectedOfferDetail?.hsnCode" class="gt-float-100 gtk-vcenter gt-mb-10" >
+                        <span class="
+                            gt-fs-14
+                            gt-text-medium
+                            gt-font-poppins
+                            gt-lightblack
+                            gt-mr-10
+                            bnh-size
+                            feature-tittle
+                          ">   {{
+                            selectedOfferDetail.offerType === "Service"
+                            ? "SAC Code"
+                            : "HSN Code"
+                            }} :</span>
+                        <span class="
+                            gt-fs-14 gt-font-poppins gt-lightgrayish
+                            feature-tittle-name
+                          ">{{selectedOfferDetail?.hsnCode}}</span>
+                        <div style="clear: both"></div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf = "businessInfo && isOfferOwner && selectedOfferDetail?.dimensions?.length"class="gt-float-100 gt-mt-20 gt-pb-10 offer-bbttom">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100 gt-mb-20 gt-center-between ghyf-upkj">
+                      <h2 class="gt-fs-16 gt-text-medium gt-black-90">
+                        Dimension and Weight
+                      </h2>
+                     
+                    </div>
+                    <div  *ngFor="let dimension of selectedOfferDetail?.dimensions; let i = index" class="gt-float-100" >
+                      <div  class="gt-float-100 gtk-vcenter gt-mb-10" >
+                        <span class=" gt-fs-14 gt-text-medium gt-font-poppins gt-lightblack gt-mr-10 bnh-size feature-tittle"> Length :</span>
+                        <span class="gt-fs-14 gt-font-poppins gt-lightgrayish feature-tittle-name">{{dimension.length}} cm</span>
+                        <div style="clear: both"></div>
+                      </div>
+                      
+                      <div class="gt-float-100 gtk-vcenter gt-mb-10" >
+                        <span class=" gt-fs-14 gt-text-medium gt-font-poppins gt-lightblack gt-mr-10 bnh-size feature-tittle"> Width :</span>
+                        <span class="gt-fs-14 gt-font-poppins gt-lightgrayish feature-tittle-name">{{dimension.breadth}} cm</span>
+                        <div style="clear: both"></div>
+                      </div>
+
+                      <div  class="gt-float-100 gtk-vcenter gt-mb-10" >
+                        <span class=" gt-fs-14 gt-text-medium gt-font-poppins gt-lightblack gt-mr-10 bnh-size feature-tittle"> Height :</span>
+                        <span class="gt-fs-14 gt-font-poppins gt-lightgrayish feature-tittle-name">{{dimension.height}} cm</span>
+                        <div style="clear: both"></div>
+                      </div>
+
+                      <div  class="gt-float-100 gtk-vcenter gt-mb-10" >
+                        <span class=" gt-fs-14 gt-text-medium gt-font-poppins gt-lightblack gt-mr-10 bnh-size feature-tittle"> Weight :</span>
+                        <span class="gt-fs-14 gt-font-poppins gt-lightgrayish feature-tittle-name">{{dimension.weight}} Kg</span>
+                        <div style="clear: both"></div>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+ 
+              <!-- End  -->
+              <!-- <div class="gt-float-100" *ngIf="!isOfferOwner"> -->
+              <div class="gt-float-100" *ngIf="!isOfferOwner">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-mb-10 offer-by">
+                      <h4 class="
+                          gt-fs-14 gt-lightblack gt-text-medium
+                          dcolor-primary
+                        ">
+                        {{
+                        selectedOfferDetail.offerType === "Service"
+                        ? "Provided By"
+                        : "Sold By"
+                        }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gt-float-100" *ngIf="!showBusinessCard || (!businessInfo && !isOfferOwner)">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-pd-tb-16 offer-user bg-change dark-shadow">
+                      <div class="
+                          gt-float-100 gt-pl-16 gt-pr-16 gt-vcenter
+                          cuser-profile
+                        " (click)="navigateToOtherProfile()">
+                        <div class="gt-vcenter gt-float-left offer-user-profile">
+                          <div class="users-boxs user-bg user-box-border">
+                            <div [ngClass]="userStatus$ | async"></div>
+                            <app-profile-avatar [userName]="selectedOfferDetail.user?.name"
+                              [imageUrl]="selectedOfferDetail.user?.imageUrl">
+                            </app-profile-avatar>
+                          </div>
+                          <div class="user-names" style="cursor: pointer;">
+                            <h1 class="
+                                gt-float-100
+                                gt-fs-14
+                                gt-text-medium
+                                gt-lightblack
+                                ou-name
+                                dcolor-primary
+                              ">
+                              {{ selectedOfferDetail.user?.name }}
+                            </h1>
+                            <h3 class="
+                                gt-float-100 gt-fs-12 gt-lightgrayish gt-mt-4
+                                ou-you
+                                dcolor-secondary
+                              " *ngIf="isOfferOwner">
+                              (You)
+                            </h3>
+                          </div>
+                        </div>
+                        <div class="gt-vcenter gt-float-right user-rating">
+                          <span class="material-icons">star_outline</span>
+                          <h4 class="
+                              gt-fs-13 gt-lightblack gt-ml-5
+                              dcolor-primary
+                            ">
+                            {{
+                            selectedOfferDetail.user?.averageRating !== 0
+                            ? selectedOfferDetail.user?.averageRating
+                            : "No
+                            review"
+                            }}
+                          </h4>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="gt-float-100" *ngIf="showBusinessCard && businessInfo ">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-pd-tb-21 offer-user">
+                      <div class="gt-float-100 gt-pd-lr-12 gt-center-between">
+                        <div class="gt-vcenter bacs-rp">
+                          <div class="image-width-40 gt-vcenter baci-rp">
+                            <app-profile-avatar [userName]="businessInfo.name" [imageUrl]="businessInfo.logoUrl">
+                            </app-profile-avatar>
+                          </div>
+                          <div class="tdc-title gt-ml-12">
+                            <!-- {{getBusinessUrlBySlug(business.profileUrl)}} -->
+                            <a href="{{getBusinessUrlBySlug(businessInfo?.profileUrl)}}" target="_blank" class="
+                                gt-fs-15 gt-text-medium gt-lightgrayish
+                                bam-rp
+                                dcolor-primary
+                              ">
+                              {{ businessInfo.name | trimTextToCertainNumberCharector: 20}}
+                          </a>
+                          </div>
+                        </div>
+                        <div class="gt-vcenter gt-float-right user-rating">
+                          <span class="material-icons">star_outline</span>
+                          <h4 class="
+                              gt-fs-13 gt-lightblack gt-ml-5
+                              dcolor-primary
+                            ">
+                            No review
+                          </h4>
+                        </div>
+                      </div>
+
+                      <!-- <div  class="
+                          gt-float-100 gt-mt-20 gt-pt-20 gt-pd-lr-12
+                          business-admin-change
+                        ">
+                        <div class="gt-float-100 gt-center-between bacp-rp">
+                          <div class="gt-vcenter gt-float-left offer-user-profile">
+                            <div class="users-boxs user-bg user-box-border">
+                              <div [ngClass]="userStatus$ | async"></div>
+                              <app-profile-avatar [userName]="selectedOfferDetail.user?.name"
+                                [imageUrl]="selectedOfferDetail.user?.imageUrl">
+                              </app-profile-avatar>
+                            </div>
+                            <div class="user-names">
+                              <h1 class="
+                                  gt-float-100
+                                  gt-fs-15
+                                  gt-text-medium
+                                  gt-lightblack
+                                ">
+                                {{ selectedOfferDetail.user?.name }}
+                              </h1>
+                              <h3 class="
+                                  gt-float-100 gt-fs-12 gt-lightgrayish gt-mt-4
+                                  ou-you
+                                  dcolor-secondary
+                                " *ngIf="isOfferOwner">
+                                (You)
+                              </h3>
+                            </div>
+                          </div>
+                          <div *ngIf="isOfferOwner" class="
+                              gt-btn-primary
+                              gt-btn-outline
+                              gt-border-radius-2
+                              gt-center
+                              open-business-admin
+                            " (click)="openAdminDialog()">
+                            <h3 class="gt-fs-15 gt-sky">assign</h3>
+                          </div>
+                        </div>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="gt-float-100 gt-mt-20 offer-bbttom" *ngIf="isService">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-pd-tb-12 offer-locd">
+
+                      <h1 class="gt-mb-5 gt-fs-16 gt-text-medium dcolor-primary gt-mb-5"> Service loction</h1>
+                      <h4 class="gt-fs-13 gt-mt-10 gt-lightgrayish dcolor-primary">
+                        {{
+                        selectedOfferDetail.myLocation ? "My Location" : null
+                        }}
+                        {{
+                        selectedOfferDetail.yourLocation
+                        ? "Your Location"
+                        : null
+                        }}
+                        {{ selectedOfferDetail.remote ? "Online" : null }}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="gt-float-100 gt-mt-20" *ngIf="isService">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                    *ngIf="selectedOfferDetail.serviceTimingInfos.length">
+                    <div class="gt-float-100">
+                      <h1 class="gt-mb-5 gt-fs-16 gt-text-medium dcolor-primary">
+                        I can provide services on
+                      </h1>
+                    </div>
+                    <div class="gt-float-100 gt-mt-10">
+                      <div class="gt-display-flex day-active">
+                        <div class="day-box" *ngFor="let day of availableDays; index as i" [ngClass]="{
+                            'select-day': checkDayPresent(
+                              day.dayOfWeek.toLowerCase()
+                            )
+                          }">
+                          {{ day.prefix }}
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- <div class="gt-float-100 gt-mt-5" *ngIf="
+                        selectedOfferDetail.serviceTimeSameForAllDays;
+                        else serviceTimeDefault
+                      "> -->
+                    <div class="gt-float-100 gt-mt-5">
+                      <div class="gt-float-left service-day">
+                        <div class="gt-display-flex mutiple-time" *ngFor="
+                            let day of selectedOfferDetail.serviceTimingInfos
+                          ">
+                          <div class="day-short">
+                            {{ day.dayOfWeek | dayPrefix }}<span>:</span>
+                          </div>
+                          <div class="day-details dcolor-primary-import" *ngFor="let time of day.timingInfoList">
+                            From {{ time.startTime | formatMeetTime }} To
+                            {{ time.endTime | formatMeetTime }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <ng-template #serviceTimeDefault>
+                      <div class="gt-float-100 gt-mt-10">
+                        <div class="gt-display-flex mutiple-time">
+                          <span>{{
+                            selectedOfferDetail.serviceTimingInfos
+                            | formatServiceTime
+                            : selectedOfferDetail.serviceTimeSameForAllDays
+                            }}
+                          </span>
+                        </div>
+                      </div>
+                    </ng-template> -->
+                  </div>
+                </div>
+              </div>
+              <div class="gt-float-100 gt-mt-15" *ngIf="selectedOfferDetail.documents.length">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-mt-10 gt-mb-8 offer-attach dcolor-primary">
+                      <h1 class="
+                          gt-fs-14 gt-text-medium gt-lightblack
+                          dcolor-primary
+                        ">
+                        Attachments
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="gt-float-100">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-display-flex offer-attach" *ngIf="selectedOfferDetail.documents.length">
+                      <div class="
+                          gt-display-flex gt-align-items-center gt-mr-16
+                          certificate-quality
+                          bg-change-secondary
+                          dark-shadow
+                          border-none
+                        " *ngFor="let document of selectedOfferDetail.documents" (click)="previewDocument(document)">
+                        <img src="assets/images/guarantee-check.svg" alt="icon" width="14" height="14"
+                          class="cert-check" />
+                        <!-- <h2 class="gt-fs-13 gt-ml-11 dcolor-primary">{{ document.orgName }}</h2> -->
+                        <a class="gt-fs-13 gt-ml-11 dcolor-primary" [href]="document.url" target="_balnk">{{
+                          document.orgName }}</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="offerd-right">
+              <!-- *ngIf="isAuth" -->
+              <div class="gt-float-100 offerr-border">
+                <div class="gt-float-100 gt-mb-20 allbtnh-up" *ngIf="isOfferOwner">
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="gt-float-100 offer-chat ocu-rp">
+                        <div class="gt-vcenter all-offer-btn">
+                          <!--                           
+                          <div
+                            *ngIf="releaseOffer"
+                            class="
+                              gt-mr-10
+                              del-buttons
+                              dark-shadow
+                              border-none
+                              bg-change-secondary
+                            "
+                            [routerLink]="
+                              selectedOfferDetail.auctioned
+                                ? ['/listing/auction']
+                                : [
+                                    '/listing/' +
+                                      selectedOfferDetail.offerType.toLowerCase()
+                                  ]
+                            "
+                            [queryParams]="{
+                              id: selectedOfferDetail.offerId,
+                              category: 'CLONE'
+                            }"
+                            title="Copy"
+                          >
+                            <img
+                              src="assets/images/create-offer/offer-copy.svg"
+                              alt="icon"
+                              width="18"
+                              height="18"
+                              class="del-btn"
+                            />
+                          </div>
+                           -->
+
+                          <ng-container *ngIf="isPublishedOffer">
+                            <ng-container *ngIf="!isDealInitiated">
+                              <div class="
+                                  gt-mr-10
+                                  del-buttons
+                                  dark-shadow
+                                  border-none
+                                  bg-change-secondary
+                                " role="button" title="Remove" *ngIf="bids.length <= 0"
+                                (click)="openDeleteDialog(selectedOfferDetail)">
+                                <img src="assets/images/profile/profile-photo-delete.svg" alt="icon" width="16"
+                                  height="18" class="del-btn" />
+                              </div>
+
+                              <div class="
+                                  gt-mr-10
+                                  del-buttons
+                                  dark-shadow
+                                  border-none
+                                  bg-change-secondary
+                                " [routerLink]="
+                                  selectedOfferDetail.auctioned
+                                    ? ['/listing/auction']
+                                    : [
+                                        '/listing/' +
+                                          selectedOfferDetail.offerType.toLowerCase()
+                                      ]
+                                " [queryParams]="{
+                                  id: selectedOfferDetail.offerId,
+                                  category: 'PUBLISHED'
+                                }" *ngIf="bids.length <= 0" title="Edit">
+                                <img src="assets/images/create-offer/offer-edit-icon.svg" alt="icon" width="17"
+                                  height="17" class="del-btn" />
+                              </div>
+                            </ng-container>
+                          </ng-container>
+                          <ng-container *ngIf="!isDealInitiated">
+                            <ng-container *ngIf="isPublishedOffer || isHiddenOffer">
+                              <div class="
+                                  del-buttons
+                                  dark-shadow
+                                  border-none
+                                  bg-change-secondary
+                                " (click)="openHideDialog(selectedOfferDetail)" title="{{ title }}">
+                                <span class="
+                                    material-icons-outlined
+                                    vis-off
+                                    gt-fs-18
+                                  ">{{
+                                  selectedOfferDetail.hidden
+                                  ? "visibility"
+                                  : "visibility_off"
+                                  }}</span>
+                              </div>
+                            </ng-container>
+                          </ng-container>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="gt-float-right btn-social-right" *ngIf="isPublishedOffer">
+                  <div class="gt-display-flex wishlist-right">
+                    <ng-container *ngIf="isAuth && !isOfferOwner">
+                      <button tye="button" class="
+                          gt-btn-primary
+                          gt-border-radius-2
+                          gt-center
+                          gt-cursor-pointer
+                          gt-ml-16
+                          btn-fav
+                        " *ngIf="!isOfferReported">
+                        <img src="assets/images/create-offer/offer-report.svg" alt="icon" width="18" height="18"
+                          class="excelle-share" (click)="reportOffer()" id="reportOfferButton" />
+                      </button>
+                    </ng-container>
+                    <button *ngIf="!isOfferOwner && releaseOffer" type="button" class="
+                        gt-btn-primary
+                        gt-border-radius-2
+                        gt-center
+                        gt-cursor-pointer
+                        gt-ml-16
+                        btn-share
+                      ">
+                      <img src="assets/images/share.svg" alt="icon" width="16" height="18" class="excelle-share"
+                        (click)="openSocialShareDialog()" />
+                    </button>
+                    <button *ngIf="isAuth && !isOfferOwner" type="button" role="button" class="
+                        gt-btn-primary
+                        gt-border-radius-2
+                        gt-center
+                        gt-ml-16
+                        gt-white
+                        gt-cursor-pointer
+                        btn-fav
+                      " (click)="toggleFavourite(offerId)">
+                      <span class="material-icons" [ngClass]="{ 'fav-color': isCurrentOfferFavourite() }">{{
+                        isCurrentOfferFavourite()
+                        ? "favorite"
+                        : "favorite_border"
+                        }}</span>
+                    </button>
+                  </div>
+                </div>
+
+                <ng-container *ngIf="selectedOfferDetail.auctioned">
+                  <!-- Auction bid winner -->
+                  <!-- Start  *ngIf="auctionClosed && checkAuctionComplete()" -->
+                  <!-- <div class="gt-float-100 gt-mt-20 gt-center auc-hclosed" 
+                    *ngIf="checkAuctionComplete() && releaseOffer">
+                    <img src="assets/images/create-offer/auction-closed.svg" alt="icon" class="gt-mr-4" width="22"
+                      height="22" />
+                    <h4 class="gt-fs-15 gt-danger g-text-medium gt-ml-5">Auction closed</h4>
+                  </div> -->
+                  <div *ngIf="bids.length && checkAuctionComplete()" class="gt-vcenter gt-float-100 gt-mt-25 bid-owner">
+                    <div class="
+                        image-width
+                        gt-center gt-position-relative
+                        chat-noimg
+                        gt-mr-8
+                      ">
+                      <img [alt]="bids[0].userName" class="image-width" src="{{ bids[0].photoUrl }}"
+                        onerror="this.src = 'assets/images/user-default-img/chatu-noimg.svg'" />
+                      <img src="assets/images/bg/owner.svg" alt="image" class="owner-img" />
+                    </div>
+                    <div class="bid-name" *ngIf="!isAuctionUser">
+                      <h3 class="gt-width-100 gt-fs-12 gt-mt-2 gt-primary">
+                        Won By:
+                      </h3>
+                      <h2 class="gt-width-100 gt-fs-14 gt-lightblack">
+                        {{ bids[0].userName }}
+                      </h2>
+                    </div>
+                    <div class="bid-name" *ngIf="isAuctionUser">
+                      <h3 class="gt-width-100 gt-fs-12 gt-mt-2 gt-primary">
+                        You won this auction
+                      </h3>
+                    </div>
+                  </div>
+                  <div *ngIf="latestAcceptedBidPrice && checkAuctionComplete()" class="gt-float-100 gt-mt-20">
+                    <div class="gt-vcenter">
+                      <h3 class="gt-fs-15 gt-black-80 mvalue">
+                        <span class="icon-gt-money-new gt-fs-14"></span>
+                        {{ latestAcceptedBidPrice | formatPrice }}
+                      </h3>
+                    </div>
+                    <h4 class="gt-black-70 gt-width-100 gt-mt-5 gt-fs-10">
+                      (Bidding amount)
+                    </h4>
+                  </div>
+                  <!-- End Auction bid winner -->
+                  <div class="gt-float-100 gt-pt-20 gt-pb-17 bid-timesh" *ngIf="selectedOfferDetail.auctioned">
+                    <div class="gt-float-100 offer-time">
+                      <div class="gt-float-100 gt-mt-10" *ngIf="!checkAuctionComplete()">
+                        <h4 class="gt-fs-14 gt-black">
+                          Auction ends:
+                          {{
+                          selectedOfferDetail.auctionInfo.end
+                          | date: "mediumDate"
+                          }}
+                        </h4>
+                      </div>
+                      <ng-container *ngIf="isAuth">
+                        <div *ngIf="!auctionClosed && !checkAuctionComplete()" class="
+                            current-bid
+                            gt-float-100 gt-mt-15 gt-vcenter
+                            current-bidsecon
+                          ">
+                          <h2 class="gt-fs-14 gt-lightblack">
+                            Opening amount :
+                          </h2>
+                          <div class="gt-vcenter gt-ml-10">
+                            <img src="assets/images/create-offer/bid-money-icon.svg" alt="icon" class="gt-mr-5"
+                              width="12" height="15" />
+                            <h3 class="gt-fs-14 gt-lightblack">
+                              {{
+                              selectedOfferDetail.auctionInfo?.basePrice
+                              | formatPrice
+                              }}
+                            </h3>
+                          </div>
+                        </div>
+                        <!-- Start Added  Bye out price-->
+                        <div *ngIf="
+                            !auctionClosed &&
+                            !checkAuctionComplete() &&
+                            selectedOfferDetail.auctionInfo?.buyOutPrice
+                          " class="
+                            current-bid
+                            gt-float-100 gt-mt-15 gt-vcenter
+                            current-bidsecon
+                          ">
+                          <h2 class="gt-fs-14 gt-lightblack">Buyout price :</h2>
+                          <div class="gt-vcenter gt-ml-10">
+                            <img src="assets/images/create-offer/bid-money-icon.svg" alt="icon" class="gt-mr-5"
+                              width="12" height="15" />
+                            <h3 class="gt-fs-14 gt-lightblack">
+                              {{
+                              selectedOfferDetail.auctionInfo?.buyOutPrice
+                              | formatPrice
+                              }}
+                            </h3>
+                          </div>
+                        </div>
+
+                        <div *ngIf="
+                            releaseOffer &&
+                            !auctionClosed &&
+                            !checkAuctionComplete() &&
+                            latestAcceptedBidPrice
+                          " class="
+                            current-bid
+                            gt-float-100 gt-vcenter gt-mt-15
+                            current-bid-rborder
+                          ">
+                          <h2 class="gt-fs-14 gt-lightblack">Current bid</h2>
+                          <div class="gt-vcenter gt-ml-10">
+                            <img src="assets/images/create-offer/bid-money-icon.svg" alt="icon" class="gt-mr-4"
+                              width="13" height="16" />
+                            <h3 class="gt-fs-20 g-text-medium gt-sky">
+                              {{ latestAcceptedBidPrice | formatPrice }}
+                            </h3>
+                          </div>
+                        </div>
+
+                        <div class="gt-float-100 gt-vcenter gt-mt-15" *ngIf="
+                            releaseOffer &&
+                            auctionClosed &&
+                            checkAuctionComplete()
+                          ">
+                          <img src="assets/images/create-offer/auction-closed.svg" alt="icon" class="gt-mr-4" width="22"
+                            height="22" />
+                          <h4 class="gt-fs-16 gt-danger g-text-medium gt-ml-5">
+                            Auction closed
+                          </h4>
+                        </div>
+                        <div class="gt-float-100 gt-mt-15" *ngIf="
+                            auctionClosed &&
+                            checkAuctionComplete() &&
+                            latestAcceptedBidPrice
+                          ">
+                          <h4 class="gt-fs-14 gt-lightblack">
+                            Winner :
+                            <span class="gt-primary gt-text-medium">{{
+                              bids[0].userName
+                              }}</span>
+                          </h4>
+                        </div>
+                      </ng-container>
+                    </div>
+                  </div>
+                  <div class="gt-float-100" *ngIf="selectedOfferDetail.auctioned && releaseOffer">
+                    <div class="gt-float-100">
+                      <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                          <div class="
+                              gt-float-100 gt-center gt-justify-content-between
+                              trading-offer
+                            ">
+                            <div class="gt-float-left product-title-tranding" *ngIf="
+                                isEnableSuggestDeal &&
+                                isAuth &&
+                                checkBuyOutValue(
+                                  selectedOfferDetail.auctionInfo?.buyOutPrice
+                                )
+                              ">
+                              <div class="gt-width-100 gt-mt-8 gt-mb-2 mhy-time" *ngIf="
+                                  isEnableSuggestDeal && !checkAuctionComplete()
+                                ">
+                                <mat-slide-toggle (change)="toggleAuctionBuyOut($event)">
+                                  <div class="gt-vcenter buy-out-price">
+                                    <h2 class="
+                                        gt-fs-15 gt-text-medium gt-lightblack
+                                      ">
+                                      Buyout price :
+                                    </h2>
+                                  </div>
+                                </mat-slide-toggle>
+                              </div>
+                              <div class="
+                                  gt-float-100
+                                  gt-mt-10
+                                  gt-mb-5
+                                  gt-pl-33
+                                  gt-vcenter
+                                " *ngIf="
+                                  isEnableSuggestDeal && !checkAuctionComplete()
+                                ">
+                                <img src="assets/images/create-offer/bid-money-icon.svg" alt="icon" width="9"
+                                  height="13" class="gt-ml-10" />
+                                <h3 class="
+                                    gt-fs-15 gt-text-medium gt-ml-6 gt-primary
+                                  ">
+                                  {{
+                                  selectedOfferDetail.auctionInfo?.buyOutPrice
+                                  | formatPrice
+                                  }}
+                                </h3>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="gt-float-100">
+                      <div class="row">
+                        <div class="
+                            col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12
+                          ">
+                          <div class="gt-float-100 gt-mt-10 offer-chat">
+                            <div class="gt-float-100 money-bid gt-border-radius-2" *ngIf="
+                                isEnableSuggestDeal && !checkAuctionComplete()
+                              ">
+                              <div class="currency-group">
+                                <div class="
+                                    currency-input-group
+                                    gt-border-radius-2
+                                  " *ngIf="isAuth">
+                                  <div class="
+                                      currency-input-group-prepend
+                                      gt-cursor-pointer
+                                    " (click)="subtractBidStepToCurrent()">
+                                    <div class="currency-input-group-text" [ngStyle]="{
+                                        visibility: isBidDownEnable()
+                                          ? 'visible'
+                                          : 'hidden'
+                                      }">
+                                      <span class="
+                                          material-icons
+                                          gt-lightgrayish gt-fs-24
+                                        ">remove</span>
+                                    </div>
+                                  </div>
+                                  <input type="text" [ngModel]="
+                                      currentBiddingPriceInput
+                                        | formatPriceDecemal
+                                    " class="currency-form-control" placeholder="Select Bid price" disabled />
+                                  <div class="
+                                      currency-input-group-append
+                                      gt-cursor-pointer
+                                    " (click)="addBidStepToCurrent()" *ngIf="!checkAuctionComplete()">
+                                    <div class="currency-input-group-text">
+                                      <span class="
+                                          material-icons
+                                          gt-lightgrayish gt-fs-24
+                                        " [ngStyle]="{
+                                          visibility:
+                                            selectedOfferDetail.auctionInfo
+                                              .buyOutPrice !==
+                                            currentBiddingPriceInput
+                                              ? 'visible'
+                                              : 'hidden'
+                                        }">add</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="
+                                login-connect
+                                gt-float-100 gt-mt-15
+                                conn-pdh
+                              " *ngIf="
+                                !checkAuctionComplete() && isEnableSuggestDeal
+                              ">
+                              <button type="submit" class="
+                                  gt-btn-primary
+                                  gt-width-100
+                                  gt-height-48
+                                  gt-center
+                                  gt-fs-16
+                                  btn-contact
+                                  gt-border-radius-2
+                                " (click)="submitBid()" [disabled]="disableBid" [ngStyle]="{
+                                  opacity: disableBid ? '0.5' : '1'
+                                }" *ngIf="isAuth && !checkAuctionComplete()">
+                                place bid
+                              </button>
+                              <h6 class="gt-fs-14 format-color gt-ml-16" *ngIf="disableBid">
+                                <label class="
+                                    currency-sr-only
+                                    offer-input-label
+                                    dcolor-primary
+                                  ">
+                                  *you are already the top bidder</label>
+                              </h6>
+                              <button type="button" class="
+                                  gt-btn-primary
+                                  gt-center
+                                  gt-width-100
+                                  gt-height-48
+                                  gt-fs-16
+                                  gt-border-radius-2
+                                  bg-change-secondary
+                                  dark-shadow
+                                  border-none
+                                " *ngIf="!isAuth" (click)="openLoginDialog()">
+                                login to contact
+                              </button>
+                            </div>
+                            <div class="
+                                login-connect
+                                gt-float-100 gt-mt-15
+                                conn-pd
+                              " *ngIf="
+                                isAuctionUser &&
+                                selectedOfferDetail?.auctionInfo
+                                  ?.buyOutPrice === latestAcceptedBidPrice
+                              ">
+                              <!-- <button type="submit" class="gt-btn-primary gt-width-100 gt-height-48 btn-contact gt-border-radius-2
+                                " (click)="navigateToMyDeals()">go to my offers </button> -->
+                              <button type="submit" class="
+                                  gt-btn-primary gt-width-100 gt-height-48
+                                  btn-contact
+                                  gt-border-radius-2
+                                " (click)="suggestDeal(offerId)">
+                                proceed
+                              </button>
+                            </div>
+
+                            <div class="
+                                login-connect
+                                gt-float-100 gt-mt-15
+                                conn-pd
+                              " *ngIf="isAuctionUser && auctionClosed">
+                              <button type="submit" class="
+                                  gt-btn-primary gt-width-100 gt-height-48
+                                  btn-contact
+                                  gt-border-radius-2
+                                " (click)="navigateToMyDeals()">
+                                go to my offers
+                              </button>
+                            </div>
+
+                            <button *ngIf="
+                                isEnableSuggestDeal && !checkAuctionComplete()
+                              " type="submit" class="
+                                gt-btn-primary
+                                gt-center
+                                gt-mt-15
+                                gt-btn-outline
+                                gt-float-100
+                                gt-border-radius-2
+                                offer-chat-btn
+                              " (click)="chatNow()" [disabled]="isChatNowButtonClicked" [ngClass]="{
+                                'disabled-btn': isChatNowButtonClicked
+                              }">
+                              chat now
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-container>
+
+                <div class="gt-float-100" *ngIf="isOfferOwner && releaseOffer">
+                  <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                      <button type="button" class="
+                          gt-btn-primary
+                          gt-border-radius-2
+                          gt-center
+                          gt-cursor-pointer
+                          btn-share
+                        ">
+                        <img src="assets/images/share.svg" alt="icon" width="16" height="18" class="excelle-share"
+                          (click)="openSocialShareDialog()" />
+                      </button>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                      <div class="gt-float-100 offer-chat ocu-rp">
+                        <button *ngIf="isPublishedOffer" type="submit" class="
+                            gt-btn-primary
+                            gt-center
+                            gt-btn-outline
+                            gt-width-100
+                            gt-border-radius-2
+                            offer-chat-btn offer-chat-owner
+                          " [routerLink]="'/chat/offer-deal'" [disabled]="isChatNowButtonClicked"
+                          [ngClass]="{ 'disabled-btn': isChatNowButtonClicked }">
+                          chat
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="gt-float-100" *ngIf="!isOfferOwner && !selectedOfferDetail?.auctioned">
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="gt-float-100 gt-mt-25 offer-chat">
+                        <div *ngIf="releaseOffer && isAuth" class="gt-float-100 login-connect conn-pd">
+                          <button type="submit" class="
+                              gt-btn-primary
+                              gt-width-100
+                              gt-center
+                              gt-mt-20
+                              gt-btn-outline
+                              gt-width-100
+                              gt-border-radius-2
+                              offer-chat-btn
+                            " (click)="chatNow()" [disabled]="isChatNowButtonClicked" [ngClass]="{
+                              'disabled-btn': isChatNowButtonClicked
+                            }">
+                            chat now
+                          </button>
+                        </div>
+                        <div class="gt-float-100 login-connect conn-pd">
+                          <button type="button" class="
+                              gt-btn-primary
+                              gt-center
+                              gt-mt-20
+                              gt-width-100
+                              gt-height-48
+                              gt-border-radius-2
+                              gt-fs-16
+                              bg-change-secondary
+                              dark-shadow
+                              border-none
+                            " *ngIf="!isAuth" (click)="openLoginDialog()">
+                            Login to contact
+                          </button>
+                        </div>
+                        <div class="gt-float-100 gt-mt-20 login-connect conn-pd">
+                          <button *ngIf="
+                              releaseOffer &&
+                              isAuth &&
+                              (selectedOfferDetail?.offerType == 'Service' ||
+                                selectedOfferDetail?.quantity > 0)
+                            " type="button" class="
+                              gt-btn-primary
+                              gt-center
+                              gt-width-100
+                              gt-height-48
+                              gt-border-radius-2
+                              gt-fs-16
+                              bg-change-secondary
+                              dark-shadow
+                              border-none
+                            " (click)="suggestDeal(offerId)">
+                            <ng-container *ngIf="
+                                selectedOfferDetail?.businessOffer &&
+                                  selectedOfferDetail?.ecommerceFlow;
+                                else suggestanoffersec
+                              ">buy now
+                            </ng-container>
+                            <ng-template #suggestanoffersec>
+                              suggest an offer
+                            </ng-template>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--live banner for milestone-->
+              <!-- <div class="gt-float-100 gt-mt-20">
+                <img src="assets/images/live_c_new.png?=123" class="gt-img-responsive" />
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <app-sell-quicker></app-sell-quicker> -->
+  <div class="gt-float-100 offer-deals">
+    <ng-container *ngIf="offerId">
+      <app-offers-deals [offerId]="offerId" (navigateToDealDetails)="navigateToDealDetails($event)"
+        [offerName]="selectedOfferDetail.name" *ngIf="!isEnableSuggestDeal"
+        (checkIsOfferInitiated)="checkIsOfferInitiated($event)">
+      </app-offers-deals>
+    </ng-container>
+  </div>
+  <div class="gt-float-100 offer-bid">
+    <app-offers-bids [bids]="bids" [selectedOfferId]="selectedOfferDetail?.offerId"
+      *ngIf="selectedOfferDetail.auctioned && bids.length > 0"></app-offers-bids>
+    <app-offers-comments [offerDetail]="selectedOfferDetail"
+      *ngIf="selectedOfferDetail.offerStage !== 'Review' && isAuth">
+    </app-offers-comments>
+  </div>
+  <app-user-similar-offers [offerId]="offerId"></app-user-similar-offers>
+  <app-others-offers *ngIf="!isOfferOwner" [business]="businessInfo" [offerId]="offerId"></app-others-offers>
+  <app-potential-matches [offerId]="offerId" *ngIf="isOfferOwner && selectedOfferDetail?.exchangeMode !== 'Free'">
+  </app-potential-matches>
+</div>

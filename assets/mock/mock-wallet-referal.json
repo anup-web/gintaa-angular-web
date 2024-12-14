@@ -1,0 +1,8 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Gintaa Wallet Result",
+    "payload": {
+        "referalLink":"tests link"       
+    }
+}

@@ -1,0 +1,132 @@
+<div class="gt-float-100 gt-bg-white gt-pt-20 today-offer-wrapper od-border-top" *ngIf="otherOfferConfig.items.length && otherOfferConfig.title">
+  <div class="container">
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="gt-float-100 gt-center-between item-offer">
+            <div class="gt-float-left gt-vcenter item-offer-primary">
+              <h2 class="gt-fs-16 gt-black dcolor-secondary">
+                Listing<span *ngIf= "otherOfferConfig.items.length > 1" >s</span> from {{ otherOfferConfig.title }}
+              </h2>
+            </div>
+            <div class="gt-float-right item-offer-secondary">
+              <button
+                type="button"
+                class="gt-btn-primary gt-center gt-wh-btn dark-shadow bg-change-secondary"
+                *ngIf="otherOfferConfig?.userId && isAuth"
+                (click)="navigateToOfferList()">
+                view all
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gt-float-100 auctions-slide">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="gt-float-100 auth-math-slider">
+            <div class="carousel-pnext pre_next gt-vcenter auctions-prenext">
+              <a *ngIf="isShowPrev" class="arrow_left" (click)="owlCar.prev()"
+                ><span
+                  class="
+                    material-icons
+                    gt-center
+                    dark-shadow-import
+                    bg-change-secondary-import
+                  "
+                  >keyboard_arrow_left</span
+                ></a
+              >
+              <a *ngIf="isShowNext" class="arrow_right" (click)="owlCar.next()"
+                ><span
+                  class="
+                    material-icons
+                    gt-center
+                    dark-shadow-import
+                    bg-change-secondary-import
+                  "
+                  >keyboard_arrow_right</span
+                ></a
+              >
+            </div>
+            <owl-carousel-o
+              [options]="customOptions"
+              (translated)="getPassedData($event, otherOfferConfig?.items?.length)"
+              #owlCar
+            >
+              <ng-template
+                ngFor
+                let-i="index"
+                let-c="count"
+                let-products
+                [ngForOf]="otherOfferConfig.items"
+              >
+                <ng-template carouselSlide>
+                  <div class="single-arrivals-products gt-cursor-pointer">
+                    <div class="arrivals-products-image" >
+                      <div class="pr-image max-height-img-180" (click)="navigateToOfferDetails(products.offerId)">
+                        <img
+                          [src]="products?.images | coverImage"
+                          class="gt-img-responsive"
+                          alt="image"
+                          onError="this.src = 'assets/images/no-image.png'"
+                        />
+                      </div>
+                      <div class="arrivals-action">
+                        <div class="offer-location" ellipsis>
+                          {{ products | offerLocation }}
+                        </div>
+                        <ng-container
+                          *ngIf="
+                            !products.draftOfferId &&
+                            !products.currentUserOfferOwner &&
+                            isAuth
+                          "
+                        >
+                          <span
+                            class="material-icons fav-btn"
+                            *ngIf="!isFavorite(products)"
+                            (click)="addOfferToFavourite(products.offerId)"
+                            >favorite_border</span
+                          >
+                          <span
+                            class="material-icons fav-color-card"
+                            *ngIf="isFavorite(products)"
+                            (click)="removeOfferFromFavourite(products.offerId)"
+                            >favorite
+                          </span>
+                        </ng-container>
+                      </div>
+                    </div>
+                    <div class="arrivals-products-content product-content-pd">
+                      <div class="offer-name-primary gt-ellipsis" ellipsis>
+                        {{ products.name| trimTextToCertainNumberCharector: 20 }}
+                      </div>
+                      <div class="pr-desire">
+                        <img
+                          src="assets/images/home/desire-icon.svg"
+                          class="desire-img"
+                          alt="image"
+                        />
+                        <div class="offer-desire-primary gt-ellipsis" ellipsis>
+                        <h5>{{ products | offerDesire }}</h5>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template>
+              </ng-template>
+
+              <ng-template carouselSlide *ngFor="let item of staticBanners;">
+                <a href="javascript:;" >
+                  <img  src="{{item.image}}" class="last-view-image" alt="image">
+                </a>
+              </ng-template>
+            </owl-carousel-o>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

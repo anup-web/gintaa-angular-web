@@ -1,0 +1,524 @@
+.footer-bg{ background-color: rgba(0, 0, 0, 0.7); }
+
+ul.ft-menu-list li{
+   float: left;
+   width: 100%;
+   margin-bottom: 10px;
+}
+
+ul.ft-menu-list li a{
+    font-family: $gt-font-poppins;
+    font-style: normal;
+    font-weight: 400;
+    font-size: $gt-fs-13;
+    color: #ffffff;
+   
+}
+
+.ft-title-color{ color: #121212; }
+
+.gt-width-33{ width: 33%; height: 212px;}
+
+.gt-pd-tb-48{ padding-top: 48px; padding-bottom: 48px; }
+
+.cy-color{ color: #121212; }
+
+ul.gt-social-ft li{ margin-left: 16px; }
+ul.gt-social-ft li img{ cursor: pointer; }
+
+
+
+.term-pd{
+    padding: 19px 24px 19px 19px;
+    height: 64px;
+}
+
+.swt-link{
+    -webkit-text-decoration: 2px underline $gt-primary;
+    text-decoration: 2px underline $gt-primary;    
+    text-underline-position: under;   
+}
+
+
+#main {
+    margin: 50px 0;
+  }
+  
+  #main #faq .card {
+    margin-bottom: 30px;
+    border: 0;
+  }
+  
+  #main #faq .card .card-header {
+    border: 0;
+    -webkit-box-shadow: 0 0 20px 0 rgba(213, 213, 213, 0.5);
+            box-shadow: 0 0 20px 0 rgba(213, 213, 213, 0.5);
+    border-radius: 2px;
+    padding: 0;
+  }
+  
+  #main #faq .card .card-header .btn-header-link {
+    color: #fff;
+    display: block;
+    text-align: left;
+    background: #ffffff;
+    color: #222;
+    padding: 20px;
+  }
+  
+
+  
+  #main #faq .card .card-header .btn-header-link.collapsed {
+    background: #F6F8FC;
+    color: #fff;
+  }
+  
+ 
+  
+  #main #faq .card .collapsing {
+    background: #ffffff;
+    line-height: 30px;
+  }
+  
+  #main #faq .card .collapse {
+    border: 0;
+  }
+  
+  #main #faq .card .collapse.show {
+    background: #fff;
+    line-height: 30px;
+    color: #222;
+  }
+
+
+
+
+  #mains {
+    margin: 50px 0;
+  }
+  
+  #mains #faqs .card {
+    margin-bottom: 30px;
+    border: 0;
+  }
+  
+  #mains #faqs .card .card-header {
+    border: 0;
+    -webkit-box-shadow: 0 0 20px 0 rgba(213, 213, 213, 0.5);
+            box-shadow: 0 0 20px 0 rgba(213, 213, 213, 0.5);
+    border-radius: 2px;
+    padding: 0;
+  }
+  
+  #mains #faqs .card .card-header .btn-header-link {
+    color: #fff;
+    display: block;
+    text-align: left;
+    background: #ffffff;
+    color: #222;
+    padding: 20px;
+  }
+  
+ 
+  
+  #mains #faqs .card .card-header .btn-header-link.collapsed {
+    background: #A541BB;
+    color: #fff;
+  }
+  
+  
+  
+  #mains #faqs .card .collapsing {
+    background: #ffffff;
+    line-height: 30px;
+  }
+  
+  #mains #faqs .card .collapse {
+    border: 0;
+  }
+  
+  #mains #faqs .card .collapse.show {
+    background: #ffffff;
+    line-height: 30px;
+    color: #222;
+  }
+
+  .scroll-top{
+    background: transparent;   
+    box-shadow: 0px 8px 32px rgba(144, 151, 172, 0.24);
+    -webkit-box-shadow: 0px 8px 32px rgba(144, 151, 172, 0.24);
+    -moz-box-shadow: 0px 8px 32px rgba(144, 151, 172, 0.24);
+    width: 30px;
+    height: 30px;
+    position: fixed;
+    right: 15px;
+    bottom: 11px;
+    z-index: 99;
+    cursor: pointer;
+    span{
+        color: #01c8ff;
+    }
+  }
+
+  .scroll-top:hover{
+     background-color: #8bc63e;
+     border: 1px solid #8bc63e;
+     span{
+         color: #ffffff;
+     }
+  }
+
+  .scroll-top:hover span svg path{
+    color: #fff;   
+    stroke: #fff !important;
+
+  }
+  /*---------------------css added by Abhaya---------------------------*/
+
+  .faq-accordian .accordion .card .card-header .btn-header-link.collapsed{
+
+    background: #F6F8FC !important;
+    color: #4B6E82 !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;  
+
+  }
+
+  .faq-accordian .accordion .card .card-header{
+
+    box-shadow: none !important;
+
+  }
+  .faq-accordian #main #faq .card{
+    border-radius: 0 !important;
+  }
+
+
+  .faq-accordian .card .collapse.show {
+    background: #ffffff;
+    line-height: 30px;
+    color: #222;
+}
+.faq-accordian .collapse.show {
+  background: #fff !important;
+  line-height: 30px;
+  color: #222;
+}
+
+.faq-accordian .accordion .card .card-header .btn-header-link{
+
+  background: #fff !important;
+  font-weight: 500 !important;
+  color:#4B6E82 !important;
+  font-size: 15px !important;
+
+}
+
+.faq-accordian .accordion .card .card-header .btn-header-link:after {
+
+  content: '';
+  background: url('../assets/images/down-arrow-faq.svg') !important;
+  width: 13px;
+  height: 8px;
+  background-repeat: no-repeat !important;
+  position: absolute;
+  right: 30px;
+  top:26px;
+  transition: all 0.2s ease-in-out 0s;
+  
+}
+
+.faq-accordian .accordion .card .card-header .btn-header-link{
+  position: relative;
+  padding: 20px 30px 20px 32px !important;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.faq-accordian h1{
+
+  margin-bottom: 15px;
+
+}
+
+.faq-accordian .accordion .card .card-header .btn-header-link:not(.collapsed):after{
+  transform: rotate(-180deg);
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.faq-accordian .accordion .card{
+
+  margin-bottom: 5px !important;
+
+}
+.faq-accordian .accordion .card .card-body{
+  padding: 0px 30px 20px 30px !important;
+}
+
+
+.trade-mark{
+    position: absolute;
+    top: 5px;
+    right: -18px;
+    h6{
+      color: #b2b2b2;
+  border: 1px solid #b2b2b2;
+  border-radius: 100%;
+  width: 13px;
+  height: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 9px;
+  padding-top: 1px;
+    }
+}
+
+
+// policy :start
+.footerh-page-bg{
+  background-color: rgba(0,0,0,0.5);
+  height: 60px;
+  padding: 10px 0px;
+}
+.gintaa-privacy-poliy p, .gintaa-privacy-policy p {
+  font-size: 14px;
+  padding-bottom: 25px;
+  line-height: 25px;
+  float: left;
+  width: 100%;
+}
+
+.gintaa-privacy-poliy h3, .gintaa-privacy-policy h3 {
+  font-size: 22px;
+  padding-bottom: 15px;
+  float: left;
+  width: 100%;
+}
+
+.gintaa-privacy-poliy h4, .gintaa-privacy-policy h4 {
+  font-size: 18px;
+  padding-bottom: 15px;
+  float: left;
+  width: 100%;
+}
+
+.gintaa-privacy-policy ul {
+  padding-bottom: 15px;
+  line-height: 25px;
+  float: left;
+  width: 100%;
+}
+
+.gintaa-privacy-policy ul li {
+  padding-bottom: 8px;
+  font-size: 14px;
+  padding-left: 25px;
+  position: relative;  
+  float: left;
+  width: 100%;
+}
+
+.gintaa-privacy-policy ul li:before {
+  content: "\f00c";
+  position: absolute;
+  left: 0;
+  font-size: 14px;
+  top: 2px;
+  font-family: 'FontAwesome';
+}
+
+.gintaa-privacy-policy a {
+  color: #003dc6;
+}
+
+
+.contacth{
+  color: #cfcfcf;;
+}
+
+.hfty-rd{
+  color: #4B6E82!important;
+}
+
+.contact-gh ul li{
+   padding-left: 10px;
+}
+
+.contact-gh ul li:before{
+  display: none;
+}
+
+.hrue-uk{
+  position: relative;
+}
+
+.fm-color{
+  color: #ffffff;
+  opacity: 0.8;  
+}
+
+.section-1{ width: 11%; }
+.section-2{ width: 11%; }
+.section-3{ width: 13%; }
+.section-4{ width: 22%; }
+.section-5{ width: 22%; }
+.section-6{ width: 21%; }
+
+.fadd-color{
+  color: #ffffff;
+  opacity: 0.8;
+  line-height: 20px;
+    margin-top: -3px;
+}
+
+.add-section .icon-popular-loc:before { 
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+.vh-color{
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+.vhh-color{
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+.hs-support .icon-user-tie:before {
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+.hs-support .icon-support_agent:before {
+  color: #ffffff;
+  opacity: 0.8;
+}
+.hs-support .icon-mail_outline:before {
+  color: #ffffff;
+  opacity: 0.8;
+}
+.fbottom{ border-top: 1px solid #6a6a6a; }
+
+.ft-social-icon{ padding-right: 40px;}
+.ft-menu-list a:hover{
+  color: #48CEF3;
+}
+.gintaa_description p {
+  font-size: 14px;
+  line-height: 24px;
+  padding-bottom: 25px;
+  color: rgba(0, 0, 0, 0.7);
+}
+.gintaa_description ul li {
+  font-size: 14px;
+  line-height: 24px;
+  padding-bottom: 10px;
+  color: rgba(0, 0, 0, 0.7);
+
+}
+.points li {
+  padding-left: 40px;
+  position: relative;
+}
+.points li:before{
+  content: '';
+  background:url(../assets/images/home/tick_about_us.svg) left top no-repeat;
+  position: absolute;
+  left: 0;
+  top:5px;
+  width: 18px;
+  height: 13px;
+}
+.font-bold {
+  font-weight: 600;
+}
+#faq.accordion .card-body {
+  font-size: 14px ;
+  color: rgba(0,0,0,0.7);
+
+}
+/* css for business terms policy*/
+.business-terms-list li {
+  font-size: 14px;
+  color: rgba(0,0,0,0.6);
+  padding: 10px 0;
+  line-height: 24px;
+}
+.business-terms-list ol li{
+  list-style: lower-roman !important;
+  margin-left: 25px;
+  padding-left: 20px;
+}
+.business-terms-list ol li ol li{
+  list-style:lower-alpha !important;
+
+}
+.business-terms-list{
+  margin-bottom: 20px;
+}
+.hs-support .icon-voicemail:before {
+  color: #ffffff;
+  opacity: 0.8;
+}
+.hs-support .icon-voicemail{
+  font-family: "icomoon" !important;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+.hs-support a {
+  color: rgba(255,255,255,0.8);
+}
+.overlay_press{
+  // background: linear-gradient(
+  //   0deg,rgba(0,0,0,.95),transparent 50%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0;
+}
+.black-bg {
+  background: rgba(0,0,0,0.6);
+  
+  padding: 40px;
+}
+.press_release_banner_text{
+  bottom: -65px;
+  
+}
+.press_head{
+  font-size: 30px;
+  color: rgba(255,255,255,1);
+  font-family: 'Poppins', sans-serif;
+  line-height: 50px;
+}
+.date{
+  font-size: 18px;
+  color: rgba(255,255,255,0.8);
+  font-family: 'Poppins', sans-serif !important; 
+  padding-bottom: 15px;
+}
+.date span{
+  font-size: 14px !important;
+}
+.press_description p {
+  padding-bottom: 25px;
+  font-family: 'Poppins', sans-serif !important; 
+  font-size: 14px !important;
+  line-height: 24px !important;
+}
+
+.press-release_banner .carousel-indicators{
+
+  width:50px !important;
+  right: 0;
+  left: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+}

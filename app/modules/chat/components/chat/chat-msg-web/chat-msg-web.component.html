@@ -1,0 +1,36 @@
+<!-- <app-spinner *ngIf="chatService.anyFileUploading" timeOut="7000"></app-spinner> -->
+<!-- <app-loading-spinner loaderType="drops-fading" [fullPage]="true" [loader]="chatService.anyFileUploading" addBackDrop="true" backDropColor="#fff"></app-loading-spinner> -->
+
+<div class="chat-wrapper-bg gt-pt-20 gt-pb-110 bg-change">
+    <div class="container">
+
+        <div class="gt-float-100">
+            <div class="user-profile-wrapper">
+                <div class="gt-float-100">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="gt-float-100">
+
+                                <app-bread-crumb *ngIf="breadcrumb.length" [breadcrumbs]="breadcrumb">
+                                </app-bread-crumb>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gt-float-100 gt-mt-15">
+            <div class="user-profile-wrapper">
+
+                <div class="gt-float-100 chat-wrapper bg-change">
+                    <app-chat-msg></app-chat-msg>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

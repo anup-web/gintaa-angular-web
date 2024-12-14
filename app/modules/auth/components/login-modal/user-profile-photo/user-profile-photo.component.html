@@ -1,0 +1,80 @@
+<div class="login-right-wrapper gt-float-100 gt-pr-25 gt-mt-30 gt-mb-30 profile-phone-rp">
+  <form (ngSubmit)="saveEmailOrPhone()">
+
+    <div class="gt-float-100 gt-mt-30 pae-rp">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="password-for gt-float-100 gt-pd-lr-40 gt-mb-20 pmc-rp yrt-iop">
+            <div class="enter-password-title">
+              <h2 class="gt-fs-14 gt-lightgrayish gt-center gt-text-center dcolor-primary">
+                   Please upload your photo or press next to use this default picture
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" *ngIf="error">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 jc-center">
+          <div class="gt-text-danger">
+            <div class="error"> {{error}} </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-center gt-mt-25 profile-loader-content">
+            <div class="usersh-boxs user-bg user-box-border gt-position-relative user-login-photo user-initials jc-center" >
+              <div class="online-delete" *ngIf="picture">
+                <button type="button" class="gt-btn-primary edit-delete-btn eide-btn dark-shadow bg-change" (click)="removeProfileImage()">
+                  <img src="assets/images/profile/profile-photo-delete.svg" class="pro-res" alt="image"
+                    width="12" height="14" />
+                </button>
+              </div>
+              <div class="online-edit">
+                <input type="file" #fileUpload id="profile-photo" name="fileUpload" accept="image/*" style="display: none" />
+                <div class="image-preview mb-3" *ngIf="previewUrl">
+                  <img [src]="previewUrl" alt="Profile Image" height="300" />
+                </div>
+              </div>
+
+              <div class="profile-loader" *ngIf="isImgLoading else profileImage">
+                <app-loading-spinner loaderType="drops-fading" [fullPage]="true" [loader]="isImgLoading"
+                    addBackDrop="true" backDropColor="#fff"></app-loading-spinner>
+                
+                <ngx-avatar [name]="name" size="100" bgColor="#8BC63E" *ngIf="!picture">
+                </ngx-avatar>
+              </div>
+              <ng-template #profileImage>
+                <img [src]="picture" class="comh-res" [alt]="name" width="150" height="150" *ngIf="picture else avatarSec2" />
+                <ng-template #avatarSec2>
+                    <img [src]="userNoImage" class="com-res" [alt]="name" width="50" height="50" />
+                </ng-template>
+              </ng-template>
+            </div>
+          </div>
+
+          <div class="gt-float-100 gt-mt-30">
+            <button type="button" class="gt-btn-primary gt-btn-outline gt-center gt-border-radius-2 gt-height-48 uphot-user" (click)="onSubmit()">
+              <img src="assets/images/ul-upload.svg" class="prod-res" alt="image" width="17"
+                height="17" />
+                <h2 class="gt-fs-14 gt-text-medium gt-sky gt-ml-12">Upload photo</h2>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-30 pho-next">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <button class="gt-btn-primary gt-width-100 gt-btn-shadow gt-border-radius-2 upn-rp bg-change-secondary-import dark-shadow-import border-none-import" [disabled]="isdisabled">
+            next
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

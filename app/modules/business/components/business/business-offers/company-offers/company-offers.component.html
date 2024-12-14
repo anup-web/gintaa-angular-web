@@ -1,0 +1,121 @@
+<div class="gt-float-100 gt-mt-40" *ngIf="offers.length" @fadeIn>
+  <div class="row">
+    <div
+      class="col-xl-4 col-lg-4 col-md-6 col-sm-6 co-xs-12"
+      *ngFor="let offer of offers"
+    >
+      <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+        <div class="arrivals-products-image">
+          <div class="pr-image max-height-img-194">
+            <img
+              [src]="offer?.images | coverImage"
+              [alt]="offer.name"
+              class="gt-img-responsive"
+              (click)="navigateToOffer(offer)"
+              onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'"
+            />
+            <div class="color-overlay"></div>
+            <div class="offer-lcounts compare-count">
+              <div class="gt-vcenter tag-offer">
+                <img
+                  src="assets/images/create-offer/lcompare.svg"
+                  alt="image"
+                  class="tag-imgoff"
+                />
+                <span>00</span>
+              </div>
+            </div>
+          </div>
+          <div class="arrivals-action">
+            <div class="offer-location" *ngIf="offer.location">
+              {{ offer | offerLocation }}
+            </div>
+            <ng-container *ngIf="!offer.draftOfferId">
+              <span
+                class="material-icons fav-btn"
+                *ngIf="!isFavorite(offer) && allowOfferFavorite"
+                (click)="addOfferToFavourite(offer.offerId)"
+                >favorite_border</span
+              >
+              <span
+                class="material-icons fav-color-card"
+                *ngIf="isFavorite(offer) && allowOfferUnfavorite"
+                (click)="removeOfferFromFavourite(offer.offerId)"
+                >favorite
+              </span>
+            </ng-container>
+          </div>
+        </div>
+
+        <div class="arrivals-products-content product-content-pd loffer-pd">
+          
+          <div class="offer-name-primary gt-ellipsis" ellipsis>
+            {{ offer.name }}
+          </div>
+          <div
+            class="pr-desire"
+          >
+            <img
+              src="assets/images/home/desire-icon.svg"
+              class="desire-img"
+              alt="image"
+            />
+            <div class="offer-desire-primary">{{ offer | offerDesire }}</div>
+          </div>
+          <ng-template #showOfferDesire>
+            <div class="pr-desire" *ngIf="!offer.auctioned && offer.desire">
+              <img
+                src="assets/images/home/desire-icon.svg"
+                class="desire-img"
+                alt="image"
+              />
+              <div class="offer-desire-primary gt-ellipsis" ellipsis>
+                {{ offer | offerDesire }}
+              </div>
+            </div>
+            <div class="pr-desire" *ngIf="offer.auctioned">
+              <img
+                src="assets/images/create-offer/auction-od.svg"
+                class="desire-img"
+                alt="image"
+              />
+              <div
+                class="offer-desire-primary gt-ellipsis"
+                ellipsis
+                *ngIf="offer.desire"
+              >
+                Auction
+              </div>
+            </div>
+          </ng-template>
+
+          <!-- <div
+            class="
+              gt-float-100 gt-center-between gt-mt-10 gt-pt-8 
+              loffer-member
+            "
+          >
+            <div class="gt-vcenter">
+              <div class="name-loff">
+                <img
+                  [src]="offer.user.imageUrl"
+                  class="image-width-30 border-radius-100"
+                  [alt]="offer.user.name"
+                  onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'"
+                />
+              </div>
+              <div class="gt-ml-12">
+                <h2 class="gt-fs-13 gt-text-medium gt-lightblack">
+                  {{ offer.user.name }}
+                </h2>
+              </div>
+            </div>
+
+           
+            
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

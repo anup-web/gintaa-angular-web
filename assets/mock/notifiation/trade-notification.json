@@ -1,0 +1,279 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Trade-Notification successfully fetched",
+    "payload": [
+        {
+            "tabId": "8bba33b3-7341-4f01-9884-8bd84eb04343",
+            "tabName": "Deals",
+            "eventList": [
+                {
+                    "eventId": "8bba33b3-7341-4f01-9884",
+                    "eventName": "Deal’s state has changed",
+                    "activeStatus": true,
+                    "options": [
+                        {
+                            "optionId": "8bba33b3-7341-4f01",
+                            "optionName":"Push-notification",
+                            "activeStatus": true
+                        },
+                        {
+                            "optionId": "8bba33b3-7341-4f02",
+                            "optionName":"E-mail",
+                            "activeStatus": false
+                        },
+                        {
+                            "optionId": "8bba33b3-7341-4f03",
+                            "optionName":"SMS",
+                            "activeStatus": true
+                        }
+                    ]
+                },
+                {
+                    "eventId": "8bba33b3-7341-4f01-9888",
+                    "eventName": "You’ve got feedback",
+                    "activeStatus": false,
+                    "options": [
+                        {
+                            "optionId": "8bba33b3-7341-4f05",
+                            "optionName":"Push-notification",
+                            "activeStatus": false
+                        },
+                        {
+                            "optionId": "8bba33b3-7341-4f06",
+                            "optionName":"E-mail",
+                            "activeStatus": false
+                        },
+                        {
+                            "optionId": "8bba33b3-7341-4f07",
+                            "optionName":"SMS",
+                            "activeStatus": false
+                        }
+                    ]
+                },
+                {
+                    "eventId": "8bba33b3-7341-4f01-9889",
+                    "eventName": "New deal suggestion",
+                    "activeStatus": true,
+                    "options": [
+                        {
+                            "optionId": "8bba33b3-7341-4f11",
+                            "optionName":"Push-notification",
+                            "activeStatus": false
+                        },
+                        {
+                            "optionId": "8bba33b3-7341-4f12",
+                            "optionName":"E-mail",
+                            "activeStatus": true
+                        },
+                        {
+                            "optionId": "8bba33b3-7341-4f13",
+                            "optionName":"SMS",
+                            "activeStatus": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tabId": "c683e12c-1fa1-486a-91ca-f7efc1e61790",
+            "tabName": "Offers",
+            "eventList": [
+                {
+                    "eventId": "c683e12c-1fa1-486a-91ca",
+                    "eventName": "Your offer has been approved",
+                    "activeStatus": true,
+                    "options": [
+                        {
+                            "optionId": "c683e12c-1fa1-486a",
+                            "optionName":"Push-notification",
+                            "activeStatus": true
+                        },
+                        {
+                            "optionId": "c683e12c-1fa1-486b",
+                            "optionName":"E-mail",
+                            "activeStatus": false
+                        },
+                        {
+                            "optionId": "c683e12c-1fa1-486c",
+                            "optionName":"SMS",
+                            "activeStatus": true
+                        }
+                    ]
+                },
+                {
+                    "eventId": "c683e12c-1fa1-486a-91cb",
+                    "eventName": "Your offer has been rejected",
+                    "activeStatus": false,
+                    "options": [
+                        {
+                            "optionId": "c683e12c-1fa1-486e",
+                            "optionName":"Push-notification",
+                            "activeStatus": false
+                        },
+                        {
+                            "optionId": "c683e12c-1fa1-486f",
+                            "optionName":"E-mail",
+                            "activeStatus": false
+                        },
+                        {
+                            "optionId": "c683e12c-1fa1-486g",
+                            "optionName":"SMS",
+                            "activeStatus": false
+                        }
+                    ]
+                },
+                {
+                    "eventId": "c683e12c-1fa1-486a-91cc",
+                    "eventName": "You’ve got bid",
+                    "activeStatus": true,
+                    "options": [
+                        {
+                            "optionId": "c683e12c-1fa1-486r",
+                            "optionName":"Push-notification",
+                            "activeStatus": false
+                        },
+                        {
+                            "optionId": "c683e12c-1fa1-486s",
+                            "optionName":"E-mail",
+                            "activeStatus": false
+                        },
+                        {
+                            "optionId": "c683e12c-1fa1-486t",
+                            "optionName":"SMS",
+                            "activeStatus": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tabId": "f8721c48-6c06-42f7-a2f3-68afdf9eb0c7",
+            "tabName": "Messages",
+            "eventList": [
+                {
+                    "eventId": "f8721c48-6c06-42f7-a2f3",
+                    "eventName": "You have new message",
+                    "activeStatus": true,
+                    "options": [
+                        {
+                            "optionId": "f8721c48-6c06-42f7",
+                            "optionName":"Push-notification",
+                            "activeStatus": true
+                        },
+                        {
+                            "optionId": "f8721c48-6c06-42f8",
+                            "optionName":"E-mail",
+                            "activeStatus": false
+                        },
+                        {
+                            "optionId": "f8721c48-6c06-42f9",
+                            "optionName":"SMS",
+                            "activeStatus": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tabId": "59e0fc17-cd8c-4fbd-998e-1293eaa28d28",
+            "tabName": "Matching",
+            "eventList": [
+                {
+                    "eventId": "59e0fc17-cd8c-4fbd-998e",
+                    "eventName": "There is new match for your offer",
+                    "activeStatus": true,
+                    "options": [
+                        {
+                            "optionId": "59e0fc17-cd8c-4fbd",
+                            "optionName":"Push-notification",
+                            "activeStatus": true
+                        },
+                        {
+                            "optionId": "59e0fc17-cd8c-4fbe",
+                            "optionName":"E-mail",
+                            "activeStatus": false
+                        },
+                        {
+                            "optionId": "59e0fc17-cd8c-4fbf",
+                            "optionName":"SMS",
+                            "activeStatus": true
+                        }
+                    ]
+                },
+                {
+                    "eventId": "59e0fc17-cd8c-4fbd-998f",
+                    "eventName": "There is a new offer associated with your wishlist",
+                    "activeStatus": true,
+                    "options": [
+                        {
+                            "optionId": "59e0fc17-cd8c-4fbm",
+                            "optionName":"Push-notification",
+                            "activeStatus": true
+                        },
+                        {
+                            "optionId": "59e0fc17-cd8c-4fbn",
+                            "optionName":"E-mail",
+                            "activeStatus": false
+                        },
+                        {
+                            "optionId": "59e0fc17-cd8c-4fbo",
+                            "optionName":"SMS",
+                            "activeStatus": true
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "tabId": "2e12f56a-50d1-461b-b288-08d941b262b5",
+            "tabName": "Comments",
+            "eventList": [
+                {
+                    "eventId": "2e12f56a-50d1-461b-b288",
+                    "eventName": "Your offer has got a comment",
+                    "activeStatus": true,
+                    "options": [
+                        {
+                            "optionId": "2e12f56a-50d1-461b",
+                            "optionName":"Push-notification",
+                            "activeStatus": true
+                        },
+                        {
+                            "optionId": "2e12f56a-50d1-461c",
+                            "optionName":"E-mail",
+                            "activeStatus": false
+                        },
+                        {
+                            "optionId": "2e12f56a-50d1-461d",
+                            "optionName":"SMS",
+                            "activeStatus": true
+                        }
+                    ]
+                },
+                {
+                    "eventId": "2e12f56a-50d1-461b-b289",
+                    "eventName": "You have reply to comment",
+                    "activeStatus": true,
+                    "options": [
+                        {
+                            "optionId": "2e12f56a-50d1-461u",
+                            "optionName":"Push-notification",
+                            "activeStatus": true
+                        },
+                        {
+                            "optionId": "2e12f56a-50d1-461v",
+                            "optionName":"E-mail",
+                            "activeStatus": true
+                        },
+                        {
+                            "optionId": "2e12f56a-50d1-461w",
+                            "optionName":"SMS",
+                            "activeStatus": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

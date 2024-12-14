@@ -1,0 +1,69 @@
+<div class="gt-pd-lr-16 close-deal-popup gt-pb-15 close-deal-scroll bg-change">
+    <div class="popup-closed close-pop"><span class="material-icons" (click)="close()">close</span></div>
+    <div class="gt-float-100">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 gt-center gt-text-center gt-mt-11">
+                    <h2 class="gt-fs-16 gt-lightgrayish dcolor-primary">Close offer code</h2>
+                </div>
+                <div class="gt-float-100 gt-center gt-text-center gt-mt-20">
+                    <h2 class="gt-fs-20 gt-text-medium gt-lightgrayish dcolor-primary"
+                        *ngIf="otpPayload && otpPayload?.otp && showOtp">
+                        {{otpPayload.otp}}
+                    </h2>
+                </div>
+            
+                <div class="gt-float-100 gt-display-flex gt-mt-24 gt-mb-18 gt-pd-lr-24" *ngIf="errorMessage">                   
+                    <div class="gt-text-danger">
+                        <h1 class="error gt-fs-18">{{ errorMessage }}</h1>
+                    </div>
+                </div>
+               <!--  <div class="gt-float-100 gt-display-flex gt-mt-24 gt-pd-lr-24" *ngIf="successMessage">                   
+                    <div class="gt-text-success">
+                        <h2 class="success gt-fs-18">{{ successMessage }}</h2>
+                    </div>
+                </div> -->
+
+            <div class="gt-float-100 gt-center gt-mt-25">
+                <img src="assets/images/deal/rafiki.svg" class="image-arrow ghy-pr" alt="img-opt" />
+            </div>    
+
+            <div class="gt-float-100 gt-center gt-text-center gt-mt-20">
+                <h3 class="gt-fs-14 gt-lightgrayish dcolor-primary">Ask your partner to enter the above code in close offer screen</h3>
+            </div>
+
+            <div class="gt-float-100 gt-mt-20 " *ngIf="closeStep=='optpopup'">
+                <div class="enter-otp-title gt-center gt-float-100 gt-pb-15">
+                    <h2 class="gt-fs-14 gt-lightblack gt-text-center dcolor-primary"> Enter your partner’s code below
+                    </h2>
+                </div>
+
+                <div class="gt-float-100 userh-otp-wrapper">
+                <div class="otp_box">
+                    <ng-otp-input #ngOtpInput (onInputChange)="onOtpChange($event)" [config]="config"
+                        (keyup)="onKeyupEvent($event)" (paste)="onPasteOtp($event)">
+                    </ng-otp-input>
+                </div>
+            </div>
+            </div>
+
+            <!-- <div class="gt-float-100 gt-center gt-text-center gt-mt-18">
+                <h2 class="gt-fs-14 gt-lightgrayish gt-cursor-pointer dcolor-primary">Got questions? Call us at or <span class="gt-primary">visit</span>
+                    our help center</h2>
+            </div> -->
+
+        </div>
+        </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-20" *ngIf="closeStep=='optpopup'">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-center gt-width-100 deal-haccepts preview-deal rpre-rp bg-change">
+                    <button type="submit" class="gt-btn-primary gt-center deal-accepth-btn gt-height-48 gt-width-100 bg-change-secondary dark-shadow border-none"
+                        (click)="closeDeal()">verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

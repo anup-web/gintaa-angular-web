@@ -1,0 +1,147 @@
+<div class="gt-pb-24 choose-offer-popup wishlist-edit-pop bg-change">
+    <div mat-dialog-close class="popup-closed offre-filter-pop"><span class="material-icons">close</span></div>
+
+
+
+    <div class="gt-float-100 gt-mt-24 gt-pd-lr-24">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 sel-partner">
+                  <h1 class="gt-fs-18 gt-lightblack gt-text-medium dcolor-primary">Edit wish</h1> 
+                </div>               
+            </div>
+        </div>
+    </div>
+    
+   
+
+    <div class="gt-float-100 gt-mt-32 gt-pd-lr-24">
+      <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="gt-float-100">
+                  <div class="gt-float-left match-box-search wish-list-rp">
+                      <div class="match-search-input">
+                          <div class="gt-form-primary">
+                              <input 
+                                [(ngModel)] = "searchKeyword"
+                                type="text"
+                                class="gt-form-control gt-border-none gt-border-radius-12 match-box-shadow gt-pd-tb-12 dshadow-none"
+                                placeholder="Start type to add wish" />
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+<div class="gt-float-100 gt-mt-32 gt-pd-lr-24">
+    <app-search-tag-list  *ngIf="searchKeyword.trim().length > 2" [search_key]="searchKeyword" (selectedCustomTag)="selectedCustomTags($event)"></app-search-tag-list>
+</div>
+  <!-- <div class="gt-float-100 gt-mt-32 gt-pd-lr-24">
+      <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="gt-float-100">
+                  <h1 class="gt-fs-21 gt-lightblack gt-text-medium tag-title">
+                      Tags
+                  </h1>
+              </div>
+              <div class="gt-float-100 gt-mt-16">
+                  <h2 class="gt-fs-16 gt-text-semi-bold tag-sub-color tag-seltitle">
+                      Selected
+                  </h2>
+              </div>
+              <div class="gt-float-100 gt-mt-12 selected-chips">
+                  <div class="gt-float-left chips-selected">
+                      <mat-chip-list aria-label="Fish selection">
+                          <mat-chip>One fish
+                              <mat-icon matChipRemove>cancel</mat-icon>
+                          </mat-chip>
+                          <mat-chip>One fish
+                              <mat-icon matChipRemove>cancel</mat-icon>
+                          </mat-chip>
+                          <mat-chip>One fish
+                              <mat-icon matChipRemove>cancel</mat-icon>
+                          </mat-chip>
+                          <mat-chip>One fish
+                              <mat-icon matChipRemove>cancel</mat-icon>
+                          </mat-chip>
+                          <mat-chip>One fish
+                              <mat-icon matChipRemove>cancel</mat-icon>
+                          </mat-chip>
+                          <mat-chip>One fish
+                              <mat-icon matChipRemove>cancel</mat-icon>
+                          </mat-chip>
+                          <mat-chip>One fish
+                              <mat-icon matChipRemove>cancel</mat-icon>
+                          </mat-chip>
+                          <mat-chip>One fish
+                              <mat-icon matChipRemove>cancel</mat-icon>
+                          </mat-chip>
+                          <mat-chip>One fish
+                              <mat-icon matChipRemove>cancel</mat-icon>
+                          </mat-chip>
+                          <mat-chip>One fish
+                              <mat-icon matChipRemove>cancel</mat-icon>
+                          </mat-chip>
+                          <mat-chip>One fish
+                              <mat-icon matChipRemove>cancel</mat-icon>
+                          </mat-chip>
+                          <mat-chip>One fish
+                              <mat-icon matChipRemove>cancel</mat-icon>
+                          </mat-chip>                          
+                      </mat-chip-list>
+                  </div>
+              </div>
+
+              <div class="gt-float-100 gt-mt-27">
+                  <h3 class="gt-fs-16 gt-text-semi-bold tag-sub-color tag-seltitle">
+                      Suggested
+                  </h3>
+              </div>
+
+              <div class="gt-float-left gt-mt-12 chips-Suggested">
+                  <mat-chip-list aria-label="Fish selection">
+                      <mat-chip>One fish</mat-chip>
+                      <mat-chip>One fish</mat-chip>
+                      <mat-chip>One fish</mat-chip>
+                      <mat-chip>One fish</mat-chip>
+                  </mat-chip-list>
+              </div>
+          </div>
+      </div>
+  </div> -->
+
+  
+
+  <!-- <div class="gt-float-100 gt-mt-50 gt-pd-lr-24">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="gt-float-100">
+                <h6 class="gt-fs-21 gt-text-medium gt-lightblack">9 Relative Offers </h6>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+  <div class="gt-float-100 gt-pd-lr-24">
+    <app-wishlist-offers *ngIf="searchKeyword.trim().length > 2" [search_key]="searchKeyword"></app-wishlist-offers>
+  </div>
+
+
+    <div class="gt-float-100 gt-pd-lr-24">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 gt-center-between remove-save">
+                 <div class="gt-float-100 remove-wish">
+                    <h3 class="gt-fs-16 gt-text-medium">Remove Wish</h3>
+               </div> 
+                <div class="gt-float-100">
+                    <button [mat-dialog-close]="true" class="gt-btn-primary gt-width-344 gt-center gt-btn-shadow gt-fs-18 gt-text-medium gt-float-right edwh-save dshadow-none dark-shadow bg-change-secondary border-none">Save</button>
+                </div>  
+                </div>             
+            </div>
+        </div>
+    </div>
+
+</div>

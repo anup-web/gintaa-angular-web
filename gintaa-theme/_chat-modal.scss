@@ -1,0 +1,232 @@
+.bottom-chat-wrapper{
+    width: 375px;
+    height: 40px;
+    position: fixed;
+    bottom: 0;
+    right: 40px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 32px rgba(138, 145, 166, 0.24);
+    -webkit-box-shadow: 0px 8px 32px rgba(138, 145, 166, 0.24);
+    -moz-box-shadow: 0px 8px 32px rgba(138, 145, 166, 0.24); 
+    border-radius: 12px 12px 0px 0px;  
+    -webkit-border-radius: 12px 12px 0px 0px; 
+    -moz-border-radius: 12px 12px 0px 0px; 
+    padding: 0px 20px 0px 27px;
+    z-index: 999; 
+}
+
+
+.chat-active-msg {
+    background: #EE2A7B;
+    color: #ffffff;
+    font-size: 13px !important;
+    border: 4px solid #efb7ce;
+}
+
+.cbottom-top{
+    padding: 0px 10px 0px 16px;
+    height: 40px;
+}
+
+.cbottom-primary{
+    border-radius: 12px 12px 0px 0px;  
+    -webkit-border-radius: 12px 12px 0px 0px; 
+    -moz-border-radius: 12px 12px 0px 0px;
+}
+
+
+.modal.modal-bottom .modal-dialog {
+  -webkit-transform: translate3d(0%, 0, 0);
+  -ms-transform: translate3d(0%, 0, 0);
+  -o-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+}
+
+.modal.modal-right.fade.show .modal-dialog {
+  right: 0;
+}
+
+
+.modal.modal-bottom .modal-content{  
+  border: none;
+}
+
+
+.modal.modal-bottom .modal-dialog {
+    position: fixed;
+    margin: auto;
+    width: 375px;
+    max-width: 100%;   
+    height: 80vh;
+    right: 40px;
+    z-index: 9999;
+}
+
+
+.modal.modal-bottom .modal-content { 
+  height: 80vh;  
+}
+
+
+.modal.modal-bottom .modal-body {
+  padding: 0px;
+  background-color: #F6F8FC;
+}
+
+.modal.modal-bottom.fade .modal-dialog {
+  bottom: -100%;
+  -webkit-transition: opacity 0.3s linear, bottom 0.3s ease-out;
+  -moz-transition: opacity 0.3s linear, bottom 0.3s ease-out;
+  -o-transition: opacity 0.3s linear, bottom 0.3s ease-out;
+  transition: opacity 0.3s linear, bottom 0.3s ease-out;
+
+}
+
+.modal.modal-bottom.fade.show .modal-dialog {
+  bottom: 0; 
+}
+
+.modal.modal-bottom.fade .modal-dialog {
+  bottom: -100%;
+}
+
+
+
+
+
+
+.chat-maximize {
+  width: 100%;
+  height: auto;
+  background-color: #F6F8FC;
+  box-shadow: 0px 8px 32px rgb(138 145 166 / 24%);
+  -webkit-box-shadow: 0px 8px 32px rgb(138 145 166 / 24%);
+  -moz-box-shadow: 0px 8px 32px rgba(138, 145, 166, 0.24);
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  float: left;
+  margin: 0 auto;
+  position: relative;
+}
+
+.rs-chat-offer-card{
+  display: block!important;
+}
+
+.rs-chat-odate-rp{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+  .gt-mt-5 {
+    margin-top: 0px;
+  }
+  .gt-mt-25{
+    margin-top: 0px;
+  }
+ 
+}
+
+.rs-display-flex{
+  align-items: flex-start!important;
+}
+
+.max-h{
+  height: 9px;
+}
+
+.rs-cdeal-card{
+  display: block;
+}
+
+.rs-chat-offer-height {
+  min-height: 608px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin-top: 10px!important;
+}
+
+.rs-chat-offer-height::-webkit-scrollbar {
+  display: none;
+}
+
+.rs-chat-offer-height::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+}
+ 
+.rs-chat-offer-height::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+}
+ 
+.rs-chat-offer-height::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+}
+
+.rs-chat-date{
+  h3{
+    width: 170px;
+  }
+}
+
+.rs-msg-reply-group{
+  max-width: 100%;
+}
+
+.offerlist-small-rp{
+    padding-left: 8px!important;
+    padding-right: 8px!important;
+}
+
+
+
+
+.cbottom-secondary{
+.chat-msg-wrapper {
+    width: 100%;   
+    display: flex;   
+    height: 75vh;
+    flex-direction: column;
+    justify-content: space-between;
+
+  .chat-header-top {     
+      height: 64px;
+  }
+
+  .chat-container-content {     
+      flex: 1 1 auto;      
+      overflow: auto;
+      height: 100%;
+  }
+
+  .chat-footer-bottom {      
+      height: 56px;
+  }
+}
+
+}
+
+
+.cbottom-secondary .clist-scroll{ 
+  height: 60vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  flex: 1 1 auto;
+}
+
+.cbottom-secondary .culist-scroll {
+  height: 60vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-bottom: 30px;
+}

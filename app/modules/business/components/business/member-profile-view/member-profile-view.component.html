@@ -1,0 +1,65 @@
+<div class="my-offer-bg gt-position-relative gt-mt-20 gt-pb-200">
+  <div class="container">
+    
+     <app-bread-crumb  *ngIf="breadcrumb.length" [breadcrumbs]="breadcrumb"> </app-bread-crumb>
+    
+
+    <div class="gt-float-100" *ngIf="member">
+      <app-member-basic-info [member]="member"></app-member-basic-info>
+
+      <div class="gt-float-100 gt-mt-41 gt-pt-9 offers-topbs">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100 gt-center-between listing-gliv">
+              <div class="gt-float-left gt-vcenter hgyp-sew">
+                <h2
+                  class="
+                    gt-fs-16 gt-lightblack gt-font-poppins 
+                    dcolor-primary
+                  "
+                >
+                  Listing by
+                  <span class="gt-sky">{{ member.memberDetails.name }}</span>
+                </h2>
+              </div>
+
+              <div class="gt-vcenter gl-bth" *ngIf="currentBusinessOfers.length">
+                <div class="gt-ml-25 gt-center gt-cursor-pointer gt-border-radius-6 image-width-40
+                    gt-mr-17 list-btn"
+                  (click)="selectedView = 'GRID'"
+                  [ngClass]="{ 'active-grid': selectedView !== 'LIST' }"
+                  title="Switch to list view">
+                  <span class="material-icons gt-fs-30">grid_view</span>
+                </div>
+
+                <div class="gt-center gt-cursor-pointer gt-border-radius-6 image-width-40 grid-btn active-grid"
+                  (click)="selectedView = 'LIST'"
+                  [ngClass]="{ 'active-grid': selectedView !== 'GRID' }"
+                  title="Switch to grid view"
+                >
+                   <span class="material-icons gt-fs-30">view_list</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <app-offersby-member
+        [offers]="currentBusinessOfers"
+        *ngIf="currentBusinessOfers && selectedView === 'GRID'"
+      ></app-offersby-member>
+
+      <app-list-view-offers
+        [offers]="currentBusinessOfers"
+        *ngIf="currentBusinessOfers && selectedView === 'LIST'"
+        showUser="true"
+      >
+      </app-list-view-offers>
+
+      <div *ngIf="!currentBusinessOfers.length" class="gt-float-100 gt-mt-30">
+        NO listing found for the user
+      </div>
+    </div>
+  </div>
+</div>

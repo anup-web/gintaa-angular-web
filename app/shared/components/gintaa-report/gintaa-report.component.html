@@ -1,0 +1,66 @@
+<ng-template ngFor let-i="index" let-c="count" let-question [ngForOf]="questionList">
+    <div class="gt-float-100" *ngIf="reportType!='deal' && reportType!='offer'">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-mt-20 gt-float-100 fdback-qua">
+                    <h3 class="gt-fs-16 gt-lightblack gt-text-medium dcolor-primary">{{question.question}} </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gt-float-100" *ngIf="(reportType!='deal' && reportType!='offer') else categorySec">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-left fdback-tag">
+                    <ng-template ngFor let-i="index" let-c="count" let-answer
+                        [ngForOf]="question?.answers">
+                        <div class="gt-cursor-pointer feed-tag"
+                            [ngClass]="(answer?.selected==true) ? 'feed-tag feed-tag-active':'feed-tag'"
+                            (click)="clickAnswer(answer)">{{answer.answer}}</div>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-template #categorySec>
+        <div class="gt-float-left fdback-tag">
+        <div class="gt-cursor-pointer feed-tag"
+        [ngClass]="(question?.selected==true) ? 'feed-tag feed-tag-active':'feed-tag'"
+        (click)="clickAnswer(question)">{{question.categoryName}}</div>
+    </div>
+    </ng-template>
+</ng-template>
+
+<div class="gt-float-100">
+    <div class="row">
+        <div class="gt-float-100 gt-display-flex gt-mt-10 gt-mb-10 gt-pd-lr-10" *ngIf="errorMessage">
+            <div class="gt-text-danger">
+                <div class="error">{{ errorMessage }}</div>
+            </div>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100 secondary_group gt-mb-zero gt-mt-18 fdback-commt">
+                <div class="secondary-wrap validate-input gt-border-none">
+                    <span class="secondary-label gt-mb-8 offer-input-label dcolor-primary">Your comment</span>
+                    <textarea type="textarea" class="secondary-input secondary-bg" rows="2" placeholder="Your comment" [(ngModel)]="initiateDealComment"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="gt-float-100 gt-mt-20 csb-rp">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+          <div class="gt-center-between">     
+          <div class="gt-float-100 gt-pr-12">
+                <button class="gt-btn-primary gt-width-100 gt-center gt-bg-transparent gt-border-radius-2 gt-fs-15 gt-text-medium gt-height-48 gt-info-important db-cancel" (click)="close()">cancel</button>
+            </div>   
+            <div class="gt-float-100 gt-pl-12">
+                <button class="gt-btn-primary gt-width-100 gt-center gt-border-radius-2 gt-fs-15 gt-text-medium gt-height-48 gt-border-none bg-dsubmit" (click)="saveReport()">submit</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

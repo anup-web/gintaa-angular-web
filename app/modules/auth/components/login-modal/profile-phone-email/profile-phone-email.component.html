@@ -1,0 +1,135 @@
+<div class="login-right-wrapper gt-float-100 gt-pr-25 gt-mt-30 gt-mb-30 profile-phone-rp">
+  <form [formGroup]="profileContactInfo" (ngSubmit)="saveEmailOrPhone()">
+    <div class="gt-float-100 gt-mt-30 pae-rp">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="password-for gt-float-100 gt-pd-lr-40 gt-mb-70 pmc-rp ghy-rp">
+            <div class="enter-password-title">
+              <h2 class="gt-fs-14 gt-center gt-text-center gt-lightgrayish rp-fpemail dcolor-primary">
+                Please, confirm/enter your phone number and email to use all gintaa features!
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="money">
+            <div class="currency-group error-next-disable">
+              <label class="currency-sr-only gt-fs-14 dcolor-primary">Phone number</label>
+              <div class="currency-input-group">
+                <div class="currency-input-group-prepend">
+                  <div class="currency-input-group-text ph-group-padding">
+                    <span class="material-icons input-icon-form gt-text-bold">phone</span>
+                  </div>
+                </div>
+                <div class="currency-input-group-prepend">
+                  <div class="currency-input-group-text ph-group-padding">
+                    <span class="icon-add"></span> 91
+                  </div>
+                </div>
+                <input type="text" class="currency-form-control ph-control-padding"
+                  formControlName="userPhone" (keyup)="validateInput($event, 'mobile')"
+                  placeholder="Enter your phone" maxlength="10" numbersOnly />
+              </div>
+              <div class="gt-text-danger gt-width-100" *ngIf="loginMode == 'userEmail' && messageShow ">
+                <ng-container *ngIf="isVerified && closeModal else errorSection">
+                  <div class="gt-text-success">
+                    <div class="error">Phone is Verified</div>
+                  </div>
+                </ng-container>
+                <ng-template #errorSection>
+                  <div class="error errorflex" @fadeIn>
+                    <div *ngIf="disabledButton else showMessage">Phone number is invalid</div>
+                    <ng-template #showMessage>
+                      <ng-container *ngIf="message else verifyMessage">
+                        {{message}}
+                      </ng-container>
+                      <ng-template #verifyMessage>
+                        Please verify your phone:
+                      </ng-template>
+                      <ng-template [ngIf]="!isVerified">
+                        <button type="button" class="gt-btn-outline gt-btn-small glh verify"
+                          (click)="sendVerificationMobile()">
+                          Verify
+                        </button>
+                      </ng-template>
+                    </ng-template>
+                  </div>
+                </ng-template>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+ 
+
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="money gt-float-100 gt-mt-25">
+            <div class="currency-group error-next-disable">
+              <label class="currency-sr-only gt-fs-14 dcolor-primary">Email</label>
+              <div class="currency-input-group">
+                <div class="currency-input-group-prepend">
+                  <div class="currency-input-group-text ph-group-padding">
+                    <span class="material-icons input-icon-form">email</span>
+                  </div>
+                </div>
+                <input type="text" class="currency-form-control ph-control-padding"
+                  formControlName="userEmail" (keyup)="validateInput($event, 'email')"
+                  placeholder="Enter your email" />
+              </div>
+              <div class="gt-text-danger gt-width-100" *ngIf="loginMode == 'userPhone' && messageShow ">
+                <ng-container *ngIf="isVerified && closeModal else errorSection">
+                  <div class="gt-text-success">
+                    <div class="error">Email is Verified</div>
+                  </div>
+                </ng-container>
+                <ng-template #errorSection>
+                  <div class="error errorflex" @fadeIn>
+                    <div *ngIf="disabledButton else showMessage">Email is invalid</div>
+                    <ng-template #showMessage>
+                      <ng-container *ngIf="message else verifyMessage">
+                        {{message}}
+                      </ng-container>
+                      <ng-template #verifyMessage>
+                        Please verify your email:
+                      </ng-template>
+                      <ng-template [ngIf]="!isVerified">
+                        <button type="button" class="gt-btn-outline gt-btn-small glh verify"
+                          (click)="sendVerificationEmail()">
+                          Verify
+                        </button>
+                      </ng-template>
+                    </ng-template>
+                  </div>
+                </ng-template>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">         
+          <button [disabled]="!isVerified"
+            class="gt-btn-primary gt-width-100 gt-btn-shadow gt-mt-46 gt-border-radius-2 bg-change-secondary-import dark-shadow-import border-none-import">
+            save & next
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

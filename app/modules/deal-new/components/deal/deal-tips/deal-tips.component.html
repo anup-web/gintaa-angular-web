@@ -1,0 +1,110 @@
+<div class="gt-float-100 gt-border-radius-4 gt-pb-20 gt-bg-white" *ngIf="showTipsCheck()">
+    <div class="gt-float-100 gt-pt-10 gt-pb-14 gt-pd-lr-12">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="gt-float-100 gt-vcenter">
+                    <img src="assets/images/new-offers/tips.svg" alt="images" class="gt-img-responsive" width="43"
+                        height="40" />
+                    <h2 class="gt-fs-14 gt-text-medium gt-ml-10 gt-lightgrayish">Tips</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <ng-container [ngSwitch]="showTips">
+                    <ng-container *ngSwitchCase="'Junction'">
+                        <div class="gt-float-100">
+                            <div class="gt-float-100 gt-mb-15 gt-display-flex" *ngFor="let tip of junctionTips">
+                                <div class="gt-mr-15 gt-flex-start right-arrow"><span
+                                        class="icon-gt-arrow-right gt-fs-12"></span></div>
+                                <div class="tips-list">
+                                    <h3 class="gt-fs-12 new-color">{{tip}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'Shipping'">
+                        <div class="gt-float-100">
+                            <div class="gt-float-100 gt-mb-15 gt-display-flex" *ngFor="let tip of thirdpartyTips">
+                                <div class="gt-mr-15 gt-flex-start right-arrow"><span
+                                        class="icon-gt-arrow-right gt-fs-12"></span></div>
+                                <div class="tips-list">
+                                    <h3 class="gt-fs-12 new-color">{{tip}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'outgoing'">
+                        <div class="gt-float-100">
+                            <div class="gt-float-100 gt-mb-15 gt-display-flex" *ngFor="let tip of outgoingTips">
+                                <div class="gt-mr-15 gt-flex-start right-arrow"><span
+                                        class="icon-gt-arrow-right gt-fs-12"></span></div>
+                                <div class="tips-list">
+                                    <h3 class="gt-fs-12 new-color">{{tip}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'incomming'">
+                        <div class="gt-float-100">
+                            <div class="gt-float-100 gt-mb-15 gt-display-flex" *ngFor="let tip of incomingTips">
+                                <div class="gt-mr-15 gt-flex-start right-arrow"><span
+                                        class="icon-gt-arrow-right gt-fs-12"></span></div>
+                                <div class="tips-list">
+                                    <h3 class="gt-fs-12 new-color">{{tip}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'acceptedJunction'">
+                        <div class="gt-float-100">
+                            <div class="gt-float-100 gt-mb-15 gt-display-flex" *ngFor="let tip of acceptedJunction">
+                                <div class="gt-mr-15 gt-flex-start right-arrow"><span
+                                        class="icon-gt-arrow-right gt-fs-12"></span></div>
+                                <div class="tips-list">
+                                    <h3 class="gt-fs-12 new-color">{{tip}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'acceptedThirdpartyBuyer'">
+                        <div class="gt-float-100">
+                            <div class="gt-float-100 gt-mb-15 gt-display-flex" *ngFor="let tip of acceptedThirdpartyBuyer">
+                                <div class="gt-mr-15 gt-flex-start right-arrow"><span
+                                        class="icon-gt-arrow-right gt-fs-12"></span></div>
+                                <div class="tips-list">
+                                    <h3 class="gt-fs-12 new-color">{{tip}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'reviseOffer'">
+                        <div class="gt-float-100">
+                            <div class="gt-float-100 gt-mb-15 gt-display-flex" *ngFor="let tip of reviseOffer">
+                                <div class="gt-mr-15 gt-flex-start right-arrow"><span
+                                        class="icon-gt-arrow-right gt-fs-12"></span></div>
+                                <div class="tips-list">
+                                    <h3 class="gt-fs-12 new-color">{{tip}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'ratingOffer'">
+                        <div class="gt-float-100">
+                            <div class="gt-float-100 gt-mb-15 gt-display-flex" *ngFor="let tip of ratingOffer">
+                                <div class="gt-mr-15 gt-flex-start right-arrow"><span
+                                        class="icon-gt-arrow-right gt-fs-12"></span></div>
+                                <div class="tips-list">
+                                    <h3 class="gt-fs-12 new-color">{{tip}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

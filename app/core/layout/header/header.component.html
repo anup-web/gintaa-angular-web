@@ -1,0 +1,1235 @@
+<nav class="
+    navbar navbar-expand-lg
+    fixed-gtop
+    gt-custom-nav
+    header-secondary
+    dark-shadow
+    bg-change
+    nav-pills
+  " id="navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="javascript:;" [routerLink]="['/home']">
+      <img src="assets/images/gintaa.svg" class="logo-gintaa" width="25" height="35" alt="gintaa" />
+      <img src="assets/images/logo-green-bg.svg" class="logo-gintaa-scroll" width="39" height="38" alt="gintaa" />
+    </a>
+    <button #navbarToggler class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"><span class="material-icons">menu</span></span>
+    </button>
+
+    <div class="collapse navbar-collapse gt-navbar-main" id="navbarsExampleDefault">
+      <div class="gt-vcenter gt-nav-left">
+        <div class="gt-mr-20 gt-cursor-pointer search-loctions" data-toggle="modal" data-target="#left_modal">
+          <div class="gt-vcenter loc-sety">
+            <span class="icon-popular-loc gt-fs-20 gt-mr-8"></span>
+            <div class="loc-code">
+              <h2 class="gt-fs-13 gt-width-100 gt-white sh-loc dcolor-primary
+                ">
+                {{ showCurrentLocation() | trimTextToCertainNumberCharector: 10 }}
+              </h2>
+              <h3 class="gt-fs-11 gt-width-100 gt-mt-3 gt-white locs-code">
+                {{ currentLocation?.zip }}
+              </h3>
+            </div>
+            <!-- <span class="material-icons gt-fs-20 dcolor-primary">expand_more</span> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="gt-nav-middle">
+        <div class="search-custom">
+          <app-search></app-search>
+        </div>
+      </div>
+
+      <div class="gt-vcenter gt-nav-right">
+        <form class="login-user" *ngIf="!isAuthenticated()">
+          <div class="login">
+            <button type="button" class="gt-vcenter login-btn dcolor-primary-import" (click)="openLoginDialog()">
+              <span class="icon-user-hicon gt-fs-20 user-icons"></span>
+              <h2 class="gt-fs-13 gt-text-medium gt-white gt-ml-10 lsup">
+                Login / Sign up
+              </h2>
+            </button>
+          </div>
+        </form>
+
+        <div class="gt-vcenter gt-ml-110 user-account-noti user-hwidth" *ngIf="isAuthenticated()">
+          <div class="gt-vcenter my_account dropdown menu-curve">
+            <a href="#" class="account_user dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+              aria-expanded="false" #profileToggler>
+              <div class="gt-position-relative user-namehi dcolor-primary">
+                <span class="icon-login-user-icon gt-fs-24 gt-center myo-icons kruy" *ngIf="!showBusinessMenu"></span>
+                <span class="icon-gt-bag gt-fs-25 gt-center myo-icons kruy" *ngIf="showBusinessMenu"></span>
+                <!-- <div class="gt-mt-4 gt-width-100 gt-vcenter udo-group"> -->
+                <h2 class="gt-fs-13 gt-mt-5 gt-width-100 gt-center gt-white usen-text" *ngIf="!showBusinessMenu">
+                  {{ fetchShortUserName() | trimTextToCertainNumberCharector: 10 }}
+                </h2>
+
+                <h2 class="gt-fs-13 gt-mt-5 gt-width-100 gt-center gt-white usen-text" *ngIf="showBusinessMenu">
+                  {{ fetchSelectedBusinessName() | trimTextToCertainNumberCharector: 10 }}
+                </h2>
+
+              </div>
+
+            </a>
+
+            <div class="dropdown-menu gt-border-radius-8 gintaa_headerDrop bg-change"
+              (click)="dropdownMenuClicked($event)" @fadeIn>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="gt-float-100 my-account-list">
+                    <div class="gt-vcenter gt-pd-tb-10 gt-pd-lr-12 gt-bg-sky gt-border-radius-4 normal-user"
+                      *ngIf="!isBusinessMode">
+                      <div class="image-width-32 border-radius-100 gt-center gt-position-relative chat-noimg">
+                        <a (click)="collapseNavProfile()" routerLink="/profile">
+                          <img [src]="profileUrl" class="image-width-32 border-radius-100" alt="image"
+                            *ngIf="profileUrl; else avatarSec" />
+                          <ng-template #avatarSec>
+                            <img [src]="userNoImage" class="fedr" alt="image" />
+                          </ng-template>
+                        </a>
+                      </div>
+                      <div class="gt-ml-12">
+                        <div class="name-comy">
+                          <h1 class="gt-fs-15 gt-white">
+                            {{ username | trimTextToCertainNumberCharector: 20 }}
+                          </h1>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- *ngIf="showBusinessMenu" -->
+                    <!-- Start business switching -->
+                    <div *ngIf="isBusinessMode" class="gt-float-100 header-matexpan"
+                      [ngClass]="{ 'business-mode-activated': isBusinessMode }">
+                      <mat-expansion-panel [expanded]="businessHeaderDropdownExpanded">
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+
+                            <div class="gt-vcenter gt-pd-tb-10 gt-pd-lr-12 gt-bg-sky gt-border-radius-4 normal-user"
+                              *ngIf="!showBusinessMenu">
+                              <div class="image-width-32 border-radius-100 gt-center gt-position-relative chat-noimg">
+                                <a (click)="collapseNavProfile()" routerLink="/profile">
+                                  <img [src]="profileUrl" class="image-width-32 border-radius-100" alt="image"
+                                    *ngIf="profileUrl; else avatarSec" />
+                                  <ng-template #avatarSec>
+                                    <img [src]="userNoImage" class="fedr" alt="image" />
+                                  </ng-template>
+                                </a>
+                              </div>
+                              <div class="gt-ml-12">
+                                <div class="name-comy">
+                                  <h1 class="gt-fs-15 gt-white">
+                                    {{ username | trimTextToCertainNumberCharector: 20 }}
+                                  </h1>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="gt-float-100" *ngIf="showBusinessMenu">
+                              <div class="gt-float-100 gt-center gt-pt-12 gt-position-relative">
+                                <div class="image-width gt-bg-white blogo-bg"></div>
+                                <img *ngIf="!showAfterDelete" [src]="fetchSelectedBusinessLogo() ||
+                                    'assets/images/business/company-logo.svg'
+                                  " alt="image" class="image-width blogo-zdex" />
+                                  <img *ngIf ="showAfterDelete" src = 'assets/images/business/company-logo.svg' alt="image" class="image-width blogo-zdex" />
+                                 
+                                <div class="h2 gt-fs-14 gt-center gt-bg-sky pos-business">
+                                  Business
+                                </div>
+                              </div>
+
+                              <div class="gt-float-100 gt-center gt-pd-tb-10">
+                                <h1 class="gt-fs-16 gt-white">
+                                  {{ fetchSelectedBusinessName() | trimTextToCertainNumberCharector: 20 }}
+                                </h1>
+                              </div>
+                            </div>
+                          </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <!-- <div class="gt-float-100 blank-baccount" *ngIf="!isBusinessMode">
+                          <div class="gt-center">
+                            <img src="assets/images/business/business-blank.svg" alt="image" width="111" height="90"
+                              class="baccont" />
+                          </div>
+                          <div class="
+                              gt-float-100
+                              gt-center
+                              gt-mt-20
+                              gt-mb-12
+                              gt-pl-40
+                              gt-pr-40
+                            ">
+                            <h2 class="gt-fs-14 gt-lightblack gt-text-center">
+                              You have not business account yet
+                            </h2>
+                          </div>
+                        </div> -->
+                        <div class="gt-float-100 header-business-list" *ngIf="isBusinessMode">
+
+                          <div *ngIf="showBusinessMenu" class="
+                              gt-float-100 gt-mb-10 gt-vcenter gt-cursor-pointer
+                            ">
+                            <div class="image-earn">
+                              <img [src]="profileUrl" class="image-width-30 border-radius-100" alt="image"
+                                *ngIf="profileUrl; else avatarSec2" />
+                              <ng-template #avatarSec2>
+                                <img [src]="userNoImage" class="image-width-30 border-radius-100" alt="image" />
+                              </ng-template>
+                            </div>
+                            <div class="gt-ml-8">
+                              <div class="name-comy">
+                                <a class="gt-fs-15 gt-text-medium gt-white"
+                                  (click)="switchBusinessProfileModal('', '', false)" style="color: #121212">
+                                  {{ fetchShortUserName() | trimTextToCertainNumberCharector: 15 }} <span>(Personal)</span>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+
+
+
+                          <ng-container *ngIf="businessProfiles.length">
+
+                            <!--  *ngFor="
+                                let businessProfile of businessProfiles
+                                  | slice: 0:maxBusinessCountOnHeader
+                              " -->
+
+                            <div *ngFor="
+                                let businessProfile of getBusinessListForswitch(businessProfiles)
+                                  | slice: 0:maxBusinessCountOnHeader
+                              " class="
+                                gt-float-100
+                                gt-mb-10
+                                gt-vcenter
+                                gt-cursor-pointer
+                              " (click)="
+                                switchBusinessProfileModal(
+                                  businessProfile.businessId,
+                                  businessProfile.businessName,
+                                  businessProfile.verified
+                                )
+                              ">
+                              <div class="image-earn">
+                                <img *ngIf="
+                                    businessProfile.logoUrl;
+                                    else businessNoImage
+                                  " [src]="businessProfile.logoUrl" [alt]="businessProfile.businessName"
+                                  class="image-width-30 border-radius-100" />
+                                <ng-template #businessNoImage>
+                                  <img [src]="businessNoImageHeader" class="image-width-30 border-radius-100"
+                                    alt="business no logo" />
+                                </ng-template>
+                              </div>
+                              <div class="gt-ml-8">
+                                <div class="name-comy">
+                                  <h1 class="
+                                      gt-fs-15 gt-white
+                                    ">
+                                    {{ businessProfile.businessName | trimTextToCertainNumberCharector: 15 }} <span>(Business)</span>
+                                  </h1>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- <span>This text is for testing  cache-busting</span> -->
+                          </ng-container>
+                          <ng-container *ngIf="
+                              businessProfiles.length > maxBusinessCountOnHeader
+                            ">
+                            <a [routerLink]="['/business']" class="gt-fs-14 gt-white gt-float-right">show all</a>
+                          </ng-container>
+                        </div>
+                      </mat-expansion-panel>
+                    </div>
+
+                    <!-- End business switching -->
+
+                    <div class="gt-float-100 gt-mg-tb-10 gt-pd-lr-12">
+                      <button role="button" (click)="openCreateBusinessAccountPopup()" class="
+                          gt-center gt-bg-transparent gt-width-100
+                          create-baccount
+                        ">
+                        <span class="material-icons gt-sky gt-fs-17">add</span>
+                        <h2 class="gt-fs-14 gt-sky">create business profile</h2>
+                      </button>
+                    </div>
+
+                    <div class="sw-list" (click)="listSwitchDialog()">switch list</div> 
+                    
+                    <div class="sw-list" (click)="businessBankDialog()">create business Bank</div>
+
+                    <div class="gt-float-100 gintaa-pr-list">
+                      <ng-container *ngIf="
+                          isBusinessMode && showBusinessMenu;
+                          else generalUserMenuItems
+                        ">
+                        <div class="gt-float-100 gt-vcenter gt-pd-lr-12 gt-pd-tb-8 uv-list gt-cursor-pointer">
+                          <img src="assets/images/settings/user-myaccont-img.svg" class="gt-mr-15 us-image" width="18"
+                            height="20" alt="icon" />
+                          <h1 class="gt-fs-14 gt-lightblack ">
+                            <a (click)="collapseNav()" class="gt-lightblack dcolor-primary" routerLink="/business/view/{{
+                                selectedBusinessProfile.id
+                              }}">My business profile</a>
+                          </h1>
+                        </div>
+
+                        <div class="gt-float-100 gt-vcenter gt-pd-lr-12 gt-pd-tb-8 uv-list bt-pdwon gt-cursor-pointer">
+                          <img src="assets/images/settings/user-myaccont-img.svg" class="gt-mr-15 us-image" width="18"
+                            height="20" alt="icon" />
+                          <h1 class="gt-fs-14 gt-lightblack ">
+                            <a (click)="collapseNav()" class="gt-lightblack dcolor-primary"
+                              routerLink="/business">Business accounts</a>
+                          </h1>
+                        </div>
+
+                        <div class="gt-float-100 gt-vcenter gt-pd-lr-12 gt-pd-tb-8 uv-list bt-pdwon gt-cursor-pointer">
+                          <img src="assets/images/settings/business-overview.svg" class="gt-mr-11 us-image" width="22"
+                            height="20" alt="icon" />
+                          <h1 class="gt-fs-14 gt-lightblack ">
+                            <a (click)="collapseNav()" class="gt-lightblack dcolor-primary"
+                              routerLink="/business/profile">Business overview</a>
+                          </h1>
+                        </div>
+
+                        <div
+                          class="gt-float-100 gt-vcenter gt-mb-5 gt-pd-lr-12 gt-pd-tb-8 uv-list bt-pdwon gt-cursor-pointer">
+                          <img src="assets/images/settings/user-myaccont-img.svg" class="gt-mr-15 us-image" width="18"
+                            height="20" alt="icon" />
+                          <h1 class="gt-fs-14 gt-lightblack ">
+                            <a (click)="collapseNav()" class="gt-lightblack dcolor-primary" routerLink="/business/view/{{
+                                selectedBusinessProfile.id
+                              }}/teams">My business team</a>
+                          </h1>
+                        </div>
+                      </ng-container>
+
+                      <ng-template #generalUserMenuItems>
+                        <div class="
+                            gt-float-100 gt-vcenter gt-pd-lr-12
+                            bt-pdwon
+                            gt-pd-tb-7
+                            uv-list
+                            gt-cursor-pointer sm-height
+                          ">
+                          <img src="assets/images/profile-menu/my-account.svg" class="gt-mr-15 us-image" width="18"
+                            height="20" alt="icon" />
+                          <h1 class="gt-fs-14 prm-color">
+                            <a (click)="collapseNav()" class="gt-fs-14 prm-color dcolor-primary"
+                              routerLink="/profile">My account</a>
+                          </h1>
+                        </div>
+
+
+
+                        <div class="gt-float-100 gt-vcenter bt-pdwon uv-list gt-cursor-pointer my-trantions">
+                          <ul class="hgy sm-height">
+                            <li>
+                              <a class="mtr-sub"> <span
+                                  class="icon-my-transation gt-fs-17 gt-sky gt-mr-18 us-image"></span>
+                                <h2 class="gt-fs-14 prm-color dcolor-primary">My transctions</h2>
+                              </a>
+                              <ul class="dropdown">
+                                <li class="my-offsub"><a (click)="collapseNav()" routerLink="/my-listings">
+                                    <div class="gt-center-between gt-width-100">
+                                      <div class="gt-vcenter plist-name">
+                                        <span class="icon-my-offers gt-fs-17 gt-sky gt-mr-10"></span>
+                                        <h2 class="gt-fs-14 prm-color dcolor-primary">My listings </h2>
+                                      </div>
+                                      <!-- <h3 class="gt-fs-12 prm-color">12</h3> -->
+                                    </div>
+                                  </a></li>
+                                <li *ngIf="releaseOffer" class="my-dupsub bt-pdwon"><a (click)="collapseNav()"
+                                    routerLink="/deals">
+                                    <div class="gt-center-between gt-width-100">
+                                      <div class="gt-vcenter plist-name">
+                                        <span class="icon-deal-h gt-fs-12 gt-mr-10"><span class="path1"></span><span
+                                            class="path2"></span><span class="path3"></span><span
+                                            class="path4"></span><span class="path5"></span><span
+                                            class="path6"></span></span>
+                                        <h2 class="gt-fs-14 prm-color dcolor-primary">My offers</h2>
+                                      </div>
+                                      <!-- <h3 class="gt-fs-12 prm-color">12</h3> -->
+                                    </div>
+                                  </a></li>
+                                <li *ngIf="isEnableAuction" class="my-bidssub bt-pdwon"><a (click)="collapseNav()" routerLink="/my-bids">
+                                    <div class="gt-center-between gt-width-100">
+                                      <div class="gt-vcenter plist-name">
+                                        <span class="icon-gt-auction gt-fs-18 gt-sky gt-mr-11"></span>
+                                        <h2 class="gt-fs-14 prm-color dcolor-primary">My bids</h2>
+                                      </div>
+                                      <!-- <h3 class="gt-fs-12 prm-color">12</h3> -->
+                                    </div>
+                                  </a></li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </div>
+
+
+
+                        <div 
+                          class="
+                            gt-float-100 gt-center-between gt-pd-lr-12
+                            bt-pdwon
+                            gt-pd-tb-7
+                            uv-list
+                            gt-cursor-pointer sm-height
+                          "
+                          *ngIf="releaseOffer"
+                          >
+                          <div class="gt-vcenter plist-name">
+                            <img src="assets/images/profile-menu/my-matches.svg" class="gt-mr-16 us-image" width="16"
+                              height="15" alt="icon" />
+                            <h2 class="gt-fs-14 prm-color">
+                              <a (click)="collapseNav()" class="gt-fs-14 prm-color dcolor-primary"
+                                routerLink="/matches">My matches</a>
+                            </h2>
+                          </div>
+                          <!-- <h3 class="gt-fs-12 prm-color">12</h3> -->
+                        </div>
+
+                        <div class="
+                            gt-float-100 gt-vcenter gt-pd-lr-12
+                            bt-pdwon
+                            gt-pd-tb-7
+                            uv-list
+                            gt-cursor-pointer sm-height
+                          ">
+                          <img src="assets/images/profile-menu/my-fav.svg" class="gt-mr-16 us-image" width="16"
+                            height="15" alt="icon" />
+                          <h2 class="gt-fs-14 prm-color">
+                            <a (click)="collapseNav()" class="gt-fs-14 prm-color dcolor-primary"
+                              routerLink="/favorites">My favourites</a>
+                          </h2>
+                        </div>
+
+                        <!-- wishlist temporarily off now -->
+                        <!-- <div class="
+                            gt-float-100 gt-center-between gt-pd-lr-12
+                            bt-pdwon
+                            gt-pd-tb-7
+                            uv-list
+                            gt-cursor-pointer sm-height
+                          ">
+                          <div class="gt-vcenter plist-name">
+                            <img src="assets/images//profile-menu/my-wishlist.svg" class="gt-mr-15 us-image" width="16"
+                              height="16" alt="icon" />
+                            <h2 class="gt-fs-14 prm-color">
+                              <a (click)="collapseNav()" class="gt-fs-14 prm-color dcolor-primary"
+                                routerLink="/wishlist">My wishlist</a>
+                            </h2>
+                          </div>
+                          <h3 class="gt-fs-12 prm-color">10</h3>
+                        </div> -->
+
+
+                        <div 
+                          *ngIf="releaseOffer"
+                          class="
+                            gt-float-100 gt-vcenter gt-pd-lr-12
+                            bt-pdwon
+                            gt-pd-tb-7
+                            uv-list
+                            gt-cursor-pointer sm-height
+                          ">
+                          <img src="assets/images/profile-menu/my-chats.svg" class="gt-mr-15 us-image" width="15"
+                            height="14" alt="icon" />
+                          <h2 class="gt-fs-14 prm-color">
+                            <a (click)="collapseNav()" routerLink="/chat/offer-deal" class="gt-fs-14 prm-color dcolor-primary">My chats</a>
+                          </h2>
+                        </div>
+
+                        <div class="
+                            gt-float-100 gt-vcenter gt-pd-lr-12
+                            bt-pdwon
+                            gt-pd-tb-7
+                            uv-list
+                            gt-cursor-pointer sm-height
+                          ">
+                          <span class="material-icons gt-sky gt-mr-10 gt-fs-20">arrow_back</span>
+                          <h3 class="gt-fs-14 prm-color">
+                            <a (click)="collapseNav()" routerLink="/profile/business-invitations"
+                              class="gt-fs-14 prm-color dcolor-primary">My business invites</a>
+                          </h3>
+                        </div>
+                        
+                        <!-- Notification temporarily off now -->
+                        <!-- <div class="
+                            gt-float-100 gt-center-between gt-pd-lr-12
+                            bt-pdwon
+                            uv-list
+                            gt-cursor-pointer sm-height
+                          ">
+                          <div class="gt-vcenter plist-name">
+                            <img src="assets/images/profile-menu/notification.svg" class="gt-mr-7 ghty us-image"
+                              width="30" height="30" alt="icon" />
+                            <h2 class="gt-fs-14 prm-color">
+                              <a [routerLink]="'/notification'"
+                                class="gt-fs-14 prm-color dcolor-primary">Notifications</a>
+                            </h2>
+                          </div>
+                          <h3 class="gt-fs-12 prm-color">30</h3>
+                        </div> -->
+
+                        <!-- <div class="
+                            gt-float-100 gt-vcenter gt-pd-lr-12
+                            bt-pdwon
+                            gt-pd-tb-7
+                            uv-list
+                            gt-cursor-pointer sm-height
+                          ">
+                          <img src="assets/images/profile-menu/settings.svg" class="gt-mr-6 us-image" width="23"
+                            height="17" alt="icon" />
+                          <h4 class="gt-fs-14 prm-color">
+                            <a (click)="collapseNav()" class="gt-fs-14 prm-color dcolor-primary"
+                              routerLink="/settings">Settings</a>
+                          </h4>
+                        </div> -->
+                      </ng-template>
+                    </div>
+
+                    <div class="
+                        gt-float-100 gt-pd-tb-12 gt-pd-lr-12 gt-mt-5 gt-center-between
+                        user-logout
+                        bg-change
+                      ">
+                      <div class="gt-vcenter logout-sub gt-cursor-pointer" (click)="signOut()">
+                        <span class="material-icons gt-mr-13 gt-sky gt-fs-20">logout</span>
+                        <h5 class="gt-fs-14 logout-color dcolor-primary">
+                          Log out
+                        </h5>
+                      </div>
+
+                      <!-- Dark Light mode temporarily off now -->
+                      <!-- <div class="gt-vcenter gintaa-theme">
+                        <div class="
+                            gt-border-radius-4
+                            theme-bg
+                            gt-center
+                            image-width-30
+                            gt-cursor-pointer
+                            theme-primary
+                          " (click)="drakLightModetoggle('light')">
+                          <img src="assets/images/settings/theme-primary.svg" class="chat-icon" width="20" height="20"
+                            alt="icon" />
+                        </div>
+                        <div class="
+                            gt-border-radius-4 gt-bg-white gt-center gt-ml-12
+                            image-width-30
+                            gt-cursor-pointer
+                            theme-secondary
+                          " (click)="drakLightModetoggle('dark')">
+                          <img src="assets/images/settings/theme-secondary.svg" class="chat-icon" width="17" height="17"
+                            alt="icon" />
+                        </div>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="isAuthenticated()" (click)="collapseNav()" class="
+            gt-ml-40 gt-mr-20 gt-position-relative gt-align-items-center
+            header-offer-status
+          " [routerLink]="['/my-listings']">
+          <span class="icon-offers-h gt-fs-20 gt-center myo-icons trdf gt-cursor-pointer"></span>
+          <h1 class="
+              gt-fs-13 gt-width-100 gt-mt-8 gt-center gt-lightblack gt-cursor-pointer
+              my-ohc
+              dcolor-primary
+            ">
+            Listings
+          </h1>
+          <!-- <div class="noti-unreads">
+            <h2 class="gt-fs-11 gt-white offer-cous">12</h2>
+          </div> -->
+        </div>
+
+         <div *ngIf="releaseOffer && isAuthenticated()" (click)="collapseNav()" class="
+            gt-position-relative gt-align-items-center gt-mr-20 gt-ml-20
+            header-deal-status
+          " [routerLink]="['/deals']">
+          <span class="icon-deal-h gt-fs-16 gt-mt-5 gt-center myo-icons hyup gt-cursor-pointer"><span
+              class="path1"></span><span class="path2"></span><span class="path3"></span><span
+              class="path4"></span><span class="path5"></span><span class="path6"></span></span>
+          <h1 class="
+              gt-fs-13 gt-lightblack gt-mt-9 gt-cursor-pointer
+              myd-ch
+              dcolor-primary
+            ">
+            Offers
+          </h1>
+          <!-- <div class="noti-unreads">
+            <h2 class="gt-fs-11 gt-white offer-cous">10</h2>
+          </div>  -->
+        </div> 
+
+        <!-- Cart icon temporarily off now -->
+        <!-- <div *ngIf="isAuthenticated()" (click)="collapseNav()" class="
+            gt-position-relative gt-align-items-center gt-mr-20
+            header-deal-status
+            gt-cart
+          " [routerLink]="['/deals']">
+          <span class="icon-cart1 gt-fs-24 gt-center myo-icons hyup gt-cursor-pointer"></span>
+          <h1 class="
+              gt-fs-13 gt-lightblack gt-mt-4 gt-cursor-pointer
+              myd-chc
+              dcolor-primary
+            ">
+            Cart
+          </h1>
+          <div class="noti-cart">
+            <h2 class="gt-fs-11 gt-white cart-count">5</h2>
+          </div>
+        </div> -->
+
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="modal modal-left fade" id="left_modal" tabindex="-1" role="dialog" aria-labelledby="left_modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header loc-modal-header">
+        <div class="modal-title">
+          <h2 class="gt-fs-16 gt-text-medium gt-black">Location</h2>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span class="material-icons">clear</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="gt-float-100">
+          <div class="gt-float-100 gt-mb-7 loc-search">
+            <div class="currency-group">
+              <div class="currency-input-group hash-input">
+                <div class="currency-input-group-prepend">
+                  <div class="currency-input-group-text">
+                    <img src="assets/images/search-icon.png" alt="image" class="money-tag" width="20" height="20" />
+                  </div>
+                </div>
+                <input type="text" class="currency-form-control hash-control gt-pl-3"
+                  placeholder="Enter city, area, locality or pincode" #search (keyup)="onSearch(search.value)" />
+              </div>
+            </div>
+          </div>
+          <ul class="loc_list gt-pd-10 gt-mr-16 bg-change gt-mt-50 gt-mr-25"
+            *ngIf="googlePlacesResults && googlePlacesResults.length">
+            <li *ngFor="let prediction of googlePlacesResults" class="
+                place-suggestion
+                gt-float-left gt-mb-10 gt-display-flex gt-cursor-pointer
+              " (click)="suggestionSelected(prediction)">
+              <span class="
+                  material-icons
+                  gt-float-left gt-fs-20 gt-mr-5
+                  dcolor-primary
+                ">search</span>
+              <h6 class="gt-float-left gt-fs-13 dcolor-primary">
+                {{ prediction.description }}
+              </h6>
+            </li>
+          </ul>
+
+          <div class="gt-float-100 gt-pd-tb-12 gt-cursor-pointer loc-city">
+            <div class="gt-float-100 gt-vcenter" (click)="fetchCurrentLocation('select')">
+              <img src="assets/images/home/gps.svg" alt="image" class="gt-mr-8 locp-tag" width="20" height="20" />
+              <h2 class="gt-fs-14 gt-text-medium gt-sky dcolor-primary">
+                Select current location
+                <!-- <span *ngIf="loadingLocation"> Loading ...</span> -->
+              </h2>
+            </div>
+            <div class="gt-float-100">
+              <h3 class="gt-fs-13 gt-black gt-pl-27">Using GPS</h3>
+            </div>
+          </div>
+          <div class="gt-float-100 loc-city" *ngIf="isLoggedIn && addressList.length">
+            <div class="gt-float-100 gt-pt-12">
+              <h3 class="gt-fs-15 gt-text-medium gt-black">Saved address</h3>
+            </div>
+            <ng-template ngFor let-i="index" let-c="count" let-address [ngForOf]="addressList">
+              <div class="gt-float-100 gt-pd-tb-12 gt-cursor-pointer" (click)="suggestionSelected(address, 'address')">
+                <div class="gt-float-100 gt-vcenter">
+                  <img src="assets/images/breadcum-home-icon.svg" alt="image" class="gt-mr-8 locp-tag" width="18"
+                    height="19" />
+                  <h2 class="gt-fs-14 gt-lightgrayish dcolor-primary"
+                    [ngClass]="[activeAddress(address) ? 'gt-sky' : '']">
+                    {{ address.annotation }}
+                  </h2>
+                </div>
+                <div class="gt-float-100">
+                  <h3 class="gt-fs-13 gt-pl-27" [ngClass]="[activeAddress(address) ? 'gt-sky' : 'gt-black']">
+                    {{ address.addressLine }}
+                  </h3>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+
+          <!-- <div class="gt-float-100 gt-pt-12">
+            <h3 class="gt-fs-15 gt-text-medium gt-black">Popular City</h3>
+          </div>
+
+          <div class="gt-float-100 search-loc-list">
+            <ng-template ngFor let-i="index" let-c="count" let-city [ngForOf]="cityList">
+              <div class="gt-float-100 gt-vcenter gt-pd-tb-12 loc-city" (click)="suggestionSelected(city, 'city')">
+                <img src="assets/images/home/popular-loc.svg" alt="image" class="gt-mr-12 locp-tag" width="16"
+                  height="19" />
+                <h2 class="gt-fs-14 dcolor-primary" [ngClass]="[activeAddress(city) ? 'gt-sky' : 'loc-color']">
+                  {{ city?.city }}
+                </h2>
+              </div>
+            </ng-template>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- mobile header -->
+
+<nav class="navbar navbar-expand-lg fixed-gtop gt-navbar-main mobile-menu">
+  <div class="container-fluid">
+
+    <div class="gt-vcenter gt-nav-left">
+      <div class="gt-mr-10 gt-cursor-pointer userm-side" data-toggle="modal" data-target="#left_modals"
+        *ngIf="isAuthenticated()">
+        <span class="material-icons gt-fs-30 gt-white">menu</span>
+      </div>
+      <a class="navbar-brand" href="javascript:;" [routerLink]="['/home']">
+        <img src="assets/images/gintaa.svg" class="logo-gintaa" width="25" height="35" alt="gintaa" />
+      </a>
+      <div class="gt-mr-20 gt-cursor-pointer search-loctions" data-toggle="modal" data-target="#left_modal">
+        <div class="gt-vcenter rp-ghpt">
+          <span class="icon-popular-loc gt-fs-20 gt-mr-8 rp-ghyw"></span>
+          <div class="loc-code rp-qwed">
+            <h2 class="
+              gt-fs-13 gt-width-100 gt-text-medium gt-white
+              sh-loc rp-ghwa
+              dcolor-primary
+            ">
+              {{ showCurrentLocation() | trimTextToCertainNumberCharector: 10 }}
+            </h2>
+            <h3 class="gt-fs-11 gt-width-100 gt-mt-3 gt-white loc-code rp-dfrt">
+              {{ currentLocation?.zip }}
+            </h3>
+          </div>
+          <!-- <span class="material-icons gt-fs-20 dcolor-primary">expand_more</span> -->
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-nav-middle">
+      <div class="search-custom sear-customh">
+            <app-search></app-search> 
+      </div>
+
+
+
+    </div>
+
+    <!-- <div class="gt-nav-middle">
+      <div class="offers-select" *ngIf="isAuthenticated()">
+        <div class="afl-userCRL">
+          <div class="dropdown user-offers">
+            <a href="#" class="offers-user" data-toggle="dropdown" role="button" aria-haspopup="true"
+              aria-expanded="false">
+              search
+              <span class="material-icons">expand_more</span>
+            </a>
+
+            <div class="dropdown-menu offers_headerDrops bg-change" aria-label="All notifications">
+              <div class="search-custom">
+                <app-search></app-search>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> -->
+
+
+    <div class="gt-vcenter gt-nav-right">
+      <!-- Cart icon temporarily off now -->
+      <!-- <div *ngIf="isAuthenticated()" (click)="collapseNav()" class="
+        gt-position-relative gt-align-items-center gt-ml-20 header-deal-status
+        gt-cart
+      " [routerLink]="['/deals']">
+          <img src="assets/images/home/cart.svg" alt="logo" width="24" height="24"
+            class="gt-center myo-icons hyup gt-cursor-pointer" />
+          <h1 class="
+            gt-fs-13 gt-white gt-mt-4 gt-cursor-pointer
+            myd-chc
+            dcolor-primary
+          ">
+          Cart
+        </h1>
+        <div class="noti-cart">
+          <h2 class="gt-fs-11 gt-white cart-count">12</h2>
+        </div>
+      </div> -->
+
+      <button (click)=toggleDisplayDivIf() class="mob-search"> <span class="icon-gt-search gt-fs-18"></span> </button>
+      <div *ngIf="!isShowDivIf" class="hides">
+        <div class="search-mobh">
+          <div class="search-custom">
+            <app-search></app-search>
+          </div>
+        </div>
+      </div>
+
+      <form class="login-user mobm-luser" *ngIf="!isAuthenticated()">
+        <div class="login rp-kpyu">
+          <button type="button" class="gt-vcenter login-btn rp-ghpy dcolor-primary-import" (click)="openLoginDialog()">
+            <img src="assets/images/profile/user-hicon.svg" alt="logo" width="18" height="20" class="user-icons rp-dkhp" />
+            <h2 class="gt-fs-13 gt-text-medium gt-white gt-ml-10 lsup rp-gpux">
+              Login / Sign up
+            </h2>
+          </button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+</nav>
+
+<div class="mobile-msidebar">
+  <div class="modal modal-left fade" id="left_modals" tabindex="-1" role="dialog" aria-labelledby="left_modals">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header user-modal-header">
+          <div class="gt-float-100">
+            <button role="button" (click)="openCreateBusinessAccountPopup()" class="
+                gt-center gt-bg-transparent gt-width-100 create-baccount">
+              <span class="material-icons gt-sky gt-fs-17">add</span>
+              <h2 class="gt-fs-14 gt-sky">create business profile</h2>
+            </button>
+          </div>
+          <button type="button" id = "close-modal" class="close" data-dismiss="modal" aria-label="Close">
+            <span class="material-icons" (click)=closeSideBar()>clear</span>
+          </button>
+        </div>
+        <div class="modal-body mob-modal-bdy">
+          <div class="gt-float-100">
+            <div class="gt-float-100 gt-mb-7 users-menu" *ngIf="isAuthenticated()">
+              <div class="gt-float-100 my-account-list">
+                <div class="gt-vcenter gt-pd-tb-10 gt-pd-lr-12 gt-bg-sky gt-border-radius-zero normal-user"
+                  *ngIf="!isBusinessMode">
+                  <div class="image-width-32 border-radius-100 gt-center gt-position-relative chat-noimg">
+                    <img [src]="profileUrl" class="image-width-32 border-radius-100" alt="image"
+                      *ngIf="profileUrl; else avatarSec" />
+                    <ng-template #avatarSec>
+                      <img [src]="userNoImage" class="fedr" alt="image" />
+                    </ng-template>
+                  </div>
+                  <div class="gt-ml-12">
+                    <div class="name-comy">
+                      <h1 class="gt-fs-15 gt-white">
+                        {{ username | trimTextToCertainNumberCharector: 15 }}
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+                <!-- Start business switching -->
+                <div *ngIf="isBusinessMode" class="gt-float-100 header-matexpan"
+                  [ngClass]="{ 'business-mode-activated': isBusinessMode }">
+                  <mat-expansion-panel [expanded]="businessHeaderDropdownExpanded">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+
+                        <div class="gt-vcenter gt-pd-tb-10 gt-pd-lr-12 gt-bg-sky gt-border-radius-4 normal-user"
+                          *ngIf="!showBusinessMenu">
+                          <div class="image-width-32 border-radius-100 gt-center gt-position-relative chat-noimg">
+                            <img [src]="profileUrl" class="image-width-32 border-radius-100" alt="image"
+                              *ngIf="profileUrl; else avatarSec" />
+                            <ng-template #avatarSec>
+                              <img [src]="userNoImage" class="fedr" alt="image" />
+                            </ng-template>
+                          </div>
+                          <div class="gt-ml-12">
+                            <div class="name-comy">
+                              <h1 class="gt-fs-15 gt-white">
+                                {{ username | trimTextToCertainNumberCharector: 15 }}
+                              </h1>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="gt-float-100" *ngIf="showBusinessMenu">
+                          <div class="gt-float-100 gt-center gt-pt-12 gt-position-relative">
+                            <div class="image-width gt-bg-white blogo-bg"></div>
+                            <img [src]="fetchSelectedBusinessLogo() ||
+                                'assets/images/business/company-logo.svg'
+                              " alt="image" class="image-width blogo-zdex" />
+                            <div class="h2 gt-fs-14 gt-center gt-bg-sky pos-business">
+                              Business
+                            </div>
+                          </div>
+
+                          <div class="gt-float-100 gt-center gt-pd-tb-10">
+                            <h1 class="gt-fs-16 gt-white">
+                              {{ fetchSelectedBusinessName() }}
+                            </h1>
+                          </div>
+                        </div>
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <!-- <div class="gt-float-100 blank-baccount" *ngIf="!isBusinessMode">
+                      <div class="gt-center">
+                        <img src="assets/images/business/business-blank.svg" alt="image" width="111" height="90"
+                          class="baccont" />
+                      </div>
+                      <div class="
+                          gt-float-100
+                          gt-center
+                          gt-mt-20
+                          gt-mb-12
+                          gt-pl-40
+                          gt-pr-40
+                        ">
+                        <h2 class="gt-fs-14 gt-lightblack gt-text-center">
+                          You have not business account yet
+                        </h2>
+                      </div>
+                    </div> -->
+                    <div class="gt-float-100 header-business-list" *ngIf="isBusinessMode">
+
+                      <div *ngIf="showBusinessMenu" class="
+                          gt-float-100 gt-mb-10 gt-vcenter gt-cursor-pointer
+                        ">
+                        <div class="image-earn">
+                          <img [src]="profileUrl" class="image-width-30 border-radius-100" alt="image"
+                            *ngIf="profileUrl; else avatarSec2" />
+                          <ng-template #avatarSec2>
+                            <img [src]="userNoImage" class="image-width-30 border-radius-100" alt="image" />
+                          </ng-template>
+                        </div>
+                        <div class="gt-ml-8">
+                          <div class="name-comy">
+                            <a class="gt-fs-15 gt-text-medium gt-white"
+                              (click)="switchBusinessProfileModal('', '', false)" style="color: #121212">
+                              {{ fetchShortUserName() }} <span>(Personal)</span>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
+
+
+                      <ng-container *ngIf="businessProfiles.length">
+
+                        <!--  *ngFor="
+                            let businessProfile of businessProfiles
+                              | slice: 0:maxBusinessCountOnHeader
+                          " -->
+
+                        <div *ngFor="
+                            let businessProfile of getBusinessListForswitch(businessProfiles)
+                              | slice: 0:maxBusinessCountOnHeader
+                          " class="
+                            gt-float-100
+                            gt-mb-10
+                            gt-vcenter
+                            gt-cursor-pointer
+                          " (click)="
+                            switchBusinessProfileModal(
+                              businessProfile.businessId,
+                              businessProfile.businessName,
+                              businessProfile.verified
+                            )
+                          ">
+                          <div class="image-earn">
+                            <img *ngIf="
+                                businessProfile.logoUrl;
+                                else businessNoImage
+                              " [src]="businessProfile.logoUrl" [alt]="businessProfile.businessName"
+                              class="image-width-30 border-radius-100" />
+                            <ng-template #businessNoImage>
+                              <img [src]="businessNoImageHeader" class="image-width-30 border-radius-100"
+                                alt="business no logo" />
+                            </ng-template>
+                          </div>
+                          <div class="gt-ml-8">
+                            <div class="name-comy">
+                              <h1 class="
+                                  gt-fs-15 gt-white
+                                ">
+                                {{ businessProfile.businessName | trimTextToCertainNumberCharector: 15 }} <span>(Business)</span>
+                              </h1>
+                            </div>
+                          </div>
+                        </div>
+                      </ng-container>
+                      <ng-container *ngIf="
+                          businessProfiles.length > maxBusinessCountOnHeader
+                        ">
+                        <a [routerLink]="['/business']" class="gt-fs-14 gt-white gt-float-right">show all</a>
+                      </ng-container>
+                    </div>
+                  </mat-expansion-panel>
+                </div>
+
+                <!-- End business switching -->
+
+
+
+                <div class="gt-float-100 gintaa-pr-list">
+                  <ng-container *ngIf="
+                      isBusinessMode && showBusinessMenu;
+                      else generalUserMenuItems
+                    ">
+                    <div class="gt-float-100 gt-vcenter gt-pd-lr-12 gt-pd-tb-8 uv-list gt-cursor-pointer">
+                      <img src="assets/images/settings/user-myaccont-img.svg" class="gt-mr-15 us-image" width="18"
+                        height="20" alt="icon" />
+                      <h1 class="gt-fs-15 gt-lightblack ">
+                        <a (click)="collapseNav()" class="gt-lightblack dcolor-primary" routerLink="/business/view/{{
+                            selectedBusinessProfile.id
+                          }}">My business profile</a>
+                      </h1>
+                    </div>
+
+                    <div class="gt-float-100 gt-vcenter gt-pd-lr-12 gt-pd-tb-8 uv-list bt-pdwon gt-cursor-pointer">
+                      <img src="assets/images/settings/user-myaccont-img.svg" class="gt-mr-15 us-image" width="18"
+                        height="20" alt="icon" />
+                      <h1 class="gt-fs-15 gt-lightblack">
+                        <a (click)="collapseNav()" class="gt-lightblack dcolor-primary" routerLink="/business">Business
+                          accounts</a>
+                      </h1>
+                    </div>
+
+                    <div class="gt-float-100 gt-vcenter gt-pd-lr-12 gt-pd-tb-8 uv-list bt-pdwon gt-cursor-pointer">
+                      <img src="assets/images/settings/business-overview.svg" class="gt-mr-11 us-image" width="22"
+                        height="20" alt="icon" />
+                      <h1 class="gt-fs-15 gt-lightblack ">
+                        <a (click)="collapseNav()" class="gt-lightblack dcolor-primary"
+                          routerLink="/business/profile">Business overview</a>
+                      </h1>
+                    </div>
+
+                    <div
+                      class="gt-float-100 gt-vcenter gt-mb-5 gt-pd-lr-12 gt-pd-tb-8 uv-list bt-pdwon gt-cursor-pointer">
+                      <img src="assets/images/settings/user-myaccont-img.svg" class="gt-mr-15 us-image" width="18"
+                        height="20" alt="icon" />
+                      <h1 class="gt-fs-15 gt-lightblack ">
+                        <a (click)="collapseNav()" class="gt-lightblack dcolor-primary" routerLink="/business/view/{{
+                            selectedBusinessProfile.id
+                          }}/teams">My business team</a>
+                      </h1>
+                    </div>
+                  </ng-container>
+
+                  <ng-template #generalUserMenuItems>
+                    <div
+                      class="gt-float-100 gt-vcenter gt-pd-lr-12 bt-pdwon gt-pd-tb-7 uv-list gt-cursor-pointer sm-height">
+                      <img src="assets/images/profile-menu/my-account.svg" class="gt-mr-15 us-image" width="18"
+                        height="20" alt="icon" />
+                      <h1 class="gt-fs-15 prm-color">
+                        <a (click)="collapseNav()" class="gt-fs-15 prm-color dcolor-primary" routerLink="/profile">My
+                          account</a>
+                      </h1>
+                    </div>
+
+
+
+                    <div
+                      class="gt-float-100 gt-center-between gt-pd-lr-12 bt-pdwon gt-pd-tb-7 uv-list gt-cursor-pointer sm-height">
+                      <div class="gt-vcenter plist-name">
+                        <span class="icon-my-offers gt-fs-15 gt-sky gt-mr-16"></span>
+                        <h2 class="gt-fs-15 prm-color">
+                          <a (click)="collapseNav()" class="gt-fs-15 prm-color dcolor-primary"
+                            routerLink="/my-listings">My listing</a>
+                        </h2>
+                      </div>
+                      <!-- <h3 class="gt-fs-12 prm-color">12</h3> -->
+                    </div>
+
+                    <div
+                    *ngIf="releaseOffer"
+                      class="gt-float-100 gt-center-between gt-pd-lr-12 bt-pdwon gt-pd-tb-7 uv-list gt-cursor-pointer sm-height">
+                      <div class="gt-vcenter plist-name deal-mobicon">
+                        <span class="icon-deal-h gt-fs-12 gt-mr-15"><span class="path1"></span><span
+                            class="path2"></span><span class="path3"></span><span class="path4"></span><span
+                            class="path5"></span><span class="path6"></span></span>
+                        <h2 class="gt-fs-15 prm-color">
+                          <a (click)="collapseNav()" class="gt-fs-15 prm-color dcolor-primary" routerLink="/deals">My
+                            offers</a>
+                        </h2>
+                      </div>
+                      <!-- <h3 class="gt-fs-12 prm-color">12</h3> -->
+                    </div>
+
+                    <div 
+                    *ngIf="isEnableAuction"
+                      class="gt-float-100 gt-center-between gt-pd-lr-12 bt-pdwon gt-pd-tb-7 uv-list gt-cursor-pointer sm-height">
+                      <div class="gt-vcenter plist-name">
+                        <span class="icon-gt-auction gt-fs-18 gt-sky gt-mr-15"></span>
+                        <h2 class="gt-fs-15 prm-color">
+                          <a (click)="collapseNav()" class="gt-fs-15 prm-color dcolor-primary" routerLink="/bids">My bids </a>
+                        </h2>
+                      </div>
+                      <!-- <h3 class="gt-fs-12 prm-color">12</h3> -->
+                    </div>
+
+                    <div
+                    *ngIf="releaseOffer"
+                      class="gt-float-100 gt-center-between gt-pd-lr-12 bt-pdwon gt-pd-tb-7 uv-list gt-cursor-pointer sm-height">
+                      <div class="gt-vcenter plist-name">
+                        <img src="assets/images/profile-menu/my-matches.svg" class="gt-mr-16 us-image" width="16"
+                          height="15" alt="icon" />
+                        <h2 class="gt-fs-15 prm-color">
+                          <a (click)="collapseNav()" class="gt-fs-15 prm-color dcolor-primary" routerLink="/matches">My
+                            matches</a>
+                        </h2>
+                      </div>
+                      <!-- <h3 class="gt-fs-12 prm-color">12</h3> -->
+                    </div>
+
+                    <div
+                      class="gt-float-100 gt-vcenter gt-pd-lr-12 bt-pdwon gt-pd-tb-7 uv-list gt-cursor-pointer sm-height">
+                      <img src="assets/images/profile-menu/my-fav.svg" class="gt-mr-16 us-image" width="16" height="15"
+                        alt="icon" />
+                      <h2 class="gt-fs-15 prm-color">
+                        <a (click)="collapseNav()" class="gt-fs-15 prm-color dcolor-primary" routerLink="/favorites">My
+                          favourites</a>
+                      </h2>
+                    </div>
+
+
+                    <!-- <div
+                      class="gt-float-100 gt-center-between gt-pd-lr-12 bt-pdwon gt-pd-tb-7 uv-list gt-cursor-pointer sm-height">
+                      <div class="gt-vcenter plist-name">
+                        <img src="assets/images//profile-menu/my-wishlist.svg" class="gt-mr-15 us-image" width="16"
+                          height="16" alt="icon" />
+                        <h2 class="gt-fs-15 prm-color">
+                          <a (click)="collapseNav()" class="gt-fs-15 prm-color dcolor-primary" routerLink="/wishlist">My
+                            wishlist</a>
+                        </h2>
+                      </div>
+                      <h3 class="gt-fs-12 prm-color">10</h3>
+                    </div> -->
+
+
+                    <div
+                      *ngIf="releaseOffer"
+                      class="gt-float-100 gt-vcenter gt-pd-lr-12 bt-pdwon gt-pd-tb-7 uv-list gt-cursor-pointer sm-height">
+                      <img src="assets/images/profile-menu/my-chats.svg" class="gt-mr-15 us-image" width="15"
+                        height="14" alt="icon" />
+                      <h2 class="gt-fs-15 prm-color">
+                        <a (click)="collapseNav()" class="gt-fs-15 prm-color dcolor-primary">My chats</a>
+                      </h2>
+                    </div>
+
+                    <div
+                      class="gt-float-100 gt-vcenter gt-pd-lr-12 bt-pdwon gt-pd-tb-7 uv-list gt-cursor-pointer sm-height">
+                      <span class="material-icons gt-sky gt-mr-10 gt-fs-20">arrow_back</span>
+                      <h3 class="gt-fs-15 prm-color">
+                        <a (click)="collapseNav()" routerLink="/profile/business-invitations"
+                          class="gt-fs-15 prm-color dcolor-primary">My invitation</a>
+                      </h3>
+                    </div>
+
+                    <!-- <div class="
+                        gt-float-100 gt-center-between gt-pd-lr-12
+                        bt-pdwon
+                        uv-list
+                        gt-cursor-pointer sm-height
+                      ">
+                      <div class="gt-vcenter plist-name">
+                        <img src="assets/images/profile-menu/notification.svg" class="gt-mr-4 ghty us-image" width="30"
+                          height="30" alt="icon" />
+                        <h2 class="gt-fs-15 prm-color">
+                          <a [routerLink]="'/notification'" class="gt-fs-15 prm-color dcolor-primary">Notifications</a>
+                        </h2>
+                      </div>
+                      <h3 class="gt-fs-12 prm-color">30</h3>
+                    </div> -->
+
+                    <!-- <div class="gt-float-100 gt-vcenter gt-pd-lr-12 bt-pdwon gt-pd-tb-7 uv-list gt-cursor-pointer sm-height">
+                      <img src="assets/images/profile-menu/settings.svg" class="gt-mr-6 us-image" width="23"
+                        height="17" alt="icon" />
+                      <h4 class="gt-fs-15 prm-color">
+                        <a (click)="collapseNav()" class="gt-fs-15 prm-color dcolor-primary"
+                          routerLink="/settings">Settings</a>
+                      </h4>
+                    </div> -->
+                  </ng-template>
+                </div>
+
+
+
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+          </div>
+
+
+        </div>
+        <div class="modal-footer modal-footer-fixed mob-modal-footer">
+          <div class="gt-float-100 gt-pd-tb-8 gt-pd-lr-12 gt-center-between user-logout gt-border-radius-zero bg-change
+                ">
+            <div class="gt-vcenter logout-sub gt-cursor-pointer" (click)="signOut()">
+              <span class="material-icons gt-mr-13 gt-sky gt-fs-20">logout</span>
+              <h5 class="gt-fs-14 logout-color dcolor-primary">
+                Log out
+              </h5>
+            </div>
+
+            <!-- Dark Light mode temporarily off now -->
+            <!-- <div class="gt-vcenter gintaa-theme">
+              <div class="gt-border-radius-4 theme-bg gt-center image-width-30 gt-cursor-pointer theme-primary
+                    " (click)="drakLightModetoggle('light')">
+                <img src="assets/images/settings/theme-primary.svg" class="chat-icon" width="20" height="20"
+                  alt="icon" />
+              </div>
+              <div class="
+                      gt-border-radius-4 gt-bg-white gt-center gt-ml-12
+                      image-width-30
+                      gt-cursor-pointer
+                      theme-secondary
+                    " (click)="drakLightModetoggle('dark')">
+                <img src="assets/images/settings/theme-secondary.svg" class="chat-icon" width="17" height="17"
+                  alt="icon" />
+              </div>
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- <app-spinner *ngIf="showLoader" timeOut="10000"></app-spinner> -->
+<app-loading-spinner loaderType="drops-fading" [fullPage]="true" [loader]="showLoader"
+                    addBackDrop="true" backDropColor="#fff"></app-loading-spinner>

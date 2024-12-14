@@ -1,0 +1,35 @@
+<div class="settings-user-bg gt-mt-20 offer-create-custom">
+  <div class="container rp-col-fluid">
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 co-bred">
+           
+            <app-bread-crumb [breadcrumbs]="breadcrumb"> </app-bread-crumb>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gt-float-100 gt-mt-25">
+      <div class="gt-float-100">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100 gt-mb-30 new-offerstbd">
+              <nav mat-tab-nav-bar>
+                <div class="nav nav-tabs nav-fill custom-ltabs">
+                  <a mat-tab-link class="nav-item nav-link" [ngClass]="{ active: rla.isActive }"
+                    *ngFor="let menu of _menus" [routerLink]="menu.path" routerLinkActive #rla="routerLinkActive"
+                    [active]="rla.isActive" [disabled]="!showOtherTabs[menu.name.toUpperCase()]">
+                    {{ menu.displayName }}
+                  </a>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

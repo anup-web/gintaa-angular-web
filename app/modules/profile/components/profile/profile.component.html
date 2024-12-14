@@ -1,0 +1,27 @@
+<section class="gt-float-100">
+  <div *ngIf="currentProfileScreen$ | async as currentProfileScreen">
+    <app-user-profile
+      (navigateProfileScreen)="navigateProfileScreen($event)"
+    ></app-user-profile>
+    <!-- <app-user-profile
+      *ngIf="currentProfileScreen === allPossibleProfileScreen.VIEW_PROFILE"
+      (navigateProfileScreen)="navigateProfileScreen($event)"
+    ></app-user-profile> -->
+    <!-- <app-edit-user-profile
+      *ngIf="currentProfileScreen === allPossibleProfileScreen.EDIT_PROFILE"
+      (navigateProfileScreen)="navigateProfileScreen($event)"
+    ></app-edit-user-profile> -->
+  </div>
+
+  <app-loading-spinner
+    loaderType="drops-fading"
+    [fullPage]="true"
+    [loader]="loader"
+    addBackDrop="true"
+    backDropColor="#fff"
+  ></app-loading-spinner>
+</section>
+
+<app-floating-menu></app-floating-menu>
+<app-floating-listing></app-floating-listing> 
+<!-- <app-spinner #showLoader timeOut="7000"></app-spinner> -->

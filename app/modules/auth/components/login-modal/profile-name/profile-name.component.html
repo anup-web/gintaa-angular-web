@@ -1,0 +1,71 @@
+<div class="login-right-wrapper gt-float-100 gt-pr-25 gt-mt-70 profile-name-rp">
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="user-mail gt-float-100">
+          <div class="gt-center gt-text-center email-title">
+            <h1 class="gt-text-medium gt-fs-18 gt-lightblack dcolor-primary">Hello!</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="password-for gt-float-100">
+          <div class="gt-center enter-password-title gt-mt-5">
+            <h2 class="gt-fs-14 gt-text-center gt-lightgrayish dcolor-secondary">
+                 Please, enter your name 
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="gt-float-100">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="money gt-float-100 gt-mt-123 pn-rp">
+          <div class="currency-group">
+            <label class="currency-sr-only gt-fs-14 dcolor-primary">Name</label>
+            <div class="currency-input-group">
+              <div class="currency-input-group-prepend">
+                <div class="currency-input-group-text name-group-padding">
+                  <img src="assets/images/login-user.svg" alt="image" class="gt-img-responsive" width="18" height="19" />
+                </div>
+              </div>
+              <input type="text" class="currency-form-control name-control-padding" placeholder="Enter your name…"
+                ngModel [(ngModel)]="currentUserProfile.name" name="userName" #userName required
+                (keyup.enter)="sendUserName()" (keyup)="validateFullName($event.target.value)" appAlphabetOnly />
+            </div>
+            <div class="gt-text-danger" @fadeIn *ngIf="currentUserProfile.errorMessage?.message && formSubmitted">
+              <div class="error">
+                {{
+                parsedErrorMessage || currentUserProfile.errorMessage.message
+                }}
+              </div>
+            </div>
+
+            <div *ngIf="showErrMsg" class="gt-text-danger" @fadeIn>
+              <div class="error">{{errorMessage}} </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-mb-20">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <button type="button" [disabled]="fullNameInvalid"
+          class="gt-btn-primary gt-width-100 gt-btn-shadow gt-mt-30 gt-border-radius-2 bg-change-secondary-import dark-shadow-import border-none-import"
+          (click)="sendUserName()">
+          next
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<!-- <mat-spinner></mat-spinner> -->
+<ngx-spinner
+    [bdColor] = "_spinnerConfig.backDropColor" 
+    [size] = "_spinnerConfig.loaderSize" 
+    [color] = "_spinnerConfig.loaderColor" 
+    [type] = "_spinnerConfig.loaderType" 
+    [fullScreen] = "_spinnerConfig.fullPage"
+    [template] = "_spinnerConfig.template">
+    <p *ngIf="!!_spinnerConfig.loadingMessage" style="color: white" [innerHTML]="_spinnerConfig.loadingMessage"></p>
+</ngx-spinner>

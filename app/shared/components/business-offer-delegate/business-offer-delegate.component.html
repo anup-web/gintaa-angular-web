@@ -1,0 +1,69 @@
+<div class="admin-business-wrapper benss-scroll">
+    <div class="gt-float-100 gt-border-radius-16 sub-admin-wrapper bg-change">
+      <div class="popup-closed offre-filter-pop">
+        <span class="material-icons gt-mt-2" (click)="closePopup()">close</span>
+      </div>
+  
+      <div class="gt-float-100 gt-pd-lr-32 gt-mt-22 gt-mb-20">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100">
+              <h1 class="gt-fs-18 gt-sky gt-text-medium dcolor-primary">Delegate listing</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+  
+      
+      <div class="gt-float-100 gt-pd-lr-32 gt-mt-10" *ngIf="errorMessage">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100">
+              <h2 class="gt-fs-14 gt-lightgrayish dcolor-secondary">
+                {{errorMessage}}
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <ng-container *ngIf="memberList && memberList.length">
+          
+        <div 
+            class="gt-float-100 gt-pd-lr-32 gt-mb-15"
+            *ngFor="let member of memberList"
+           >
+          <div class="gt-center-between">
+            <div class="gt-width-100 gt-vcenter">
+              <div class="image-user-fd">
+               
+                <app-profile-avatar
+                    [userName]="member.memberDetails.name"
+                    [imageUrl]="member.memberDetails.imageUrl" >
+                </app-profile-avatar>
+              </div>
+              <div class="gt-ml-12">
+                <h2 class="gt-fs-16 gt-text-medium gt-lightblack dcolor-primary">
+                    {{member.memberDetails.name}}
+                </h2>
+              </div>
+            </div>
+            <div class="gt-width-100 gt-center-end">
+              <div class="reply-menu">
+                <mat-radio-button 
+                    class="examp-radio-button"
+                    [value]="member.memberDetails.identityId"
+                    (change)="delegateMember($event)">
+                </mat-radio-button> 
+
+              
+
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </ng-container>
+    </div>
+  </div>

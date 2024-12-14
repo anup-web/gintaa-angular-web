@@ -1,0 +1,45 @@
+<div class="gt-vcenter status-5">
+    <ng-container [ngSwitch]="dealStatus">
+        <ng-container *ngSwitchCase="'ACCEPTED'">
+            <!-- <span class="icon-gt-hand gt-fs-15 gt-mr-8 gt-sky"></span> -->
+            <h3 class="gt-fs-15 gt-primary">
+                <img src="assets/images/offer-icon-handshake-accepted.svg" class="gt-mr-8 da-hand" alt="image"
+                                            width="22" height="14" />
+                Accepted</h3>
+        </ng-container>
+        <ng-container *ngSwitchCase="'INITIATED'">
+            <ng-container *ngIf="callerIsReceiver; else outGoingSec">
+                <span class="icon-gt-arrow-back gt-fs-35 gt-sky"></span>
+                <h3 class="gt-fs-15 gt-sky">Incoming</h3>
+            </ng-container>
+            <ng-template #outGoingSec>
+                <span class="icon-gt-arrow-forward gt-fs-35 gt-sky"></span>
+                <h3 class="gt-fs-15 gt-sky">Outgoing</h3>
+            </ng-template>
+        </ng-container>
+        <ng-container *ngSwitchCase="'CLOSED'">
+            <span class="icon-gt-checkmark gt-fs-20 gt-mr-8 gt-sky"></span>
+            <h3 class="gt-fs-15 gt-sky">Closed</h3>
+        </ng-container>
+        <ng-container *ngSwitchCase="'PARTIAL_CLOSED'">
+            <span class="icon-gt-checkmark gt-fs-20 gt-mr-8 gt-sky"></span>
+            <h3 class="gt-fs-15 gt-sky">Partial closed</h3>
+        </ng-container>
+        <ng-container *ngSwitchCase="'REJECTED'">
+            <img src="assets/images/deal/chip-round.svg" class="da-hand cly-mr" alt="image" width="40" height="40" />
+            <h3 class="gt-fs-15 dc-rejected">Rejected</h3>
+        </ng-container>
+        <ng-container *ngSwitchCase="'ABANDONED'">
+            <span class="icon-gt-arrow-forward gt-fs-35 gt-sky"></span>
+            <h3 class="gt-fs-15 gt-sky">Outgoing</h3>
+        </ng-container>
+        <ng-container *ngSwitchCase="'REPORTED'">
+            <img src="assets/images/deal/chip-round.svg" class="da-hand cly-mr" alt="image" width="40" height="40" />
+            <h3 class="gt-fs-15 gt-sky">Reported</h3>
+        </ng-container>
+        <ng-container *ngSwitchCase="'REVISED'">
+            <span class="icon-gt-counter-offer gt-fs-14 gt-mr-8 gt-sky"></span>
+            <h3 class="gt-fs-15 gt-sky">Revised</h3>
+        </ng-container>
+    </ng-container>
+</div>

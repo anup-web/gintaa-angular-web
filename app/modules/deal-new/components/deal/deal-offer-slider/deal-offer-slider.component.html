@@ -1,0 +1,54 @@
+<div class="gt-float-100 outgoing-slider">
+  <ng-container *ngIf="actionType == 'sender' else receiverSlider">
+    <div class="gt-float-100 custom-carosl slider-card-mheight">
+      <div class="carousel-pnext pre_next oslider-right" *ngIf="senderSelectedOffers && getSelectedOffer() > 1">
+        <a class="arrow_left disabled" id="arrow_left_nav" (click)="owlCar.prev()"><span
+            class="material-icons dark-shadow-import bg-change-secondary-import">keyboard_arrow_left</span></a>
+        <a class="arrow_right" id="arrow_right_nav" (click)="owlCar.next()"><span
+            class="material-icons dark-shadow-import bg-change-secondary-import">keyboard_arrow_right</span></a>
+      </div>
+      <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)" #owlCar>
+        <ng-template ngFor let-i="index" let-c="count" let-offer [ngForOf]="myAllOffer">
+          <ng-template carouselSlide *ngIf=" getSelectedOffer() ==0 || getCurrectOffer(offer.offerId, senderSelectedOffers).selectedOffer">
+            <app-offer-card [offer]="offer" (onChange)="onChangeEmit($event)" [actionType]="actionType"
+              showUpdateQty="true" [selectedOffer]="getCurrectOffer(offer.offerId, senderSelectedOffers)"
+              [offerId]="offerId" [selectedDeliveryOption]="selectedDeliveryOption"> </app-offer-card>
+          </ng-template>
+        </ng-template>
+      </owl-carousel-o>
+    </div>
+  </ng-container>
+  <ng-template #receiverSlider>
+    <ng-container *ngIf="senderSelectedOffers.length else noOfferSection2">
+      <div class="gt-float-100 custom-carosl slider-card-mheight">
+        <div class="carousel-pnext pre_next oslider-left" *ngIf="senderSelectedOffers && getSelectedOffer() > 1">
+          <a class="arrow_left disabled" id="arrow_left_nav" (click)="owlCar.prev()"><span
+              class="material-icons dark-shadow-import bg-change-secondary-import">keyboard_arrow_left</span></a>
+          <a class="arrow_right" id="arrow_right_nav" (click)="owlCar.next()"><span
+              class="material-icons dark-shadow-import bg-change-secondary-import">keyboard_arrow_right</span></a>
+        </div>
+        <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)" #owlCar>
+          <ng-template ngFor let-i="index" let-c="count" let-offer [ngForOf]="myAllOffer">
+            <ng-template carouselSlide *ngIf="getCurrectOffer(offer.offerId, senderSelectedOffers).selectedOffer">
+                <app-offer-card [selectedOffer]="getCurrectOffer(offer.offerId, senderSelectedOffers)" (onChange)="onChangeEmit($event)" [actionType]="actionType"
+                showUpdateQty="true" [offer]="offer"
+                [offerId]="offerId" [selectedDeliveryOption]="selectedDeliveryOption"> </app-offer-card>
+            </ng-template>
+          </ng-template>
+        </owl-carousel-o>
+      </div>
+    </ng-container>
+    <ng-template #noOfferSection2>
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 gt-center">
+          <img src="assets/images/deal/empty offer.png" class="empty-offer" alt="image" width="180" />
+        </div>
+        <div class="gt-float-100 gt-center gt-mb-15 gt-mt-15">
+          <h1 class="gt-lightblack gt-fs-14">
+            Please select one offer to make a offer
+          </h1>
+        </div>
+      </div>
+    </ng-template>
+  </ng-template>
+</div>

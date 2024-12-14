@@ -1,0 +1,156 @@
+<form [formGroup]="desire">
+  <div class="gt-float-100 gt-mt-20 want-return-nwrap">
+    <div class="gt-float-100 gt-pd-lr-12">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-vcenter nborder-bottom wants-heading">
+            <div
+              class="gt-mr-30 gt-pb-12 gt-cursor-pointer nanything-btn"
+              *ngFor="let desire of desireTypeArr; index as i"
+              [ngClass]="{ 'any-active': selected == i }"
+              (click)="setDesire(desire, i)"
+            >
+              <h2 class="gt-fs-15 gt-text-medium new-color htyu">
+                {{ desire === "Item" ? "Product" : desire }}
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-30 gt-pd-lr-12" *ngIf="showDesireSection">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="secondary_group">
+            <div class="secondary-wrap validate-input" controlErrorContainer>
+              <span class="secondary-label">Specify</span>
+              <input
+                class="secondary-input"
+                type="text"
+                name="name"
+                [placeholder]="wantReturnPlaceholder"
+                formControlName="description"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-pd-lr-12" *ngIf="showDesireSection">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100">
+            <div controlErrorContainer>
+              <app-offer-all-categories
+                isDesire="true"
+              ></app-offer-all-categories>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-30 gt-pd-lr-12" *ngIf="!showDesireSection">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="secondary_group">
+            <span class="secondary-label gt-lightblack">
+              Connect with others who desire your product/service and get
+              "ANYTHING" in return.
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="gt-float-100 gt-mt-5 gt-pd-lr-12">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 gt-center-between tag-heading">
+          <div class="gt-vcenter tagt-primary">
+            <h1 class="gt-fs-15 gt-text-medium gt-lightblack">Selected</h1>
+          </div>
+
+          <div class="gt-vcenter tagt-primary">
+            <h2 class="gt-fs-14 gt-text-medium gt-sky">last selected</h2>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-mt-16 gt-pd-lr-12">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 selected-tagsd">
+          <div class="gt-center gt-float-left gt-border-radius-4 gt-mr-10 tagsn ntag-active">
+            <h3 class="gt-fs-13 new-color">Mobile</h3>
+            <span class="icon-gt-close gt-lightblack gt-fs-9 gt-ml-16"></span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-mb-10 gt-mt-20 gt-pd-lr-12 gt-pb-10 nborder-bottom">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 gt-center-between tag-heading">
+          <div class="gt-vcenter tagt-primary">
+            <h1 class="gt-fs-15 gt-text-medium gt-lightblack">Suggested Tag</h1>
+          </div>
+
+          <div class="gt-vcenter tagt-primary">
+            <h2 class="gt-fs-14 gt-text-medium gt-sky">1/# Features</h2>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-pd-lr-12">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 gt-center-start">
+          <div class="gt-vcenter tagt-primary">
+            <h1 class="gt-fs-13 gt-text-medium gt-lightblack">Brand</h1>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-mt-16 gt-pd-lr-12">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 selected-tagsd">
+          <div class="gt-center gt-float-left gt-border-radius-4 gt-mr-10 tagsn">
+            <h3 class="gt-fs-13 new-color">Haier</h3>
+          </div>
+          <div class="gt-center gt-float-left gt-border-radius-4 gt-mr-10 tagsn">
+            <h3 class="gt-fs-13 new-color">Samsung</h3>
+          </div>
+
+          <div class="gt-center gt-float-left gt-border-radius-4 gt-mr-10 tagsn">
+            <h3 class="gt-fs-13 new-color">Philips</h3>
+          </div>
+
+          <div class="gt-center gt-float-left gt-border-radius-4 nadd-tag-btn">
+            <span class="icon-gt-add gt-fs-13 gt-mr-2"></span>
+            <h2 class="gt-fs-14 gt-sky neda">add more</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  </div>
+</form>

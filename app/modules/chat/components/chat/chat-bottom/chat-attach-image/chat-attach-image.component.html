@@ -1,0 +1,88 @@
+<div class="attach-image-main bg-change-import">
+    <div class="remove-imgattach-page">
+        <span class="material-icons" (click)="cancel()">close</span>
+    </div>
+     <div class="image-view-section">
+          <div class="align-items-center">
+            <div id="slider">
+                <div id="chatCarousals" class="carousel slide" data-interval="3000" data-ride="carousel" pause="hover">
+                    <!-- main slider carousel items -->
+                    <div class="carousel-inner">
+                        <ng-container *ngIf="!isVideo else video">                      
+                            <div class="carousel-item" [ngClass]="{ active: viewFileIndex===i }" *ngFor="let image of images; index as i; first as isFirst" data-slide-number="i" >
+                                <img *ngIf="image && image.url" [src]="image?.url || ''" alt="First Slide" class="img_resize img-fluid">
+                            </div>
+                        </ng-container>
+                        <ng-template #video>
+                            <div class="carousel-item" [ngClass]="{ active: viewFileIndex===i }" data-slide-number="i" *ngFor="let video of videos; index as i">
+                                <ng-template [ngIf]="video.type.includes('video')">
+                                    <mat-video *ngIf="video?.url" [src]="video?.url" [fullscreen]="false">
+                                        <source matVideoSource [src]="video?.url">
+                                    </mat-video>
+                                </ng-template>
+                            </div>
+                        </ng-template>
+                        <a *ngIf="((images && images.length > 1) || (videos && videos.length > 1))" class="carousel-control-prev"
+                            role="button" (click)="viewFileIndex=viewFileIndex===0?images.length-1:viewFileIndex-1">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a *ngIf="((images && images.length > 1) || (videos && videos.length > 1))" class="carousel-control-next"
+                            role="button" (click)="viewFileIndex=viewFileIndex===images.length-1?0:viewFileIndex+1">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>    
+                    <ul class="carousel-indicators list-inline mx-auto-custom ">
+                        <ng-container *ngIf="!isVideo else videoThumb">                  
+                            <li class="list-inline-item" *ngFor="let image of images; index as i" (click)="viewFileIndex = i">
+                               
+                                <img [src]="image?.url || ''" alt="media" class="img-fluid">
+                                <span *ngIf="mode !== 'view'" class="material-icons" (click)="removeChatMedia(image, i, false)">close</span>
+                                
+                            </li>
+                        </ng-container> 
+                        <ng-template #videoThumb>
+                            <li class="list-inline-item active video-delete" *ngFor="let video of videos; index as i" (click)="viewFileIndex = i">
+                              
+                                   <mat-video *ngIf="video?.url" [src]="video?.url || ''" [fullscreen]="false">
+                                    <source matVideoSource [src]="video?.url"> 
+                                   </mat-video>
+                                   <span *ngIf="mode !== 'view'" class="material-icons" (click)="removeChatMedia(video, i, true)">close</span>
+                               
+                            </li>
+                        </ng-template>                   
+                    </ul>
+                </div>
+            </div>    
+        </div>
+     </div>  
+     
+     <div class="chat-msg-attach" *ngIf="mode !== 'view'">
+        <!-- <app-chat-bottom></app-chat-bottom> -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="chat-input">         
+                    <div class="input-upload-group">
+                      <div class="input-group-bg bg-change-import">
+                        <!-- start massage part -->
+                        <div class="primary-input-group">
+                            <!-- <app-reply-user></app-reply-user> -->
+                            <input type="text" class="primary-form-control dcolor-primary-import" placeholder="Type your message" #message>
+                            <div class="primary-group-append">
+                                <button class="icon-btn-primary" type="button">
+                                    <!-- <i class="material-icons" (click)="sendChatImages()">send</i>   -->
+                                    <div class="chat-send-btn" (click)="sendChatImages()" ><img src="assets/images/chat/chat-send.svg" class="img-fluid send-icon-btn"/></div>                                  
+                                </button>
+                            </div>
+                        </div>   
+                        <!-- end massage part -->
+                        </div>                    
+                    </div>        
+                </div>                       
+            </div>
+        </div>
+    </div>
+</div>    
+    
+

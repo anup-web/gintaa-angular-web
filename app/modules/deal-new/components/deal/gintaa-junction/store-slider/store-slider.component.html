@@ -1,0 +1,32 @@
+<div class="gt-float-100 gt-mt-24 store-sliders">
+     <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 ">
+               <div class="gt-float-100 custom-carosl"
+                    *ngIf="gintaJunctions && gintaJunctions.length > 2 else gintaStoreCard">
+                    <div class="carousel-pnext pre_next match-pre-next">
+                         <a class="arrow_left dark-shadow-import bg-change-secondary-import disabled"
+                              id="arrow_left_store" (click)="owlCar.prev()"><span
+                                   class="material-icons dcolor-primary-import">keyboard_arrow_left</span></a>
+                         <a class="arrow_right dark-shadow-import bg-change-secondary-import" id="arrow_right_store"
+                              (click)="owlCar.next()"><span
+                                   class="material-icons dcolor-primary-import">keyboard_arrow_right</span></a>
+                    </div>
+                    <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)" #owlCar>
+                         <ng-template ngFor let-i="index" let-c="count" let-junction [ngForOf]="gintaJunctions">
+                              <ng-template carouselSlide>
+                                   <app-store-card [junction]="junction"
+                                        [selectedGintaaJunctionId]="selectedGintaaJunctionId"
+                                        (onChange)="onChange($event)" [currentdate]="currentdate"> </app-store-card>
+                              </ng-template>
+                         </ng-template>
+                    </owl-carousel-o>
+               </div>
+               <ng-template #gintaStoreCard>
+                    <ng-template ngFor let-i="index" let-c="count" let-junction [ngForOf]="gintaJunctions">
+                         <app-store-card [junction]="junction" [selectedGintaaJunctionId]="selectedGintaaJunctionId"
+                              (onChange)="onChange($event)"> </app-store-card>
+                    </ng-template>
+               </ng-template>
+          </div>
+     </div>
+</div>

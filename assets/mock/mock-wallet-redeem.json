@@ -1,0 +1,1529 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "All published offers fetched successfully",
+    "payload": [
+        {
+            "offerId": "1615979450382",
+            "seOId": "test-camera-offer-b-oid-1615979450382",
+            "name": "Camera Offer B",
+            "coins": 100,
+            "cash": 1500,
+            "gems": 10,
+            "money": 0,
+            "showAddToOrder":true,
+            "selectedQuantity": 1,            
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",            
+            "totalOfferValuation": null,
+            "unitOfferValuation": 50000,
+            "images": [
+                {
+                    "id": "25f5a5bc-592b-417b-a2a4-0f8589c6df4c",
+                    "name": "1615979450709.jpg",
+                    "orgName": "Nikon-Nikkor-Z-24-70mm-f2.8-S-lens1.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/f7057d70-3874-426a-be3d-049519f7a472/2021/3/17/1615979450382//1615979450709.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": true
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "1 Day ago",
+            "user": {
+                "identityId": "f4wcba0MQPUidcK6sf0FJ51015k1",
+                "name": "Biswanath aaa",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 0,
+            "publishedDate": 1615979452883,
+            "quantity": 1.0,
+            "itemCondition": "Good",
+            "conditionType": null
+        },
+        {
+            "offerId": "1615609905377",
+            "seOId": "test-title-jdhja-oid-1615609905377",
+            "name": "TEST title jdhja",
+            "coins": 1000,
+            "cash": 500,
+            "gems": 3,
+            "money": 100,
+            "showAddToOrder":true,
+            "selectedQuantity": 1,
+            "description": "xzjcb mzbssakjdkjaskj dsajkd jksadkashdjkas jk ahjsdgfk jdsfkj sfkjdsjkf kdjs fjkds kfjdskjf jksdhf jksdfjkdsfj sdfj dsjkf dsjk jkfh djskf kjds fkjsdfsd",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [],
+                "vertical": null,
+                "category": null,
+                "amount": 34.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.6278883,
+                "lng": 88.37445199999999,
+                "area": "near pnb",
+                "zip": "700002",
+                "flatNo": "j18",
+                "city": "Kolkata",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Work",
+                "addressLine": "addr 1"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "c276b1dd-0ac4-45cd-a8ad-2bbd233436aa",
+                "type": "Item",
+                "label": "Wadrope",
+                "description": "Wadrope Descrition",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Wadrope"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "c276b1dd-0ac4-45cd-a8ad-2bbd233436aa",
+                        "label": "Wadrope"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "280ec461-d34f-47e3-8eb1-5cac9cddbd78",
+                        "name": "Brands",
+                        "description": "Top Brands for Computers and Laptops",
+                        "label": "Brands",
+                        "values": [
+                            "Asus",
+                            "Lenovo",
+                            "Hp",
+                            "Dell",
+                            "Acer"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "20e9fc53-e9a1-47c4-a8d6-0c6cbf7f9d96",
+                        "name": "Brands",
+                        "description": "Top Brands for Computers and Laptops",
+                        "label": "Brands",
+                        "values": [
+                            "Asus",
+                            "Lenovo",
+                            "Hp",
+                            "Dell",
+                            "Acer"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "389ad279-b835-4dd0-992d-c839ea4bb16d",
+                    "label": "HOME APPLIANCES SERVICE"
+                },
+                "synonyms": [],
+                "imagePath": null,
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Wadrope_c276b1dd-0ac4-45cd-a8ad-2bbd233436aa",
+                "url": "/category/Wadrope_c276b1dd-0ac4-45cd-a8ad-2bbd233436aa"
+            },
+            "totalOfferValuation": 41503.0,
+            "unitOfferValuation": 121.0,
+            "images": [
+                {
+                    "id": "305ee324-3ba3-46c1-9873-c890979787af",
+                    "name": "1615609905445.jpg",
+                    "orgName": "scaled_ce22b3e7-9916-4ebd-a8c3-caaa989e261a7787929675569262358.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/c276b1dd-0ac4-45cd-a8ad-2bbd233436aa/2021/3/13/1615609905377//1615609905445.jpg",
+                    "keywords": null,
+                    "displayIndex": "1",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "1e815968-acd7-480b-8feb-2f206be69bb2",
+                    "name": "1615609905715.jpg",
+                    "orgName": "scaled_53153228-74ee-4299-a9d4-86466be1be4d2891868469061836485.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/c276b1dd-0ac4-45cd-a8ad-2bbd233436aa/2021/3/13/1615609905377//1615609905715.jpg",
+                    "keywords": null,
+                    "displayIndex": "2",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "3f6409f0-641b-477f-bddc-144b5fab1184",
+                    "name": "1615609905996.jpg",
+                    "orgName": "scaled_77826cf4-0323-4df3-8920-ef9ac511d8655171775504100775244.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/c276b1dd-0ac4-45cd-a8ad-2bbd233436aa/2021/3/13/1615609905377//1615609905996.jpg",
+                    "keywords": null,
+                    "displayIndex": "3",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [
+                {
+                    "id": "04e95379-d292-406a-ab2d-fa246d9182f9",
+                    "name": null,
+                    "orgName": null,
+                    "url": null,
+                    "displayIndex": "1"
+                }
+            ],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "5 Days ago",
+            "facets": null,
+            "user": {
+                "identityId": "j5cCU8rkCeOJcrkhUh1px1XGmgF3",
+                "name": "Binod Sarkar",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 1,
+            "publishedDate": 1615609908011,
+            "quantity": 343.0,
+            "itemCondition": "Good",
+            "conditionType": null
+        },
+        {
+            "offerId": "1615608086451",
+            "seOId": "test-mobile-offer-b-oid-1615608086451",
+            "name": "Test Mobile offer B",
+            "coins": 100,
+            "cash": 50,
+            "gems": 3,
+            "money": 200,
+            "showAddToOrder":true,
+            "selectedQuantity": 1,
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [
+                    "string"
+                ],
+                "vertical": null,
+                "category": null,
+                "amount": 15000.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.6343016,
+                "lng": 88.40932889999999,
+                "area": "North 24 Parganas",
+                "zip": "700065",
+                "flatNo": "321",
+                "city": "South Dumdum",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Work",
+                "addressLine": "321, Dum Dum Cantonment, Subhash Nagar, Dum Dum, South Dumdum, West Bengal 700065, India"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "d42616ea-eb6c-48d3-8e4b-25f673a10650",
+                "type": "Item",
+                "label": "Mobile phone",
+                "description": "Mobile phone",
+                "leafNode": false,
+                "breadcrumbs": [
+                    "Mobile phone"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "d42616ea-eb6c-48d3-8e4b-25f673a10650",
+                        "label": "Mobile phone"
+                    }
+                ],
+                "tags": [],
+                "vertical": {
+                    "id": "9ce80910-3cb3-41bf-8a50-b2b45a1eecaa",
+                    "label": "Electronics & Appliances"
+                },
+                "synonyms": [
+                    "telephone",
+                    "mobile",
+                    "cell phone",
+                    "radiotelephone",
+                    "videophone",
+                    "Device"
+                ],
+                "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1602845976344.jpg",
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Mobile-phone_d42616ea-eb6c-48d3-8e4b-25f673a10650",
+                "url": "/category/Mobile-phone_d42616ea-eb6c-48d3-8e4b-25f673a10650"
+            },
+            "totalOfferValuation": null,
+            "unitOfferValuation": 20000,
+            "images": [
+                {
+                    "id": "1a64ebf6-2835-412a-b06c-9091a3777134",
+                    "name": "1615608086622.jpg",
+                    "orgName": "download.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/d42616ea-eb6c-48d3-8e4b-25f673a10650/2021/3/13/1615608086451//1615608086622.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "a84d9076-2410-49e2-8138-291afdc6caf4",
+                    "name": "1615608086949.jpg",
+                    "orgName": "images (1).jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/d42616ea-eb6c-48d3-8e4b-25f673a10650/2021/3/13/1615608086451//1615608086949.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "5 Days ago",
+            "facets": [],
+            "user": {
+                "identityId": "f4wcba0MQPUidcK6sf0FJ51015k1",
+                "name": "Biswanath",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 0,
+            "publishedDate": 1615608088392,
+            "quantity": 1.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        },
+        {
+            "offerId": "1615604911838",
+            "seOId": "test-watch-offer-bt-oid-1615604911838",
+            "name": "Test watch Offer BT",
+            "coins": 500,
+            "cash": 250,
+            "gems": 18,
+            "money": 300,
+            "showAddToOrder":true,
+            "selectedQuantity": 1,
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [
+                    "string"
+                ],
+                "vertical": null,
+                "category": null,
+                "amount": 35000.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.5997171,
+                "lng": 88.4140319,
+                "area": "North 24 Parganas",
+                "zip": "700064",
+                "flatNo": "AE-565",
+                "city": "Kolkata",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Work",
+                "addressLine": "AE-565, A.E. Block sector 1, AE Block, Sector 1, Bidhannagar, Kolkata, West Bengal 700064, India"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f",
+                "type": "Item",
+                "label": "Smartwatches",
+                "description": "Smartwatches",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Fashion",
+                    "Smartwatches"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "34a508af-37bb-4b03-afbb-555dc56f5f56",
+                        "label": "Fashion"
+                    },
+                    {
+                        "categoryId": "9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f",
+                        "label": "Smartwatches"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "9b0b5d21-c0db-4709-961b-1a65715becb9",
+                        "name": "Brand",
+                        "description": "Brand",
+                        "label": "Brand",
+                        "values": [
+                            "Amazfit",
+                            "Apple",
+                            "Diesel",
+                            "Fastrack",
+                            "Fitbit",
+                            "Fossil",
+                            "Garmin",
+                            "Gionee",
+                            "Samsung"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "558c5658-ed59-4f7c-a902-99fb8a85bf06",
+                        "name": "Dial Shape",
+                        "description": "Dial Shape",
+                        "label": "Dial Shape",
+                        "values": [
+                            "Round",
+                            "Square"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "11b85f6e-1705-4c94-b7e1-ee93e85fd88b",
+                        "name": "Strap Color",
+                        "description": "Strap Color",
+                        "label": "Strap Color",
+                        "values": [
+                            "Red",
+                            "Black",
+                            "White",
+                            "Blue",
+                            "Green",
+                            "Silver",
+                            "Golden"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "d718bece-9b14-4b7d-90ac-fecdcc69cbf1",
+                        "name": "Ideal For",
+                        "description": "Ideal For",
+                        "label": "Ideal For",
+                        "values": [
+                            "Men",
+                            "Women",
+                            "Boys",
+                            "Girl"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "5c75ae6f-afb9-4e5c-a840-44b7534512b0",
+                        "name": "Ideal For",
+                        "description": "Ideal For",
+                        "label": "Ideal For",
+                        "values": [
+                            "Men",
+                            "Women",
+                            "Boys",
+                            "Girl"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "3cfe0441-29ea-4635-a525-3d38e056dd9c",
+                        "name": "Compatible Os",
+                        "description": "Compatible Os",
+                        "label": "Compatible Os",
+                        "values": [
+                            "iOS",
+                            "Android",
+                            "Windows"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "ff9bb663-c334-4adf-9069-aadaeca5ed85",
+                        "name": "Strap Material",
+                        "description": "Strap Material",
+                        "label": "Strap Material",
+                        "values": [
+                            "Silicon",
+                            "Letaher",
+                            "Stainless steel"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "13ce12e7-84be-4b11-ba87-59f325b8c569",
+                        "name": "Display Type",
+                        "description": "Display Type",
+                        "label": "Display Type",
+                        "values": [
+                            "Amoled",
+                            "LCD"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "ae475293-2e27-40c1-9972-9329c800ad7e",
+                    "label": "Home & Lifestyle"
+                },
+                "synonyms": [
+                    "wearables",
+                    "smartglasses",
+                    "wristwatches",
+                    "cellphones",
+                    "webpads",
+                    "smartwatch"
+                ],
+                "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1602860630724.jpg",
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Smartwatches_9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f",
+                "url": "/category/Smartwatches_9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f"
+            },
+            "totalOfferValuation": null,
+            "unitOfferValuation": 40000,
+            "images": [
+                {
+                    "id": "59eea364-fb1b-43b5-b029-dd4c83880846",
+                    "name": "1615604912034.jpg",
+                    "orgName": "product-image-1436360695_2000x.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f/2021/3/13/1615604911838//1615604912034.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "9567df17-f975-4655-abf7-39ea69dd7b76",
+                    "name": "1615604912317.jpg",
+                    "orgName": "watch-1.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/9fb00ae6-e7fe-46f4-9a2b-e5bd396ff29f/2021/3/13/1615604911838//1615604912317.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "5 Days ago",
+            "facets": [
+                {
+                    "name": "Brand",
+                    "label": "Brand",
+                    "values": [
+                        "Garmin"
+                    ]
+                },
+                {
+                    "name": "Dial Shape",
+                    "label": "Dial Shape",
+                    "values": [
+                        "Round"
+                    ]
+                },
+                {
+                    "name": "Strap Color",
+                    "label": "Strap Color",
+                    "values": [
+                        "Blue"
+                    ]
+                },
+                {
+                    "name": "Ideal For",
+                    "label": "Ideal For",
+                    "values": [
+                        "Men"
+                    ]
+                },
+                {
+                    "name": "Compatible Os",
+                    "label": "Compatible Os",
+                    "values": [
+                        "iOS"
+                    ]
+                },
+                {
+                    "name": "Display Type",
+                    "label": "Display Type",
+                    "values": [
+                        "Amoled"
+                    ]
+                },
+                {
+                    "name": "Strap Material",
+                    "label": "Strap Material",
+                    "values": [
+                        "Stainless steel"
+                    ]
+                }
+            ],
+            "user": {
+                "identityId": "6ftcrkZ0g7XLswgcQra6ETpyFI42",
+                "name": "Biswanath Test",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 0,
+            "publishedDate": 1615604913810,
+            "quantity": 1.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        },
+        {
+            "offerId": "1615602845284",
+            "seOId": "jhg-dagsdhagdgasjgd-hasgd-hasd-g-oid-1615602845284",
+            "name": "jhg dagsdhagdgasjgd",
+            "coins": 800,
+            "cash": 3500,
+            "gems": 30,
+            "money": 400,
+            "showAddToOrder":true,
+            "selectedQuantity": 1,
+            "description": "sajkd asdjksajd askg dkashgdkshgsa dsad jshjd ksadhkjs hdjkas djkas hkasdkjsahjdhaks jhd kasjhdkah kjsah jahj",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [],
+                "vertical": null,
+                "category": null,
+                "amount": 23.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.6278883,
+                "lng": 88.37445199999999,
+                "area": "near pnb",
+                "zip": "700002",
+                "flatNo": "j18",
+                "city": "Kolkata",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Work",
+                "addressLine": "addr 1"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "c276b1dd-0ac4-45cd-a8ad-2bbd233436aa",
+                "type": "Item",
+                "label": "Wadrope",
+                "description": "Wadrope Descrition",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Wadrope"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "c276b1dd-0ac4-45cd-a8ad-2bbd233436aa",
+                        "label": "Wadrope"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "280ec461-d34f-47e3-8eb1-5cac9cddbd78",
+                        "name": "Brands",
+                        "description": "Top Brands for Computers and Laptops",
+                        "label": "Brands",
+                        "values": [
+                            "Asus",
+                            "Lenovo",
+                            "Hp",
+                            "Dell",
+                            "Acer"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "20e9fc53-e9a1-47c4-a8d6-0c6cbf7f9d96",
+                        "name": "Brands",
+                        "description": "Top Brands for Computers and Laptops",
+                        "label": "Brands",
+                        "values": [
+                            "Asus",
+                            "Lenovo",
+                            "Hp",
+                            "Dell",
+                            "Acer"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "389ad279-b835-4dd0-992d-c839ea4bb16d",
+                    "label": "HOME APPLIANCES SERVICE"
+                },
+                "synonyms": [],
+                "imagePath": null,
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Wadrope_c276b1dd-0ac4-45cd-a8ad-2bbd233436aa",
+                "url": "/category/Wadrope_c276b1dd-0ac4-45cd-a8ad-2bbd233436aa"
+            },
+            "totalOfferValuation": 5412.0,
+            "unitOfferValuation": 123.0,
+            "images": [
+                {
+                    "id": "8ccd2f25-5ff2-4207-b350-d5cb0488c75b",
+                    "name": "1615602845393.jpg",
+                    "orgName": "scaled_ce22b3e7-9916-4ebd-a8c3-caaa989e261a7787929675569262358.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/c276b1dd-0ac4-45cd-a8ad-2bbd233436aa/2021/3/13/1615602845284//1615602845393.jpg",
+                    "keywords": null,
+                    "displayIndex": "1",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "1fe6915e-5ea2-415c-b8d0-22275da9a3c5",
+                    "name": "1615602845728.jpg",
+                    "orgName": "scaled_77826cf4-0323-4df3-8920-ef9ac511d8655171775504100775244.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/c276b1dd-0ac4-45cd-a8ad-2bbd233436aa/2021/3/13/1615602845284//1615602845728.jpg",
+                    "keywords": null,
+                    "displayIndex": "2",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "036d1fbe-7f75-44d3-826b-81788f580b02",
+                    "name": "1615602846013.jpg",
+                    "orgName": "scaled_53153228-74ee-4299-a9d4-86466be1be4d2891868469061836485.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/c276b1dd-0ac4-45cd-a8ad-2bbd233436aa/2021/3/13/1615602845284//1615602846013.jpg",
+                    "keywords": null,
+                    "displayIndex": "3",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [
+                {
+                    "id": "ba61b6ec-03a6-4979-b3b0-9b261b1a96f4",
+                    "name": null,
+                    "orgName": null,
+                    "url": null,
+                    "displayIndex": "1"
+                }
+            ],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "5 Days ago",
+            "facets": null,
+            "user": {
+                "identityId": "j5cCU8rkCeOJcrkhUh1px1XGmgF3",
+                "name": "Binod Sarkar",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 0,
+            "publishedDate": 1615602848014,
+            "quantity": 44.0,
+            "itemCondition": "Good",
+            "conditionType": null
+        },
+        {
+            "offerId": "1615602676839",
+            "seOId": "draft-sa-d-as-gdjhagdhj-oid-1615602676839",
+            "name": "Draft Item",
+            "coins": 900,
+            "cash": 1500,
+            "gems": 10,
+            "money": 500,
+            "showAddToOrder":true,
+            "selectedQuantity": 1,
+            "description": "ajskd jasgdjkadkja dkasdkasd jasd kasdjsadkjasgdkj askd gsakdg kasgdkjasgdkasgdjkasgd kjsagk dgasjkdg kasgd kas gdk k",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [],
+                "vertical": null,
+                "category": null,
+                "amount": 12.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.6278883,
+                "lng": 88.37445199999999,
+                "area": "near pnb",
+                "zip": "700002",
+                "flatNo": "j18",
+                "city": "Kolkata",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Work",
+                "addressLine": "addr 1"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "c276b1dd-0ac4-45cd-a8ad-2bbd233436aa",
+                "type": "Item",
+                "label": "Wadrope",
+                "description": "Wadrope Descrition",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Wadrope"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "c276b1dd-0ac4-45cd-a8ad-2bbd233436aa",
+                        "label": "Wadrope"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "280ec461-d34f-47e3-8eb1-5cac9cddbd78",
+                        "name": "Brands",
+                        "description": "Top Brands for Computers and Laptops",
+                        "label": "Brands",
+                        "values": [
+                            "Asus",
+                            "Lenovo",
+                            "Hp",
+                            "Dell",
+                            "Acer"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "20e9fc53-e9a1-47c4-a8d6-0c6cbf7f9d96",
+                        "name": "Brands",
+                        "description": "Top Brands for Computers and Laptops",
+                        "label": "Brands",
+                        "values": [
+                            "Asus",
+                            "Lenovo",
+                            "Hp",
+                            "Dell",
+                            "Acer"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "389ad279-b835-4dd0-992d-c839ea4bb16d",
+                    "label": "HOME APPLIANCES SERVICE"
+                },
+                "synonyms": [],
+                "imagePath": null,
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Wadrope_c276b1dd-0ac4-45cd-a8ad-2bbd233436aa",
+                "url": "/category/Wadrope_c276b1dd-0ac4-45cd-a8ad-2bbd233436aa"
+            },
+            "totalOfferValuation": 144.0,
+            "unitOfferValuation": 12.0,
+            "images": [
+                {
+                    "id": "4a2e9b58-c781-46ad-819e-386e962e7a5f",
+                    "name": "1615602676950.jpg",
+                    "orgName": "scaled_ce22b3e7-9916-4ebd-a8c3-caaa989e261a7787929675569262358.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/c276b1dd-0ac4-45cd-a8ad-2bbd233436aa/2021/3/13/1615602676839//1615602676950.jpg",
+                    "keywords": null,
+                    "displayIndex": "1",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "3a7e75f9-ec4f-4016-ba5e-25ac375224b2",
+                    "name": "1615602677289.jpg",
+                    "orgName": "scaled_77826cf4-0323-4df3-8920-ef9ac511d8655171775504100775244.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/c276b1dd-0ac4-45cd-a8ad-2bbd233436aa/2021/3/13/1615602676839//1615602677289.jpg",
+                    "keywords": null,
+                    "displayIndex": "2",
+                    "mimeType": null,
+                    "cover": false
+                },
+                {
+                    "id": "b0805529-52f8-4bdd-bce1-28f636122ca0",
+                    "name": "1615602677619.jpg",
+                    "orgName": "scaled_53153228-74ee-4299-a9d4-86466be1be4d2891868469061836485.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/c276b1dd-0ac4-45cd-a8ad-2bbd233436aa/2021/3/13/1615602676839//1615602677619.jpg",
+                    "keywords": null,
+                    "displayIndex": "3",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "5 Days ago",
+            "facets": null,
+            "user": {
+                "identityId": "j5cCU8rkCeOJcrkhUh1px1XGmgF3",
+                "name": "Binod Sarkar",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 0,
+            "publishedDate": 1615602679628,
+            "quantity": 12.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        },
+        {
+            "offerId": "1615574238520",
+            "seOId": "item-offer-test-draft-demo-oid-1615574238520",
+            "name": "Service Offer Demo",
+            "coins": 190,
+            "cash": 1000,
+            "gems": 0,
+            "money": 250,
+            "showAddToOrder":true,"selectedQuantity": 1,
+            "description": "DJI is expected to launch a new Mavic like drone with a dual camera, rumors swirl this is the new Mavic 3 drone pilots have been expecting. The year of 2020 has been quite interesting for the drone industry",
+            "desire": {
+                "description": "Watch",
+                "desireType": "Item",
+                "tags": [
+                    "string"
+                ],
+                "vertical": {
+                    "id": "0aef5dfc-3736-447d-83bd-6e41629cc075",
+                    "label": "Electronics"
+                },
+                "category": {
+                    "categoryId": "1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                    "type": "Service",
+                    "label": "Testing testing",
+                    "description": "Testing testing",
+                    "leafNode": true,
+                    "breadcrumbs": [
+                        "Testing testing"
+                    ],
+                    "hierarchy": [
+                        {
+                            "categoryId": "1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                            "label": "Testing testing"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "tagId": "a8335228-f23e-4e51-a60b-aed98e4fbcc7",
+                            "name": "test",
+                            "description": "test",
+                            "label": "test",
+                            "values": [
+                                "string"
+                            ],
+                            "allowCompletionSearch": true,
+                            "allowFullSearch": true
+                        }
+                    ],
+                    "vertical": {
+                        "id": "0aef5dfc-3736-447d-83bd-6e41629cc075",
+                        "label": "Electronics"
+                    },
+                    "synonyms": [
+                        "check",
+                        "maintain",
+                        "repair",
+                        "mend",
+                        "recondition",
+                        "servicing"
+                    ],
+                    "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1609573025960.png",
+                    "fullSearchScore": null,
+                    "completionSearchScore": null,
+                    "seoId": "Testing-testing_1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                    "url": "/category/Testing-testing_1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                    "themeImagePaths": [
+                        "https://storage.googleapis.com/gintaa-develop/S/1c4b7fe2-47d8-427e-a61e-7017cca4d463/1609573026311.png"
+                    ]
+                },
+                "amount": 0.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Item",
+            "location": {
+                "lat": 26.3385991,
+                "lng": 89.2173583,
+                "area": "Cooch Behar",
+                "zip": "736146",
+                "flatNo": "NA",
+                "city": "Mathabhanga",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Yysysys",
+                "addressLine": "Unnamed Road, Malibagan, Bidhan Pally, Mathabhanga, West Bengal 736146, India"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                "type": "Service",
+                "label": "Testing testing",
+                "description": "Testing testing",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Testing testing"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                        "label": "Testing testing"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "a8335228-f23e-4e51-a60b-aed98e4fbcc7",
+                        "name": "test",
+                        "description": "test",
+                        "label": "test",
+                        "values": [
+                            "string"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "0aef5dfc-3736-447d-83bd-6e41629cc075",
+                    "label": "Electronics"
+                },
+                "synonyms": [
+                    "check",
+                    "maintain",
+                    "repair",
+                    "mend",
+                    "recondition",
+                    "servicing"
+                ],
+                "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1609573025960.png",
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Testing-testing_1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                "url": "/category/Testing-testing_1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                "themeImagePaths": [
+                    "https://storage.googleapis.com/gintaa-develop/S/1c4b7fe2-47d8-427e-a61e-7017cca4d463/1609573026311.png"
+                ]
+            },
+            "totalOfferValuation": null,
+            "unitOfferValuation": 1400,
+            "images": [
+                {
+                    "id": "4b7cdbca-f5b6-4646-86a1-67b49aa00418",
+                    "name": "1615574238800.jpg",
+                    "orgName": "Cycle3.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/1c4b7fe2-47d8-427e-a61e-7017cca4d463/2021/3/12/1615574238520/item-offer-test-draft-demo-oid-1615574238520-GINIOF-00b38e86-1349-44ac-a74d-47f60607b63c-.jpg/1615574238800.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "6 Days ago",
+            "facets": [],
+            "user": {
+                "identityId": "SJ6oxAsAXFWtj92GrFLubCjHAJA3",
+                "name": "Mithun Test",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 0,
+            "publishedDate": 1615574240079,
+            "quantity": 3.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        },
+        {
+            "offerId": "1615573928246",
+            "seOId": "test-item-draft-demo-oid-1615573928246",
+            "name": "Test Item Draft Demo",
+            "coins": 100,
+            "cash": 900,
+            "gems": 9,
+            "money": 350,
+            "showAddToOrder":true,"selectedQuantity": 1,
+            "description": "DJI is expected to launch a new Mavic like drone with a dual camera, rumors swirl this is the new Mavic 3 drone pilots have been expecting. The year of 2020 has been quite interesting for the drone industry",
+            "desire": {
+                "description": "Watch",
+                "desireType": "Item",
+                "tags": [
+                    "string"
+                ],
+                "vertical": {
+                    "id": "0aef5dfc-3736-447d-83bd-6e41629cc075",
+                    "label": "Electronics"
+                },
+                "category": {
+                    "categoryId": "1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                    "type": "Service",
+                    "label": "Testing testing",
+                    "description": "Testing testing",
+                    "leafNode": true,
+                    "breadcrumbs": [
+                        "Testing testing"
+                    ],
+                    "hierarchy": [
+                        {
+                            "categoryId": "1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                            "label": "Testing testing"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "tagId": "a8335228-f23e-4e51-a60b-aed98e4fbcc7",
+                            "name": "test",
+                            "description": "test",
+                            "label": "test",
+                            "values": [
+                                "string"
+                            ],
+                            "allowCompletionSearch": true,
+                            "allowFullSearch": true
+                        }
+                    ],
+                    "vertical": {
+                        "id": "0aef5dfc-3736-447d-83bd-6e41629cc075",
+                        "label": "Electronics"
+                    },
+                    "synonyms": [
+                        "check",
+                        "maintain",
+                        "repair",
+                        "mend",
+                        "recondition",
+                        "servicing"
+                    ],
+                    "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1609573025960.png",
+                    "fullSearchScore": null,
+                    "completionSearchScore": null,
+                    "seoId": "Testing-testing_1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                    "url": "/category/Testing-testing_1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                    "themeImagePaths": [
+                        "https://storage.googleapis.com/gintaa-develop/S/1c4b7fe2-47d8-427e-a61e-7017cca4d463/1609573026311.png"
+                    ]
+                },
+                "amount": 0.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Item",
+            "location": {
+                "lat": 22.6501176,
+                "lng": 88.4374356,
+                "area": "North 24 Parganas",
+                "zip": "700052",
+                "flatNo": "NA",
+                "city": "Kolkata",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Home",
+                "addressLine": "Kolkata Airport Road, Majumder Pada, Motilal Colony, Dum Dum, North Dumdum, West Bengal, India"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                "type": "Service",
+                "label": "Testing testing",
+                "description": "Testing testing",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Testing testing"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                        "label": "Testing testing"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "a8335228-f23e-4e51-a60b-aed98e4fbcc7",
+                        "name": "test",
+                        "description": "test",
+                        "label": "test",
+                        "values": [
+                            "string"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "0aef5dfc-3736-447d-83bd-6e41629cc075",
+                    "label": "Electronics"
+                },
+                "synonyms": [
+                    "check",
+                    "maintain",
+                    "repair",
+                    "mend",
+                    "recondition",
+                    "servicing"
+                ],
+                "imagePath": "https://storage.googleapis.com/gintaa-develop/category/thumbnail//1609573025960.png",
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Testing-testing_1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                "url": "/category/Testing-testing_1c4b7fe2-47d8-427e-a61e-7017cca4d463",
+                "themeImagePaths": [
+                    "https://storage.googleapis.com/gintaa-develop/S/1c4b7fe2-47d8-427e-a61e-7017cca4d463/1609573026311.png"
+                ]
+            },
+            "totalOfferValuation": null,
+            "unitOfferValuation": 1200,
+            "images": [
+                {
+                    "id": "d3302706-9de4-40b6-867f-e377df589dc0",
+                    "name": "1615573928390.jpg",
+                    "orgName": "Cycle3.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/1c4b7fe2-47d8-427e-a61e-7017cca4d463/2021/3/12/1615573928246//1615573928390.jpg",
+                    "keywords": null,
+                    "displayIndex": "",
+                    "mimeType": null,
+                    "cover": true
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "6 Days ago",
+            "facets": [],
+            "user": {
+                "identityId": "SJ6oxAsAXFWtj92GrFLubCjHAJA3",
+                "name": "Mithun Test",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 0,
+            "publishedDate": 1615573929588,
+            "quantity": 1.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        },
+        {
+            "offerId": "1615562466037",
+            "seOId": "kj-fgsdhfjdkh-jk-oid-1615562466037",
+            "name": "kj fgsdhfjdkh jk",
+            "coins": 100,
+            "cash": 10,
+            "gems": 8,
+            "money": 450,
+            "showAddToOrder":true,"selectedQuantity": 1,
+            "description": "skjdg fkjsdgfj dskfg ksdfg ksd gfkjsdgfkj sdgfjkdsgf kjdsgf kdsgfdkjsg kfsdgf kjdsg jkdsg fkjdsg fkds gjkfdsg fjkdsg",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [],
+                "vertical": null,
+                "category": null,
+                "amount": 21.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.6278883,
+                "lng": 88.37445199999999,
+                "area": "near pnb",
+                "zip": "700002",
+                "flatNo": "j18",
+                "city": "Kolkata",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Work",
+                "addressLine": "addr 1"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "c276b1dd-0ac4-45cd-a8ad-2bbd233436aa",
+                "type": "Item",
+                "label": "Wadrope",
+                "description": "Wadrope Descrition",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Wadrope"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "c276b1dd-0ac4-45cd-a8ad-2bbd233436aa",
+                        "label": "Wadrope"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "280ec461-d34f-47e3-8eb1-5cac9cddbd78",
+                        "name": "Brands",
+                        "description": "Top Brands for Computers and Laptops",
+                        "label": "Brands",
+                        "values": [
+                            "Asus",
+                            "Lenovo",
+                            "Hp",
+                            "Dell",
+                            "Acer"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "20e9fc53-e9a1-47c4-a8d6-0c6cbf7f9d96",
+                        "name": "Brands",
+                        "description": "Top Brands for Computers and Laptops",
+                        "label": "Brands",
+                        "values": [
+                            "Asus",
+                            "Lenovo",
+                            "Hp",
+                            "Dell",
+                            "Acer"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "389ad279-b835-4dd0-992d-c839ea4bb16d",
+                    "label": "HOME APPLIANCES SERVICE"
+                },
+                "synonyms": [],
+                "imagePath": null,
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Wadrope_c276b1dd-0ac4-45cd-a8ad-2bbd233436aa",
+                "url": "/category/Wadrope_c276b1dd-0ac4-45cd-a8ad-2bbd233436aa"
+            },
+            "totalOfferValuation": 276.0,
+            "unitOfferValuation": 12.0,
+            "images": [
+                {
+                    "id": "a8c4f94c-29d6-4ebf-ac56-41af1da61bf0",
+                    "name": "1615562466162.jpg",
+                    "orgName": "scaled_77826cf4-0323-4df3-8920-ef9ac511d8655171775504100775244.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/c276b1dd-0ac4-45cd-a8ad-2bbd233436aa/2021/3/12/1615562466037//1615562466162.jpg",
+                    "keywords": null,
+                    "displayIndex": "1",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "1ba72f7a-35c7-41ab-b314-a61ed079b1a2",
+                    "name": "1615562466435.jpg",
+                    "orgName": "scaled_ce22b3e7-9916-4ebd-a8c3-caaa989e261a7787929675569262358.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/c276b1dd-0ac4-45cd-a8ad-2bbd233436aa/2021/3/12/1615562466037//1615562466435.jpg",
+                    "keywords": null,
+                    "displayIndex": "2",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "6 Days ago",
+            "facets": null,
+            "user": {
+                "identityId": "j5cCU8rkCeOJcrkhUh1px1XGmgF3",
+                "name": "Binod Sarkar",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 0,
+            "publishedDate": 1615562467757,
+            "quantity": 23.0,
+            "itemCondition": "Good",
+            "conditionType": null
+        },
+        {
+            "offerId": "1615562158343",
+            "seOId": "jdg-fjkdgsf-gsjdkdjhs-oid-1615562158343",
+            "name": "Test Offer",
+            "coins": 150,
+            "cash": 90,
+            "gems": 6,
+            "money": 550,
+            "showAddToOrder":true,
+            "selectedQuantity": 1,
+            "description": "hds fkjfsd fhjksdfh kjsdhf kjsdh fjkdshf jkdsh kjds fhkjs fhjksdhf ksdhfk sd gfjksdg fkdsg fkjdsgf kjds gfjkds kdgfjkdsgf jksdg fds",
+            "desire": {
+                "description": "",
+                "desireType": "Money",
+                "tags": [],
+                "vertical": null,
+                "category": null,
+                "amount": 121.0
+            },
+            "auctioned": false,
+            "auctionResponseInfo": null,
+            "exchangeMode": "Money",
+            "location": {
+                "lat": 22.6278883,
+                "lng": 88.37445199999999,
+                "area": "near pnb",
+                "zip": "700002",
+                "flatNo": "j18",
+                "city": "Kolkata",
+                "state": "West Bengal",
+                "country": "India",
+                "annotation": "Work",
+                "addressLine": "addr 1"
+            },
+            "offerType": "Item",
+            "category": {
+                "categoryId": "c276b1dd-0ac4-45cd-a8ad-2bbd233436aa",
+                "type": "Item",
+                "label": "Wadrope",
+                "description": "Wadrope Descrition",
+                "leafNode": true,
+                "breadcrumbs": [
+                    "Wadrope"
+                ],
+                "hierarchy": [
+                    {
+                        "categoryId": "c276b1dd-0ac4-45cd-a8ad-2bbd233436aa",
+                        "label": "Wadrope"
+                    }
+                ],
+                "tags": [
+                    {
+                        "tagId": "280ec461-d34f-47e3-8eb1-5cac9cddbd78",
+                        "name": "Brands",
+                        "description": "Top Brands for Computers and Laptops",
+                        "label": "Brands",
+                        "values": [
+                            "Asus",
+                            "Lenovo",
+                            "Hp",
+                            "Dell",
+                            "Acer"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    },
+                    {
+                        "tagId": "20e9fc53-e9a1-47c4-a8d6-0c6cbf7f9d96",
+                        "name": "Brands",
+                        "description": "Top Brands for Computers and Laptops",
+                        "label": "Brands",
+                        "values": [
+                            "Asus",
+                            "Lenovo",
+                            "Hp",
+                            "Dell",
+                            "Acer"
+                        ],
+                        "allowCompletionSearch": true,
+                        "allowFullSearch": true
+                    }
+                ],
+                "vertical": {
+                    "id": "389ad279-b835-4dd0-992d-c839ea4bb16d",
+                    "label": "HOME APPLIANCES SERVICE"
+                },
+                "synonyms": [],
+                "imagePath": null,
+                "fullSearchScore": null,
+                "completionSearchScore": null,
+                "seoId": "Wadrope_c276b1dd-0ac4-45cd-a8ad-2bbd233436aa",
+                "url": "/category/Wadrope_c276b1dd-0ac4-45cd-a8ad-2bbd233436aa"
+            },
+            "totalOfferValuation": 252.0,
+            "unitOfferValuation": 12.0,
+            "images": [
+                {
+                    "id": "9f4ccd3d-fa10-43e9-9e2a-7b4a7604bfe9",
+                    "name": "1615562158442.jpg",
+                    "orgName": "scaled_77826cf4-0323-4df3-8920-ef9ac511d8655171775504100775244.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/c276b1dd-0ac4-45cd-a8ad-2bbd233436aa/2021/3/12/1615562158343//1615562158442.jpg",
+                    "keywords": null,
+                    "displayIndex": "1",
+                    "mimeType": null,
+                    "cover": true
+                },
+                {
+                    "id": "262ee61e-a7b4-485a-afa5-5794d1fdb57f",
+                    "name": "1615562158718.jpg",
+                    "orgName": "scaled_ce22b3e7-9916-4ebd-a8c3-caaa989e261a7787929675569262358.jpg",
+                    "url": "https://storage.googleapis.com/gintaa-develop/I/c276b1dd-0ac4-45cd-a8ad-2bbd233436aa/2021/3/12/1615562158343//1615562158718.jpg",
+                    "keywords": null,
+                    "displayIndex": "2",
+                    "mimeType": null,
+                    "cover": false
+                }
+            ],
+            "videos": [],
+            "documents": [
+                {
+                    "id": "e8d8e87b-8e77-40be-a7f3-58aa24e18021",
+                    "name": null,
+                    "orgName": null,
+                    "url": null,
+                    "displayIndex": "1"
+                }
+            ],
+            "condition": null,
+            "hidden": false,
+            "hiddenPeriod": 0,
+            "activeSince": "6 Days ago",
+            "facets": null,
+            "user": {
+                "identityId": "j5cCU8rkCeOJcrkhUh1px1XGmgF3",
+                "name": "Binod Sarkar",
+                "averageRating": 0.0
+            },
+            "currentUserOfferOwner": false,
+            "chatCount": 0,
+            "dealCount": 0,
+            "publishedDate": 1615562160315,
+            "quantity": 21.0,
+            "itemCondition": "Excellent",
+            "conditionType": null
+        }
+    ]
+}

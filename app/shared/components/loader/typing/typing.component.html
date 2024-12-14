@@ -1,0 +1,12 @@
+<div *ngIf="type === 'default'" class="dot-typing"></div>
+
+<div class="lds-ellipsis" *ngIf="type === 'elipsis'">
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+</div>
+
+<div *ngIf="type === 'stampede'">
+  <img src="assets/all-loader/stampede.gif" style="width: 100px" alt="Typing" />
+</div>

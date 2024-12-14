@@ -1,0 +1,42 @@
+
+<div class="chat-maximize bg-change" [@dialog]="modalOpen">
+
+  <div class="gt-center-between gt-pd-10">
+    <div class="gt-vcenter bottom-left">
+        <span class="material-icons gt-fs-18 gt-mr-10 gt-cursor-pointer" (click)="back();$event.stopPropagation();" *ngIf="chatService.chatPopupPage !=='chat-offer-deal'">arrow_back</span>
+        <h2 class="gt-lightblack gt-fs-15 gt-text-medium dcolor-primary">Messages</h2>                    
+    </div>
+
+    <div class="gt-vcenter bottom-right">
+        <div class="gt-center gt-mr-10 gt-cursor-pointer chat-expand" (click)="changeModalType('small')">
+          <span class="material-icons gt-fs-20 gt-lightblack max-h dcolor-primary">maximize</span>
+        </div> 
+        <div class="gt-center gt-mr-10 gt-cursor-pointer chat-expand" (click)="changeModalType('medium')">
+          <span class="material-icons gt-fs-20 gt-lightblack dcolor-primary">close_fullscreen</span>
+        </div>       
+    </div>
+    
+</div>
+<div class="cbottom-secondary">
+    <app-chat-offer-deal [chatType]="'popup'" [screenType]="'large'" *ngIf="chatService.chatPopupPage=='chat-offer-deal'"></app-chat-offer-deal>
+    <app-chat-offers-list [chatType]="'popup'" [screenType]="'large'" *ngIf="chatService.chatPopupPage=='chat-offer-list'"></app-chat-offers-list>
+    <app-chat-user-list [chatType]="'popup'" [screenType]="'large'" *ngIf="chatService.chatPopupPage=='chat-user-list'"></app-chat-user-list>
+    <app-chat-msg [chatType]="'popup'" [screenType]="'large'" *ngIf="chatService.chatPopupPage=='chat-msg'"></app-chat-msg>
+</div>
+
+
+<!-- <h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>
+  <mat-form-field>
+    <mat-label>Favorite Animal</mat-label>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button>No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div> -->
+
+
+</div>

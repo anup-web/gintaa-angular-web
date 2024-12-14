@@ -1,0 +1,67 @@
+<div class="gt-float-100 recent-offer-wrapper">
+  <div class="container">
+    <div class="gt-float-100 gt-mt-20">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="gt-float-100">
+            <div class="gt-float-left match-box-search">
+              <div class="match-search-input">
+                <div class="gt-form-primary">
+                  <input type="text"
+                    class="gt-form-control gt-border-none gt-border-radius-12 match-box-shadow gt-pd-tb-12"
+                    [placeholder]="searchPlaceholder" (input)="search(searchInput);" #searchInput />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-container *ngIf="searchedOfferList.length; else noMatchBox">
+      <div class="gt-float-100 gt-mt-20 recentoffer-slide">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="gt-float-100 recento-slider">
+              <div class="carousel-pnext pre_next gt-vcenter auctions-prenext" *ngIf="searchedOfferList && searchedOfferList.length > 5 ">
+                <a class="arrow_left disabled" (click)="owlCar.prev()" [id]="arrow_left_nav"><span
+                  class="material-icons gt-center dark-shadow-import bg-change-secondary-import">keyboard_arrow_left</span></a>
+                <a class="arrow_right" (click)="owlCar.next()" [id]="arrow_right_nav"><span
+                  class="material-icons gt-center dark-shadow-import bg-change-secondary-import">keyboard_arrow_right</span></a>
+              </div>
+              <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)" #owlCar>
+                <ng-template ngFor let-i="index" let-c="count" let-products [ngForOf]="searchedOfferList">
+                  <ng-template carouselSlide>
+                    <app-offer-card-default
+                      [offer]="products['sourceAsMap']"
+                      from="matchbox"
+                      [showOfferStat]="false">
+                    </app-offer-card-default>
+                  </ng-template>
+                </ng-template>
+              </owl-carousel-o>  
+            </div>  
+          </div>  
+        </div>  
+      </div>
+    </ng-container>
+    <ng-template #noMatchBox>
+      <div class="gt-float-100 gt-mt-10 gt-mb-20">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="gt-float-100">
+              <div class="gt-float-left">
+                <h4 class="gt-fs-14 gt-font-poppins gt-text-medium gt-lightblack dcolor-primary"
+                  *ngIf="searchInput.value =='' else noSearchedFound">
+                  Find out what you can get
+                </h4>
+                <ng-template #noSearchedFound>
+                  No matches found!
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

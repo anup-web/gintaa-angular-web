@@ -1,0 +1,63 @@
+<div class="gt-float-100 gt-pt-100 gt-pb-100" *ngIf="!myFavoriteOffers.length && !loading">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gt-float-100 gt-center">
+        <app-empty-favourite-animation></app-empty-favourite-animation>
+        
+      </div>
+      <div class="gt-float-100 gt-center gt-mt-50">
+        <h1 class="gt-lightblack gt-fs-16 dcolor-primary">
+          You have no listing in favorites.
+        </h1>
+      </div>
+      <div class="gt-float-100 gt-center gt-mt-10">
+        <h2 class="
+            gt-primary gt-fs-18 gt-text-medium gt-cursor-pointer
+            offer-underline
+            dcolor-secondary
+          ">
+         
+          <a [routerLink]="['/show-all-offer?type=recentOffers']">Browse listing</a>
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-loading-spinner loaderType="drops-fading" fullPage="false" loader="true" *ngIf="pageLoading" addBackDrop="true"
+  backDropColor="#000000" loadingMessage="Updating your offer! Please wait..."></app-loading-spinner>
+
+<div class="gt-float-100 offers-favmain" *ngIf="myFavoriteOffers.length && !loading">
+  
+  <div class="gt-float-100 search-offer fav-offer-wcol">
+    <div class="row">
+      <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12 fav-col-50" *ngFor="let offer of myFavoriteOffers">
+        <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+          <div class="arrivals-products-image">
+            <div class="pr-image max-height-img-200" [routerLink]="['/offer/' + offer.offerId]">
+              <img [src]="offer.image.url" class="gt-img-responsive" alt="image"
+                onerror="this.src = 'assets/images/create-offer/uplaod-default-img.png'" />
+              <div class="color-overlay"></div>
+            </div>
+            <div class="arrivals-action">
+              <div class="offer-location">{{ getLocation(offer) }}</div>
+              <span class="material-icons fav-btn fav-color" (click)="removeFromFavourite(offer.offerId)">favorite</span>
+            </div>
+          </div>
+
+          <div class="arrivals-products-content product-content-pd" [routerLink]="['/offer/' + offer.offerId]">
+            <div class="offer-name-primary gt-ellipsis" ellipsis>
+              {{ offer.offerName }}
+            </div>
+            <div class="pr-desire">
+              <img src="assets/images/home/desire-icon.svg" class="desire-img" alt="image">
+              <div class="offer-desire-primary">
+                {{ getOfferVertical(offer) }} {{ getCategoryLabel(offer) }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

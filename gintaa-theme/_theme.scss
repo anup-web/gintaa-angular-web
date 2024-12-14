@@ -1,0 +1,144 @@
+$bg-change: #242424;
+$bg-change-secondary: #454545;
+$dcolor-primary: #FFFFFF;
+$dcolor-secondary: #c8c8c8;
+$dark-shadow: 0px 8px 32px rgb(138 145 166 / 24%);
+$dshadow-none: none;
+
+
+// bg-change-secondary dark-shadow border-none
+// bg-change dark-shadow
+// bg-change
+// bg-change-secondary
+// dcolor-primary
+// dcolor-secondary
+
+
+.darkClass {
+    background-color: $bg-change;
+  }
+  
+.darkClass .bg-change{
+    background-color: $bg-change;
+} 
+
+.darkClass .bg-change-import{
+    background-color: $bg-change!important;
+} 
+
+.darkClass .bg-change-secondary{
+    background-color: $bg-change-secondary;
+}
+
+.darkClass .bg-change-secondary-import{
+    background-color: $bg-change-secondary!important;
+}
+
+.darkClass .dcolor-primary{
+    color: $dcolor-primary;
+}
+
+.darkClass .dcolor-primary-import{
+    color: $dcolor-primary!important;
+}
+
+.darkClass .dcolor-secondary{
+    color: $dcolor-secondary;
+}
+
+.darkClass .dcolor-secondary-import{
+    color: $dcolor-secondary!important;
+}
+
+.darkClass .dark-shadow{
+    box-shadow: $dark-shadow;
+    -webkit-box-shadow: $dark-shadow;
+    -moz-box-shadow: $dark-shadow;
+}
+
+.darkClass .dark-shadow-import{
+    box-shadow: $dark-shadow!important;
+    -webkit-box-shadow: $dark-shadow!important;
+    -moz-box-shadow: $dark-shadow!important;
+}
+
+.darkClass .border-none{
+    border: none;
+}
+
+.darkClass .border-none-import{
+    border: none!important;
+}
+
+// web class change
+
+.darkClass .mat-menu-panel {
+    background-color: $bg-change;
+}
+
+.darkClass ul.ft-menu-list li a {    
+    color: $dcolor-secondary;    
+}
+
+.darkClass .user-caros-slider {
+    background-image: none;    
+}
+
+.darkClass .user_notification i, .darkClass a.account_user i, .darkClass .user-offers .offers-user, .darkClass .condition-btn-primary span,
+.darkClass .chips-Suggested .mat-chip.mat-standard-chip, .darkClass .csc-secondary .mat-checkbox-layout .mat-checkbox-label, 
+.darkClass .custom-check-size .mat-checkbox-layout .mat-checkbox-label, .darkClass .my-time .mat-slide-toggle-content,
+.darkClass .add-offer-deal .count-number span, .darkClass .cate-title h2, .darkClass .icon-gt-messenger:before{
+    color: $dcolor-primary;
+}
+
+// .darkClass .pro-gd-group .mat-radio-button, .ft-attach-manu .mat-menu-item   {
+//     color: $dcolor-primary!important;
+// }
+
+.darkClass .check-text{
+    color: $dcolor-secondary;
+}
+
+.darkClass .dshadow-none, .darkClass .theme-primary, .darkClass .theme-secondary, .darkClass .offer-tag, .darkClass .certificate-quality, 
+.darkClass .gt-pd-next, .darkClass .input-tags-box, .darkClass .match-box-shadow, .darkClass .otp_box .otp-input{
+    box-shadow: $dshadow-none;
+    -webkit-box-shadow: $dshadow-none;
+    -moz-box-shadow: $dshadow-none;
+}
+
+.darkClass .input-group-bg{
+    box-shadow: $dshadow-none!important;
+    -webkit-box-shadow: $dshadow-none!important;
+    -moz-box-shadow: $dshadow-none!important;
+}
+
+.darkClass .mulmsg-user .chat-input-msg{
+    background-color: $bg-change;
+}
+
+.darkClass .mulmsg-user .chat-input-msg{
+    box-shadow: $dark-shadow;
+    -webkit-box-shadow: $dark-shadow;
+    -moz-box-shadow: $dark-shadow;
+}
+
+.darkClass .reward-wrapper{
+    background-image: url(/assets/images/wallet/refer-reward-bg.svg);
+}
+
+.darkClass .active-day {
+    background: #4B6E82!important;
+}
+
+.darkClass .noti-tag-active, .darkClass .feed-tag-active {
+    background: #165376;
+}
+
+.darkClass .business-admin-change {
+    border-top: 1px solid #4f4f4f;
+}
+
+.darkClass .chat-date .gt-hr {
+    border-top: 1px solid #454545;
+}
+

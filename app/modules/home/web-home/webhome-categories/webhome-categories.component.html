@@ -1,0 +1,161 @@
+<div class="gt-float-100 popular-category-bg gt-pt-20 gt-pb-20">
+  <div class="container">
+    <div class="gt-float-100 gt-mt-20">
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-xs-12 gt-pr-10">
+          <div
+            class="gt-float-100 category-lists"
+            *ngIf="allCategories.categoryLists.length"
+          >
+            <div class="gt-float-100 categ-card">
+              <div class="gt-float-100 gt-center-between gt-mb-10">
+                <h2 class="gt-fs-15 gt-lightgrayish">
+                  {{ allCategories.title }}
+                </h2>
+              </div>
+              <div class="gt-float-100">
+                <div class="row">
+                  <div
+                    class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12"
+                    [ngClass]="i % 2 == 0 ? 'gt-pr-3' : 'gt-pl-3'"
+                    *ngFor="
+                      let c of allCategories.categoryLists | slice: 0:4;
+                      index as i
+                    "
+                  >
+                    <div class="gt-cursor-pointer categ-box">
+                      <div class="gt-float-100">
+                        <div
+                          class="gt-float-100 gt-center"
+                          (click)="navigateToCategoryPage(c.category.name)"
+                        >
+                          <img
+                            [src]="c.image"
+                            class="margins-auto banner-border-shadow-seod"
+                            alt="image"
+                          />
+                        </div>
+                        <h2
+                          class="
+                            gt-fs-11 gt-text-medium gt-float-100 gt-mt-12
+                            color-partner
+                            gt-center
+                          "
+                        >
+                          {{ c.name }}
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="gt-float-100 gt-flex-end gt-mt-4 gt-mb-4 see-all"
+                (click)="showAll()"
+              >
+                <h3 class="gt-fs-12 gt-sky gt-cursor-pointer">see more</h3>
+              </div>
+            </div>
+          </div>
+          <div class="gt-float-100">
+            <app-my-offers-matches
+              [allMatchesOffer]="allMatchesOffer"
+              [matchboxLoaded]="matchboxLoadedCalled"
+              [isLoggedIn]="isLoggedIn"
+            >
+            </app-my-offers-matches>
+          </div>
+        </div>
+        <div
+          *ngIf="
+            buyNewProductData &&
+            buyNewProductData.productList &&
+            buyNewProductData.productList.length
+          "
+          class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12 gt-pr-10"
+        >
+          <div class="gt-float-100 trading-card trcard-cate">
+            <div class="gt-float-100 gt-center-between gt-mb-22">
+              <h2 class="gt-fs-15 gt-lightblack">
+                {{ buyNewProductData.title }}
+              </h2>
+            </div>
+            <div class="gt-float-100">
+              <div class="row">
+                <div
+                  *ngFor="let item of buyNewProductData.productList"
+                  class="
+                    col-xl-6 col-lg-6 col-md-3 col-sm-3 col-xs-12
+                    gt-pr-7 gt-pl-7
+                  "
+                >
+                  <div
+                    (click)="redirectToQueryUrl(item)"
+                    class="
+                      single-arrivals-products
+                      gt-cursor-pointer
+                      box-shadow-hidden
+                      gt-pd-zero gt-mb-10
+                      trading-poffer
+                    "
+                  >
+                    <div
+                      class="arrivals-products-image banner-border-shadow-seod"
+                    >
+                      <div class="pr-image max-height-img-123">
+                        <img
+                          src="{{ item.image }}"
+                          class="gt-img-responsive"
+                          alt="image"
+                        />
+                      </div>
+                    </div>
+                    <div class="arrivals-products-content product-content-pd">
+                      <div class="offer-name-primary gt-ellipsis" ellipsis>
+                        {{ item.name }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="gt-float-100 gt-flex-end gt-mt-9 gt-mb-8 see-all">
+              <h3 class="gt-fs-12 gt-sky gt-cursor-pointer">explore more</h3>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-xs-12"
+          *ngIf="appPromotionalBanner"
+        >
+          <div
+            class="gt-float-100 gt-pd-10 gt-bg-white app-dlink"
+            *ngIf="appPromotionalBanner && appPromotionalBanner.app_promotion"
+          >
+            <div class="gt-float-100">
+              <img
+                src="{{ appPromotionalBanner.app_promotion.image }}"
+                class="ccatser-copy"
+                alt="image"
+              />
+            </div>
+          </div>
+          <div
+            class="gt-float-100 gt-mt-20 gt-pd-10 gt-bg-white create-olink"
+            *ngIf="
+              appPromotionalBanner && appPromotionalBanner.feature_promotion
+            "
+          >
+            <div class="gt-float-100">
+              <img
+                src="{{ appPromotionalBanner.feature_promotion.image }}"
+                class="comhall-copy"
+                alt="image"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,312 @@
+<div class="gt-float-100 gt-mt-20 catemat-card">
+
+  <!-- <div class="gt-float-100 gt-center-between gt-mb-10">
+    <h2 class="gt-fs-15 gt-vcenter gt-lightgrayish">Give <img src="assets/images/home/desire-icon.svg"
+        class="gt-mg-lr-5 desire-img" width="13" height="11" alt="image">
+      Take - your matches</h2>
+  </div> -->
+
+  <div class="gt-float-100 gt-position-relative match-gbox">
+    <div class="carousel-pnext pre_next gt-vcenter auctions-prenext">
+      <a class="arrow_left" (click)="owlCar.prev()"><span
+          class="material-icons gt-center rota-btn dark-shadow-import bg-change-secondary-import">play_arrow</span></a>
+      <a class="arrow_right" (click)="owlCar.next()"><span
+          class="material-icons gt-center dark-shadow-import bg-change-secondary-import">play_arrow</span></a>
+    </div>
+    <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)" #owlCar>
+      <ng-template carouselSlide >
+        <div class="gt-float-100 gt-vcenter">
+             <div class="prim-mbox">
+                  <div class="mimg-height">
+                       <img src="assets/pro/1.jpg" class="user-oimgs"  alt="image"> 
+                  </div>
+                  <div class="gt-float-100 gt-mt-5 pr-ofnam gt-ellipsis" ellipsis>
+                    <h2 class="gt-fs-14 gt-white">watch</h2>
+                </div> 
+                  
+              </div>                  
+              
+              <div class="gt-position-relative second-mbox">  
+                    <div class=" triangle"></div> 
+                    <h2 class="gt-fs-13 gt-float-100 gt-white hg-match">Matches</h2>
+                    <h3 class="gt-fs-14 gt-float-100 gt-white yfm-count">30</h3> 
+              </div> 
+
+              <div class="third-mbox">                
+                <div class="user-caros-sliders">
+                  <div class="carousel slide carousel-fade" id="banner-carousels" data-ride="carousel" data-interval="4000"
+                    data-pause="false">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="main-banner-imgs" src="assets/pro/1.jpg" alt="image" />
+                        <div class="gt-center-between gt-float-100 gt-mt-5 offer-named">
+                          <div class="gt-ellipsis offe-names" ellipsis>
+                              <h2 class="gt-fs-14 gt-white">mobile</h2>
+                          </div>                     
+                         <div class="gt-vcenter">
+                              <span class="material-icons gt-white gt-fs-18 gt-mr-2">star_border</span>
+                              <h3 class="gt-fs-13 gt-white">4.1</h3>
+                         </div>
+                    </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img class="main-banner-imgs" src="assets/pro/2.jpg" alt="image" />
+                        <div class="gt-center-between gt-float-100 gt-mt-5 offer-named">
+                          <div class="gt-ellipsis offe-names" ellipsis>
+                              <h2 class="gt-fs-14 gt-white">mobile</h2>
+                          </div>                     
+                         <div class="gt-vcenter">
+                              <span class="material-icons gt-white gt-fs-18 gt-mr-2">star_border</span>
+                              <h3 class="gt-fs-13 gt-white">4.1</h3>
+                         </div>
+                    </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img class="main-banner-imgs" src="assets/pro/3.jpg" alt="image" />
+                        <div class="gt-center-between gt-float-100 gt-mt-5 offer-named">
+                          <div class="gt-ellipsis offe-names" ellipsis>
+                              <h2 class="gt-fs-14 gt-white">mobile</h2>
+                          </div>                     
+                         <div class="gt-vcenter">
+                              <span class="material-icons gt-white gt-fs-18 gt-mr-2">star_border</span>
+                              <h3 class="gt-fs-13 gt-white">4.1</h3>
+                         </div>
+                    </div>
+                      </div>
+              
+                      <div class="carousel-item">
+                        <img class="main-banner-imgs" src="assets/pro/4.jpg" alt="image" />
+                        <div class="gt-center-between gt-float-100 gt-mt-5 offer-named">
+                          <div class="gt-ellipsis offe-names" ellipsis>
+                              <h2 class="gt-fs-14 gt-white">mobile</h2>
+                          </div>                     
+                         <div class="gt-vcenter">
+                              <span class="material-icons gt-white gt-fs-18 gt-mr-2">star_border</span>
+                              <h3 class="gt-fs-13 gt-white">4.1</h3>
+                         </div>
+                    </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img class="main-banner-imgs" src="assets/pro/5.jpg" alt="image" />
+                        <div class="gt-center-between gt-float-100 gt-mt-5 offer-named">
+                          <div class="gt-ellipsis offe-names" ellipsis>
+                              <h2 class="gt-fs-14 gt-white">mobile</h2>
+                          </div>                     
+                         <div class="gt-vcenter">
+                              <span class="material-icons gt-white gt-fs-18 gt-mr-2">star_border</span>
+                              <h3 class="gt-fs-13 gt-white">4.1</h3>
+                         </div>
+                    </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img class="main-banner-imgs" src="assets/pro/6.jpg" alt="image" />
+                        <div class="gt-center-between gt-float-100 gt-mt-5 offer-named">
+                          <div class="gt-ellipsis offe-names" ellipsis>
+                              <h2 class="gt-fs-14 gt-white">mobile</h2>
+                          </div>                     
+                         <div class="gt-vcenter">
+                              <span class="material-icons gt-white gt-fs-18 gt-mr-2">star_border</span>
+                              <h3 class="gt-fs-13 gt-white">4.1</h3>
+                         </div>
+                    </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img class="main-banner-imgs" src="assets/pro/7.jpg" alt="image" />
+                        <div class="gt-center-between gt-float-100 gt-mt-5 offer-named">
+                          <div class="gt-ellipsis offe-names" ellipsis>
+                              <h2 class="gt-fs-14 gt-white">mobile</h2>
+                          </div>                     
+                         <div class="gt-vcenter">
+                              <span class="material-icons gt-white gt-fs-18 gt-mr-2">star_border</span>
+                              <h3 class="gt-fs-13 gt-white">4.1</h3>
+                         </div>
+                    </div>
+                      </div>
+                    </div>
+              
+                    <ol class="carousel-indicators">
+                      <li data-target="#banner-carousels" data-slide-to="0" class="active">                         
+                      </li>
+                      <li data-target="#banner-carousels" data-slide-to="1">                        
+                      </li>
+                      <li data-target="#banner-carousels" data-slide-to="2">                        
+                      </li>
+                      <li data-target="#banner-carousels" data-slide-to="3">                        
+                      </li>
+                      <li data-target="#banner-carousels" data-slide-to="4">                       
+                      </li>
+                      <li data-target="#banner-carousels" data-slide-to="5">                       
+                      </li>
+                      <li data-target="#banner-carousels" data-slide-to="6">                        
+                      </li>
+                    </ol>              
+                    
+                  </div>
+                </div>
+
+                
+             </div>
+
+        </div>   
+       </ng-template>   
+
+       <ng-template carouselSlide >
+        <div class="gt-float-100 gt-vcenter">
+             <div class="prim-mbox">
+                  <div class="mimg-height">
+                       <img src="assets/pro/1.jpg" class="user-oimgs"  alt="image"> 
+                  </div>
+                  <div class="gt-float-100 gt-mt-5 pr-ofnam gt-ellipsis" ellipsis>
+                    <h2 class="gt-fs-14 gt-white">watch</h2>
+                </div> 
+                  
+              </div>                  
+              
+              <div class="gt-position-relative second-mbox">  
+                    <div class=" triangle"></div> 
+                    <h2 class="gt-fs-13 gt-float-100 gt-white hg-match">Matches</h2>
+                    <h3 class="gt-fs-14 gt-float-100 gt-white yfm-count">30</h3> 
+              </div> 
+
+              <div class="third-mbox">                
+                <div class="user-caros-sliders">
+                  <div class="carousel slide carousel-fade" id="banner-carousels" data-ride="carousel" data-interval="4000"
+                    data-pause="false">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="main-banner-imgs" src="assets/pro/1.jpg" alt="image" />
+                        <div class="gt-center-between gt-float-100 gt-mt-5 offer-named">
+                          <div class="gt-ellipsis offe-names" ellipsis>
+                              <h2 class="gt-fs-14 gt-white">mobile</h2>
+                          </div>                     
+                         <div class="gt-vcenter">
+                              <span class="material-icons gt-white gt-fs-18 gt-mr-2">star_border</span>
+                              <h3 class="gt-fs-13 gt-white">4.1</h3>
+                         </div>
+                    </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img class="main-banner-imgs" src="assets/pro/2.jpg" alt="image" />
+                        <div class="gt-center-between gt-float-100 gt-mt-5 offer-named">
+                          <div class="gt-ellipsis offe-names" ellipsis>
+                              <h2 class="gt-fs-14 gt-white">mobile</h2>
+                          </div>                     
+                         <div class="gt-vcenter">
+                              <span class="material-icons gt-white gt-fs-18 gt-mr-2">star_border</span>
+                              <h3 class="gt-fs-13 gt-white">4.1</h3>
+                         </div>
+                    </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img class="main-banner-imgs" src="assets/pro/3.jpg" alt="image" />
+                        <div class="gt-center-between gt-float-100 gt-mt-5 offer-named">
+                          <div class="gt-ellipsis offe-names" ellipsis>
+                              <h2 class="gt-fs-14 gt-white">mobile</h2>
+                          </div>                     
+                         <div class="gt-vcenter">
+                              <span class="material-icons gt-white gt-fs-18 gt-mr-2">star_border</span>
+                              <h3 class="gt-fs-13 gt-white">4.1</h3>
+                         </div>
+                    </div>
+                      </div>
+              
+                      <div class="carousel-item">
+                        <img class="main-banner-imgs" src="assets/pro/4.jpg" alt="image" />
+                        <div class="gt-center-between gt-float-100 gt-mt-5 offer-named">
+                          <div class="gt-ellipsis offe-names" ellipsis>
+                              <h2 class="gt-fs-14 gt-white">mobile</h2>
+                          </div>                     
+                         <div class="gt-vcenter">
+                              <span class="material-icons gt-white gt-fs-18 gt-mr-2">star_border</span>
+                              <h3 class="gt-fs-13 gt-white">4.1</h3>
+                         </div>
+                    </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img class="main-banner-imgs" src="assets/pro/5.jpg" alt="image" />
+                        <div class="gt-center-between gt-float-100 gt-mt-5 offer-named">
+                          <div class="gt-ellipsis offe-names" ellipsis>
+                              <h2 class="gt-fs-14 gt-white">mobile</h2>
+                          </div>                     
+                         <div class="gt-vcenter">
+                              <span class="material-icons gt-white gt-fs-18 gt-mr-2">star_border</span>
+                              <h3 class="gt-fs-13 gt-white">4.1</h3>
+                         </div>
+                    </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img class="main-banner-imgs" src="assets/pro/6.jpg" alt="image" />
+                        <div class="gt-center-between gt-float-100 gt-mt-5 offer-named">
+                          <div class="gt-ellipsis offe-names" ellipsis>
+                              <h2 class="gt-fs-14 gt-white">mobile</h2>
+                          </div>                     
+                         <div class="gt-vcenter">
+                              <span class="material-icons gt-white gt-fs-18 gt-mr-2">star_border</span>
+                              <h3 class="gt-fs-13 gt-white">4.1</h3>
+                         </div>
+                    </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img class="main-banner-imgs" src="assets/pro/7.jpg" alt="image" />
+                        <div class="gt-center-between gt-float-100 gt-mt-5 offer-named">
+                          <div class="gt-ellipsis offe-names" ellipsis>
+                              <h2 class="gt-fs-14 gt-white">mobile</h2>
+                          </div>                     
+                         <div class="gt-vcenter">
+                              <span class="material-icons gt-white gt-fs-18 gt-mr-2">star_border</span>
+                              <h3 class="gt-fs-13 gt-white">4.1</h3>
+                         </div>
+                    </div>
+                      </div>
+                    </div>
+              
+                    <ol class="carousel-indicators">
+                      <li data-target="#banner-carousels" data-slide-to="0" class="active">                         
+                      </li>
+                      <li data-target="#banner-carousels" data-slide-to="1">                        
+                      </li>
+                      <li data-target="#banner-carousels" data-slide-to="2">                        
+                      </li>
+                      <li data-target="#banner-carousels" data-slide-to="3">                        
+                      </li>
+                      <li data-target="#banner-carousels" data-slide-to="4">                       
+                      </li>
+                      <li data-target="#banner-carousels" data-slide-to="5">                       
+                      </li>
+                      <li data-target="#banner-carousels" data-slide-to="6">                        
+                      </li>
+                    </ol>              
+                    
+                  </div>
+                </div>
+
+                
+             </div>
+
+        </div>   
+       </ng-template>  
+     
+    </owl-carousel-o>
+
+  </div>
+   <div class="gt-float-100 gt-pd-tb-6 gt-center-end">
+      <div class="gt-center gt-cursor-pointer sug-qdeal">
+          <h3 class="gt-fs-12 gt-white gt-cursor-pointer">suggest a quick deal</h3>
+      </div>
+      <div class="gt-pr-10 see-all">
+        <h3 class="gt-fs-12 gt-white gt-cursor-pointer">See your all matches</h3>
+      </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  

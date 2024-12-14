@@ -1,0 +1,15 @@
+:host::ng-deep .mat-autocomplete-panel {
+    min-width: 112px;
+    max-width: 280px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    visibility: hidden;
+    max-width: none;
+    max-height: 280px !important;
+    position: relative;
+    width: 100%;
+    border-bottom-left-radius: 8px !important;
+    border-bottom-right-radius: 8px !important;
+  }
+  
+

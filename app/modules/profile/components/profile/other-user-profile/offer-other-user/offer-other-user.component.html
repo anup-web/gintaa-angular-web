@@ -1,0 +1,36 @@
+<div class="gt-float-100 gt-mt-20">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="gt-float-100 gt-center gt-justify-content-between profile-offer">
+        <div class="gt-float-left gt-center profile-offer-primary">
+          <h2 class="gt-fs-18 gt-black-80 gt-text-medium dcolor-primary">
+            Listings 
+          </h2>
+        </div>
+
+        <div class="gt-float-right profile-offer-secondary" *ngIf="userAllOffer && userAllOffer.length > 0">
+          <button type="button" class="
+              gt-btn-primary gt-center gt-wh-btn
+              bg-change-secondary
+              dark-shadow
+              border-none
+            " (click)="viewAll()">
+            view all
+            <span class="count gt-ml-5"> ({{ userAllOffer.length }}) </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="gt-float-100 gt-mt-20 profile-ouser-wrapper" *ngIf="userAllOffer && userAllOffer.length > 0">
+  <div class="row">
+    <ng-template ngFor let-i="index" let-c="count" let-offer [ngForOf]="userAllOffer.slice(0,8)">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 co-xs-12 gt-mb-25">
+        <app-offer-card-default [offer]="offer" from="otherProfile" [showOfferStat]="false">
+        </app-offer-card-default>
+      </div>
+    </ng-template>
+  </div>
+</div>

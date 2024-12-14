@@ -1,0 +1,78 @@
+<div class="gt-float-100 gt-border-radius-4 upload-noffer-right" [ngClass]="{
+    'disable-offer-section': !sectionToggles.sectionUploadDocuments
+  }">
+  <div class="gt-float-100 gt-pt-10 gt-pb-14 gt-pd-lr-12">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="gt-float-100">
+          <h1 class="gt-fs-15 gt-text-medium gt-lightblack">Documents</h1>
+          <h2 class="gt-fs-12 gt-mt-5 gt-lightgrayish">
+            Documents like awards, experience etc
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="gt-float-100 gt-pd-lr-12">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <ng-container *ngIf="(documents$ | async)?.length">
+          <div class="gt-float-100 gt-display-flex offer-attach gt-mb-18" *ngFor="let doc of documents$ | async">
+            <div class="
+                gt-display-flex gt-align-items-center gt-mr-16 gt-mt-20
+                certificate-quality
+              ">
+              <img [src]="'assets/images/certificate-quality.svg'" alt="icon" width="18" height="22"
+                class="cert-check" />
+              <h2 class="gt-fs-14 gt-ml-11" (click)="previewDocument(doc)">
+                {{ doc.orgName }}
+              </h2>
+              <button type="button" class="gt-btn-primary gt-btn-clear gt-ml-30" (click)="removeDocument(doc)">
+                <img src="assets/images/profile/profile-photo-delete.svg" alt="image" class="del-atta" width="20"
+                  height="22" />
+              </button>
+            </div>
+          </div>
+        </ng-container>
+
+        <div class="gt-float-100 gt-mb-18 gt-center new-default-image ndi-height" *ngIf="docCounts < 2">
+          <div ngx-dropzone (change)="onSelect($event)" [multiple]="false" class="gt-float-100 ngs-cdrop">
+            <ngx-dropzone-label>
+              <div class="gt-float-100 gt-cursor-pointer gt-center">
+                <img src="assets/images/new-offers/doc-upload-default.svg" alt="images" class="gt-img-responsive"
+                  width="48" height="45" />
+              </div>
+              <div class="gt-float-100 gt-text-center upload-text">
+                <h2 class="gt-fs-14 new-color gt-mt-14">
+                  Drop files anywhere to upload
+                </h2>
+              </div>
+              <div class="gt-float-100 gt-text-center upload-text">
+                <h2 class="gt-fs-14 gt-text-medium gt-lightblack gt-mt-14">
+                  OR
+                </h2>
+              </div>
+              <div class="gt-float-100 gt-center gt-mt-30 upload-image-btn">
+                <button class="
+                    gt-btn-primary gt-btn-outline gt-center
+                    icon-btn-primary
+                  ">
+                  <span class="icon-gt-upload gt-fs-17 gt-mr-5 gt-sky"></span>
+                  <h3 class="gt-fs-14 gt-sky">upload</h3>
+                </button>
+              </div>
+            </ngx-dropzone-label>
+            <ng-container *ngIf="showDropZonePreview">
+              <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+                [removable]="true" (removed)="onRemove(f)">
+                <ngx-dropzone-label>
+                  {{ f.name }} ({{ f.type }})
+                </ngx-dropzone-label>
+              </ngx-dropzone-image-preview>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

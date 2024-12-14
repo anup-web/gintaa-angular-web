@@ -1,0 +1,239 @@
+<app-loading-spinner loaderType="drops-fading" fullPage="false" loader="true" *ngIf="pageLoading" addBackDrop="true"
+  backDropColor="#000000" loadingMessage="Fetching Business Members! Please wait..."></app-loading-spinner>
+
+<div class="category-offer-bg gt-pt-20 gt-pd-lr-20 myoffer-list">
+  <div class="container-fluid">
+
+
+ <app-bread-crumb  *ngIf="breadcrumb.length" [breadcrumbs]="breadcrumb"> </app-bread-crumb>
+ 
+
+
+
+  </div>
+
+  <div class="container-fluid">
+    <div class="gt-float-100">
+      <div class="gt-float-100 gt-mt-20 mob-rowrp">
+        <div class="row-custom">
+          <div class="col-left-custom">
+         
+            <div class="gt-float-100 search-left slmin-height">
+              <div class="gt-float-100 gt-center-between gt-mb-20 filter-clear">
+                <h2 class="gt-fs-15 gt-lightblack">Filters</h2>
+                <h3 class="gt-fs-13 gt-cursor-pointer gt-sky" (click)="clearFilter('all')">
+                  clear all
+                </h3>
+              </div>
+
+              <div class="
+                  gt-float-100
+                  currency-group
+                  gt-border-radius-4
+                  bg-input-change
+                ">
+                <div class="
+                    currency-input-group
+                    gt-border-radius-12 gt-border-none gt-height-48
+                    bg-input-change
+                  ">
+                  <input type="text" class="
+                      gt-border-radius-12
+                      currency-form-control
+                      bg-input-change
+                    " placeholder="Search" #searchInputValue (keyup)="setSearchText($event)" />
+                  <div class="currency-input-group-append">
+                    <div class="gt-cursor-pointer currency-input-group-text">
+                      <img src="assets/images/search-icon.png" width="20" height="20" alt="icon" class="ser-icons"
+                        role="button" (click)="setSearchText($event)" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gt-float-100 gt-mt-20 check-type">
+                <div class="gt-floa-100 gt-mb-3 gt-center-between check-pos">
+                  <h1 class="gt-fs-15 gt-lightblack ">
+                    Member status
+                  </h1>
+                  <h3 class="gt-fs-13 gt-cursor-pointer gt-sky" (click)="clearFilter('memberStatus')">
+                    clear
+                  </h3>
+                </div>
+                <div class="gt-float-100 search-list">
+                  <div class="sugg-list-item">
+                    <mat-radio-group class="dp-radio-group gt-pb-0" aria-label="Select an option"
+                      [(ngModel)]="radioButtonValue">
+                      <mat-radio-button class="examp-radio-button" [ngClass]="{ 'gt-mt-10': i > 0 }"
+                        [value]="businessMemberType" (change)="setBusinessMemberType($event)" *ngFor="
+                          let businessMemberType of businessMemberFilter.memberTypes;
+                          index as i
+                        ">
+                        <div class="gt-float-100 choose-delivery-options">
+                          <h2 class="gt-float-100">
+                            {{ businessMemberType.name }}
+                          </h2>
+                        </div>
+                      </mat-radio-button>
+                    </mat-radio-group>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gt-float-100 gt-mt-20 check-type">
+                <div class="gt-floa-100 gt-mb-10 gt-center-between check-pos">
+                  <h1 class="gt-fs-15 gt-lightblack ">
+                    Member role
+                  </h1>
+                  <h3 class="gt-fs-13 gt-cursor-pointer gt-sky" (click)="clearFilter('businessRole')">
+                    clear
+                  </h3>
+                </div>
+                <div class="gt-float-100">
+                  <div class="gt-float-100 my-loction filter-check-size">
+                    <mat-checkbox class="gt-float-100 filter-check fchk-custom" (change)="
+                        filterWithBusinessRole(
+                          $event.checked,
+                          businessRole.name
+                        )
+                      " [checked]="exists(businessRole)" *ngFor="
+                        let businessRole of businessMemberFilter.businessMemberRole
+                      ">
+                      <h2 class="check-text">{{ businessRole.name }}</h2>
+                    </mat-checkbox>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-right-custom">
+            <div class="gt-float-100 gt-mb-20 gt-center-between sort-bym">
+              <h2 class="gt-fs-14 gt-lightgrayish">
+                {{ filteredbusinessMembers.length }} members
+              </h2>
+              <div class="gt-float-right gt-center-end">
+               
+                <div class="gt-float-100" *ngIf="allowBusinessMemberAdd">
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="
+                          gt-center gt-btn-primary gt-border-radius-2
+                          btpro-btn
+                          gt-fs-14 gt-height-48 gt-float-right
+                          bn-account
+                          bg-change-secondary
+                          dark-shadow
+                          border-none
+                        " (click)="businessTeamDialog()">
+                        add new member
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+
+
+            <div class="gt-float-100 myoffers-lidting" *ngIf="true">
+              <div *ngIf="filteredbusinessMembers && filteredbusinessMembers.length">
+                <div class="gt-float-100">
+                  <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-xs-12"
+                      *ngFor="let member of filteredbusinessMembers">
+                      <div class="gt-float-100
+                                gt-bg-white gt-border-radius-2 gt-mb-25 gt-pb-20
+                                gt-cursor-pointer biness-member-list bg-change dark-shadow"
+                        (click)="memberCartClick(member)">
+
+                        <div class="gt-float-100 business-member">
+                          <div class="gt-center gt-pt-20 member-img">
+                            <img [src]="
+                                      member.memberDetails.imageUrl
+                                        ? member.memberDetails.imageUrl
+                                        : 'assets/images/user-default-img/chatu-noimg.svg'
+                                    " class="image-width-125 border-radius-100" [class]="
+                                      !member.memberDetails.imageUrl
+                                        ? 'business-default-avatar'
+                                        : ''
+                                    " [alt]="member.memberDetails.name" />
+                          </div>
+
+                          <div class="gt-float-100 gt-center">
+                            <h2 class="gt-fs-15 gt-mt-10 gt-fs-14 gt-white">
+
+                              {{
+                              member.accepted
+                              ? member.active
+                              ? "(Active)"
+                              : "(Inactive)"
+                              : ""
+                              }}
+
+                              {{
+                              !member.accepted
+                              ? "(" + member.memberStatus + ")"
+                              : ""
+                              }}
+                            </h2>
+                          </div>
+
+
+
+                        </div>
+
+
+                        <div class="gt-center gt-float-100 gt-mt-20 member-name">
+                          <h2 class="
+                                      gt-fs-16 gt-text-medium gt-lightblack
+                                      dcolor-primary
+                                    ">
+                            {{ member.memberDetails.name }}
+
+                          </h2>
+                        </div>
+
+
+
+                        <div class="gt-center gt-float-100 gt-mt-20 meber-name">
+                          <h3 class="
+                                      gt-fs-14 gt-lightgrayish gt-lightblack
+                                      dcolor-secondary
+                                    ">
+                            {{ member.businessRole }}
+                          </h3>
+                        </div>
+
+
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+
+
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="gt-center mob-filter">
+  <h2 class="gt-fs-16 gt-text-medium gt-cursor-pointer gt-lightgrayish">FILTER</h2>
+  <h2 class="gt-fs-16 gt-text-medium gt-cursor-pointer gt-lightgrayish">CANCEL</h2> 
+</div> -->

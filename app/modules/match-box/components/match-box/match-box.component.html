@@ -1,0 +1,38 @@
+<div class="match-offer-bg gt-pt-20">
+  <div class="container">
+  
+    <app-bread-crumb [breadcrumbs]="breadcrumb"> </app-bread-crumb>
+
+    <div class="gt-float-100 gt-mt-15">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <nav *ngIf="isLoggedIn">
+            <div class="nav nav-tabs nav-fill custom-tabs" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                aria-controls="nav-home" aria-selected="true" (click)="
+                  checkAndFetchMatchBox(allPossibleMatchTabs.EXISTING_OFFER)
+                ">For existing listing</a>
+
+              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                aria-controls="nav-profile" aria-selected="false" (click)="
+                  checkAndFetchMatchBox(allPossibleMatchTabs.POTENTIAL_OFFER)
+                ">For potential listing</a>
+            </div>
+          </nav>
+          <div class="tab-content py-3 px-3 px-sm-0 tab-content-custom" id="nav-tabContent" *ngIf="isLoggedIn else matchOfferSec">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+              <app-match-existing-offers></app-match-existing-offers>
+            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+              <app-match-potential-offers></app-match-potential-offers>
+            </div>
+          </div>
+          <ng-template #matchOfferSec>
+            <app-match-potential-offers [isLoggedIn]="isLoggedIn"></app-match-potential-offers>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+    <app-floating-menu></app-floating-menu>
+  </div>
+</div>

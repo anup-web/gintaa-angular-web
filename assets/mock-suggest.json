@@ -1,0 +1,464 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Sibling offers fetched successfully",
+    "payload": {
+        "Item": [
+            {
+                "offerId": "1616687838336",
+                "seOId": "dji-mazvic-pro-v2-oid-1616687838336",
+                "name": "DJI MAZVIC PRO v2",
+                "description": "In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. ",
+                "desire": {
+                    "description": "",
+                    "desireType": "Money",
+                    "tags": [
+                        "string"
+                    ],
+                    "vertical": null,
+                    "category": null,
+                    "amount": 135000.0
+                },
+                "auctioned": false,
+                "auctionResponseInfo": null,
+                "exchangeMode": "Money",
+                "location": {
+                    "lat": 22.9867569,
+                    "lng": 87.8549755,
+                    "area": "Bardhaman",
+                    "zip": "713427",
+                    "flatNo": "NA",
+                    "city": "Dooteria Tea Garden",
+                    "state": "West Bengal",
+                    "country": "India",
+                    "annotation": "Home",
+                    "addressLine": "Dhooteriah Helipad, Bongan, Dooteria Tea Garden, West Bengal 713427, India"
+                },
+                "offerType": "Item",
+                "category": {
+                    "categoryId": "2fd37a7c-2b6f-4843-8917-2a4ff3f0a662",
+                    "type": "Item",
+                    "label": "Bicycle & Accessories",
+                    "description": "Some components, which are often optional accessories on sports bicycles, are standard features on utility bicycles to enhance their usefulness, comfort, safety and visibility.",
+                    "leafNode": true,
+                    "breadcrumbs": [
+                        "Fitness Equipment",
+                        "Bicycle & Accessories"
+                    ],
+                    "hierarchy": [
+                        {
+                            "categoryId": "3e0f2753-0726-4fa4-86e2-68dd137fee44",
+                            "label": "Fitness Equipment"
+                        },
+                        {
+                            "categoryId": "2fd37a7c-2b6f-4843-8917-2a4ff3f0a662",
+                            "label": "Bicycle & Accessories"
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "tagId": "6c601066-7664-491b-8782-d75418f40c85",
+                            "name": "Brand",
+                            "description": "Brand",
+                            "label": "Brand",
+                            "values": [
+                                "Action Pro",
+                                "Adventure Worx",
+                                "Alkyne",
+                                "Bluefusion",
+                                "BSA"
+                            ],
+                            "allowCompletionSearch": true,
+                            "allowFullSearch": true
+                        },
+                        {
+                            "tagId": "5a35ef10-c62c-4ed7-9575-f761b6792f48",
+                            "name": "Type",
+                            "description": "Type",
+                            "label": "Type",
+                            "values": [
+                                "Front Light",
+                                "Front Rare Light Combo",
+                                "Headlamp",
+                                "Wheel Reflectors"
+                            ],
+                            "allowCompletionSearch": true,
+                            "allowFullSearch": true
+                        },
+                        {
+                            "tagId": "7078708c-9ba3-4ad7-b374-121d59eb4526",
+                            "name": "Light Type",
+                            "description": "Light Type",
+                            "label": "Light Type",
+                            "values": [
+                                "Halogen",
+                                "LED",
+                                "Krypton",
+                                "Incandescent"
+                            ],
+                            "allowCompletionSearch": true,
+                            "allowFullSearch": true
+                        },
+                        {
+                            "tagId": "e95c7d9b-326e-4307-953d-c3de98eb1e80",
+                            "name": "Customer Ratings",
+                            "description": "Customer Ratings\n",
+                            "label": "Customer Ratings",
+                            "values": [
+                                "1 * & above",
+                                "2 * & above",
+                                "3 * & above",
+                                "4 * & above"
+                            ],
+                            "allowCompletionSearch": true,
+                            "allowFullSearch": true
+                        }
+                    ],
+                    "vertical": {
+                        "id": "24d85452-9a26-4397-8cff-046b61d1606f",
+                        "label": "Home and Lifestyle"
+                    },
+                    "synonyms": [
+                        "Carrier",
+                        "chain",
+                        "crossbar",
+                        "Handlebars",
+                        "kickstand",
+                        "mudguard",
+                        "pedal"
+                    ],
+                    "imagePath": "https://storage.googleapis.com/gintaa-alpha/category/thumbnail//1612857252339.jpg",
+                    "fullSearchScore": null,
+                    "completionSearchScore": null,
+                    "seoId": "Bicycle-Accessories_2fd37a7c-2b6f-4843-8917-2a4ff3f0a662",
+                    "url": "/category/Bicycle-Accessories_2fd37a7c-2b6f-4843-8917-2a4ff3f0a662"
+                },
+                "totalOfferValuation": null,
+                "unitOfferValuation": 120000,
+                "images": [
+                    {
+                        "id": "120ce837-4651-4a5b-bcc9-cc79efebe9ce",
+                        "name": "1616687838481.jpg",
+                        "orgName": "9_1_1.jpg",
+                        "url": "https://storage.googleapis.com/gintaa-alpha/I/2fd37a7c-2b6f-4843-8917-2a4ff3f0a662/2021/3/25/1616687838336//1616687838481.jpg",
+                        "keywords": null,
+                        "displayIndex": "",
+                        "mimeType": null,
+                        "cover": true
+                    },
+                    {
+                        "id": "22baa1c6-78bf-4bf0-a490-5f7d111871f0",
+                        "name": "1616687838972.jpg",
+                        "orgName": "10_1.jpg",
+                        "url": "https://storage.googleapis.com/gintaa-alpha/I/2fd37a7c-2b6f-4843-8917-2a4ff3f0a662/2021/3/25/1616687838336//1616687838972.jpg",
+                        "keywords": null,
+                        "displayIndex": "",
+                        "mimeType": null,
+                        "cover": false
+                    },
+                    {
+                        "id": "89e8a31e-bc7d-4116-9b8f-d9ade111020c",
+                        "name": "1616687839378.jpg",
+                        "orgName": "10_2.jpg",
+                        "url": "https://storage.googleapis.com/gintaa-alpha/I/2fd37a7c-2b6f-4843-8917-2a4ff3f0a662/2021/3/25/1616687838336//1616687839378.jpg",
+                        "keywords": null,
+                        "displayIndex": "",
+                        "mimeType": null,
+                        "cover": false
+                    }
+                ],
+                "videos": [],
+                "documents": [],
+                "condition": null,
+                "hidden": false,
+                "hiddenPeriod": 0,
+                "activeSince": "22 Days ago",
+                "facets": [
+                    {
+                        "name": "Brand",
+                        "label": "Brand",
+                        "values": [
+                            "Action Pro",
+                            "Adventure Worx"
+                        ]
+                    },
+                    {
+                        "name": "Type",
+                        "label": "Type",
+                        "values": [
+                            "Front Light"
+                        ]
+                    }
+                ],
+                "user": {
+                    "identityId": "JKvaPJ6z2kOCucNGBmaPKXngWTu2",
+                    "name": "Soumyadip Hazraa",
+                    "averageRating": 0.0
+                },
+                "currentUserOfferOwner": false,
+                "chatCount": 0,
+                "dealCount": 2,
+                "publishedDate": 1616687839837,
+                "quantity": 8.0,
+                "itemCondition": "Good",
+                "conditionType": null
+            },
+            {
+                "offerId": "1613716498099",
+                "seOId": "twst-alpha-offer-oid-1613716498099",
+                "name": "twst alpha offer",
+                "description": "Pages that you view in this window won’t appear in the browser history and they won’t leave other traces, like cookies, on the computer after you close all open Guest windows. Any files that you download, however, will be preserved.",
+                "desire": {
+                    "description": "",
+                    "desireType": "Anything",
+                    "tags": [
+                        "string"
+                    ],
+                    "vertical": {
+                        "id": "324508c6-545f-4268-b874-5fda5b99b7dd",
+                        "label": "Electronics & Appliances"
+                    },
+                    "category": {
+                        "categoryId": "9704318f-7291-4d4f-bc50-90d808aaccd3",
+                        "type": "Item",
+                        "label": "Mobiles & Tablets",
+                        "description": "A tablet computer, commonly shortened to tablet, is a mobile device, typically with a mobile operating system and touchscreen display processing circuitry, and a rechargeable battery in a single, thin and flat package.",
+                        "leafNode": false,
+                        "breadcrumbs": [
+                            "Mobiles & Tablets"
+                        ],
+                        "hierarchy": [
+                            {
+                                "categoryId": "9704318f-7291-4d4f-bc50-90d808aaccd3",
+                                "label": "Mobiles & Tablets"
+                            }
+                        ],
+                        "tags": [],
+                        "vertical": {
+                            "id": "324508c6-545f-4268-b874-5fda5b99b7dd",
+                            "label": "Electronics & Appliances"
+                        },
+                        "synonyms": [
+                            "Notebook",
+                            "Memo Pad",
+                            "cellular mobile",
+                            "handphone",
+                            "digital phone"
+                        ],
+                        "imagePath": "https://storage.googleapis.com/gintaa-alpha/category/thumbnail//1612942984387.jpg",
+                        "fullSearchScore": null,
+                        "completionSearchScore": null,
+                        "seoId": "Mobiles-Tablets_9704318f-7291-4d4f-bc50-90d808aaccd3",
+                        "url": "/category/Mobiles-Tablets_9704318f-7291-4d4f-bc50-90d808aaccd3"
+                    },
+                    "amount": 0.0
+                },
+                "auctioned": false,
+                "auctionResponseInfo": null,
+                "exchangeMode": "Anything",
+                "location": {
+                    "lat": 22.9867569,
+                    "lng": 87.8549755,
+                    "area": "Bardhaman",
+                    "zip": "713427",
+                    "flatNo": "NA",
+                    "city": "Dooteria Tea Garden",
+                    "state": "West Bengal",
+                    "country": "India",
+                    "annotation": "Home",
+                    "addressLine": "Dhooteriah Helipad, Bongan, Dooteria Tea Garden, West Bengal 713427, India"
+                },
+                "offerType": "Item",
+                "category": {
+                    "categoryId": "9704318f-7291-4d4f-bc50-90d808aaccd3",
+                    "type": "Item",
+                    "label": "Mobiles & Tablets",
+                    "description": "A tablet computer, commonly shortened to tablet, is a mobile device, typically with a mobile operating system and touchscreen display processing circuitry, and a rechargeable battery in a single, thin and flat package.",
+                    "leafNode": false,
+                    "breadcrumbs": [
+                        "Mobiles & Tablets"
+                    ],
+                    "hierarchy": [
+                        {
+                            "categoryId": "9704318f-7291-4d4f-bc50-90d808aaccd3",
+                            "label": "Mobiles & Tablets"
+                        }
+                    ],
+                    "tags": [],
+                    "vertical": {
+                        "id": "324508c6-545f-4268-b874-5fda5b99b7dd",
+                        "label": "Electronics & Appliances"
+                    },
+                    "synonyms": [
+                        "Notebook",
+                        "Memo Pad",
+                        "cellular mobile",
+                        "handphone",
+                        "digital phone"
+                    ],
+                    "imagePath": "https://storage.googleapis.com/gintaa-alpha/category/thumbnail//1612942984387.jpg",
+                    "fullSearchScore": null,
+                    "completionSearchScore": null,
+                    "seoId": "Mobiles-Tablets_9704318f-7291-4d4f-bc50-90d808aaccd3",
+                    "url": "/category/Mobiles-Tablets_9704318f-7291-4d4f-bc50-90d808aaccd3"
+                },
+                "totalOfferValuation": null,
+                "unitOfferValuation": 8000,
+                "images": [
+                    {
+                        "id": "f2496f5c-7104-449f-8d90-adc325498ad3",
+                        "name": "1613716499122.jpeg",
+                        "orgName": "download (1).jpeg",
+                        "url": "https://storage.googleapis.com/gintaa-alpha/I/9704318f-7291-4d4f-bc50-90d808aaccd3/2021/2/19/1613716498099//1613716499122.jpeg",
+                        "keywords": null,
+                        "displayIndex": "",
+                        "mimeType": null,
+                        "cover": true
+                    }
+                ],
+                "videos": [],
+                "documents": [],
+                "condition": null,
+                "hidden": false,
+                "hiddenPeriod": 0,
+                "activeSince": "1 Month ago",
+                "facets": [],
+                "user": {
+                    "identityId": "JKvaPJ6z2kOCucNGBmaPKXngWTu2",
+                    "name": "",
+                    "averageRating": 0.0
+                },
+                "currentUserOfferOwner": false,
+                "chatCount": 0,
+                "dealCount": 0,
+                "publishedDate": 1613716500766,
+                "quantity": 10.0,
+                "itemCondition": "New",
+                "conditionType": null
+            }
+        ],
+        "Service": [
+            {
+                "offerId": "1618307927213",
+                "seOId": "babua-dar-coaching-oid-1618307927213",
+                "name": "Babua dar coaching",
+                "description": "This is about the world famous Babua dar coaching institute where the legendary Babua da trains mostly oxford gradutes on how to extract gold from anything",
+                "desire": {
+                    "description": "",
+                    "desireType": "Money",
+                    "tags": [
+                        "string"
+                    ],
+                    "vertical": null,
+                    "category": null,
+                    "amount": 0.0
+                },
+                "auctioned": false,
+                "auctionResponseInfo": null,
+                "exchangeMode": "Money",
+                "location": {
+                    "lat": 22.9867569,
+                    "lng": 87.8549755,
+                    "area": "Bardhaman",
+                    "zip": "713427",
+                    "flatNo": "NA",
+                    "city": "Dooteria Tea Garden",
+                    "state": "West Bengal",
+                    "country": "India",
+                    "annotation": "Home",
+                    "addressLine": "Dhooteriah Helipad, Bongan, Dooteria Tea Garden, West Bengal 713427, India"
+                },
+                "offerType": "Service",
+                "category": {
+                    "categoryId": "32db2e40-7c69-4ce7-bca8-22ef7e121b99",
+                    "type": "Item",
+                    "label": "Laptop & Desktops",
+                    "description": "A laptop computer is a small personal computer. They are designed to be more portable than traditional desktop computers, with many of the same abilities. Laptops are able to be folded flat for transportation and have a built-in keyboard and touchpad.\nThe desktop is the main screen area that you see after you turn on your computer and log on to Windows. Like the top of an actual desk, it serves as a surface for your work.",
+                    "leafNode": true,
+                    "breadcrumbs": [
+                        "Laptop & Desktops"
+                    ],
+                    "hierarchy": [
+                        {
+                            "categoryId": "32db2e40-7c69-4ce7-bca8-22ef7e121b99",
+                            "label": "Laptop & Desktops"
+                        }
+                    ],
+                    "tags": [],
+                    "vertical": {
+                        "id": "324508c6-545f-4268-b874-5fda5b99b7dd",
+                        "label": "Electronics & Appliances"
+                    },
+                    "synonyms": [
+                        "microcomputer",
+                        "notebook computer",
+                        "palmtop",
+                        "PC",
+                        "home computer",
+                        "work station"
+                    ],
+                    "imagePath": "https://storage.googleapis.com/gintaa-alpha/category/thumbnail//1613026839692.jpeg",
+                    "fullSearchScore": null,
+                    "completionSearchScore": null,
+                    "seoId": "Laptop-Desktops_32db2e40-7c69-4ce7-bca8-22ef7e121b99",
+                    "url": "/category/Laptop-Desktops_32db2e40-7c69-4ce7-bca8-22ef7e121b99"
+                },
+                "totalOfferValuation": 1000,
+                "unitOfferValuation": 100,
+                "images": [
+                    {
+                        "id": "24aa68a2-0982-4172-9005-a4a3b6b76c1b",
+                        "name": "1618307927312.jpg",
+                        "orgName": "home-tuition.jpg",
+                        "url": "https://storage.googleapis.com/gintaa-alpha/S/32db2e40-7c69-4ce7-bca8-22ef7e121b99/2021/4/13/1618307927213//1618307927312.jpg",
+                        "keywords": null,
+                        "displayIndex": "",
+                        "mimeType": null,
+                        "cover": true
+                    }
+                ],
+                "videos": [],
+                "documents": [],
+                "condition": null,
+                "hidden": false,
+                "hiddenPeriod": 0,
+                "activeSince": "3 Days ago",
+                "facets": [],
+                "user": {
+                    "identityId": "JKvaPJ6z2kOCucNGBmaPKXngWTu2",
+                    "name": "Soumyadip Hazraa",
+                    "averageRating": 0.0
+                },
+                "currentUserOfferOwner": false,
+                "chatCount": 0,
+                "dealCount": 3,
+                "publishedDate": 1618307927818,
+                "serviceTimingInfos": [
+                    {
+                        "dayOfWeek": "SUNDAY",
+                        "timingInfoList": [
+                            {
+                                "startTime": "07:00:00",
+                                "endTime": "08:00:00"
+                            }
+                        ]
+                    },
+                    {
+                        "dayOfWeek": "MONDAY",
+                        "timingInfoList": [
+                            {
+                                "startTime": "07:00:00",
+                                "endTime": "08:00:00"
+                            }
+                        ]
+                    }
+                ],
+                "ratePerHour": 5000.0,
+                "fixedRate": 25000.0,
+                "yourLocation": false,
+                "remote": false,
+                "myLocation": true
+            }
+        ]
+    }
+}

@@ -1,0 +1,20 @@
+<div class="gt-float-100 gt-mg-tb-13 post-btn">
+  <button
+    class="
+      gt-btn-primary gt-center gt-width-100 gt-border-radius-2 gt-height-48
+      border-none
+    "
+    [ngClass]="{ 'disable-offer-post': !sectionToggles.sectionPostOfferButton }"
+    (click)="submitOffer()"
+    [disabled]="!sectionToggles.sectionPostOfferButton"
+  >
+    <h2 class="gt-fs-15 gt-white gt-text-semi-bold">{{ buttonLabel }}</h2>
+  </button>
+</div>
+<app-loading-spinner 
+  loaderType="drops-fading" 
+  [fullPage]="true" 
+  [loader]="offerSubmitProgress"
+  addBackDrop="true" 
+  backDropColor="#fff">
+</app-loading-spinner>

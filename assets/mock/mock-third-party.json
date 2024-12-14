@@ -1,0 +1,52 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Offer Auction Result",
+    "payload": {
+        "packingList": [
+            {
+                "id": "1",
+                "boxSize": "1ft x 1ft",
+                "logo": "assets/images/deal/six-box.svg"
+            },
+            {
+                "id": "2",
+                "boxSize": "2ft x 2ft",
+                "logo": "assets/images/deal/six-box.svg"
+            },
+            {
+                "id": "3",
+                "boxSize": "6ft x 6ft",
+                "logo": "assets/images/deal/six-box.svg"
+            },
+            {
+                "id": "4",
+                "boxSize": "custom",
+                "logo": "assets/images/deal/custom-box.svg"
+            }
+        ],
+        "insuranceVendorList": [
+            {
+                "id": "1",
+                "name": "Insurance forever",
+                "rating": "4.1",
+                "estimatePrice": 50,
+                "logo": "assets/images/deal/ins-forever.svg"
+            },
+            {
+                "id": "2",
+                "name": "Care Cargo",
+                "rating": "3.5",
+                "estimatePrice": 55,
+                "logo": "assets/images/deal/care-cargo.svg"
+            },
+            {
+                "id": "2",
+                "name": "TATA AIG",
+                "rating": "4.9",
+                "estimatePrice": 30,
+                "logo": "assets/images/deal/ins-forever.svg"
+            }
+        ]
+    }
+}

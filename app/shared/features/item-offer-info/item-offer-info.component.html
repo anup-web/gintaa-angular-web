@@ -1,0 +1,1057 @@
+<form novalidate [formGroup]="form">
+  <div class="gt-mt-20 gt-float-100 gt-pd-lr-12 offer-new-start">
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="secondary_group">
+            <div class="secondary-wrap validate-input">
+              <span class="secondary-label">{{ offerTitle }}</span>
+              <textarea
+                class="secondary-input gtm-height height-textarea"
+                rows="2"
+                type="textarea"
+                formControlName="description"
+                placeholder="Enter product description"
+                [customErrors]="offerErrors.description"
+                (input)="updateCurrentActiveSection()"
+              ></textarea>
+              <!-- <span class="secondaryh-focus" *ngIf="offerTitleHelp">{{
+                offerTitleHelp
+                }}</span> -->
+            </div>
+          </div>
+          <div class="gt-float-100" *ngIf="offerTitleHelp">
+            <h2 class="gt-fs-12 gt-black-50 title-pad-bottom">
+              {{ offerTitleHelp }}
+            </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-offer-all-categories></app-offer-all-categories>
+
+    <div class="gt-float-100" *ngIf="currentBusinessId && false">
+      <div class="row mb-3">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div
+            class="gt-form-primary secondary-wrap validate-input"
+            controlErrorContainer
+          >
+            <div class="gt-vcenter gt-float-100">
+              <label
+                for="inputState"
+                class="gt-forms-label gt-sky gt-mb-zero gt-fs-14"
+                style="width: auto"
+                >Product type</label
+              >
+              <div class="gt-vcenter gt-ml-5 info-trip">
+                <span
+                  class="gt-vcenter"
+                  tooltip="Choose product type"
+                  flow="right"
+                >
+                  <span class="material-icons-outlined gt-fs-20 gt-sky"
+                    >info</span
+                  ></span
+                >
+              </div>
+            </div>
+            <select
+              class="gt-form-select nform-control"
+              formControlName="productType"
+              [customErrors]="offerErrors.productType"
+            >
+              <option value="Simple Product" selected>Simple Product</option>
+              <option value="Simple Product">Variable Product</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100" *ngIf="!isAuction">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-vcenter conditions-offer">
+            <h1 class="gt-fs-16 gt-sky gt-text-medium">Listing for</h1>
+            <div class="gt-vcenter gt-ml-5 info-trip">
+              <span
+                class="gt-vcenter"
+                tooltip="Your preferred mode of transaction"
+                flow="right"
+              >
+                <span class="material-icons-outlined gt-fs-20 gt-sky"
+                  >info</span
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mb-20 gt-vcenter" *ngIf="!isAuction">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div controlErrorContainer>
+            <mat-radio-group
+              class="dp-radiog-group gt-vcenter gt-pb-0"
+              aria-label="Select an option"
+              formControlName="exchangeMode"
+            >
+              <mat-radio-button
+                class="gt-mt-16 examp-radio-button"
+                *ngFor="let exchangeMode of exchangeTypeArr; let i = index"
+                [ngClass]="{ 'gt-ml-20': i > 0 }"
+                id="{{ exchangeMode }}"
+                [value]="exchangeMode"
+                (change)="setExchangeType($event.value)"
+              >
+                <div class="choose-signup">
+                  <h2 class="gt-fs-14 new-color">{{ exchangeMode }}</h2>
+                </div>
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- item and auctions -- item value & quantity start -->
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <div class="secondary_group">
+            <div class="secondary-wrap validate-input" controlErrorContainer>
+              <span class="secondary-label label-ml">
+                <span
+                  class="icon-gt-money-new gt-fs-13 gt-pr-7 gt-text-medium"
+                ></span>
+                Product price
+              </span>
+              <input
+                class="secondary-input"
+                type="text"
+                appTwoDigitDecimaNumber
+                formControlName="unitOfferValuation"
+                placeholder="0"
+                [customErrors]="offerErrors.unitOfferValuation"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <div class="secondary_group">
+            <div class="secondary-wrap validate-input" controlErrorContainer>
+              <span class="secondary-label">Quantity</span>
+              <input
+                class="secondary-input"
+                type="text"
+                numbersOnly
+                formControlName="quantity"
+                placeholder="1"
+                [customErrors]="offerErrors.quantity"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div class="secondary_group">
+            <div class="secondary-wrap validate-input" controlErrorContainer>
+              <div class="gt-form-primary">
+                <label
+                  for="inputState"
+                  class="gt-form-label gt-sky gt-mb-zero gt-fs-14 d-flex"
+                  >Unit
+                  <div class="gt-vcenter gt-ml-5 info-trip">
+                    <span
+                      class="gt-vcenter"
+                      tooltip="Standard to measure the product"
+                      flow="right"
+                    >
+                      <span class="material-icons-outlined gt-fs-20 gt-sky"
+                        >info</span
+                      ></span
+                    >
+                  </div></label
+                >
+                <select
+                  class="gt-form-select nform-control"
+                  formControlName="unit"
+                  [customErrors]="offerErrors.unit"
+                >
+                  <option *ngFor="let unit of itemQuantityUnits" [value]="unit">
+                    {{ unit }}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-6" *ngIf="exchangeMoney">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-display-flex toggle-wrapper">
+            <div class="toogle-input">
+              <div class="secondary_group">
+                <div class="secondary-wrap validate-input">
+                  <span class="secondary-label label-ml">
+                    <span
+                      class="icon-gt-money-new gt-fs-13 gt-pr-7 gt-text-medium"
+                    ></span>
+                    Selling price
+                  </span>
+                  <input
+                    class="secondary-input"
+                    type="text"
+                    appTwoDigitDecimaNumber
+                    formControlName="price"
+                    placeholder="0"
+                    [customErrors]="offerErrors.price"
+                  />
+                </div>
+                <div class="gt-floa-100 gt-mt-10" *ngIf="calculatedDiscount">
+                  <h2 class="gt-fs-12 gt-black-70">{{ calculatedDiscount }}</h2>
+                </div>
+                <div class="gt-floa-100 gt-mt-2" *ngIf="discPriceError">
+                  <h2 class="gt-fs-12 gt-danger">{{ discPriceError }}</h2>
+                </div>
+              </div>
+            </div>
+            <div class="new-toggle">
+              <div class="gt-float-100">
+                <h2 class="gt-fs-14 new-color">
+                  <span [ngClass]="{ 'toggle-inactive': negotiable }"
+                    >Fixed</span
+                  >
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <span [ngClass]="{ 'toggle-inactive': !negotiable }"
+                    >Negotiable</span
+                  >
+                </h2>
+              </div>
+              <div class="gt-float-100 gt-mt-15 gt-pl-25 custom-toggle">
+                <mat-slide-toggle
+                  formControlName="negotiable"
+                  [checked]="negotiable"
+                ></mat-slide-toggle>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- item and auctions -- item value & quantity end -->
+
+    <!-- auction part start -->
+    <ng-container *ngIf="isAuction">
+      <div class="gt-float-100 gt-mt-6" formGroupName="auctionInfo">
+        <div class="row">
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="secondary_group">
+              <div class="secondary-wrap validate-input">
+                <span class="secondary-label label-ml"
+                  ><span
+                    class="icon-gt-money-new gt-fs-13 gt-pr-7 gt-text-medium"
+                  ></span>
+                  Opening amount
+                </span>
+                <input
+                  class="secondary-input"
+                  type="text"
+                  placeholder="0"
+                  formControlName="basePrice"
+                  [customErrors]="offerErrors.auctionInfo.basePrice"
+                  (input)="calculateAuctionError($event.target.value)"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="secondary_group">
+              <div class="secondary-wrap validate-input">
+                <span class="secondary-label label-ml"
+                  ><span
+                    class="icon-gt-money-new gt-fs-13 gt-pr-7 gt-text-medium"
+                  ></span>
+                  Buyout value (Optional)
+                </span>
+                <input
+                  class="secondary-input"
+                  type="text"
+                  placeholder="0"
+                  formControlName="buyOutPrice"
+                  [customErrors]="offerErrors.auctionInfo.buyOutPrice"
+                  (input)="calculateAuctionError(null, $event.target.value)"
+                />
+
+                <div class="gt-text-danger" *ngIf="auctionPriceError">
+                  <div class="error error-next">{{ auctionPriceError }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+            <div class="secondary_group">
+              <div class="secondary-wrap validate-input">
+                <span class="secondary-label label-ml"
+                  ><span
+                    class="icon-gt-money-new gt-fs-13 gt-pr-7 gt-text-medium"
+                  ></span>
+                  Minimum bid step
+                </span>
+                <input
+                  class="secondary-input"
+                  type="text"
+                  placeholder="0"
+                  formControlName="stepPrice"
+                  [customErrors]="offerErrors.auctionInfo.stepPrice"
+                />
+                <div class="gt-text-danger" *ngIf="minimumBidStepError">
+                  <div class="error error-next">{{ minimumBidStepError }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gt-float-100 gt-mt-10">
+          <div class="row">
+            <div
+              class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 gt-pr-30"
+            >
+              <div
+                class="
+                  gt-float-100 gt-center-between
+                  nborder-bottom
+                  ndate-picker
+                "
+              >
+                <mat-form-field class="gt-width-100 customdt-picker">
+                  <input
+                    matInput
+                    [ngxMatDatetimePicker]="picker"
+                    placeholder="End date & time"
+                    class="hsecondary-input"
+                    [min]="minDate"
+                    [max]="maxDate"
+                    [value]="auctionDateTime"
+                    (dateChange)="auctionDateTimeChanged($event)"
+                  />
+                  <mat-datepicker-toggle
+                    class="gt-cursor-pointer gt-pt-11 tpicker-show dt-icon"
+                    matSuffix
+                    [for]="picker"
+                  >
+                    <span class="icon-gt-date-picker gt-fs-22"></span>
+                  </mat-datepicker-toggle>
+                  <ngx-mat-datetime-picker
+                    #picker
+                    [showSpinners]="dateTimePickerConfig.showSpinners"
+                    [showSeconds]="dateTimePickerConfig.showSeconds"
+                    [stepHour]="dateTimePickerConfig.stepHour"
+                    [stepMinute]="dateTimePickerConfig.stepMinute"
+                    [stepSecond]="dateTimePickerConfig.stepSecond"
+                    [touchUi]="dateTimePickerConfig.touchUi"
+                    [color]="dateTimePickerConfig.color"
+                    [enableMeridian]="dateTimePickerConfig.enableMeridian"
+                    [disableMinute]="dateTimePickerConfig.disableMinute"
+                    [hideTime]="dateTimePickerConfig.hideTime"
+                  >
+                  </ngx-mat-datetime-picker>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- auction part end -->
+
+    <div class="gt-float-100 gt-mt-20" *ngIf="currentBusinessId && false">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="conditions-offer">
+            <h1 class="gt-fs-16 gt-sky gt-text-medium">Selling price date</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-10" *ngIf="currentBusinessId && false">
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div
+            class="
+              gt-float-100 gt-center-between
+              nborder-bottom
+              ndate-picker
+              validate-input
+            "
+            controlErrorContainer
+          >
+            <mat-form-field class="date-npicker">
+              <input
+                matInput
+                [matDatepicker]="picker"
+                placeholder="Start date"
+                formControlName="startDate"
+                [customErrors]="offerErrors.startDate"
+              />
+            </mat-form-field>
+            <mat-datepicker #picker></mat-datepicker>
+            <div
+              class="gt-cursor-pointer gt-pt-11 tpicker-show"
+              (click)="picker.open()"
+            >
+              <span class="icon-gt-date-picker gt-fs-22"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div
+            class="
+              gt-float-100 gt-center-between
+              nborder-bottom
+              ndate-picker
+              validate-input
+            "
+            controlErrorContainer
+          >
+            <mat-form-field class="date-npicker">
+              <input
+                matInput
+                [matDatepicker]="picker1"
+                placeholder="End date"
+                formControlName="endDate"
+                [customErrors]="offerErrors.endDate"
+              />
+            </mat-form-field>
+            <mat-datepicker #picker1></mat-datepicker>
+            <div
+              class="gt-cursor-pointer gt-pt-11 tpicker-show"
+              (click)="picker1.open()"
+            >
+              <span class="icon-gt-date-picker gt-fs-22"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-20" *ngIf="currentBusinessId">
+      <div class="row">
+        <div
+          class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12"
+          *ngIf="!exchangeFree"
+        >
+          <div
+            class="gt-form-primary secondary-wrap gt-mb-14 validate-input"
+            controlErrorContainer
+          >
+            <div class="gt-vcenter gt-float-100 gt-mb-5">
+              <label
+                for="inputState"
+                class="gt-forms-label gt-sky gt-mb-zero gt-fs-14"
+                style="width: auto"
+                >Tax class</label
+              >
+              <div class="gt-vcenter gt-ml-5 info-trip">
+                <span
+                  class="gt-vcenter"
+                  tooltip="Specify tax bracket for your product"
+                  flow="right"
+                >
+                  <span class="material-icons-outlined gt-fs-20 gt-sky"
+                    >info</span
+                  ></span
+                >
+              </div>
+            </div>
+            <ng-container *ngIf="!exchangeFree">
+              <select
+                class="gt-form-select nform-control"
+                formControlName="taxClass"
+                [customErrors]="offerErrors.taxClass"
+              >
+                <option selected>NO TAX</option>
+                <option>GST - 5</option>
+                <option>GST - 10</option>
+                <option>GST - 18</option>
+                <option>GST - 28</option>
+              </select>
+            </ng-container>
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-xs-12">
+          <div class="secondary_group">
+            <div class="secondary-wrap validate-input" controlErrorContainer>
+              <span class="secondary-label"
+                >SKU (Optional)
+                <div class="gt-vcenter gt-ml-5 info-trip">
+                  <span
+                    class="gt-vcenter ui-tooltip"
+                    tooltip="Unique ID (existing/new)"
+                    flow="right"
+                    data-html="true"
+                  >
+                    <span class="material-icons-outlined gt-fs-20 gt-sky"
+                      >info</span
+                    ></span
+                  >
+                </div>
+              </span>
+              <input
+                class="secondary-input"
+                type="text"
+                name="name"
+                placeholder=""
+                formControlName="sku"
+                [customErrors]="offerErrors.sku"
+                autocomplete="off"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <div class="secondary_group">
+            <div class="secondary-wrap validate-input" controlErrorContainer>
+              <span class="secondary-label"
+                >HSN Code
+                <div class="gt-vcenter gt-ml-5 info-trip">
+                  <span
+                    class="gt-vcenter"
+                    tooltip="For classifying products under GST"
+                    flow="right"
+                  >
+                    <span class="material-icons-outlined gt-fs-20 gt-sky"
+                      >info</span
+                    ></span
+                  >
+                </div>
+              </span>
+              <input
+                class="secondary-input"
+                type="text"
+                name="name"
+                formControlName="hsnCode"
+                [customErrors]="offerErrors.hsnCode"
+                autocomplete="off"
+                placeholder="68000000"
+              />
+              <div class="gt-text-danger" *ngIf="hsnCodeError">
+                <div class="error error-next">{{ hsnCodeError }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="gt-float-100 gt-mt-20" *ngIf="currentBusinessId">
+      <div class="row">
+        
+      </div>
+    </div> -->
+
+    <div class="gt-float-100 gt-mt-6" *ngIf="!isAuction">
+      <div class="row">
+        <div
+          class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12"
+          *ngIf="currentBusinessId"
+        >
+          <div class="secondary_group">
+            <div class="secondary-wrap validate-input" controlErrorContainer>
+              <span class="secondary-label">Minimum order quantity (MOQ)</span>
+              <input
+                class="secondary-input"
+                type="text"
+                name="name"
+                numbersOnly
+                placeholder="123"
+                formControlName="moq"
+                [customErrors]="offerErrors.moq"
+                autocomplete="off"
+              />
+
+              <div class="gt-text-danger" *ngIf="moqError">
+                <div class="error error-next">{{ moqError }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="col-sm-12 col-xs-12"
+          [ngClass]="
+            currentBusinessId
+              ? ['col-xl-6', 'col-lg-6', 'col-md-6']
+              : ['col-xl-12', 'col-lg-12', 'col-md-12']
+          "
+        >
+          <div class="secondary_group gt-mb-zero">
+            <div class="secondary-wrap validate-input" controlErrorContainer>
+              <span class="secondary-label label-ml">
+                Country of origin
+                <div class="gt-vcenter gt-ml-5 info-trip">
+                  <span
+                    class="gt-vcenter"
+                    tooltip="Product manufacturing place"
+                    flow="right"
+                  >
+                    <span class="material-icons-outlined gt-fs-20 gt-sky"
+                      >info</span
+                    ></span
+                  >
+                </div>
+              </span>
+              <select
+                class="gt-form-select nform-control"
+                formControlName="originCountry"
+                [customErrors]="offerErrors.originCountry"
+              >
+                <option
+                  *ngFor="let country of allCountryLists$ | async"
+                  [value]="country.name"
+                >
+                  {{ country.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-20">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="conditions-offer">
+            <h1 class="gt-fs-16 gt-lightblack gt-text-medium">Condition</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-19">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <button
+            type="button"
+            class="
+              gt-btn-primary gt-btn-outline gt-center gt-float-left
+              condition-offers
+            "
+            *ngFor="let offerCondition of offerConditions; index as i"
+            (click)="setItemCondition(offerCondition, i)"
+            [ngClass]="{
+              'conditionoff-active': selected == i,
+              'gt-ml-12': i > 0
+            }"
+          >
+            <h2 class="gt-fs-14 new-color">{{ offerCondition }}</h2>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngIf="currentBusinessId">
+      <div
+        formArrayName="dimensions"
+        *ngFor="let item of form.get('dimensions')['controls']; let i = index"
+      >
+        <div class="gt-float-100 gt-mt-20 gt-pb-10 nborder-bottom">
+          <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div class="conditions-offer">
+                <h1 class="gt-fs-16 gt-lightblack gt-text-medium">Shipping</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div [formGroupName]="i">
+          <div class="gt-float-100 gt-mt-20">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-vcenter conditions-offer">
+                  <h1 class="gt-fs-16 gt-sky gt-text-medium">Dimension (cm)</h1>
+                  <div class="gt-vcenter gt-ml-5 info-trip">
+                    <span
+                      class="gt-vcenter"
+                      tooltip="Add product dimensions"
+                      flow="right"
+                    >
+                      <span class="material-icons-outlined gt-fs-20 gt-sky"
+                        >info</span
+                      ></span
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gt-float-100 gt-mt-20">
+            <div class="row">
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="secondary_group">
+                  <div
+                    class="secondary-wrap validate-input"
+                    controlErrorContainer
+                  >
+                    <span class="secondary-label">Length</span>
+                    <input
+                      class="secondary-input"
+                      type="text"
+                      appTwoDigitDecimaNumber
+                      name="dimensions-length"
+                      formControlName="length"
+                      [customErrors]="offerErrors.dimensions.length"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="secondary_group">
+                  <div
+                    class="secondary-wrap validate-input"
+                    controlErrorContainer
+                  >
+                    <span class="secondary-label">Width</span>
+                    <input
+                      class="secondary-input"
+                      type="text"
+                      appTwoDigitDecimaNumber
+                      name="dimensions-breadth"
+                      formControlName="breadth"
+                      [customErrors]="offerErrors.dimensions.breadth"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="secondary_group">
+                  <div
+                    class="secondary-wrap validate-input"
+                    controlErrorContainer
+                  >
+                    <span class="secondary-label">Height</span>
+                    <input
+                      class="secondary-input"
+                      type="text"
+                      appTwoDigitDecimaNumber
+                      name="dimensions-height"
+                      formControlName="height"
+                      [customErrors]="offerErrors.dimensions.height"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                <div class="secondary_group">
+                  <div
+                    class="secondary-wrap validate-input"
+                    controlErrorContainer
+                  >
+                    <span class="secondary-label"
+                      >Weight (kg)
+                      <!-- <div class="gt-vcenter gt-ml-5 info-trip">
+                        <span
+                          class="gt-vcenter"
+                          tooltip="Weight in decimal form"
+                          flow="right"
+                        >
+                          <span class="material-icons-outlined gt-fs-20 gt-sky"
+                            >info</span
+                          ></span
+                        >
+                      </div> -->
+                    </span>
+                    <input
+                      class="secondary-input"
+                      type="text"
+                      appTwoDigitDecimaNumber
+                      name="dimensions-weight"
+                      formControlName="weight"
+                      [customErrors]="offerErrors.dimensions.weight"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <div class="gt-float-100 gt-mt-20">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="conditions-offer">
+            <h1 class="gt-fs-16 gt-lightblack gt-text-medium">Location</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-10">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="sugg-check">
+            <mat-radio-group aria-label="Select an option">
+              <mat-radio-button
+                class="gt-float-100"
+                *ngFor="let address of allAddressSub$ | async; let i = index"
+                [value]="address.id"
+                (change)="setLocation($event, address, true)"
+                [checked]="getIsChecked(address)"
+              >
+                <div class="gt-float-100 gt-mt-11 gt-cursor-pointer">
+                  <div class="gt-float-100 gt-vcenter home-oaddress">
+                    <span
+                      class="icon-icons-home gt-fs-22 gt-mr-10 locp-tag"
+                      *ngIf="address.value?.annotation === 'Home'"
+                    ></span>
+                    <span
+                      class="material-icons gt-mr-10 gt-fs-19 gt-mt-2"
+                      *ngIf="address.value?.annotation === 'Work'"
+                      >business</span
+                    >
+                    <span
+                      class="material-icons-outlined gt-mr-10 gt-fs-19 gt-mt-2"
+                      *ngIf="
+                        address.value?.annotation !== 'Home' &&
+                        address.value?.annotation !== 'Work'
+                      "
+                      >location_on</span
+                    >
+                    <h2
+                      class="gt-fs-14 gt-lightblack dcolor-primary"
+                      *ngIf="!currentBusinessId"
+                    >
+                      {{ address.value?.annotation }}
+                    </h2>
+                    <h2
+                      class="gt-fs-14 gt-lightblack dcolor-primary"
+                      *ngIf="currentBusinessId"
+                    >
+                      {{ address.addressTitle }}
+                    </h2>
+                  </div>
+                  <div class="gt-float-100">
+                    <h3
+                      class="gt-fs-13 new-color gt-mt-2 gt-pl-27"
+                      *ngIf="!currentBusinessId"
+                    >
+                      {{ address.id | trimTextToCertainNumberCharector: 40 }}
+                    </h3>
+                    <h3
+                      class="gt-fs-13 new-color gt-mt-2 gt-pl-27"
+                      *ngIf="currentBusinessId"
+                    >
+                      {{
+                        address.addressLine1
+                          | trimTextToCertainNumberCharector: 40
+                      }}
+                    </h3>
+                  </div>
+                </div>
+              </mat-radio-button>
+            </mat-radio-group>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-10">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <button
+            type="button"
+            class="
+              gt-btn-primary gt-center gt-border-radius-6 gt-bg-transparent
+              nob-btn
+            "
+            (click)="openAddressModal()"
+          >
+            <span class="icon-gt-add gt-fs-13 gt-mr-2"></span>
+            <h2 class="gt-fs-14 gt-sky neda">add new address</h2>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="gt-float-100 gt-mt-20">
+      <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <button type="submit" class="gt-btn-primary gt-center gt-border-radius-6 gt-float-right new-next">
+                  <h2 class="gt-fs-14 gt-white">next</h2>
+              </button>  
+            </div>
+      </div>
+    </div> -->
+  </div>
+</form>
+
+<!-- new design -->
+
+<!-- <div class="gt-float-100 gt-mt-20">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gt-vcenter conditions-offer">
+        <h1 class="gt-fs-16 gt-sky gt-text-medium">Listing for</h1>            
+        <div class="gt-vcenter gt-ml-5 info-trip">              
+          <span class="gt-vcenter" tooltip="Slide to the right" flow="right">
+            <span class="material-icons-outlined gt-fs-20 gt-sky">info</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+
+<!-- <div class="gt-float-100 gt-mt-20">
+  <div class="row">
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <div class="secondary_group">
+        <div class="secondary-wrap validate-input">
+          <span class="secondary-label label-ml"
+            ><span
+              class="icon-gt-money-new gt-fs-13 gt-pr-7 gt-text-medium"
+            ></span>
+            Product Value
+            <div class="gt-vcenter gt-ml-5 info-trip">
+              <span
+                class="gt-vcenter"
+                tooltip="Slide to the right"
+                flow="right"
+              >
+                <span class="material-icons-outlined gt-fs-20 gt-sky"
+                  >info</span
+                ></span
+              >
+            </div>
+          </span>
+          <input
+            class="secondary-input"
+            type="text"
+            name="name"
+            placeholder="9,452"
+          />
+        </div>
+        <div class="gt-text-danger">
+          <div class="error error-next">Description is required</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <div class="secondary_group">
+        <div class="secondary-wrap validate-input">
+          <span class="secondary-label">Quantity</span>
+          <input
+            class="secondary-input"
+            type="text"
+            name="name"
+            placeholder="1"
+          />
+        </div>
+        <div class="gt-text-danger">
+          <div class="error error-next">Description is required</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <div class="gt-form-primary">
+        <label for="inputState" class="gt-form-label gt-sky gt-mb-zero gt-fs-14"
+          >Unit</label
+        >
+        <select class="gt-form-select nform-control">
+          <option selected>Unit</option>
+          <option>Unit</option>
+          <option>Unit</option>
+        </select>
+        <div class="gt-text-danger">
+          <div class="error error-next">Description is required</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- business service start -->
+<!-- <div class="gt-float-100 gt-mt-20">
+<div class="row">
+<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+  <div class="secondary_group">
+    <div class="secondary-wrap validate-input">
+      <span class="secondary-label label-ml"><span class="icon-gt-money-new gt-fs-13 gt-pr-7 gt-text-medium"></span>
+      Rate </span>
+      <input class="secondary-input" type="text" name="name" placeholder="9,452">
+      
+    </div>
+    <div class="gt-text-danger">
+                <div class="error error-next"> Description is required </div>
+           </div>  
+  </div>
+
+</div>
+
+
+<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+  <div class="gt-form-primary">
+    <label for="inputState" class="gt-form-label gt-sky gt-mb-zero gt-fs-14">Duration</label>
+    <select class="gt-form-select nform-control">
+      <option selected>Duration</option>
+      <option>Duration</option>
+      <option>Duration</option>          
+    </select>
+    <div class="gt-text-danger">
+      <div class="error error-next"> Description is required </div>
+ </div> 
+  </div>
+</div>
+</div>
+</div>
+
+<div class="gt-float-100 gt-mt-20">
+<div class="row">  
+
+<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+  <div class="gt-form-primary">
+    <div class="gt-vcenter gt-float-100">
+      <label for="inputState" class="gt-forms-label gt-sky gt-mb-zero gt-fs-14">Tax class</label>
+      <div class="gt-vcenter gt-ml-5 info-trip">              
+        <span class="gt-vcenter" tooltip="Slide to the right" flow="right">
+          <span class="material-icons-outlined gt-fs-20 gt-sky">info</span></span>
+      </div>
+      </div>
+    <select class="gt-form-select nform-control">
+      <option selected>Tax class</option>
+      <option>Tax class</option>
+      <option>Tax class</option>          
+    </select>
+    <div class="gt-text-danger">
+      <div class="error error-next"> Description is required </div>
+ </div> 
+  </div>
+</div>
+</div>
+</div>
+ -->

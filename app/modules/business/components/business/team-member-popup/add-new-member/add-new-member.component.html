@@ -1,0 +1,224 @@
+<div class="add-member-wrapper">
+  <div class="gt-float-100 sub-member-wrapper addmem-scroll bg-change dark-shadow">
+    <div class="gt-float-100 gt-bg-sky gt-vcenter gt-pd-tb-9 gt-pd-lr-16">
+      <span class="material-icons gt-white gt-mr-12" style="cursor: pointer" (click)="onDialogClose()">arrow_back</span>
+      <img src="assets/images/business/member-icon.svg" alt="image" width="40" height="40" class="image-width" />
+      <h1 class="gt-fs-16 gt-white gt-ml-12">Add new member</h1>
+    </div>
+
+    <form [formGroup]="businessMemberForm" (ngSubmit)="addMember()">
+      <div class="gt-float-100 error-bottom-business error-team-member" *ngFor="let member of t.controls; let i = index">
+        <div [formGroup]="member">
+          <div class="gt-float-100 gt-pd-lr-16 gt-mt-10">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 gt-center-between">
+                  <div class="gt-float-left gt-vcenter">
+                    <h2 class="
+                        gt-fs-16 gt-lightblack 
+                        dcolor-primary
+                      ">
+                      Member {{ i + 1 }}
+                    </h2>
+                  </div>
+
+                  <div *ngIf="t.controls && t.controls.length > 1" (click)="removeFieldSet(i)" class="
+                      gt-border-radius-2 gt-center gt-bg-white gt-cursor-pointer
+                      image-width-34
+                      btpro-btn
+                      bg-change-secondary
+                      dark-shadow
+                      border-none
+                    ">
+                    <img src="assets/images/profile/profile-photo-delete.svg" alt="image" width="20" height="20"
+                      class="del-atta" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gt-float-100 gt-pd-lr-16 gt-mt-20">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100">
+                  <h1 class="
+                      gt-fs-16 gt-lightgrayish
+                      dcolor-primary
+                    ">
+                    Role
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gt-float-100 gt-pd-lr-16 gt-mt-8">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-left gt-vcenter">
+                  <div class="
+                      gt-border-radius-2
+                      gt-center
+                      gt-pd-lr-16
+                      gt-height-42
+                      gt-mr-20
+                      gt-fs-14
+                      member-tag
+                    " [ngClass]="{
+                      'member-tag-active':
+                        businessMemberForm.value.members[i].businessRole !==
+                        role.code
+                    }" *ngFor="let role of allBusinessRoles" (click)="updateRole(i, role.code)">
+                    {{ role.name }}
+                  </div>
+
+                  
+                </div>
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-text-danger" *ngIf="
+                    member.controls.businessRole.invalid
+                  " @fadeIn>
+                  <span *ngIf="member.controls.businessRole.errors.required" class="error error-next">
+                    {{businessAddMemberError.businessRole.required}}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gt-float-100 gt-pd-lr-16 gt-mt-24">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-form-primary">
+                  <label for="memberName_{{ i }}" class="gt-form-label offer-input-label dcolor-primary">Name</label>
+                  <input id="memberName_{{ i }}" type="text" class="gt-form-control binput-border"
+                    placeholder="Enter name" formControlName="name" required
+                    [customErrors]="businessAddMemberError.name" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="gt-float-100 gt-pd-lr-16 gt-mt-16">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-form-primary">
+                  <label for="memberEmail_{{ i }}" class="gt-form-label offer-input-label dcolor-primary">Email</label>
+                  <input id="memberEmail_{{ i }}" type="text" class="gt-form-control binput-border"
+                    placeholder="Enter email" formControlName="email" required
+                    [customErrors]="businessAddMemberError.email" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="gt-float-100 gt-pd-lr-16 gt-mt-16">
+            <div class="row">
+              
+
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="custom-inputg">
+                  <div class="currency-group">
+                    <label for="memberPhone_{{ i }}"
+                      class="currency-sr-only gt-fs-14 gt-text-medium gt-lightgrayish dcolor-primary">Phone
+                      number</label>
+                    <div class="currency-input-group">
+                      <div class="currency-input-group-prepend">
+                        <div class="currency-input-group-text cig-text"><span class="icon-add"></span> 91</div>
+                      </div>
+                      <input id="memberPhone_{{ i }}" type="text" numbersOnly maxlength="10"
+                        class="currency-form-control binput-border gt-border-none" placeholder="Enter phone number"
+                        formControlName="mobile" [customErrors]="businessAddMemberError.mobile" />
+
+                    </div>
+                   
+
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+
+
+
+      <div class="gt-float-100 gt-mt-24 gt-pd-lr-16">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100 btn-upload-custom">
+              <button type="button" (click)="addMemberFormFieldSet()" class="
+                  gt-btn-primary
+                  gt-btn-outline
+                  gt-center
+                  gt-border-radius-12
+                  gt-text-medium
+                  gt-width-100
+                  gt-fs-14
+                  badd-btn
+                ">
+                <span class="material-icons gt-fs-20">add</span> add member
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="errorMessage" class="gt-float-100 gt-mt-24 gt-pd-lr-16">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-text-danger">
+              <span class="error error-next">
+                {{errorMessage}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="gt-float-100 gt-pd-lr-32 gt-pd-tb-20">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-vcenter btn-group-width">
+              <div (click)="resetMemberForm()" class="
+                  gt-border-radius-2 gt-center gt-bg-white gt-cursor-pointer
+                  image-width-mb
+                  btpro-btn
+                  bg-change-secondary
+                  dark-shadow
+                  border-none
+                ">
+
+                reset
+              </div>
+
+              <button type="submit" [disabled]="!businessMemberForm.valid" class="
+                  gt-btn-primary
+                  gt-center
+                  gt-border-radius-2
+                  gt-fs-16
+                  gt-text-medium
+                  gt-ml-16
+                  btn-invitation
+                  bg-change-secondary-import
+                  dark-shadow
+                  border-none
+                ">
+                send invitation
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

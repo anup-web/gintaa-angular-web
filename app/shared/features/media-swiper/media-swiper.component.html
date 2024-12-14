@@ -1,0 +1,43 @@
+<div  class="gt-float-100 swiper-primary  position-relative" [ngClass]="{ 'soldout-img': isQuantitynull }">
+
+<swiper
+    style="--swiper-navigation-color: #fff;--swiper-pagination-color: #fff"
+    [spaceBetween]="10"
+    [navigation]="swiperNavigation"
+    [thumbs]="{ swiper: thumbsSwiper }"
+    class="mySwiper2 ">
+    <ng-container  *ngFor="let media of _medias; trackBy: mediaId">
+        <ng-template  swiperSlide>
+            <div [ngClass]="{ 'gt-danger sold-out': isQuantitynull }" *ngIf="checkQuantity()">Sold Out</div>
+            <img class="demo-trigger" *ngIf="media.type === 'image'" [attr.data-zoom]="media?.url" [src]="media?.url"/>
+            <mat-video *ngIf="media.type === 'video' && media?.url" #video [src]="media?.url">
+                <source matVideoSource [src]="media?.url"> 
+            </mat-video>
+        </ng-template>
+    </ng-container>
+
+</swiper>
+
+</div>
+
+<div class="gt-float-100 swiper-secondary">
+<swiper
+    (swiper)="thumbsSwiper = $event"
+    [spaceBetween]="10"
+    [slidesPerView]="4"
+    [freeMode]="true"
+    [watchSlidesVisibility]="true"
+    [watchSlidesProgress]="true"
+    class="mySwiper">
+    <ng-container *ngFor="let media of _medias; trackBy: mediaId">
+        <ng-template swiperSlide>
+            <img *ngIf="media.type === 'image'" [src]="media?.url" />
+            <mat-video *ngIf="media.type === 'video' && media?.url" #video [src]="media?.url">
+                <source matVideoSource [src]="media?.url"> 
+            </mat-video>
+        </ng-template>
+    </ng-container>
+
+</swiper>
+
+</div>

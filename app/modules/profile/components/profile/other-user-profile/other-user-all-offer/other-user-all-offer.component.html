@@ -1,0 +1,7 @@
+<app-list-view
+  [viewConfig]="currentSectionConfig"
+  (backButtonClick)="getBackButtonMsg($event)"
+  (breadcrumbButtonClick)="getBreadcrumbMsg($event)"
+  (pageNumberChangeClick)="getNextPageDataMsg($event)"
+  (goToOfferPage)="navigateToOfferPage($event)"
+></app-list-view>

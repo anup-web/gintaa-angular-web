@@ -1,0 +1,83 @@
+ <div class="gt-display-flex osc-secondary" *ngIf="offerDetails" (click)="clicOnkDetail(offerDetails.offerId)">
+    <div class="osc-image">
+      <img [src]="offerDetails.offerImage" class="image-width-48 border-radius-100" alt="image" />
+    </div>
+
+    <div class="gt-ml-12 noti-box">
+      <div class="noti-title">
+        <h1 class="gt-fs-16 gt-text-medium gt-lightblack dcolor-primary">
+          New Match
+        </h1>
+      </div>
+      
+      <div class="gt-mt-8 noti-text">
+        <h2 class="gt-fs-14 gt-lightblack dcolor-primary">
+          You offer {{offerDetails.offerName}} has new
+          <span class="match-percent-color">{{offerDetails.matchPercentage}}% match</span>
+          one
+        </h2>
+      </div>
+      <div class="gt-mt-8 noti-date">
+        <h3 class="gt-fs-14 gt-lightgrayish dcolor-primary">
+          {{data.notifyOn}}
+        </h3>
+      </div>
+    </div>
+  </div> 
+
+
+
+  <!-- Bids for Aug 23 -->
+
+  <!-- <div class="gt-display-flex osc-secondary" *ngIf="offerDetails" (click)="clicOnkDetail(offerDetails.offerId)">
+    <div class="osc-image">
+      <img [src]="offerDetails.offerImage" class="image-width-48 border-radius-100" alt="image" />
+    </div>
+
+    <div class="gt-ml-12 noti-box">
+      <div class="noti-title">
+        <h1 class="gt-fs-16 gt-text-medium gt-lightblack dcolor-primary">
+          Bids for Aug 23
+        </h1>
+      </div>
+      
+      <div class="gt-mt-8 noti-text">
+        <h2 class="gt-fs-14 gt-lightblack dcolor-primary">
+          You offer Captain’s Koontz watches had 3 bids for Aug 23
+        </h2>
+      </div>
+      <div class="gt-mt-8 noti-date">
+        <h3 class="gt-fs-14 gt-lightgrayish dcolor-primary">
+          {{data.notifyOn}}
+        </h3>
+      </div>
+    </div>
+  </div> -->
+
+
+  <!-- Your password was changed -->
+
+  <!-- <div class="gt-display-flex osc-secondary" *ngIf="offerDetails" (click)="clicOnkDetail(offerDetails.offerId)">
+    <div class="osc-image">
+      <img [src]="offerDetails.offerImage" class="image-width-48 border-radius-100" alt="image" />
+    </div>
+
+    <div class="gt-ml-12 noti-box">
+      <div class="noti-title">
+        <h1 class="gt-fs-16 gt-text-medium gt-lightblack dcolor-primary">
+          Your password was changed
+        </h1>
+      </div>
+      
+      <div class="gt-mt-8 noti-text">
+        <h2 class="gt-fs-14 gt-lightblack dcolor-primary">
+          Your password was changed at Dec 23, 11:55 PM
+        </h2>
+      </div>
+      <div class="gt-mt-8 noti-date">
+        <h3 class="gt-fs-14 gt-lightgrayish dcolor-primary">
+          {{data.notifyOn}}
+        </h3>
+      </div>
+    </div>
+  </div> -->

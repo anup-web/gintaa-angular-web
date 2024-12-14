@@ -1,0 +1,44 @@
+<div class="category-offer-bg gt-pt-20 gt-pd-lr-20 myoffer-list"
+      infiniteScroll
+      [infiniteScrollDistance]="2"
+      [infiniteScrollUpDistance]="1.5"
+      [infiniteScrollThrottle]="50"
+      (scrolled)="onScrollDown()">
+  <div class="container-fluid">
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100">
+            <app-bread-crumb [breadcrumbs]="bredCrumbInput"></app-bread-crumb>
+          </div>
+        </div>
+      </div>
+      <div class="gt-float-100 gt-mt-20 mob-rowrp">
+          <div class="row-custom">
+            <div class="col-left-custom">
+                <app-my-offer-search (offerStatus)="setOfferStatus($event)"></app-my-offer-search>
+            </div>
+            <div class="col-right-custom">
+                <app-my-offer-list></app-my-offer-list>                
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+</div>
+<app-floating-menu></app-floating-menu>
+<app-floating-listing></app-floating-listing> 
+
+
+<!-- <div class="gt-center mob-filter">     
+  <h2 class="gt-fs-16 gt-text-medium gt-cursor-pointer gt-lightgrayish">FILTER</h2> 
+    <h2 class="gt-fs-16 gt-text-medium gt-cursor-pointer gt-lightgrayish">CANCEL</h2> 
+</div>  -->
+
+<!-- <div class="filterh-wrap showh-on-mobile">
+     <div class="gt-float-100 gt-center gt-cursor-pointer" (click)="mobOfferDialog()">
+          <h2 class="gt-fs-16 gt-lightblack">Filter</h2>
+     </div> 
+</div> -->
+

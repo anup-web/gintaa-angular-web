@@ -1,0 +1,24 @@
+
+<!-- Successage message--> 
+<div class="toaster-container gt-vcenter toaster-success" *ngIf="toastertype == 'success'">
+    <span  class="material-icons  toaster-icon">   check</span> 
+    <p>{{message}}</p>
+    <span  class="material-icons  toaster-close" (click)="closeToaster()">   close</span> 
+</div> 
+
+<!-- error message--> 
+
+<div class="toaster-container gt-vcenter toaster-error" *ngIf="toastertype == 'warning'">
+    <span  class="material-icons  toaster-icon">   warning</span> 
+    <p>{{message}}</p>
+    <span  class="material-icons  toaster-close" (click)="closeToaster()">   close</span> 
+</div>
+
+<!-- info message--> 
+
+<div class="toaster-container gt-vcenter toaster-info" *ngIf="toastertype == 'info'">
+    <span  class="material-icons  toaster-icon">   info</span> 
+    <p>{{message}}</p>
+    <span  class="material-icons  toaster-close" (click)="closeToaster()">   close</span> 
+
+</div>

@@ -1,0 +1,30 @@
+<div class="gt-float-100 poffer-card" *ngIf="data && data?.offerId">
+    <div class="gt-float-left gt-mr-20 image-boxh">
+        <ng-container *ngIf="isCoverKey(data) else nocover">
+            <img [src]="data?.images | coverImage" class="gt-img-responsive" alt="image" (click)="goToOffer(data.offerId)"
+            onError="this.src = 'assets/images/no-image.png'" />
+        </ng-container>
+        <ng-template #nocover>
+            <img [src]="getOfferImage(data)" class="gt-img-responsive" alt="image" (click)="goToOffer(data.offerId)"
+                onError="this.src = 'assets/images/no-image.png'" />
+        </ng-template>
+        
+    </div>
+    <div class="gt-float-left poffer-des">
+        <h2 class="gt-float-100 gt-fs-13 gt-black-70">{{data?.offerName}}</h2>
+        <h3 class="gt-float-100 gt-fs-13 gt-mt-10 gt-black-60" *ngIf="data?.itemCondition">Condition: {{data?.itemCondition}}</h3>
+        <div class="gt-float-100 gt-vcenter gt-mt-10 hs-price" *ngIf="data?.price else dealValueSec">
+            <span class="icon-gt-currency gt-fs-20"></span>
+            <h4 class="gt-fs-16 gt-black-70" >{{data?.price}}</h4>
+        </div>
+        <ng-template #dealValueSec>
+            <div class="gt-float-100 gt-vcenter gt-mt-10 hs-price">
+                <h2 class="gt-float-100 gt-fs-13 gt-black-70"> Qty:  {{data?.offerCount}}</h2>
+            </div>
+            <div class="gt-float-100 gt-vcenter gt-mt-10 hs-price">
+                <span class="icon-gt-currency gt-fs-20"></span>
+                <h4 class="gt-fs-16 gt-black-70" >{{dealValue}}</h4>
+            </div>
+        </ng-template>
+    </div>
+</div>

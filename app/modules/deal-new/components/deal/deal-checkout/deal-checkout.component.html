@@ -1,0 +1,71 @@
+<div class="gt-pt-20 gt-pb-100 gt-float-100 new-deal-wrapper">
+     <div class="container">
+          <div class="gt-float-100 deal-section">
+               <div class="gt-float-100 ">
+                    <div class="row">
+                         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                              <app-delivery-address (updateDeliverAddress)="updateDeliverAddress($event)"
+                                   [selectedAddress]="selectedAddress"></app-delivery-address>
+                              <div class="gt-float-100 gt-border-radius-4 gt-bg-white gt-text-danger gt-position-relative"
+                                   *ngIf="errormessage else selectAddressSec">
+                                   <div class="gt-float-100 gt-pb-10 gt-pd-lr-12">
+                                        <div class="row">
+                                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                  <div class="gt-float-100 gt-between">
+                                                       {{errormessage}}
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
+                              <ng-template #selectAddressSec>
+                                   <div class="gt-float-100 gt-border-radius-4 gt-bg-white gt-text-danger gt-position-relative">
+                                        <div class="gt-float-100 gt-pb-10 gt-pd-lr-12">
+                                             <div class="row">
+                                                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                                       <div class="gt-float-100 gt-between"
+                                                            *ngIf="!shippingVendor?.courier_company_id && selectedAddress?.zip else selectAddressSec2">
+                                                            Delivery is not available for this address.
+                                                       </div>
+                                                       <ng-template #selectAddressSec2>
+                                                            <div class="gt-float-100 gt-between" *ngIf="!selectedAddress?.zip">
+                                                                 Please selecte your address to proceed.
+                                                            </div>
+                                                       </ng-template>
+                                                  </div>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </ng-template>
+                              <app-review-order-payment [selectedOfferDetail]="selectedOfferDetail"
+                                   [itemQuantity]="itemQuantity" (updateQuantity)="updateQuantity($event)"
+                                   [shippingVendor]="shippingVendor" (navigateToOffer)="navigateToOffer($event)"
+                                   (buyout)="buyout()" [maxitemQuantity]="maxitemQuantity"
+                                   [minitemQuantity]="minitemQuantity" [disableSuggestBtn]="disableSuggestBtn">
+                              </app-review-order-payment>
+                         </div>
+                         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
+                              <app-price-details [selectedOfferDetail]="selectedOfferDetail"
+                                   [itemQuantity]="itemQuantity" [shippingVendor]="shippingVendor"></app-price-details>
+                              <app-safe-secure></app-safe-secure>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </div>
+</div>
+<!-- <div class="gt-pt-20 gt-pb-100 gt-float-100 new-deal-wrapper">
+     <div class="container">
+         <div class="gt-float-100 deal-section">
+              <div class="gt-float-100 ">
+                   <div class="row">
+                     <div class="col-xl-7 col-lg-7 col-md-12 col-sm-12 col-xs-12">
+                     </div>
+                     <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12 col-xs-12 ">
+                         <app-deal-suggest-offer></app-deal-suggest-offer>
+                     </div>
+                   </div>
+              </div>
+         </div>
+     </div>
+ </div> -->

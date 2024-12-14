@@ -1,0 +1,54 @@
+<div class="gt-center-between bottom-chat-wrapper bg-change" [hidden]="true" data-toggle="modal"
+    data-target="#bottom_modal" (click)="changeModalType('medium')" #openMediumChatWindow>
+    <div class="gt-vcenter bottom-left">
+        <h2 class="gt-lightblack gt-fs-16 gt-mr-15 gt-text-medium dcolor-primary">Messages</h2>
+        <div class="gt-center image-width-30 border-radius-100 h4 chat-active-msg"
+            *ngIf="chatService.totalUnreadCount.offer + chatService.totalUnreadCount.deal>0">{{
+            chatService.totalUnreadCount.offer + chatService.totalUnreadCount.deal }}</div>
+    </div>
+    <div class="gt-vcenter bottom-right">
+        <div class="gt-center gt-mr-10 gt-cursor-pointer chat-expand"
+            (click)="openChatMaximize();$event.stopPropagation();">
+            <img src="assets/images/chat/maximize.svg" alt="image" class="chat-expan" width="30" height="30" />
+        </div>
+        <div class="gt-cursor-pointer open-chat-modal">
+            <span class="material-icons gt-fs-30 gt-mt-6 dcolor-primary">expand_less</span>
+        </div>
+    </div>
+</div>
+<div class="modal modal-bottom fade" id="bottom_modal" tabindex="-1" role="dialog" aria-labelledby="bottom_modal"
+    [hidden]="chatService.showChatModalType == 'large' || chatService.showChatModalType == 'small'" [@fadeAnimation]
+    style="display: block">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content cbottom-primary bg-change">
+            <div class="gt-center-between cbottom-top" data-dismiss="modal" #chatWindow>
+                <div class="gt-vcenter bottom-left">
+                    <span class="material-icons gt-fs-18 gt-mr-10 gt-cursor-pointer"
+                        (click)="back();$event.stopPropagation();"
+                        *ngIf="chatService.chatPopupPage !=='chat-offer-deal'">arrow_back</span>
+                    <h2 class="gt-lightblack gt-fs-16 gt-text-medium dcolor-primary">Messages</h2>
+                </div>
+
+                <div class="gt-vcenter bottom-right">
+                    <div class="gt-center gt-mr-10 gt-cursor-pointer chat-expand" (click)="openChatMaximize();">
+                        <img src="assets/images/chat/maximize.svg" alt="image" class="chat-expan" width="40"
+                            height="40" />
+                    </div>
+                    <button type="button" class="gt-cursor-pointer close" aria-label="Close">
+                        <span class="material-icons gt-fs-30 gt-mt-6 dcolor-primary">expand_more</span>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body cbottom-secondary bg-change-import">
+                <app-chat-offer-deal [chatType]="'popup'" [screenType]="'small'"
+                    *ngIf="chatService.chatPopupPage=='chat-offer-deal'"></app-chat-offer-deal>
+                <app-chat-offers-list [chatType]="'popup'" [screenType]="'small'"
+                    *ngIf="chatService.chatPopupPage=='chat-offer-list'"></app-chat-offers-list>
+                <app-chat-user-list [chatType]="'popup'" [screenType]="'small'"
+                    *ngIf="chatService.chatPopupPage=='chat-user-list'"></app-chat-user-list>
+                <app-chat-msg [chatType]="'popup'" [screenType]="'small'" *ngIf="chatService.chatPopupPage=='chat-msg'">
+                </app-chat-msg>
+            </div>
+        </div>
+    </div>
+</div>

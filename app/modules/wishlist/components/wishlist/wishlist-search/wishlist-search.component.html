@@ -1,0 +1,145 @@
+<!-- <div class="gt-input-group">
+      <div class="input-group-btn search-panel">
+       <button type="button" class="btn btn-default dropdown-toggle all-btn" data-toggle="dropdown">
+         <span id="search_concept">All</span> <span class="material-icons gt-ml-10">expand_more</span>
+       </button>
+       <ul class="dropdown-menu scrollable-dropdown" role="menu">
+         <li><a href="#">Automotive Accesories</a></li>
+         <li><a href="#">Cell Phone Accesories</a></li>
+         <li><a href="#">Computer Accesories</a></li>
+         <li><a href="#">Health and Personal Care</a></li>
+         <li><a href="#">Automotive Accesories</a></li>
+         <li><a href="#">Cell Phone Accesories</a></li>
+         <li><a href="#">Computer Accesories</a></li>
+         <li><a href="#">Health and Personal Care</a></li>
+         <li><a href="#">Automotive Accesories</a></li>
+         <li><a href="#">Cell Phone Accesories</a></li>
+         <li><a href="#">Computer Accesories</a></li>
+         <li><a href="#">Health and Personal Care</a></li>
+         <li><a href="#">Automotive Accesories</a></li>
+         <li><a href="#">Cell Phone Accesories</a></li>
+         <li><a href="#">Computer Accesories</a></li>
+         <li><a href="#">Health and Personal Care</a></li>
+       </ul>
+      </div>
+      <button class="sricon-btn" type="button">
+          <img src="assets/images/search-icon.png" class="sr-icons" width="20" height="20" alt="icon" />
+      </button>
+      <input type="hidden" name="search_param" value="all" id="search_param">
+      <input type="text" class="secondaryfm-control sr-custom" name="x" id="search" placeholder="Search">
+     
+     </div> -->
+
+
+<div class="gt-input-group search-wrapper">
+  <!-- <div class="input-group-btn search-panel">
+    <button type="button" class="btn btn-default dropdown-toggle all-btn" data-toggle="dropdown">
+      <span *ngIf="!isCategorySelected; else categorySelected">All</span>
+      <ng-template #categorySelected>
+        <span>{{selectedCategory}}</span>
+      </ng-template>
+      <span class="material-icons gt-ml-10">expand_more</span>
+    </button>
+    <ul class="dropdown-menu scrollable-dropdown" role="menu" *ngIf="(allCategories$ |  async) as allCategories">
+      <li *ngFor="let category of allCategories" [ngClass]="{'active': selectedCategory == category.name}"
+        (click)="selectCategory(category)">
+        <a>{{category.name}}</a>
+      </li>
+    </ul>
+  </div>
+  <button class="sricon-btn" type="button">
+    <img src="assets/images/search-icon.png" class="sr-icons" width="20" height="20" alt="icon" />
+  </button> -->
+  <input type="hidden" name="search_param" value="all" id="search_param" />
+  <input type="text" class="gt-form-control gt-border-none gt-border-radius-12 match-box-shadow gt-pd-tb-12" placeholder="Start type to add wish" [matAutocomplete]="auto"
+    #trigger="matAutocompleteTrigger" (keyup.enter)="search(); trigger.closePanel()" (focus)="addClass()"
+    (blur)="removeClass()" #searchInput />
+   
+    
+</div>
+<mat-autocomplete #auto="matAutocomplete" (optionSelected)="optionSelected($event)" class="search-autocom">
+  <ng-container *ngIf="(filteredOptions$ | async) as filterResults">
+    <div class="gt-center-between gt-pt-8 gt-pd-lr-16 gt-pb-8 search-title" *ngIf="filterResults?.length">
+      <h2 class="gt-fs-14 gt-text-medium gt-lightblack">Last search results</h2>
+      <button type="submit" class="gt-btn-primary gt-center-between gt-border-radius-8 search-canbtn hytu-rp">
+        <h3 class="gt-fs-11 gt-text-medium gt-white">Clear All</h3>
+        <span class="material-icons gt-fs-12">clear</span>
+      </button>
+    </div>
+    <mat-option *ngFor="let suggestion of filterResults | slice:0:7" #matOption [value]="suggestion">
+      <div class="gt-center-between history-sub" *ngIf="suggestion.searchText">
+        <div class="history-text">{{suggestion.searchText.trim()}}</div>
+        <span class="material-icons ser-clear gt-fs-18">clear</span>
+      </div>
+
+      <div class="sugg-main" *ngIf="suggestion.title">
+        <div class="suggest-part">
+          <div class="gt-float-100 search-res" *ngIf="!suggestion.thumbnail">            
+              <h4>{{ suggestion.title }}</h4>         
+          </div>
+        </div>
+
+
+        <div class="custom-result" *ngIf="suggestion.thumbnail">
+          <div class="search-img">
+            <img [src]="suggestion.thumbnail" class="rounded img-fluid custom-srarch-img" alt="images" />
+          </div>
+          <div class="search-result-secondary">
+            <div class="search-group-result">
+              <div class="search-pro-name">{{ suggestion.title }}</div>
+              <div *ngIf="suggestion.categoryName" class="search-pro-des">{{'in ' + suggestion.categoryName +
+                (suggestion.verticalName ? ' | ' + suggestion.verticalName : '') }} </div>
+            </div>
+            <div class="sugg-west"><span class="material-icons">north_west</span></div>
+          </div>
+        </div>
+      </div>
+    </mat-option>
+  </ng-container>
+</mat-autocomplete>
+
+<!-- <ul class="loc_list" *ngIf="(filteredOptions$ | async) as filterResults">
+      <li *ngFor="let suggestion of filterResults | slice:0:7" class="place-suggestion" (click)="suggestionSelected(suggestion)">
+       
+        <div class="search-history">
+          <div class="history-sub" *ngIf="suggestion.searchText">
+            <i class="material-icons history-icon">history</i>           
+            <div class="history-secondary-group"> 
+                <div class="history-text">{{suggestion.searchText.trim()}}</div>
+                <div class="history-west"><span class="material-icons">north_west</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sugg-main" *ngIf="suggestion.title">
+      
+          <div class="suggest-part"> 
+                <div class="search-res" *ngIf="!suggestion.thumbnail">
+                  <i class="material-icons custom-icon">search</i>
+
+                <div class="suggest-secondary-part">  
+                <div class="title-suggest">{{ suggestion.title }}</div> 
+                <div class="suggest-west"><span class="material-icons">north_west</span></div> 
+                </div>
+
+                </div>
+          </div> 
+
+
+       <div class="custom-result" *ngIf="suggestion.thumbnail">
+           <div class="search-img">
+            <img [src]="suggestion.thumbnail" class="rounded img-fluid custom-srarch-img" alt="images" />
+           </div>
+         
+         <div class="search-result-secondary">  
+           <div class="search-group-result">
+                <div class="search-pro-name">{{ suggestion.title }}</div>
+                <div *ngIf="suggestion.categoryName" class="search-pro-des">{{'in ' + suggestion.categoryName + (suggestion.verticalName ? ' | ' + suggestion.verticalName : '') }} </div>
+            </div>
+           <div class="sugg-west"><span class="material-icons">north_west</span></div>
+          </div>
+
+           </div>
+     </div>
+      </li>
+    </ul>  -->

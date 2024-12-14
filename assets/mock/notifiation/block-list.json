@@ -1,0 +1,37 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Trade-Notification successfully fetched",
+    "payload": [
+        {
+            "userId": "4Vihqx08E0QYb41fXzfuDJqIhu43",
+            "userName": "Konstantin Konstantinipolskiy",
+            "profileImage": "/assets/images/user-icons/user-1.png"
+        },
+        {
+            "userId": "4Vihqx08E0QYb41fXzfuDJqIhu54",
+            "userName": "Dianne Russell",
+            "profileImage": "/assets/images/user-icons/user-2.png"
+        },
+        {
+            "userId": "4Vihqx08E0QYb41fXzfuDJqIhu65",
+            "userName": "Savannah Nguyen",
+            "profileImage": "/assets/images/user-icons/user-3.png"
+        },
+        {
+            "userId": "4Vihqx08E0QYb41fXzfuDJqIhu76",
+            "userName": "Annette Black",
+            "profileImage": "/assets/images/user-icons/user-4.png"
+        },
+        {
+            "userId": "4Vihqx08E0QYb41fXzfuDJqIhu87",
+            "userName": "Marvin McKinney",
+            "profileImage": "/assets/images/user-icons/user-5.png"
+        },
+        {
+            "userId": "4Vihqx08E0QYb41fXzfuDJqIhu98",
+            "userName": "Elon Musk",
+            "profileImage": null
+        }
+    ]
+}

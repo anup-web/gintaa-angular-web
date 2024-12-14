@@ -1,0 +1,67 @@
+<div class="gt-float-100">
+     <div class="gt-bg-white gt-border-radius-16 gt-pd-24 gt-mt-100 change-popup-wrapper dark-shadow bg-change" *ngIf="currentAuthModal$ | async as currentAuthModal">
+          <!-- <div class="popup-closed close-skips"><h4 class="gt-fs-18">Skip</h4></div> -->
+          <div class="popup-closed close-pops" (click)="closePopup()"><span class="material-icons">close</span></div>
+      
+          <!-- Start Change Phone Number -->
+          <app-change-phone-number-one
+               *ngIf="currentAuthModal === allPossibleAuthModals.CHANGE_PHONE_NUMBER"
+          ></app-change-phone-number-one>
+          <app-phone-otp-verify
+               *ngIf="currentAuthModal === allPossibleAuthModals.CHANGE_PHONE_NUMBER_OTP_VERIFICATION"
+          ></app-phone-otp-verify>
+          <app-change-phone-number-two
+               *ngIf="currentAuthModal === allPossibleAuthModals.CHANGE_PHONE_NUMBER_SUCCESS"
+          ></app-change-phone-number-two>
+          <!-- End Change Phone Number -->
+
+
+
+          <!--  Change Email -->
+          <!-- <app-change-password 
+               *ngIf="currentAuthModal === allPossibleAuthModals.CHANGE_EMAIL"
+          ></app-change-password> -->
+
+          <app-change-email 
+               *ngIf="currentAuthModal === allPossibleAuthModals.CHANGE_EMAIL"
+          ></app-change-email>
+          <!-- <app-change-email 
+               *ngIf="currentAuthModal === allPossibleAuthModals.CHANGE_EMAIL_ENTER_NEW_EMAIL"
+          ></app-change-email> -->
+
+          <app-email-otp-verify 
+               *ngIf="currentAuthModal === allPossibleAuthModals.CHANGE_EMAIL_OTP_VERIFICATION"
+          ></app-email-otp-verify>
+
+          <app-email-verify-success 
+               *ngIf="currentAuthModal === allPossibleAuthModals.CHANGE_EMAIL_VERIFY_SUCCESS"
+          ></app-email-verify-success>
+           
+          
+
+
+
+          <!--  Change password -->
+          <app-change-password 
+               *ngIf="currentAuthModal === allPossibleAuthModals.CHANGE_PASSWORD"
+          ></app-change-password>
+
+          <!-- <app-reset-password 
+               *ngIf="currentAuthModal === allPossibleAuthModals.RESET_PASSWORD"
+          ></app-reset-password>
+
+          <app-reset-password-email-send 
+               *ngIf="currentAuthModal === allPossibleAuthModals.RESET_PASSWORD_MAIL_SEND"
+          ></app-reset-password-email-send> -->
+
+          <app-password-restore 
+               *ngIf="currentAuthModal === allPossibleAuthModals.RESET_PASSWORD_CONFIRM"
+          ></app-password-restore>
+
+          <app-change-password-success
+               *ngIf="currentAuthModal === allPossibleAuthModals.RESET_PASSWORD_SUCCESS"
+          ></app-change-password-success>
+
+          <!-- currentAuthModal: {{currentAuthModal}} -->
+     </div>
+</div>

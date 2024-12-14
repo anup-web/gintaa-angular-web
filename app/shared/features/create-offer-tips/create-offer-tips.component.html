@@ -1,0 +1,45 @@
+<div class="gt-float-100 gt-border-radius-4 gt-pb-20 upload-noffer-right">
+  <div class="gt-float-100 gt-pt-10 gt-pb-14 gt-pd-lr-12">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="gt-float-100 gt-vcenter">
+          <img
+            src="assets/images/new-offers/tips.svg"
+            alt="images"
+            class="gt-img-responsive"
+            width="43"
+            height="40"
+          />
+          <h2 class="gt-fs-14 gt-text-medium gt-ml-10 gt-lightgrayish">Tips</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+        <div class="gt-float-100" *ngIf="tipsArray.length">
+          <div
+            class="gt-float-100 gt-mb-15 gt-display-flex"
+            *ngFor="let tip of tipsArray"
+          >
+            <div class="gt-mr-15 gt-flex-start right-arrow">
+              <span class="icon-gt-arrow-right gt-fs-12"></span>
+            </div>
+            <div class="tips-list">
+              <h3 class="gt-fs-12 new-color">{{ tip }}</h3>
+            </div>
+          </div>
+          <div class="gt-float-100 gt-flex-end gt-mt-15 upload-image-btn">
+            <h4 class="gt-fs-14 gt-sky">
+                <!-- go to gintaa academy -->
+              <a href="http://academy.gintaa.com/" target="_blank" class="gt-sky">
+                go to gintaa academy
+              </a>
+            </h4> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

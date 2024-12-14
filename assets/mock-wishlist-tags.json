@@ -1,0 +1,150 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Verticals successfully fetched",
+    "payload": [
+        {
+            "verticalId": "8bba33b3-7341-4f01-9884-8bd84eb04343",
+            "label": "Windows",
+            "description": "Windows",
+            "status": "active",
+            "seoId": "string3_8bba33b3-7341-4f01-9884-8bd84eb04343",
+            "createdBy": "gintaa",
+            "createdDate": "2021-02-26T09:57:39.567+0000",
+            "url": "/vertical/string3_8bba33b3-7341-4f01-9884-8bd84eb04343",
+            "name": "string3"
+        },
+        {
+            "verticalId": "c683e12c-1fa1-486a-91ca-f7efc1e61790",
+            "label": "iOS",
+            "description": "iOS",
+            "status": "active",
+            "seoId": "NewVertical_c683e12c-1fa1-486a-91ca-f7efc1e61790",
+            "createdBy": "gintaa",
+            "createdDate": "2021-02-25T14:43:57.220+0000",
+            "url": "/vertical/NewVertical_c683e12c-1fa1-486a-91ca-f7efc1e61790",
+            "name": "NewVertical"
+        },
+        {
+            "verticalId": "f8721c48-6c06-42f7-a2f3-68afdf9eb0c7",
+            "label": "OSX",
+            "description": "OSX",
+            "status": "active",
+            "seoId": "string2_f8721c48-6c06-42f7-a2f3-68afdf9eb0c7",
+            "createdBy": "gintaa",
+            "createdDate": "2021-02-23T12:57:51.615+0000",
+            "url": "/vertical/string2_f8721c48-6c06-42f7-a2f3-68afdf9eb0c7",
+            "name": "string2"
+        },
+        {
+            "verticalId": "59e0fc17-cd8c-4fbd-998e-1293eaa28d28",
+            "label": "Linux",
+            "description": "Linux",
+            "status": "active",
+            "seoId": "string1_59e0fc17-cd8c-4fbd-998e-1293eaa28d28",
+            "createdBy": "gintaa",
+            "createdDate": "2021-02-23T12:56:04.036+0000",
+            "url": "/vertical/string1_59e0fc17-cd8c-4fbd-998e-1293eaa28d28",
+            "name": "string1"
+        },
+        {
+            "verticalId": "2e12f56a-50d1-461b-b288-08d941b262b5",
+            "label": "Android",
+            "description": "Android",
+            "status": "active",
+            "seoId": "string_2e12f56a-50d1-461b-b288-08d941b262b5",
+            "createdBy": "gintaa",
+            "createdDate": "2021-02-13T06:16:42.877+0000",
+            "url": "/vertical/string_2e12f56a-50d1-461b-b288-08d941b262b5",
+            "name": "Windows"
+        },
+        {
+            "verticalId": "26dbcfe6-fb65-4e63-a929-3ba13c8fb7d4",
+            "label": "12 inch",
+            "description": "12 inch",
+            "status": "active",
+            "seoId": "Health-Beauty5_26dbcfe6-fb65-4e63-a929-3ba13c8fb7d4",
+            "createdBy": "gintaa",
+            "createdDate": "2021-02-13T06:15:31.547+0000",
+            "url": "/vertical/Health-Beauty5_26dbcfe6-fb65-4e63-a929-3ba13c8fb7d4",
+            "name": "Health and Beauty5"
+        },
+        {
+            "verticalId": "e244f0db-c247-4832-94d7-d3a3d91ab43f",
+            "label": "Intel",
+            "description": "Intel",
+            "status": "active",
+            "seoId": "Home-Garden2_e244f0db-c247-4832-94d7-d3a3d91ab43f",
+            "createdBy": "gintaa",
+            "createdDate": "2021-02-09T09:35:42.985+0000",
+            "url": "/vertical/Home-Garden2_e244f0db-c247-4832-94d7-d3a3d91ab43f",
+            "name": "Home and Garden2"
+        },
+        {
+            "verticalId": "1b550968-c352-4689-b75c-e4835a01ef03",
+            "label": "Apple",
+            "description": "Apple",
+            "status": "active",
+            "seoId": "Health-Beauty2_1b550968-c352-4689-b75c-e4835a01ef03",
+            "createdBy": "gintaa",
+            "createdDate": "2021-02-09T09:35:42.235+0000",
+            "url": "/vertical/Health-Beauty2_1b550968-c352-4689-b75c-e4835a01ef03",
+            "name": "Health and Beauty2"
+        },
+        {
+            "verticalId": "73732d03-01ee-4154-a5ff-382f4570e73c",
+            "label": "Acer",
+            "description": "Acer",
+            "status": "active",
+            "seoId": "vertical3_73732d03-01ee-4154-a5ff-382f4570e73c",
+            "createdBy": "gintaa",
+            "createdDate": "2021-02-09T07:17:33.468+0000",
+            "url": "/vertical/vertical3_73732d03-01ee-4154-a5ff-382f4570e73c",
+            "name": "Acer"
+        },
+        {
+            "verticalId": "e246a3f1-c9fc-4ba5-87dd-58861b5d68dd",
+            "label": "HP",
+            "description": "HP",
+            "status": "active",
+            "seoId": "vertical2_e246a3f1-c9fc-4ba5-87dd-58861b5d68dd",
+            "createdBy": "gintaa",
+            "createdDate": "2021-02-09T07:17:33.455+0000",
+            "url": "/vertical/vertical2_e246a3f1-c9fc-4ba5-87dd-58861b5d68dd",
+            "name": "HP"
+        },
+        {
+            "verticalId": "bf4e57ba-1d90-4ffa-b51b-8f8a335176e7",
+            "label": "Dell",
+            "description": "Dell",
+            "status": "active",
+            "seoId": "vertical1_bf4e57ba-1d90-4ffa-b51b-8f8a335176e7",
+            "createdBy": "gintaa",
+            "createdDate": "2021-02-09T07:17:33.129+0000",
+            "url": "/vertical/vertical1_bf4e57ba-1d90-4ffa-b51b-8f8a335176e7",
+            "name": "Dell"
+        },
+        {
+            "verticalId": "91cea863-b50d-4f5b-980a-125d4dad3e30",
+            "label": "Sony",
+            "description": "Sony",
+            "status": "active",
+            "seoId": "Arts-Entertainment_91cea863-b50d-4f5b-980a-125d4dad3e30",
+            "createdBy": "gintaa",
+            "createdDate": "2021-01-27T11:21:44.225+0000",
+            "url": "/vertical/Arts-Entertainment_91cea863-b50d-4f5b-980a-125d4dad3e30",
+            "name": "Arts and Entertainment"
+        },
+        {
+            "verticalId": "4f251943-f68e-4946-87ff-a744411d0fcd",
+            "label": "Asus",
+            "description": "Asus",
+            "status": "active",
+            "seoId": "HOME-APPLIANCES-SERVICE157_4f251943-f68e-4946-87ff-a744411d0fcd",
+            "createdBy": "gintaa",
+            "createdDate": "2021-01-27T11:09:57.359+0000",
+            "url": "/vertical/HOME-APPLIANCES-SERVICE157_4f251943-f68e-4946-87ff-a744411d0fcd",
+            "name": "Asus"
+        }
+    ]
+}

@@ -1,0 +1,84 @@
+<div class="single-arrivals-products gt-cursor-pointer gt-pd-zero gt-pd-tb-6 auc-shadow" (click)="navigateToOffer(auction)">
+    <div class="arrivals-products-image gt-pd-lr-6">
+        <div class="pr-image max-height-img-200">
+            <img [src]="auction.addtionalInfo?auction.addtionalInfo[0]?auction.addtionalInfo[0].auction?auction.addtionalInfo[0].auction.cover?auction.addtionalInfo[0].auction.cover:defaultCoverImage:defaultCoverImage:defaultCoverImage:defaultCoverImage" class="gt-img-responsive" alt="image">
+            <div class="color-overlay"></div>
+            <div class="auction-timing">
+                <div class="gt-center timing-bar">
+                    <div class="time-1">
+                        <h2 class="gt-width-100 gt-center time-color gt-fs-14">{{auction.cdDays}}</h2>
+                        <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">day(s)</h3>
+                    </div>
+                    <div class="time-1">
+                        <h2 class="gt-width-100 gt-center time-color gt-fs-14">{{auction.cdHours}}</h2>
+                        <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">hour(s)</h3>
+                    </div>
+                    <div class="time-1">
+                        <h2 class="gt-width-100 gt-center time-color gt-fs-14">{{auction.cdMins}}</h2>
+                        <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">minute(s)</h3>
+                    </div>
+                    <div class="time-1 gt-borderne">
+                        <h2 class="gt-width-100 gt-center time-color gt-fs-14">{{auction.cdSecs}}</h2>
+                        <h3 class="gt-width-100 gt-center gt-black gt-mt-2 gt-fs-12">second(s)</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="arrivals-products-content product-content-pd auctions-title">
+        <div class="offer-name-primary gt-text-center gt-ellipsis prod-title">{{auction.addtionalInfo?auction.addtionalInfo[0]?auction.addtionalInfo[0].auction?auction.addtionalInfo[0].auction.name:"":"":""}}
+        </div>
+    </div>
+
+    <div class="gt-float-100 gt-pd-lr-12 gt-pt-15 aubid-ewrappe">
+        <div class="gt-vcenter auc-group">
+            <div class="gt-vcenter gt-width-50 current-bidp">
+                <img src="assets/images/create-offer/auction-od.svg" class="gt-mr-10 avftg"
+                    width="30" height="26" alt="image">
+                <div class="aucprcie">
+                    <h2 class="gt-fs-14 gt-black au-opacity">Current bid</h2>
+                    <div class="gt-vcenter gt-mt-4">
+                        <img src="assets/images/create-offer/auc-price.svg" class="gt-mr-4 avftg"
+                            width="10" height="18" alt="image">
+                        <h3 class="gt-fs-15 gt-black">{{auction.addtionalInfo?auction.addtionalInfo[0]?auction.addtionalInfo[0].bidPrice:"":""}}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="gt-vcenter gt-width-50 gt-pl-25 buyout-bid">
+                <img src="assets/images/create-offer/auc-money.svg" class="gt-mr-3 avftg" width="40"
+                    height="40" alt="image">
+                <div class="aucprcie">
+                    <h2 class="gt-fs-14 gt-black au-opacity">Buyout</h2>
+                    <div class="gt-vcenter gt-mt-4">
+                        <img src="assets/images/create-offer/auc-price.svg" class="gt-mr-4 avftg"
+                            width="10" height="18" alt="image">
+                        <h3 class="gt-fs-15 gt-black">{{auction.buyOutPrice}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="gt-center-between gt-mt-15 last-bid">
+            <div class="gt-vcenter gt-float-100 bid-owner">
+                <div class="image-width gt-center gt-position-relative chat-noimg gt-mr-8">
+                    <img [src]="auction.addtionalInfo?auction.addtionalInfo[0]?(auction.addtionalInfo[0].photoUrl && auction.addtionalInfo[0].photoUrl!='')?auction.addtionalInfo[0].photoUrl:userNoImg:userNoImg:userNoImg" class="image-width" alt="image" />
+                    <img src="assets/images/bg/owner.svg" class="owner-img" alt="image" />
+                </div>
+                <div class="bid-name">
+                    <h2 class="gt-width-100 gt-fs-14 gt-lightblack">
+                        {{auction.addtionalInfo?auction.addtionalInfo[0]?auction.addtionalInfo[0].userName:"":""}}
+                    </h2>
+                    <h3 class="gt-width-100 gt-fs-12 gt-mt-2 gt-primary">
+                        Current leader
+                    </h3>
+                </div>
+            </div>
+            <button 
+                class="gt-btn-primary gt-center bid-now bg-change-secondary dark-shadow border-none">
+                bid now
+            </button>
+        </div>
+    </div>
+
+</div>

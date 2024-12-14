@@ -1,0 +1,106 @@
+<ng-container *ngIf="cardName== 'matchbox' else defaultCard">
+    <div class="single-arrivals-products gt-float-100 pro-shadow gt-cursor-pointer">
+        <div class="arrivals-products-image" (click)="navigateToOfferOid(offer.offerId)">
+            <div class="pr-image max-height-img-180">
+                <img [src]="getOfferImage(offer.image)" class="gt-img-responsive" alt="{{offer.name}}"
+                    (error)="errorImageHandler($event)">
+                <div class="color-overlay"></div>
+            </div>
+            <div class="arrivals-action">
+                <div class="offer-location">{{offer?.location?.area}}</div>
+                <span class="material-icons fav-btn">favorite_border</span>
+            </div>
+        </div>
+
+        <div class="arrivals-products-content product-content-pd">
+            <div class="offer-name-primary gt-ellipsis" ellipsis>{{offer['name']}}
+            </div>
+            <div class="pr-desire">
+                <ng-container *ngIf="!offer.auctioned && offer.desire">
+                    <img src="assets/images/home/desire-icon.svg" class="desire-img" alt="image">
+                    <div class="offer-desire-primary gt-ellipsis" ellipsis>
+                        {{ offer | offerDesire }}
+                    </div>
+                </ng-container>
+                <ng-container *ngIf="offer?.exchangeMode ==='Money'">
+                    <span class="icon-gt-money-new gt-fs-14"></span>
+                    <div class="offer-desire-primary gt-ellipsis gt-ml-5" ellipsis>
+                        {{offer?.price}}
+                    </div>
+                </ng-container>
+                <div *ngIf="offer?.exchangeMode ==='Free'">
+                    <div class="offer-desire-primary gt-ellipsis" ellipsis>
+                        {{ offer?.exchangeMode }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-template #defaultCard>
+    <div class="gt-position-relative single-arrivals-products gt-float-100 pro-shadow gt-cursor-pointer"
+        *ngIf="offer.name">
+        <div class="arrivals-products-image">
+            <div class="pr-image max-height-img-180">
+                <img [src]="offer['images'] | coverImage" class="gt-img-responsive" alt="{{offer.name}}"
+                    (error)="errorImageHandler($event)">
+                <div class="color-overlay"></div>
+                <div class="arrivals-action custom-check-size custom-check-sizes gt-cursor-pointer"
+                    *ngIf="showCheckbox && cardName != 'selected'">
+                    <mat-checkbox class="service-chechbox gt-float-right" id="offer_{{offer.offerId}}_{{cardName}}"
+                        (change)="selectOffer($event, offer)" [(ngModel)]="selectedOffer.selectedOffer"
+                        [disabled]="(selectedOffer.offerId===offerId || disabled)"></mat-checkbox>
+                </div>
+            </div>
+        </div>
+
+        <div class="arrivals-products-content product-content-pd gt-cursor-pointer"
+            (click)="navigateToOffer(offer.offerId)">
+            <div class="offer-name-primary gt-ellipsis wrap"> {{offer.name}} </div>
+            <div class="pr-desire">
+                <ng-container *ngIf="showDesire else showCategory">
+                    <ng-container *ngIf="!offer.auctioned && offer.desire">
+                        <img src="assets/images/home/desire-icon.svg" class="desire-img" alt="image">
+                        <div class="offer-desire-primary gt-ellipsis" ellipsis>
+                            {{ offer | offerDesire }}
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="offer?.exchangeMode ==='Money'">
+                        <span class="icon-gt-money-new gt-fs-14"></span>
+                        <div class="offer-desire-primary gt-ellipsis gt-ml-5" ellipsis>
+                            {{offer?.price}}
+                        </div>
+                    </ng-container>
+                    <div *ngIf="offer?.exchangeMode ==='Free'">
+                        <div class="offer-desire-primary gt-ellipsis" ellipsis>
+                            {{ offer?.exchangeMode }}
+                        </div>
+                    </div>
+                </ng-container>
+                <ng-template #showCategory>
+                    <div class="offer-desire-primary">
+                        {{offer | offerCategory}}
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+        <div class="gt-float-100 gt-position-relative offer-count-num"
+            *ngIf="(cardName != 'selected' && selectedOffer.offerType == 'Item' && !offer?.auctioned && offer.quantity > 1 && showUpdateQty && selectedOffer.selectedQuantity > 0)">
+            <div class="gt-center add-offer-deal">
+                <button type="button"
+                    [ngClass]="disableBtn() ? 'disabled':''"
+                    [disabled]="disableBtn()"
+                    class="gt-center image-width-30 removecon-btn bg-change-secondary dark-shadow border-none"
+                    (click)="clickUpdate($event, offer, 'minus')">
+                    <span class="material-icons dcolor-secondary">remove</span> </button>
+                <div class="gt-center count-number"><span> {{selectedOffer.selectedQuantity}} </span></div>
+                <button type="button"
+                    class="gt-center image-width-30 addcon-btn bg-change-secondary dark-shadow border-none"
+                    [ngClass]="disableBtn('right') ? 'disabled':''"
+                    [disabled]="disableBtn('right')"
+                    (click)="clickUpdate($event, offer, 'add')">
+                    <span class="material-icons dcolor-secondary">add</span> </button>
+            </div>
+        </div>
+    </div>
+</ng-template>

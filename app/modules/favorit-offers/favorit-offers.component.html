@@ -1,0 +1,13 @@
+<div class="fav-offers gt-pt-45">
+    <div class="container">
+        <app-bread-crumbs-all></app-bread-crumbs-all>
+
+
+        <ng-container *ngIf="userFavoriteOffersDetail$ | async">
+            <app-grid-view [viewConfig]="favoriteOfferConfig" (clickedImg)="naviagteToOfferDetail($event)"
+                (clickedFavaritIcon)="fetchFavaritId($event)"></app-grid-view>
+        </ng-container>
+
+
+    </div>
+</div>

@@ -1,0 +1,97 @@
+<div class="gt-float-100 gt-border-radius-4 gt-pb-20 upload-noffer-right" *ngIf="!enableChange">
+    <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="gt-float-100">
+                    <div class="gt-vcenter add-th">
+                        <h3 class="gt-fs-15 gt-text-medium gt-black-70">Delivery address</h3>
+                        <span class="icon-gt-done gt-fs-13 gt-ml-20"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gt-float-100 gt-pt-10 gt-pb-14 gt-pd-lr-12">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="gt-float-100 gt-between" *ngIf="selectedAddress && selectedAddress?.id">
+                    <div class="address-hk">
+                        <div class="gt-vcenter add-homeh">
+                            <span class="icon-gt-home-two gt-fs-22" *ngIf="selectedAddress.annotation =='Home'; else otherLocation2"></span>
+                            <ng-template #otherLocation2> 
+                                <span class="icon-popular-loc gt-fs-22"></span>
+                            </ng-template>
+                            <h2 class="gt-fs-14 gt-ml-10 gt-black-70">{{selectedAddress?.annotation}}</h2>
+                        </div>
+                        <div class="gt-mt-10 gt-pl-27 address-subh">
+                            <h3 class="gt-fs-14 gt-text-medium gt-lightgrayish">{{selectedAddress?.name}}, {{selectedAddress?.phoneNumber}}</h3>
+                            <h4 class="gt-fs-13 gt-mt-5 gt-line-height-20 gt-black-70">{{selectedAddress?.addressLine}}</h4>
+                        </div>
+                    </div>
+
+                    <div class="change-addg">
+                        <button class="gt-btn-primary gt-bg-transparent gt-border-radius-2 gt-center change-btn" (click)="toggleChangeAddress()">
+                            <h5 class="gt-fs-14 gt-text-medium gt-sky">change</h5>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- address secondary  -- add address -->
+<div class="gt-float-100 gt-border-radius-4 gt-pb-20 upload-noffer-right" *ngIf="enableChange">
+    <div class="gt-float-100 gt-pd-lr-12 gt-mt-15">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="gt-float-100 gt-mb-10">
+                    <div class="gt-vcenter add-th">
+                        <h3 class="gt-fs-15 gt-text-medium gt-black-70">Delivery address</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gt-float-100 gt-pt-10 gt-pb-14 gt-pd-lr-12">
+        <div class="row">
+            <ng-template ngFor let-i="index" let-c="count" let-address [ngForOf]="addressList">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                    <div class="gt-float-100 gt-pd-20 gt-mb-20 add-addhb">
+                        <div class="address-hk">
+                            <div class="gt-vcenter add-homeh">
+                                <span class="icon-gt-home-two gt-fs-22" *ngIf="address.annotation =='Home'; else otherLocation"></span>
+                                <ng-template #otherLocation> 
+                                    <span class="icon-popular-loc gt-fs-22"></span>
+                                </ng-template>
+                                <h2 class="gt-fs-15 gt-ml-10 gt-black-70">{{address?.annotation}}</h2>
+                            </div>
+                            <div class="gt-mt-10 gt-pl-32 address-subh">
+                                <h3 class="gt-fs-14 gt-text-medium gt-lightgrayish">{{address?.name}}, {{address?.phoneNumber}}</h3>
+                                <h4 class="gt-fs-13 gt-mt-15 gt-line-height-20 gt-black-70">{{address?.addressLine}}</h4>
+                            </div>
+
+                            <div class="gt-mt-30 gt-pl-32 change-addg">
+                                <button class="gt-btn-primary gt-border-radius-2 gt-float-right gt-height-39 gt-pd-lr-15 gt-center" (click)="selectAddress(address)">
+                                    <h5 class="gt-fs-14">deliver here</h5>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+                <div class="gt-float-100 gt-pd-20 gt-center add-addhb">
+                    <button class="gt-btn-primary gt-bg-transparent gt-border-radius-4 gt-center gt-height-48 addh-new" (click)="addAddress()">
+                        <h5 class="gt-fs-14 gt-sky">add new address</h5>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

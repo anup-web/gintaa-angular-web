@@ -1,0 +1,80 @@
+
+
+<div class="sticky-container">
+  <ul class="sticky">
+    <li *ngIf="latestDraftOfferId$ | async as latestDraftOfferId" class="obtn-1" (click)="
+        closeChatWindow();
+        $event.preventDefault();
+        navigateToDraftOffer(latestDraftOfferId)
+      ">
+      <!-- <img src="assets/images/home/edit-draft.svg" width="32" height="32" alt="Edit Draft" /> -->
+      <div class="edit-draft"> <span class="icon-edit-draft gt-fs-28"></span> </div> 
+      
+      <p>Edit draft</p>
+    </li>
+    <!-- <li class="obtn-2" (click)="
+        closeChatWindow(); $event.preventDefault(); navigateToOffer('item')
+      ">
+      <img src="assets/images/home/product-icon.svg" width="32" height="32" alt="Create listing" />
+      <p>Create listing</p>
+    </li> -->
+    <!-- <li class="obtn-3" (click)="
+        closeChatWindow(); $event.preventDefault(); navigateToOffer('service')
+      ">
+      <img src="assets/images/home/service-icon.svg" width="32" height="32" alt="Add Service" />
+      <p>Add service</p>
+    </li>
+    <li class="obtn-3 gt-vcenter hup-yu" (click)="closeChatWindow(); $event.preventDefault(); navigateToOffer('auction')">
+      <span class="icon-gt-auctions gt-fs-30"></span>
+      <p>Add auction</p>
+    </li> -->
+    <li class="obtn-4" (click)="openChatWindow()" *ngIf="isAuthenticated && releaseOffer">      
+      <div class="chat-bubble"> <span class="icon-chat-bubble gt-fs-24 "></span> </div>
+      <p><a href="javascript:void(0)">Chat </a></p>
+      <!-- <div class="gt-center border-radius-100 h4 chat-active-msgs" *ngIf="
+      offerUnreadCount + dealUnreadCount > 0">
+        {{
+          offerUnreadCount + dealUnreadCount
+        }}
+      </div> -->
+    </li>
+  </ul>
+</div>
+
+<a href="" class="create_float_listing" (click)="
+closeChatWindow(); $event.preventDefault(); navigateToOffer('item')
+">
+  <span>
+    <img src="assets/images/add_icon-color.png" width="25"/>
+  </span>create listing
+</a>
+
+
+<!-- <div class="fmenu-floating">
+     <div class="gt-float-100 gt-bg-white gt-border-radius-16 gt-pd-tb-12 gt-pd-lr-16 fmenu-listing">
+          <div class="gt-float-100">
+           <div class="gt-center-end gt-cursor-pointer fmenu-lone">
+                <h2 class="gt-fs-16 gt-black-70 gt-mr-20">As a business</h2>
+                <div class="gt-center gt-bg-primary border-radius-100 image-width-50 fmenu-icon">
+                  <span class="icon-gt-bag gt-fs-25"></span>
+                </div>
+           </div>
+          </div>
+
+           <div class="gt-float-100">
+           <div class="gt-center-end gt-mt-20 gt-cursor-pointer fmenu-ltwo">
+            <h3 class="gt-fs-16 gt-black-70 gt-mr-20">As an individual</h3>
+            <div class="gt-center gt-bg-primary border-radius-100 image-width-50 fmenuh-icon">
+              <span class="icon-user-hicon gt-fs-24"></span>
+            </div>
+       </div>
+      </div>
+
+     </div> 
+     <div class="gt-float-100 gt-mt-37 gt-flex-end fclose-menu">
+          <div class="gt-center gt-bg-secondary border-radius-100 image-width-50 gt-cursor-pointer gt-mr-16 fclose-mh">
+               <span class="icon-clear gt-fs-28"></span> 
+          </div>          
+     </div>    
+</div> -->
+

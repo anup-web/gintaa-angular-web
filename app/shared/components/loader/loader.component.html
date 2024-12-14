@@ -1,0 +1,37 @@
+<app-skelton *ngIf="loaderType == 'skelton'" [loader]="loader"></app-skelton>
+<app-skelton-feedback *ngIf="loaderType == 'skelton-feedback'" [loader]="loader" [fullPage]="fullPage"></app-skelton-feedback>
+
+<ng-container *ngIf="loaderType == 'drops-fading'">
+  <ng-container *ngIf="!fullPage; else fixedSec">
+    <div class="loaderouter"
+      [ngClass]="{ loader: loader, hide: !loader }"
+      [ngStyle]="{
+        'background-color': backDropColor,
+        opacity: backDropOpacity
+      }"
+    >
+      <span class="img drops-fading d-block">
+
+                  <app-loading-animation></app-loading-animation>
+
+      </span>
+    </div>
+  </ng-container>
+  <ng-template #fixedSec>
+    <div class="loaderouter"
+      [ngClass]="{ 'loader fixed': loader, hide: !loader }"
+      [ngStyle]="{
+        'background-color': backDropColor,
+        opacity: backDropOpacity
+      }"
+    >
+      <span class="img drops-fading d-block">
+        
+        <app-loading-animation></app-loading-animation>
+      </span>
+      <span *ngIf="showLoadingMessage" class="loading-message">{{
+        loadingMessage
+      }}</span>
+    </div>
+  </ng-template>
+</ng-container>

@@ -1,0 +1,118 @@
+<ng-container *ngIf="(pageType=='suggest' || pageType=='revise') && callerIsReceiver; else updateSec">
+    <div class="gt-vcenter gt-float-100 feed-back-card">
+        <div class="image-width-40 border-radius-100">
+            <img [src]="user?.imageUrl" class="image-width-40 border-radius-100" [alt]="user?.name"
+                onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'"
+                *ngIf="user?.imageUrl else avatarSec" />
+            <ng-template #avatarSec>
+                <img [src]="userNoImage" class="image-width-40 border-radius-100" [alt]="user?.name" />
+            </ng-template>
+        </div>
+        <div class="gt-ml-12">
+            <div class="user-name-fd">
+                <h2 class="gt-fs-13 gt-text-medium gt-lightblack">
+                    {{ user?.name | trimTextToCertainNumberCharector: 18 }}
+                </h2>
+            </div>
+            <div class="gt-mt-4">
+                <h2 class="gt-fs-12 gt-text-medium gt-lightgrayish"
+                    *ngIf="userLocation && userLocation?.lat else youSec">
+                    ({{userLocation?.city}})
+                </h2>
+                <ng-template #youSec>
+                    <ng-container *ngIf="direction=='left' else ShowUserSecE">
+                        <h2 class="gt-fs-12 gt-text-medium gt-lightgrayish">
+                            (You)
+                        </h2>
+                    </ng-container>
+                    <ng-template #ShowUserSecE>
+                        <h2 class="gt-fs-12 gt-text-medium gt-lightgrayish">
+                            (User)
+                        </h2>
+                    </ng-template>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</ng-container>
+<ng-template #updateSec>
+    <ng-container *ngIf="pageType=='suggest'; else updateSec3">
+        <div class="gt-vcenter gt-float-100 feed-back-card">
+            <div class="image-width-40 border-radius-100">
+                <img [src]="user?.imageUrl" class="image-width-40 border-radius-100" [alt]="user?.name"
+                    onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'"
+                    *ngIf="user?.imageUrl else avatarSec" />
+                <ng-template #avatarSec>
+                    <img [src]="userNoImage" class="image-width-40 border-radius-100" [alt]="user?.name" />
+                </ng-template>
+            </div>
+            <div class="gt-ml-12">
+                <div class="user-name-fd">
+                    <h2 class="gt-fs-13 gt-text-medium gt-lightblack">
+                        {{ user?.name | trimTextToCertainNumberCharector: 18 }}
+                    </h2>
+                </div>
+                <div class="gt-mt-4">
+                    <h2 class="gt-fs-12 gt-text-medium gt-lightgrayish">
+                        (You)
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #updateSec3>
+        <div class="gt-vcenter gt-float-100 feed-back-card">
+            <div class="image-width-40 border-radius-100">
+                <ng-container *ngIf="logo else imageUrlSec">
+                    <img [src]="user?.logoUrl" class="image-width-40 border-radius-100" [alt]="user?.name"
+                        onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'"
+                        *ngIf="user?.logoUrl else avatarSec" />
+                    <ng-template #avatarSec>
+                        <img [src]="userNoImage" class="image-width-40 border-radius-100" [alt]="user?.name" />
+                    </ng-template>
+                </ng-container>
+                <ng-template #imageUrlSec>
+                    <img [src]="user?.imageUrl" class="image-width-40 border-radius-100" [alt]="user?.name"
+                        onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'"
+                        *ngIf="user?.imageUrl else avatarSec" />
+                    <ng-template #avatarSec>
+                        <img [src]="userNoImage" class="image-width-40 border-radius-100" [alt]="user?.name" />
+                    </ng-template>
+                </ng-template>
+            </div>
+            <div class="gt-ml-12">
+                <div class="user-name-fd">
+                    <h2 class="gt-fs-13 gt-text-medium gt-lightblack">
+                        {{ user?.name  | trimTextToCertainNumberCharector: 18}}
+                    </h2>
+                </div>
+                <div class="gt-mt-4">
+                    <ng-container *ngIf="showUser else locationCheck">
+                        <h2 class="gt-fs-12 gt-text-medium gt-lightgrayish"
+                            *ngIf="userLocation && userLocation?.lat">
+                            ({{userLocation?.city}})
+                        </h2>
+                    </ng-container>
+                    <ng-template #locationCheck>
+                        <h2 class="gt-fs-12 gt-text-medium gt-lightgrayish"
+                            *ngIf="userLocation && userLocation?.lat else youSec">
+                            ({{userLocation?.city}})
+                        </h2>
+                        <ng-template #youSec>
+                            <ng-container *ngIf="direction=='left' else ShowUserSecE">
+                                <h2 class="gt-fs-12 gt-text-medium gt-lightgrayish">
+                                    (You)
+                                </h2>
+                            </ng-container>
+                            <ng-template #ShowUserSecE>
+                                <h2 class="gt-fs-12 gt-text-medium gt-lightgrayish">
+                                    (User)
+                                </h2>
+                            </ng-template>
+                        </ng-template>
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</ng-template>

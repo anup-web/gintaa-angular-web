@@ -1,0 +1,302 @@
+<div class="gt-mt-20 gt-float-100 tags-new-start">
+  <ng-container *ngIf="currentlyAvailableFacets.length">
+    <div class="gt-float-100 gt-pd-lr-12">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-center-between tag-heading">
+            <div class="gt-vcenter tagt-primary">
+              <h1 class="gt-fs-15 gt-text-medium gt-lightblack">Selected</h1>
+            </div>
+            <!-- <div class="gt-vcenter tagt-primary">
+              <h2 class="gt-fs-14 gt-text-medium gt-sky">Last selected</h2>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gt-float-100 gt-mt-20 gt-pd-lr-12">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div
+            class="gt-float-100 selected-tagsd"
+            *ngIf="currentlyAvailableFacets.length"
+          >
+            <div
+              class="gt-mr-10 gt-mb-10 gt-float-left text-tagsd"
+              *ngFor="let facet of currentlyAvailableFacets; index as i"
+            >
+              <div class="gt-mb-5 tagd-name">
+                <h3 class="gt-fs-13 gt-lightblack gt-text-medium">
+                  {{ facet.name }}
+                </h3>
+              </div>
+              <div class="gt-center gt-border-radius-4 tagsn ntag-active">
+                <h3 class="gt-fs-13 new-color" *ngIf="facet && facet.values">
+                  {{ facet?.values[0] || "" }}
+                </h3>
+                <span
+                  class="icon-gt-close gt-lightblack gt-fs-9 gt-ml-16"
+                  (click)="removeSelected(facet)"
+                ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="presentTagArr.length">
+    <div
+      class="gt-float-100 gt-mb-10 gt-mt-20 gt-pd-lr-12 gt-pb-10 nborder-bottom"
+    >
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-center-between tag-heading">
+            <div class="gt-vcenter tagt-primary">
+              <h1 class="gt-fs-15 gt-text-medium gt-lightblack">
+                {{ presentTagArr[0].mandatory ? "Mandatory" : "Optional" }}
+                Features
+              </h1>
+            </div>
+            <div
+              class="gt-vcenter tagt-primary"
+              *ngIf="presentTagArr[0].mandatory"
+            >
+              <h2 class="gt-fs-14 gt-text-medium gt-sky">
+                {{ selectedMandoryFacetsLength }}/ {{ mandatorySelected }}
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <div
+    class="gt-float-100 gt-pd-lr-12 gt-mb-10"
+    *ngIf="!allAvailbleTags.length && !selectedFacetsLength"
+  >
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 gt-position-relative">
+          <div class="gt-float-100 padd-tag">
+            <h2 class="gt-fs-14 text-grey-ab">Please add at least one feature tag such as Color, Size, Brand etc</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="gt-float-100 gt-pd-lr-12"
+    *ngIf="
+      (presentTagArr.length && !presentTagArr[0].mandatory) ||
+      !presentTagArr.length
+    "
+  >
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="gt-float-100 gt-position-relative gt-flex-end">
+          <button
+            type="button"
+            class="
+              gt-btn-primary gt-center gt-border-radius-6 gt-float-right
+              new-next
+              nextbg-change
+            "
+            (click)="enableAddFeature()"
+          >
+            <h2 class="gt-fs-14 gt-white">add features</h2>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-container *ngIf="isAddFeature">
+    <div class="gt-float-100 gt-pd-lr-12 gt-mt-20">
+      <div class="row" [formGroup]="form">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div class="secondary_group">
+            <div class="secondary-wrap validate-input">
+              <input
+                class="secondary-input"
+                type="text"
+                name="name"
+                placeholder="Enter feature name"
+                formControlName="featureKey"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <div class="secondary_group">
+            <div class="secondary-wrap validate-input">
+              <input
+                class="secondary-input"
+                type="text"
+                name="name"
+                placeholder="Enter feature value"
+                formControlName="featureValue"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-pd-lr-12 gt-pb-20 nborder-bottom">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <button
+            type="button"
+            class="
+              gt-btn-primary gt-float-right
+              offer-delete-upload
+              gt-ml-20
+              wh-34
+            "
+            (click)="deleteFeatureInput()"
+          >
+            <img
+              src="assets/images/profile/profile-photo-delete.svg"
+              class="pro-res"
+              alt="image"
+              width="19"
+              height="22"
+            />
+          </button>
+          <button
+            type="button"
+            class="
+              gt-btn-primary gt-center gt-border-radius-6 gt-float-right
+              new-next
+            "
+            (click)="addNewFeature()"
+            [ngStyle]="{
+              opacity: form.valid ? '1' : '0.7',
+              cursor: form.valid ? 'pointer' : 'default'
+            }"
+            [disabled]="!form.valid"
+          >
+            <h2 class="gt-fs-14 gt-white">add</h2>
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="presentTagArr.length">
+    <div class="gt-float-100 gt-pd-lr-12 gt-mt-16">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-center-start">
+            <div class="gt-vcenter tagt-primary">
+              <h1 class="gt-fs-13 gt-text-medium gt-lightblack">
+                {{ presentTagArr[0].label }}
+              </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gt-float-100 gt-mt-16 gt-pd-lr-12">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 selected-tagsd">
+            <div
+              class="
+                gt-center gt-float-left gt-border-radius-4 gt-mr-10 gt-mb-10
+                tagsn
+              "
+              *ngFor="let value of presentTagArr[0].values"
+              (click)="
+                selectedFacets(
+                  presentTagArr[0].label,
+                  presentTagArr[0].name,
+                  value,
+                  presentTagArr[0].tagId,
+                  presentTagArr[0].mandatory
+                )
+              "
+            >
+              <h3 class="gt-fs-13 new-color">{{ value }}</h3>
+            </div>
+            <div
+              *ngIf="!isAddNewValue"
+              class="gt-center gt-float-left gt-border-radius-4 nadd-tag-btn"
+              (click)="selectedTagForNewValue(presentTagArr[0])"
+            >
+              <span class="icon-gt-add gt-fs-13 gt-mr-2"></span>
+              <h2 class="gt-fs-14 gt-sky neda">add</h2>
+            </div>
+            <ng-container *ngIf="isAddNewValue">
+              <div class="gt-float-100 gt-pd-lr-12 gt-mt-20">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="secondary_group">
+                      <div class="secondary-wrap validate-input">
+                        <input
+                          class="secondary-input"
+                          type="text"
+                          name="name"
+                          placeholder="Enter feature name"
+                          [(ngModel)]="newValue"
+                          [ngModelOptions]="{ standalone: true }"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gt-float-100 gt-pd-lr-12 gt-pb-20 nborder-bottom">
+                <div class="row">
+                  <div
+                    class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                  >
+                    <button
+                      type="button"
+                      class="
+                        gt-btn-primary gt-float-right
+                        offer-delete-upload
+                        gt-ml-20
+                        wh-34
+                      "
+                      (click)="deleteNewValue()"
+                    >
+                      <img
+                        src="assets/images/profile/profile-photo-delete.svg"
+                        class="pro-res"
+                        alt="image"
+                        width="19"
+                        height="22"
+                      />
+                    </button>
+                    <button
+                      type="button"
+                      class="
+                        gt-btn-primary
+                        gt-center
+                        gt-border-radius-6
+                        gt-float-right
+                        new-next
+                      "
+                      (click)="addNewValue()"
+                      [ngStyle]="{
+                        opacity: isFeatureNewValueEnabled ? '1' : '0.7',
+                        cursor: isFeatureNewValueEnabled ? 'pointer' : 'default'
+                      }"
+                      [disabled]="!isFeatureNewValueEnabled"
+                    >
+                      <h2 class="gt-fs-14 gt-white">add</h2>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

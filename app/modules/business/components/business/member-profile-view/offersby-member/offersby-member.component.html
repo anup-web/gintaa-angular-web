@@ -1,0 +1,67 @@
+<div class="gt-float-100 gt-mt-40" *ngIf="offers.length" @fadeIn>
+  <div class="row">
+    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12 rp-offerby-50" *ngFor="let offer of offers">
+      <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+        <div class="arrivals-products-image">
+          <div class="pr-image max-height-img-194">
+            <img [src]="offer?.images | coverImage" [alt]="offer.name" class="gt-img-responsive"
+              (click)="navigateToOffer(offer)" onError="this.src = 'assets/images/user-default-img/chatu-noimg.svg'" />
+            <div class="color-overlay"></div>
+            <div class="offer-lcounts compare-count">
+              <div class="gt-vcenter tag-offer">
+                <img src="assets/images/create-offer/lcompare.svg" alt="image" class="tag-imgoff" />
+                <span>02</span>
+              </div>
+            </div>
+          </div>
+          <div class="arrivals-action">
+            <div class="offer-location" *ngIf="offer.location">
+              {{ offer | offerLocation }}
+            </div>
+            <ng-container *ngIf="!offer.draftOfferId">
+              <span class="material-icons fav-btn" *ngIf="!isFavorite(offer)"
+                (click)="addOfferToFavourite(offer.offerId)">favorite_border</span>
+              <span class="material-icons fav-color-card" *ngIf="isFavorite(offer)"
+                (click)="removeOfferFromFavourite(offer.offerId)">favorite
+              </span>
+            </ng-container>
+          </div>
+        </div>
+
+    
+        <div class="arrivals-products-content product-content-pd">
+          <div class="offer-name-primary gt-ellipsis" ellipsis>
+            {{ offer.name }}
+          </div>
+          <div *ngIf="from == 'searchResult'; else showOfferDesire" class="pr-desire">
+            <img src="assets/images/home/desire-icon.svg" class="desire-img" alt="image" />
+            <div class="offer-desire-primary">{{ offer | offerCategory }}</div>
+          </div>
+          <ng-template #showOfferDesire>
+            <div class="pr-desire">
+              <div class="pr-desire" *ngIf="!offer.auctioned && offer.desire">
+                <img src="assets/images/home/desire-icon.svg" class="desire-img" alt="image" />
+                <div class="offer-desire-primary gt-ellipsis" ellipsis>
+                  {{ offer | offerDesire }}
+                </div>
+              </div>
+              <div class="pr-desire" *ngIf="offer.auctioned">
+                <img src="assets/images/create-offer/auction-od.svg" class="desire-img" alt="image" />
+                <div class="offer-desire-primary gt-ellipsis" ellipsis *ngIf="offer.desire">
+                  Auction
+                </div>
+              </div>
+            </div>
+          </ng-template>
+
+          <div class="Deleg-offersby gt-mt-20 gt-float-100">
+            <button role="button" type="button" class="gt-center Delegate-btn"
+              (click)="openAssignModal(offer.offerId, offer.business.businessId)">
+              <h2>assign</h2>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

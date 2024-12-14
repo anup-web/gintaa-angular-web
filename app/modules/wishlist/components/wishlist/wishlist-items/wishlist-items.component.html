@@ -1,0 +1,341 @@
+
+<div  *ngIf="!allWishlist.length" class="gt-float-100 gt-mt-20 gt-mb-8 match-offers" @fadeIn>
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100 gt-center">
+                <app-empty-wishlist-animation></app-empty-wishlist-animation>
+            </div>
+            <div class="gt-float-100 gt-center gt-mt-50">
+                <h1 class="gt-lightblack gt-fs-20 dcolor-primary">Your desire list is empty. Add your desires to get notified about related offers.</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="wishlist-row" *ngFor="let item of allWishlist; let wi = index" [@simpleFadeAnimation]="'in'" >
+    <div class="gt-float-100 gt-mt-15">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="gt-float-100 gt-center-between wish-main">
+                    <div class="gt-width-100 gt-vcenter wish-primary">
+                        <div class="tags-wish">
+                            <div class="gt-vcenter gt-border-radius-8 wish-tag">
+                                <h1 class="gt-fs-14 gt-text-medium gt-white">{{item.name}}</h1>
+                                <span
+                                    (click)="removeWishlist(wi)"
+                                    class="material-icons gt-fs-16 gt-white gt-ml-10 gt-cursor-pointer">close</span>
+                            </div>
+                        </div>
+                        <div class="gt-ml-16 wsh-edit">
+                            <div class="gt-border-radius-8 gt-bg-white image-width-40 gt-center gt-cursor-pointer ditwish" (click)="wishOfferDialog()">
+                                <img src="assets/images/wishlist/edit-wish.svg" class="wish-edit" width="18"
+                                    height="18" alt="image" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gt-float-right wish-secondary" *ngIf="item.offers.length">
+                        <button type="submit" class="gt-btn-primary gt-center gt-wh-btn gt-text-semi-bold wish-showall-rp dark-shadow bg-change-secondary">
+                            view all </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="gt-float-100 gt-mt-20 match-border gt-mb-8 match-offers">
+        <div class="row">
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="!item.offers.length">
+                
+                <div class="gt-float-100 gt-center">
+                    <app-no-offer-in-wishlist-animation></app-no-offer-in-wishlist-animation>
+                </div>
+                <div class="gt-float-100 gt-center gt-mt-50">
+                    <h1 class="gt-lightblack gt-fs-20 dcolor-primary pb-5">There are no offers relative to your wish. You will notified when such offers will appear</h1>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12 transition-animation" *ngFor="let offerItem of item.offers; let i = index;" [@simpleFadeAnimation]="'in'">
+                <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                    
+                    <div class="arrivals-products-image">
+                        <div class="pr-image max-height-img-270">
+                            <img 
+                                [src]="offerItem.images.length> 0? offerItem.images[0].url : noImageUrl" 
+                                class="gt-img-responsive" 
+                                alt="image"
+                                onError="this.src = 'assets/images/no-image.png'">
+                            <!-- <img src="assets/images/create-offer/uplaod-default-img.png" class="gt-img-responsive" alt="image"> -->
+                            <div [routerLink]="['/offer/',offerItem.offerId]" class="color-overlay"></div>
+                            
+                            <div class="match-delete" (click)="removeOfferFromWishlist(wi, i)">
+                                <span class="material-icons">clear</span>
+                            </div>
+                        </div>
+                        <div class="arrivals-action">
+                            <div class="offer-location">{{ offerItem | offerLocation }}</div>
+                            <span class="material-icons">favorite_border</span>
+                        </div>
+                    </div>
+
+                    <div class="arrivals-products-content product-content-pd" [routerLink]="['/offer/',offerItem.offerId]">
+                        <div class="offer-name-primary gt-ellipsis" ellipsis>{{offerItem.name}}</div>
+                        <div class="pr-desire">
+                            <img src="assets/images/home/desire-icon.svg" class="desire-img"  alt="image">
+                            <div class="offer-desire-primary">{{offerItem | offerCategory}}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                    
+                    <div class="arrivals-products-image">
+                        <div class="pr-image max-height-img">
+                            <img src="assets/images/create-offer/uplaod-default-img.png" class="gt-img-responsive"
+                                alt="image">
+                            <div class="color-overlay"></div>
+                            <div class="tag">
+                                <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                <span>40%</span>
+                            </div>
+                            <div class="match-delete">
+                                <span class="material-icons">clear</span>
+                            </div>
+                        </div>
+                        <div class="arrivals-action">
+                            <div class="offer-location">Bidhanagar</div>
+                            <span class="material-icons">favorite_border</span>
+                        </div>
+                    </div>
+
+                    <div class="arrivals-products-content product-content-pd">
+                        <div class="offer-name-primary gt-ellipsis" ellipsis>Captain Coons Watches</div>
+                        <div class="pr-desire">
+                            <span class="material-icons">compare_arrows</span>
+                            <div class="offer-desire-primary">Mobile, Laptop</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                    <div class="arrivals-products-image">
+                        <div class="pr-image max-height-img">
+                            <img src="assets/pro/14.jpg" class="gt-img-responsive" alt="image">
+                            <div class="color-overlay"></div>
+                            <div class="tag">
+                                <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                <span>40%</span>
+                            </div>
+                            <div class="match-delete">
+                                <span class="material-icons">clear</span>
+                            </div>
+                        </div>
+                        <div class="arrivals-action">
+                            <div class="offer-location">Bidhanagar</div>
+                            <span class="material-icons">favorite_border</span>
+                        </div>
+                    </div>
+
+                    <div class="arrivals-products-content product-content-pd">
+                        <div class="offer-name-primary gt-ellipsis" ellipsis>Coach Tabby 26 for sale</div>
+                        <div class="pr-desire">
+                            <span class="material-icons">compare_arrows</span>
+                            <div class="offer-desire-primary">Mobile, Laptop</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                    <div class="arrivals-products-image">
+                        <div class="pr-image max-height-img">
+                            <img src="assets/pro/15.jpg" class="gt-img-responsive" alt="image">
+                            <div class="color-overlay"></div>
+                            <div class="tag">
+                                <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                <span>40%</span>
+                            </div>
+                            <div class="match-delete">
+                                <span class="material-icons">clear</span>
+                            </div>
+                        </div>
+                        <div class="arrivals-action">
+                            <div class="offer-location">Bidhanagar</div>
+                            <span class="material-icons">favorite_border</span>
+                        </div>
+                    </div>
+
+                    <div class="arrivals-products-content product-content-pd">
+                        <div class="offer-name-primary gt-ellipsis" ellipsis>Gopro hero 7 (with receipt)</div>
+                        <div class="pr-desire">
+                            <span class="material-icons">compare_arrows</span>
+                            <div class="offer-desire-primary">Mobile, Laptop</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                    <div class="arrivals-products-image">
+                        <div class="pr-image max-height-img">
+                            <img src="assets/pro/30.jpg" class="gt-img-responsive" alt="image">
+                            <div class="color-overlay"></div>
+                            <div class="tag">
+                                <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                <span>40%</span>
+                            </div>
+                            <div class="match-delete">
+                                <span class="material-icons">clear</span>
+                            </div>
+                        </div>
+                        <div class="arrivals-action">
+                            <div class="offer-location">Bidhanagar</div>
+                            <span class="material-icons">favorite_border</span>
+                        </div>
+                    </div>
+
+                    <div class="arrivals-products-content product-content-pd">
+                        <div class="offer-name-primary gt-ellipsis" ellipsis>iPad Pro 2017 Model</div>
+                        <div class="pr-desire">
+                            <span class="material-icons">compare_arrows</span>
+                            <div class="offer-desire-primary">Mobile, Laptop</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                    <div class="arrivals-products-image">
+                        <div class="pr-image max-height-img">
+                            <img src="assets/pro/30.jpg" class="gt-img-responsive" alt="image">
+                            <div class="color-overlay"></div>
+                            <div class="tag">
+                                <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                <span>40%</span>
+                            </div>
+                            <div class="match-delete">
+                                <span class="material-icons">clear</span>
+                            </div>
+                        </div>
+                        <div class="arrivals-action">
+                            <div class="offer-location">Bidhanagar</div>
+                            <span class="material-icons">favorite_border</span>
+                        </div>
+                    </div>
+
+                    <div class="arrivals-products-content product-content-pd">
+                        <div class="offer-name-primary gt-ellipsis" ellipsis>iPad Pro 2017 Model</div>
+                        <div class="pr-desire">
+                            <span class="material-icons">compare_arrows</span>
+                            <div class="offer-desire-primary">Mobile, Laptop</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                    <div class="arrivals-products-image">
+                        <div class="pr-image max-height-img">
+                            <img src="assets/pro/30.jpg" class="gt-img-responsive" alt="image">
+                            <div class="color-overlay"></div>
+                            <div class="tag">
+                                <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                <span>40%</span>
+                            </div>
+                            <div class="match-delete">
+                                <span class="material-icons">clear</span>
+                            </div>
+                        </div>
+                        <div class="arrivals-action">
+                            <div class="offer-location">Bidhanagar</div>
+                            <span class="material-icons">favorite_border</span>
+                        </div>
+                    </div>
+
+                    <div class="arrivals-products-content product-content-pd">
+                        <div class="offer-name-primary gt-ellipsis" ellipsis>iPad Pro 2017 Model</div>
+                        <div class="pr-desire">
+                            <span class="material-icons">compare_arrows</span>
+                            <div class="offer-desire-primary">Mobile, Laptop</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                    <div class="arrivals-products-image">
+                        <div class="pr-image max-height-img">
+                            <img src="assets/pro/30.jpg" class="gt-img-responsive" alt="image">
+                            <div class="color-overlay"></div>
+                            <div class="tag">
+                                <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                <span>40%</span>
+                            </div>
+                            <div class="match-delete">
+                                <span class="material-icons">clear</span>
+                            </div>
+                        </div>
+                        <div class="arrivals-action">
+                            <div class="offer-location">Bidhanagar</div>
+                            <span class="material-icons">favorite_border</span>
+                        </div>
+                    </div>
+
+                    <div class="arrivals-products-content product-content-pd">
+                        <div class="offer-name-primary gt-ellipsis" ellipsis>iPad Pro 2017 Model</div>
+                        <div class="pr-desire">
+                            <span class="material-icons">compare_arrows</span>
+                            <div class="offer-desire-primary">Mobile, Laptop</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                    <div class="arrivals-products-image">
+                        <div class="pr-image max-height-img">
+                            <img src="assets/pro/30.jpg" class="gt-img-responsive" alt="image">
+                            <div class="color-overlay"></div>
+                            <div class="tag">
+                                <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                <span>40%</span>
+                            </div>
+                            <div class="match-delete">
+                                <span class="material-icons">clear</span>
+                            </div>
+                        </div>
+                        <div class="arrivals-action">
+                            <div class="offer-location">Bidhanagar</div>
+                            <span class="material-icons">favorite_border</span>
+                        </div>
+                    </div>
+
+                    <div class="arrivals-products-content product-content-pd">
+                        <div class="offer-name-primary gt-ellipsis" ellipsis>iPad Pro 2017 Model</div>
+                        <div class="pr-desire">
+                            <span class="material-icons">compare_arrows</span>
+                            <div class="offer-desire-primary">Mobile, Laptop</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             -->
+        </div>
+
+    </div>
+</div>

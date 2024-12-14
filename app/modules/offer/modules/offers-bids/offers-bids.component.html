@@ -1,0 +1,66 @@
+
+
+
+<div class="gt-float-100 gt-mt-20 od-border-top">
+  <div class="container">
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="gt-float-100 gt-center gt-justify-content-between recom-offer">
+            <div class="gt-float-left gt-center recom-offer-primary">             
+              <h2 class="gt-fs-19 gt-lightblack gt-text-medium dcolor-primary">Bids</h2>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gt-float-100 wisho-wrapper">
+      <div class="gt-float-100 gt-mt-20 sugg-slider">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 ">
+            <div class="gt-float-100 custom-carosl">
+              <div class="carousel-pnext pre_next gt-vcenter match-pre-next obh-rp">
+                  <a class="arrow_left" (click)="owlCar.prev()">
+                    <span class="material-icons gt-center dark-shadow-import bg-change-secondary-import">keyboard_arrow_left</span>
+                  </a>
+                  <a class="arrow_right" (click)="owlCar.next()">
+                    <span class="material-icons gt-center dark-shadow-import bg-change-secondary-import">keyboard_arrow_right</span>
+                  </a>
+              </div>
+              <owl-carousel-o [options]="customOptions" (translated)="getPassedData($event)" #owlCar>
+                <ng-template ngFor let-i="index" let-c="count" let-bid [ngForOf]="(bids)">
+                  <ng-template carouselSlide>
+                    <div class="gt-float-100 bids-box inacive-bids border-red border-green" [ngClass]="{'active-bids': selectedIndex === i,'single-bid':bids.length===1}" (click)="onSelect(i)">
+                      <div class="gt-float-100 bids-box-top">
+                            <h1 class="gt-fs-12 gt-lightgrayish">{{bid.bidTime | date: "medium"}}</h1>
+                            <h2 class="gt-fs-14 gt-lightblack gt-text-medium">₹{{bid.bidPrice}}</h2>
+                      </div>
+
+                      <div class="gt-float-100 gt-mt-20 gt-center-between gt-position-relative bids-box-bottom">
+                          <div class="gt-vcenter">
+                              <div class="gt-position-relative buser-img">
+                                <!-- <img src="assets/images/bg/owner.svg" alt="image" class="bowner-img"> -->
+                                <img class="gt-mr-8 gt-img-responsive img-sizes" [src]="bid.photoUrl?bid.photoUrl:'assets/images/user-default-img/chatu-noimg.svg'" alt="image"> 
+                                <!-- <div class="online"></div> -->
+                                <!-- <div class="offline"></div> -->
+                              </div>                              
+                              <h3 class="gt-fs-14 gt-lightblack"> {{bid.userName}}</h3> 
+                          </div>
+                          <div class="gt-center award-btn" *ngIf="false">
+                               <h2 class="gt-fs-14 gt-text-medium gt-primary">award</h2>
+                          </div>
+                      </div>
+                      <!-- <img src="assets/images/create-offer/awarded.svg" alt="image" class="bid-awribon"> -->
+                      <img src="assets/images/create-offer/rejected.svg" alt="image" class="bid-awribon" *ngIf="false">
+                    </div>
+                  </ng-template>
+                </ng-template>
+               
+              </owl-carousel-o>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

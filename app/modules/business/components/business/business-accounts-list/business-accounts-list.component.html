@@ -1,0 +1,89 @@
+<app-loading-spinner loaderType="drops-fading" fullPage="false" loader="true" *ngIf="pageLoading" addBackDrop="true"
+  backDropColor="#000000" loadingMessage="Fetching Business Accounts! Please wait..."></app-loading-spinner>
+
+<div class="match-offer-bg gt-pt-20 addcomy-wrapper">
+  <div class="container">
+
+    <app-bread-crumb [breadcrumbs]="breadcrumb"> </app-bread-crumb>
+
+
+
+
+    <div class="gt-float-100 gt-mt-30 gt-mb-30">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-center-between my-baccount-add">
+            <h1 class="gt-fs-16 account-color">
+              My business accounts
+            </h1>
+            <div class="gt-center gt-btn-primary gt-border-radius-2
+                btpro-btn gt-fs-14 gt-height-48 bn-account bg-change-secondary dark-shadow border-none hfb-account
+              " (click)="businessAccountDialog()">
+              add new account
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngIf="allBusinessProfiles.length > 0">
+      <div class="gt-float-100 gt-mb-16">
+        <div class="row">
+          <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-xs-12 brp-col-50"
+            *ngFor="let businessProfile of allBusinessProfiles">
+            <div class="
+                gt-float-100                
+                gt-border-radius-2                
+                gt-bg-white  
+                gt-pb-20              
+                myacc-cardh gt-mb-20
+                biness-member-list 
+              ">
+              <div class="gt-float-100 business-member">
+                <div class="gt-float-100 gt-center gt-mt-20 image-earn">
+                  <img [src]="
+                      businessProfile.logoUrl
+                        ? businessProfile.logoUrl
+                        : defaultBusinessProfileImage
+                    " class="image-width-125 border-radius-100" [alt]="businessProfile.name" />
+                </div>
+
+                <div class="gt-float-100 gt-center gt-mt-10">
+                  <h2 class="gt-fs-15 gt-white" [ngClass]="{
+                      'gt-sky':
+                        businessProfile.profileVerificationStatus === true,
+                      'comyst-active': businessProfile.status === false
+                    }">
+                    {{
+                    businessProfile.profileVerificationStatus
+                    ? "Active"
+                    : "Under review"
+                    }}
+                  </h2>
+                </div>
+              </div>
+
+              <div class="gt-float-100 gt-cursor-pointer" (click)="
+                    openBusinessProfilePage(
+                      businessProfile.id,
+                      businessProfile.profileVerificationStatus,
+                      businessProfile.name
+                    )
+                  ">
+                <div class="gt-center gt-float-100 gt-mt-20 name-comy">
+                  <h1 class="gt-fs-16 gt-lightblack">
+                    {{ businessProfile.name }}
+                  </h1>
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+</div>

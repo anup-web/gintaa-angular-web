@@ -1,0 +1,186 @@
+<div class="gt-float-100 offers-accord">
+  <mat-accordion>
+    <mat-expansion-panel
+      [expanded]="step === 0"
+      (opened)="setStep(0)"
+      hideToggle
+    >
+      <mat-expansion-panel-header>
+        <div class="gt-float-100 gt-center-between header-tabd">
+          <div class="gt-vcenter">
+            <div
+              class="
+                gt-center
+                image-width-24
+                border-radius-100
+                gt-mr-10
+                tab-number
+              "
+            >
+              <h2 class="gt-fs-14 gt-sky">1</h2>
+            </div>
+            <h2 class="gt-fs-14 gt-mr-10 gt-lightblack tabg-title">
+              {{ basicInfoTitle }}
+            </h2>
+            <div class="all-right" *ngIf="sectionToggles.sectionAccordionTwo">
+              <span class="icon-gt-checkmark"></span>
+            </div>
+          </div>
+          <!-- <button type="submit" class="gt-btn-primary gt-border-radius-4 tab-edit"
+            *ngIf="sectionToggles.sectionAccordionTwo">
+            <h2 class="gt-fs-14 gt-sky tab-edith">edit</h2>
+          </button> -->
+        </div>
+      </mat-expansion-panel-header>
+      <ng-container *ngIf="step === 0">
+        <app-service-offer-info
+          *ngIf="isService; else item"
+        ></app-service-offer-info>
+        <ng-template #item>
+          <app-item-offer-info></app-item-offer-info>
+        </ng-template>
+      </ng-container>
+      <mat-action-row>
+        <button
+          mat-button
+          class="gt-btn-primary gt-center gt-border-radius-6 new-next"
+          (click)="nextStep()"
+          [ngClass]="{
+            'disable-offer-post': !sectionToggles.sectionAccordionOneButtonNext
+          }"
+          [disabled]="!sectionToggles.sectionAccordionOneButtonNext"
+        >
+          next
+        </button>
+      </mat-action-row>
+    </mat-expansion-panel>
+    <mat-expansion-panel
+      #panel
+      [expanded]="step === 1"
+      (opened)="setStep(1)"
+      [disabled]="!sectionToggles.sectionAccordionTwo"
+      hideToggle
+    >
+      <mat-expansion-panel-header>
+        <div class="gt-float-100 gt-center-between header-tabd">
+          <div class="gt-vcenter">
+            <div
+              class="
+                gt-center
+                image-width-24
+                border-radius-100
+                gt-mr-10
+                tab-number
+              "
+            >
+              <h2 class="gt-fs-14 gt-sky">2</h2>
+            </div>
+            <h2 class="gt-fs-14 gt-mr-10 gt-lightblack tabg-title">
+              Product attribute & tags
+            </h2>
+            <div class="all-right">
+              <span
+                class="icon-gt-checkmark"
+                *ngIf="sectionToggles.sectionAccordionThree"
+              ></span>
+            </div>
+          </div>
+          <!-- <button type="submit" class="gt-btn-primary gt-border-radius-4 tab-edit"
+            *ngIf="sectionToggles.sectionAccordionThree">
+            <h2 class="gt-fs-14 gt-sky tab-edith">edit</h2>
+          </button> -->
+        </div>
+      </mat-expansion-panel-header>
+      <app-new-offer-tags *ngIf="step === 1"></app-new-offer-tags>
+      <mat-action-row>
+        <button
+          mat-button
+          class="gt-btn-primary gt-center gt-border-radius-6 gt-mr-10 new-next"
+          (click)="prevStep()"
+          [ngClass]="{
+            'disable-offer-post': !sectionToggles.sectionAccordionTwoButtonPrev
+          }"
+          [disabled]="!sectionToggles.sectionAccordionTwoButtonPrev"
+        >
+          Previous
+        </button>
+        <button
+          mat-button
+          class="gt-btn-primary gt-center gt-border-radius-6 new-next"
+          (click)="nextStep()"
+          [ngClass]="{
+            'disable-offer-post': !sectionToggles.sectionAccordionTwoButtonNext
+          }"
+          [disabled]="!sectionToggles.sectionAccordionTwoButtonNext"
+        >
+          next
+        </button>
+      </mat-action-row>
+    </mat-expansion-panel>
+    <mat-expansion-panel
+      *ngIf="!isAuction && !hideDesireSection"
+      [expanded]="step === 2"
+      (opened)="setStep(2)"
+      [disabled]="!sectionToggles.sectionAccordionThree"
+      hideToggle
+    >
+      <mat-expansion-panel-header>
+        <div class="gt-float-100 gt-center-between header-tabd">
+          <div class="gt-vcenter">
+            <div
+              class="
+                gt-center
+                image-width-24
+                border-radius-100
+                gt-mr-10
+                tab-number
+              "
+            >
+              <h2 class="gt-fs-14 gt-sky">3</h2>
+            </div>
+            <h2 class="gt-fs-14 gt-mr-10 gt-lightblack tabg-title">
+              What I want in barter
+            </h2>
+            <div
+              class="all-right"
+              *ngIf="sectionToggles.sectionPostOfferButton"
+            >
+              <span class="icon-gt-checkmark"></span>
+            </div>
+          </div>
+          <!-- <button type="submit" class="gt-btn-primary gt-border-radius-4 tab-edit"
+            *ngIf="sectionToggles.sectionPostOfferButton">
+            <h2 class="gt-fs-14 gt-sky tab-edith">edit</h2>
+          </button> -->
+        </div>
+      </mat-expansion-panel-header>
+      <app-new-want-return *ngIf="step === 2"></app-new-want-return>
+      <mat-action-row>
+        <button
+          mat-button
+          class="gt-btn-primary gt-center gt-border-radius-6 gt-mr-10 new-next"
+          (click)="prevStep()"
+          [ngClass]="{
+            'disable-offer-post':
+              !sectionToggles.sectionAccordionThreeButtonPrev
+          }"
+          [disabled]="!sectionToggles.sectionAccordionThreeButtonPrev"
+        >
+          previous
+        </button>
+        <button
+          mat-button
+          class="gt-btn-primary gt-center gt-border-radius-6 new-next"
+          (click)="nextStep()"
+          [ngClass]="{
+            'disable-offer-post':
+              !sectionToggles.sectionAccordionThreeButtonNext
+          }"
+          [disabled]="!sectionToggles.sectionAccordionThreeButtonNext"
+        >
+          next
+        </button>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

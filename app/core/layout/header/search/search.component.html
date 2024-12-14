@@ -1,0 +1,56 @@
+<div class="gt-input-group search-wrapper">
+  <div class="input-group-btn search-panel">
+    <button type="button" class="btn btn-default dropdown-toggle all-btn" data-toggle="dropdown">
+      <span *ngIf="!isCategorySelected; else categorySelected">All</span>
+      <ng-template #categorySelected>
+        <span>{{selectedCategory}}</span>
+      </ng-template>
+      <span class="icon-expand_more gt-fs-22"></span>      
+    </button>
+    <ul class="dropdown-menu scrollable-dropdown" role="menu" *ngIf="(allCategories$ |  async) as allCategories">
+      <li *ngIf="isCategorySelected" (click)="isCategorySelected = false; selectedCategory = null;"><a>All</a></li>
+      <li *ngFor="let category of allCategories" [ngClass]="{'active': selectedCategory == category.name}"
+        (click)="selectCategory(category)">
+        <a>{{category.name}}</a>
+      </li>
+    </ul>
+  </div>
+  <input 
+    type="text" 
+    [formControl]="queryField" 
+    class="secondaryfm-control sr-custom" 
+    placeholder="Search" 
+    [matAutocomplete]="auto"
+    #trigger="matAutocompleteTrigger" 
+    (keyup.enter)="search(); trigger.closePanel()" 
+    (focus)="$event.stopPropagation();$event.preventDefault();fetchSearchHistory($event)"    
+    (click)="$event.stopPropagation();$event.preventDefault();fetchSearchHistory($event)"
+    (blur)="removeClass()" #searchInput />
+    <button class="sricon-btn" type="button" (click)="search()">
+      <!-- <img src="assets/images/search-icon.png" class="sr-icons" width="20" height="20" alt="icon" /> -->
+      <span class="icon-gt-search gt-fs-16 sr-icons"></span>      
+    </button>  
+</div>
+<mat-autocomplete #auto="matAutocomplete" (optionSelected)="optionSelected($event)" class="search-autocom">
+  <ng-container *ngIf="(filteredOptions$ | async) as filterResults">
+    <div class="gt-center-between gt-pt-16 gt-pd-lr-16 gt-pb-8 search-title" *ngIf="filterResults?.length">
+      <h2 class="gt-fs-15 gt-text-medium gt-lightblack">Last search results</h2>
+      <button type="button" class="gt-btn-primary gt-center-between gt-border-radius-8 search-canbtn" (click)="$event.stopPropagation();$event.preventDefault();clearAllResults($event)">
+        <h3 class="gt-fs-12 gt-text-medium gt-white">clear all</h3>
+        <span class="icon-clear"></span>
+      </button>
+    </div>
+    <mat-option *ngFor="let suggestion of filterResults | slice:0:7" #matOption [value]="suggestion">
+      <div class="gt-center-between history-sub" *ngIf="suggestion.searchText">
+        <div class="history-text">{{suggestion.searchText.trim()}}</div>       
+      </div>
+      <div class="sugg-main" *ngIf="suggestion.title">
+        <div class="suggest-part">
+          <div class="gt-float-100 search-res">            
+              <h4>{{ suggestion.title }}</h4>         
+          </div>
+        </div>
+      </div>
+    </mat-option>
+  </ng-container>
+</mat-autocomplete>

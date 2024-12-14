@@ -1,0 +1,165 @@
+
+
+<div class="block-cuser" *ngIf="chatService.loggedInUserAllStatus?.alreadyCallerHasBlockUser || chatService.loggedInUserAllStatus?.alreadyCallerIsBlockedByUser">
+     <div class="gt-float-100 gt-center gt-mb-5 gt-text-center yhb-block">
+        <h2 class="gt-fs-13 gt-danger gt-text-medium" *ngIf="chatService.loggedInUserAllStatus?.alreadyCallerHasBlockUser">You’ve blocked this contact</h2>
+        <h2 class="gt-fs-13 gt-danger gt-text-medium" *ngIf="chatService.loggedInUserAllStatus?.alreadyCallerIsBlockedByUser">You’ve been blocked by this contact</h2>
+    </div>
+     <div class="gt-float-100 gt-center gt-text-center yun-block" *ngIf="chatService.loggedInUserAllStatus?.alreadyCallerHasBlockUser" (click)="unBlockChat()">
+        <button class="gt-btn-primary gt-btn-outline gt-border-secondary gt-border-radius-8 gt-center blk-btn">      
+                 <h2 class="gt-fs-13 gt-text-medium">Unblock</h2>
+       </button>
+     </div>
+</div>
+
+<div class="gt-float-100 chat-input-msg" *ngIf="!chatService.loggedInUserAllStatus?.alreadyCallerHasBlockUser && !chatService.loggedInUserAllStatus?.alreadyCallerIsBlockedByUser">
+
+    <div class="msg-chat-left" [ngClass]="isVoiceRecordStarted? 'disabled':''">
+        <div class="gt-center gt-cursor-pointer emoji-chat" (click)="showEmoji();">
+            <span class="material-icons gt-fs-26 ftchat-icolor">sentiment_satisfied_alt</span>
+        </div>
+    </div>
+     <!-- <div class="type-massage" *ngIf="isTyping">
+        <h2 class="gt-fs-16 gt-text-medium dcolor-primary">typing...</h2>
+    </div>  -->
+
+    
+    <emoji-mart  [hidden]="!isShowEmojis" (emojiClick)="addEmoji($event)" [enableSearch]="false" [showPreview]="false"></emoji-mart>
+
+    <div class="msg-chat-middle" [ngClass]="isVoiceRecordStarted? 'disabled':''">
+        <div class="gt-width-100 currency-group chat-input-msg">
+            <div class="currency-input-group bg-change">
+                <input type="text" 
+                class="currency-form-control dcolor-secondary bg-change" 
+                placeholder="Type your message" 
+                #message 
+                (keyup.enter)="sendMessage()"
+                (click)="isShowEmojis=false"
+                />
+
+                <div class="currency-input-group-append" *ngIf="message.value.trim().length>0">
+                    <div class="currency-input-group-text">
+                        <div class="gps-fixed gt-cursor-pointer" (click)="sendMessage()">
+                            <img src="assets/images/chat/chat-send.svg" class="send-btn" alt="block-icons" width="22"
+                                height="22" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="msg-chat-right"> 
+        <div class="dropdown chath-drop" *ngIf="!isVoiceRecordStarted">
+            <button class="dropdown-toggles custom-toggles" type="button"  data-toggle="dropdown">
+                <span class="material-icons ftchat-icolor cfile-attach">attach_file</span>
+            </button>
+            <div class="dropdown-menu chat-dropdown">
+                <div class="ft-attach-manu">
+                    <form #imageUploadForm>
+                        <input type="file" #imageUpload name="imageUpload"  accept="image/*" multiple style="display:none;"/>
+                        <button class="chat-item" (click)="uploadChatImage()">
+                            <h2 class="gt-fs-14 gt-lightgrayish gt-text-medium">Photo</h2> 
+                        </button>
+                    </form>
+                    <form #videoUploadForm>
+                        <input type="file" #videoUpload name="videoUpload"  accept="video/*" multiple style="display:none;"/>
+                        <button class="chat-item" (click)="uploadChatVideo()">
+                           <div class="gt-vcenter">
+                            <h2 class="gt-fs-14 gt-lightgrayish gt-text-medium">Video</h2>                          
+                           </div>                        
+                        </button>
+                    </form>  
+                    <form #documentUploadForm>
+                        <input type="file" #documentUpload name="documentUpload"  accept="application/*,audio/*" multiple style="display:none;"/>  
+                    <button class="chat-item" (click)="uploadDocument(({fileType: 'AUDIO'}))">                   
+                            <h2 class="gt-fs-14 gt-lightgrayish gt-text-medium">Audio</h2> 
+                        </button>    
+                    <button class="chat-item" (click)="uploadDocument({fileType: 'FILE'})">                   
+                            <h2 class="gt-fs-14 gt-lightgrayish gt-text-medium">File from OS</h2>
+                        </button>
+                    </form>        
+                    <button class="chat-item" (click)="attachOffer()">                        
+                         <h2 class="gt-fs-14 gt-lightgrayish gt-text-medium">Listing</h2>       
+                    </button>    
+                </div>
+            </div>
+          </div>  
+          
+          
+
+
+
+          
+        <!-- <div class="reply-menu att-menu" *ngIf="!isVoiceRecordStarted">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+                <span class="material-icons ftchat-icolor cfile-attach">attach_file</span>
+            </button>
+            <mat-menu #menu="matMenu" class="ft-attach-manu">
+                <form #imageUploadForm>
+                    <input type="file" #imageUpload name="imageUpload"  accept="image/*" multiple style="display:none;"/>
+                    <button mat-menu-item (click)="uploadChatImage()">
+                        <h2 class="gt-fs-15 gt-lightgrayish gt-text-medium">Photo</h2> 
+                    </button>
+                </form>
+                <form #videoUploadForm>
+                    <input type="file" #videoUpload name="videoUpload"  accept="video/*" multiple style="display:none;"/>
+                    <button mat-menu-item (click)="uploadChatVideo()">
+                       <div class="gt-vcenter">
+                        <h2 class="gt-fs-15 gt-lightgrayish gt-text-medium">Video</h2>                          
+                       </div>                        
+                    </button>
+                </form>  
+                <form #documentUploadForm>
+                    <input type="file" #documentUpload name="documentUpload"  accept="application/*,audio/*" multiple style="display:none;"/>  
+                <button mat-menu-item (click)="uploadDocument(({fileType: 'AUDIO'}))">                   
+                        <h2 class="gt-fs-15 gt-lightgrayish gt-text-medium">Audio</h2> 
+                    </button>    
+                <button mat-menu-item (click)="uploadDocument({fileType: 'FILE'})">                   
+                        <h2 class="gt-fs-15 gt-lightgrayish gt-text-medium">File from OS</h2>
+                    </button>
+                </form>        
+                <button mat-menu-item (click)="attachOffer()">                        
+                     <h2 class="gt-fs-15 gt-lightgrayish gt-text-medium">Offer</h2>       
+                </button>    
+            </mat-menu>
+        </div> -->
+        <div class="gt-ml-10 audio-chat" *ngIf="message.value.length==0 && !isVoiceRecordStarted">
+            <!-- <div class="audio-rcancel" *ngIf="isVoiceRecordStarted" (click)="cancelRecording()">
+                <span class="material-icons"> clear </span>
+            </div>
+            <div class="audio-record">
+                <div class="record-blink"></div>
+                <div class="record-timing">{{getTime()}}</div>
+           </div>
+            
+            <span class="material-icons-outlined" *ngIf="isVoiceRecordStarted" (click)="stopRecording()">
+                done
+            </span> -->
+            <span class="material-icons-outlined gt-fs-27 gt-cursor-pointer ftchat-icolor"  (click)="startRecording()">keyboard_voice</span>
+        </div>
+        
+        <div class="audio-voicer" *ngIf="isVoiceRecordStarted">
+              <div class="audio-rcancel"  (click)="cancelRecording()">
+                <span class="material-icons"> clear </span>
+              </div>
+              <div class="audio-record">
+                   <div class="record-blink"></div>
+                   <div class="record-timing">{{getTime()}}</div>
+              </div>
+              <div class="audio-send" (click)="stopRecording()">
+                <span class="material-icons">done</span>
+                    
+              </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+ 

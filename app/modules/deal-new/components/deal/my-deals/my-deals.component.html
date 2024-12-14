@@ -1,0 +1,41 @@
+
+<div
+  class="deal-offer-bg gt-pt-20 gt-pd-lr-20 rp-deal-slist"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollUpDistance]="1.5"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScrollDown()"
+>
+  <div class="container-fluid">
+    <div class="gt-float-100">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100">
+            <app-bread-crumb [breadcrumbs]="breadcrumb" (onClickBreadCrumb)="refreshLink()"> </app-bread-crumb>
+          </div>
+        </div>
+        </div>  
+
+        <div class="gt-float-100 gt-mt-20">
+            <div class="row-custom">
+              <div class="col-left-custom" *ngIf="screenWidth > 767">
+                   <app-my-deal-search (updateFilter)="updateFilter()" [searchForm]="searchForm" [search]="search" [onlyFavourite]="onlyFavourite" (updateFavourite)="updateFavourite($event)" ></app-my-deal-search>
+              </div>
+              <div class="col-right-custom">
+                   <app-my-deal-list (navigateToDealDetails)="navigateToDealDetails($event)"
+                   (navigateToOffer)="navigateToOffer($event)" (addToFavourite)="addToFavourite($event)" [favDealRefId]="favDealRefId" (updateSortBy)="updateSortBy($event)" [sortBy]="sortBy" [isPageLoading]="isPageLoading" [deals]="deals"></app-my-deal-list>
+              </div>
+            </div>
+        </div>
+  </div>
+</div>
+
+</div>
+
+<div class="gt-center mob-filter" *ngIf="screenWidth < 767">     
+     <h2 class="gt-fs-16 gt-text-medium gt-cursor-pointer gt-lightgrayish" (click)="openFilterModal()" *ngIf="!modalOpend else closeModalSec">FILTER</h2>
+    <ng-template #closeModalSec>
+      <h2 class="gt-fs-16 gt-text-medium gt-cursor-pointer gt-lightgrayish" (click)="closeModal()">cancel</h2>
+    </ng-template>
+</div>

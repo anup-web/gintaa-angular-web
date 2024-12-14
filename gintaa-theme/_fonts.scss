@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'Gilroy', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-display: swap;    
+  src: local('Gilroy', sans-serif), 
+       url('./fonts/Gilroy-Regular.ttf') format('truetype'),
+       url('./fonts/Gilroy-Medium.ttf') format('truetype'),
+       url('./fonts/Gilroy-Light.ttf') format('truetype'),
+       url('./fonts/Gilroy-Bold.ttf') format('truetype'),
+       url('./fonts/Gilroy-ExtraBold.otf') format('OpenType'),
+       url('./fonts/Gilroy-Heavy.ttf') format('truetype'),
+       url('./fonts/Gilroy-Black.ttf') format('truetype'),
+       url('./fonts/Gilroy-BlackItalic.ttf') format('truetype'),
+       url('./fonts/Gilroy-BoldItalic.ttf') format('truetype')       
+}
+
+  @font-face {
+    font-family: 'DM Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;    
+    src: local('DM Sans', sans-serif), 
+         url('./fonts/DMSans-Regular.ttf') format('truetype'),
+         url('./fonts/DMSans-MediumItalic.ttf') format('truetype'),
+         url('./fonts/DMSans-Medium.ttf') format('truetype'),
+         url('./fonts/DMSans-Italic.ttf') format('truetype'),
+         url('./fonts/DMSans-BoldItalic.ttf') format('truetype'),
+         url('./fonts/DMSans-Bold.ttf') format('truetype')
+}
+
+
+@font-face {
+    font-family: 'Poppins', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;    
+    src: local('Poppins', sans-serif),
+        url('./fonts/Poppins-Black.ttf') format('truetype'),
+        url('./fonts/Poppins-BlackItalic.ttf') format('truetype'),  
+        url('./fonts/Poppins-Bold.ttf') format('truetype'),
+        url('./fonts/Poppins-BoldItalic.ttf') format('truetype'),
+        url('./fonts/Poppins-ExtraBold.ttf') format('truetype'),      
+        url('./fonts/Poppins-ExtraBoldItalic.ttf') format('truetype'),
+        url('./fonts/Poppins-ExtraLight.ttf') format('truetype'),
+        url('./fonts/Poppins-ExtraLightItalic.ttf') format('truetype'),
+        url('./fonts/Poppins-Italic.ttf') format('truetype'),
+        url('./fonts/Poppins-Light.ttf') format('truetype'),
+        url('./fonts/Poppins-LightItalic.ttf') format('truetype'),
+        url('./fonts/Poppins-Medium.ttf') format('truetype'),
+        url('./fonts/Poppins-MediumItalic.ttf') format('truetype'),
+        url('./fonts/Poppins-Regular.ttf') format('truetype'),
+        url('./fonts/Poppins-SemiBold.ttf') format('truetype'),
+        url('./fonts/Poppins-SemiBoldItalic.ttf') format('truetype'),
+        url('./fonts/Poppins-Thin.ttf') format('truetype'),
+        url('./fonts/Poppins-ThinItalic.ttf') format('truetype')
+}
+
+@font-face {
+    font-family: $roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;   
+    src: local('Roboto Bold'), local('Roboto-Bold'),
+        url('./fonts/Roboto-Regular.ttf') format('truetype'),
+        url('./fonts/Roboto-Medium.ttf') format('truetype'),   
+        url('./fonts/Roboto-Bold.ttf') format('truetype')     
+}
+
+

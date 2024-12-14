@@ -1,0 +1,18 @@
+<div class="gt-float-100 gt-pt-22 gt-pb-15 match-box-bg">
+    <div class="container">
+        <div class="gt-float-100">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="gt-float-100 gt-center-between match-box">
+                        <div class="gt-float-left gt-vcenter match-box-primary">                            
+                            <h2 class="gt-fs-18 gt-black dcolor-primary">My Matches</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-unauth-match-offers *ngIf="!isAuthenticated()"></app-unauth-match-offers>
+    <app-auth-match-offers *ngIf="isAuthenticated()"></app-auth-match-offers>
+
+</div>

@@ -1,0 +1,42 @@
+<div class="deal-offer-bg gt-pt-20">
+    <div class="container">
+      <!-- bread-crumbs part start -->
+      <div class="gt-float-100">
+        <div class="row">
+          <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <app-bread-crumb> </app-bread-crumb>
+            <!-- bread-crumbs part end -->
+            <div class="gt-float-100 gt-mt-40">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <nav class="gt-pb-40 deal-nav">
+                    <div class="nav nav-tabs nav-fill custom-tabs" id="nav-tab" role="tablist">
+                      <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" role="tab"
+                        aria-controls="nav-home" aria-selected="true" href="#nav-home">Accepted</a>              
+                      
+                      <a class="nav-item nav-link" id="nav-about-tab" data-toggle="tab" role="tab"
+                        aria-controls="nav-about" aria-selected="false" href="#nav-about">Closed</a>
+                      
+                    </div>
+                  </nav>
+                  <div class="tab-content tab-content-custom" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                         <app-wallet-accept></app-wallet-accept>
+                    </div> 
+                    
+                    <div class="tab-pane fade" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                         <app-wallet-close></app-wallet-close>
+                    </div>
+                    
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

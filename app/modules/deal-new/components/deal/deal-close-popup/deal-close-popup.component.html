@@ -1,0 +1,7 @@
+<app-close-otp (closeModel)="closeModel($event)" [dealRefNo]="dealRefNo" [closeStep]="closeStep" *ngIf="closeStep=='optpopup' || closeStep=='optpopupshow'" [showOtp]="showOtp"></app-close-otp>
+<app-close-cancel *ngIf="closeStep=='PARTIAL_CLOSED'" [dealRefNo]="dealRefNo" (closeModel)="closeModel()"></app-close-cancel>
+<app-user-feedback *ngIf="closeStep=='RATE_USER'" [dealRefNo]="dealRefNo" (closeModel)="closeModel($event)" [closeDeal]="closeDeal" [identityId]="identityId"></app-user-feedback >
+<app-gintaa-feedback *ngIf="closeStep=='GINTAA_USER'" [dealRefNo]="dealRefNo" (closeModel)="closeModel()"></app-gintaa-feedback >
+<app-close-succesfull *ngIf="closeStep=='CLOSED'" [dealRefNo]="dealRefNo" (closeModel)="closeModel()" (rateDeal)="rateDeal()"></app-close-succesfull>
+<app-abondon-deal *ngIf="closeStep=='ABANDON'" [dealRefNo]="dealRefNo" (closeModel)="closeModel('abandon')" [closeStep]="closeStep" ></app-abondon-deal>
+<app-abondon-deal *ngIf="closeStep=='REPORT'" [dealRefNo]="dealRefNo" (closeModel)="closeModel('abandon')" [closeStep]="closeStep"></app-abondon-deal>

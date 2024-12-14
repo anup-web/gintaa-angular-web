@@ -1,0 +1,105 @@
+<div class="business-offer-wrappers gt-pb-zero gt-pt-20" *ngIf="currentBusinessDetails">
+  
+
+  <div class="container">
+
+    <div class="gt-float-100" *ngIf="!businessUrlSlug">
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100">
+            <div class="
+                gt-vcenter gt-border-radius-12 gt-pd-lr-12 gt-cursor-pointer gt-float-left
+                back-bg
+              ">
+              <span class="material-icons gt-fs-19 gt-mr-6 gt-lightgrayish ml-left">karrow_back</span>
+              <h2 class="gt-fs-16 gt-text-medium gt-lightgrayish" [routerLink]="['/my-listings']">
+                Back to the listings page
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-16">
+      <div class="row">
+        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 co-xs-12">
+          <app-company-profile-details 
+            *ngIf="currentBusinessDetails" 
+            [business]="currentBusinessDetails" 
+            [totalOfferCount]="currentBusinessOfers.length">
+          </app-company-profile-details>
+        </div>
+        <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 co-xs-12">
+          <div class="gt-float-100 offersh-topbs">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 gt-vcenter boffgt-yu">
+                  <div class="gt-float-left gt-vcenter">
+                    <h2 class="gt-fs-18 gt-lightblack gt-font-poppins dcolor-primary">
+                      Listings 
+                    </h2>
+                  </div>
+
+                  <div class="gt-ml-51 lserch-hash">
+                    <div class="currency-group match-box-shadow gt-border-radius-12 ">
+                      <div class="currency-input-group gt-border-radius-12 gt-border-none ldris-serch">
+                        <input type="text" class="gt-border-radius-12 currency-form-control"
+                          placeholder="Search by listings name or member name"
+                          (keyup)="filterWithOfferName($event.target.value)" />
+                        <div class="currency-input-group-append">
+                          <div class="gt-cursor-pointer currency-input-group-text">
+                            <img src="assets/images/search-icon.png" width="20" height="20" alt="icon"
+                              class="ser-icons" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                 
+                  <div class="gt-vcenter gl-grouph">
+                  <div class="gt-ml-25 show-all hyr-eps">
+                    <button type="submit" class="gt-btn-primary gt-center gt-height-52 gt-wh-btn
+                        lshow-all bg-change-secondary dark-shadow border-none">
+                      view all
+                      <span class="count">({{ currentBusinessOfers.length }})</span>
+                    </button>
+                  </div>
+
+                  <div class="gt-ml-25 gt-center gt-cursor-pointer gt-border-radius-2
+                      image-width-40 gt-mr-17 list-btn hyup-gh
+                    " (click)="selectedView = 'LIST'" [ngClass]="{ 'active-grid': selectedView == 'LIST' }"
+                    title="Switch to list view">
+                    <span class="material-icons gt-fs-30">grid_view</span>
+                  </div>
+
+                  <div class="gt-center gt-cursor-pointer gt-border-radius-2 image-width-40
+                      grid-btn active-grid ghjgt-ry
+                    " (click)="selectedView = 'GRID'" [ngClass]="{ 'active-grid': selectedView == 'GRID' }"
+                    title="Switch to grid view">
+                    <span class="material-icons gt-fs-30">view_list</span>
+                  </div>
+                 </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        
+          <app-company-offers [offers]="filteredBusinessOfers" *ngIf="selectedView === 'LIST'" showUser="true">
+          </app-company-offers>
+
+          <app-list-view-offers [offers]="filteredBusinessOfers" *ngIf="selectedView === 'GRID'" showUser="true">
+          </app-list-view-offers>
+
+         
+          <app-company-deal-comments *ngIf="dealRatings.length" (navigateToFeedbackList)="navigateToFeedbackList()"
+            [userId]="currentBusinessId" [ratings]="dealRatings" title="Deal Comments"></app-company-deal-comments>
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

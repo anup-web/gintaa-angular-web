@@ -1,0 +1,84 @@
+<div class="gt-float-100 gintaa-junction">
+  <div class="gt-float-100 gt-pd-lr-12 gt-mt-32">
+    <h1 class="gt-lightgrayish gt-fs-15 gt-text-medium store-title dcolor-primary">
+      Choose gintaa store
+    </h1>
+  </div>
+  <div class="gt-float-100 gt-pd-lr-12 gt-mt-10 store-map" >
+    <agm-map [latitude]="getMapLat()" [longitude]="getMapLng()" [zoom]="getZoom()" (mapClick)="mapClicked($event)">
+      <agm-marker *ngFor="let m of mapMarkers" [latitude]="m.lat" [longitude]="m.lng" [label]="m.label" [title]="m.name"
+        [markerDraggable]="m.draggable">
+        <agm-info-window [isOpen]="isInfoWindowOpen(m.id)">
+          <strong style="color: #000000">{{ m.name }}</strong>
+        </agm-info-window>
+      </agm-marker>
+
+      <agm-direction *ngIf="showMapDirection" [origin]="origin" [destination]="destination" [travelMode]="travelMode">
+      </agm-direction>
+    </agm-map>
+  </div>
+
+  <div class="gt-float-100 gt-pd-lr-40">
+    <app-store-slider *ngIf="gintaJunctions && gintaJunctions.length > 0; else noJunctionsBlock" [gintaJunctions]="gintaJunctions" [selectedGintaaJunctionId]="selectedGintaaJunctionId" (setJunctionDetails)="setJunctionDetailsUpdate($event)" [currentdate]="selectedDate"></app-store-slider>
+    <ng-template #noJunctionsBlock>
+      <h2 class="gt-primary gt-fs-16 gt-pd-tb-20 gt-text-center no-junctions-available">
+        No junctions are available now
+      </h2>
+    </ng-template>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 gt-mb-24">
+      <div class="gt-text-danger" *ngIf="gintaaJunctionValidator.gintaaJunctionId.invalid" @fadeIn>
+        <div class="error">{{ gintaaJunctionValidator.gintaaJunctionId.error }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="gt-float-100 gt-pd-lr-12 gt-mt-20">
+    <h2 class="gt-lightblack gt-fs-14 gt-text-medium dcolor-primary">Suggest meeting time</h2>
+  </div>
+
+  <div class="gt-float-100 gt-mt-10 gt-pd-lr-12 gt-display-flex store-date-time">
+    <div class="gt-store-272 store-date">
+      <div class="gt-float-100 gt-mb-4 date-birth-custom">
+        <h2 class="gt-fs-14 gt-lightblack dcolor-primary">Date</h2>
+      </div>
+      <div class="dob-date-select gt-float-100 pro-date-select">
+        <mat-form-field class="example-full-width">
+          <input matInput [matDatepicker]="picker" [value]="initialMeetingDate" [min]="minimumDate"
+            (dateChange)="updateMeetingDate($event)" />
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <button class="gt-btn-primary date-pro-btn g-center" (click)="picker.open()">
+          <img src="assets/images/profile/date-icon-wh.svg" width="20" height="22" alt="icon"
+            class="gt-img-responsive" />
+        </button>
+      </div>
+      <div class="gt-float-100 gt-mb-8 date-birth-custom">
+        <div class="gt-text-danger" *ngIf="gintaaJunctionValidator.meetingDate.invalid" @fadeIn>
+          <div class="error">{{ gintaaJunctionValidator.meetingDate.error }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="gt-ml-37 store-time">
+      <div class="gt-float-100 gt-mb-4 date-birth-custom">
+        <h2 class="gt-fs-14 gt-lightblack dcolor-primary">Time</h2>
+      </div>
+      <div class="time-list-primary time-list-primarys">
+        <div class="time-list-primary">
+          <input class="time-box" [value]="initialMeetingTime" [min]="initialMeetingTime"  [(ngModel)]="initialMeetingTime" matTimepicker mode="12h" placeholder="select time..."
+              (timeChange)="updateMeetingTime($event)" id="gintaaTime">
+      </div>
+        <!-- <input class="time-box gt-time-107 time-picker-custom" [ngxTimepicker]="fullTime" [format]="24" readonly />
+        <ngx-material-timepicker (timeSet)="updateMeetingTime($event)" #fullTime></ngx-material-timepicker> -->
+      </div>
+      <div class="gt-float-100 gt-mb-8 date-birth-custom">
+        <div class="gt-text-danger" *ngIf="timeSelectionError">
+          <div class="error">{{ timeSelectionError }}</div>
+        </div>
+        <div class="gt-text-danger" *ngIf="gintaaJunctionValidator.meetingEndTime.invalid" @fadeIn>
+          <div class="error">{{ gintaaJunctionValidator.meetingEndTime.error }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

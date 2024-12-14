@@ -1,0 +1,80 @@
+<div class="gt-mt-40 gt-float-100 list-offer-wrapper" *ngIf="offers.length" @fadeIn>
+  <div class="gt-float-100 gt-mb-30" *ngFor="let offer of offers">
+    <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 co-xs-12">
+        <div class="list-view-card">
+          <div
+            class="list-view-left"
+            [routerLink]="['/offer/' + offer.offerId]"
+          >
+            <div class="loffer-card-img">
+              <div class="loffer-img max-height-img-194">
+                <img
+                  [src]="offer.image"
+                  [alt]="offer.name"
+                  class="gt-img-responsive"
+                />
+              </div>
+              <div class="offerl-location">
+                <h2 class="gt-center">{{ offer.location }}</h2>
+              </div>
+            </div>
+          </div>
+          <div
+            class="list-view-middle"
+            >
+            <div class="gt-float-100 gt-pd-lr-20 offerl-details" 
+              [routerLink]="['/offer/' + offer.offerId]">
+              <div
+                class="gt-float-100 gt-mt-19 offrel-name gt-ellipsis"
+                ellipsis
+              >
+                <h2>{{ offer.name }}</h2>
+              </div>
+
+              <div class="gt-vcenter gt-float-100 gt-mt-16 loffer-desire">
+                <img
+                  src="assets/images/create-offer/desire-icon.svg"
+                  alt="image"
+                  class="tags-imgoff"
+                />
+                <h3 class="gt-ml-9">{{ offer.tag }}</h3>
+              </div>
+
+              <div class="gt-float-100 gt-mt-18 offerl-des">
+                <h4>
+                  {{ offer.desc }}
+                </h4>
+              </div>
+            </div>
+          </div>
+          <div class="list-view-right">
+            <div class="offer-right">
+              <div class="gt-float-left gt-mt-24 offer-lcount">
+                <div class="gt-vcenter tag-offer">
+                  <img
+                    src="assets/images/create-offer/lcompare.svg"
+                    alt="image"
+                    class="tag-imgoff"
+                  />
+                  <span>02</span>
+                </div>
+              </div>
+
+              <div class="gt-float-100 gt-mt-85 Deleg-offer">
+                <button
+                  type="button"
+                  role="button"
+                  class="gt-center Delegate-btn"
+                  (click)="openAssignModal(offer.offerId, offer.business.businessId)"
+                  >
+                  <h2>assign</h2>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

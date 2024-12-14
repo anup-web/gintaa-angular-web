@@ -1,0 +1,28 @@
+<ng-container *ngIf="size else smallSec">
+    <ng-container *ngIf="editProfile else profileSec">
+        <img [src]="imageUrl" class="com-res edit-profiles" [alt]="userName" [width]="size" [height]="size" *ngIf="imageUrl else avatarSec1" />
+        <ng-template #avatarSec1>
+            <img [src]="userNoImage" class="com-res edit-profiles" [alt]="userName" [width]="size" [height]="size" />
+        </ng-template>
+    </ng-container>
+    <ng-template #profileSec>
+        <ng-container *ngIf="size == '40' else profileSec2">
+            <img [src]="imageUrl" class="com-res" [alt]="userName" [width]="size" [height]="size" *ngIf="imageUrl else avatarSec3" />
+            <ng-template #avatarSec3>
+                <img [src]="userNoImage" class="com-res" [alt]="userName" [width]="size" [height]="size" />
+            </ng-template>
+        </ng-container>
+        <ng-template #profileSec2>
+            <img [src]="imageUrl" class="com-res" [alt]="userName" [width]="size" [height]="size" *ngIf="imageUrl else avatarSec2" />
+            <ng-template #avatarSec2>
+                <img [src]="userNoImage" class="com-res" [alt]="userName" [width]="size" [height]="size" />
+            </ng-template>
+        </ng-template>
+    </ng-template>
+</ng-container>
+<ng-template #smallSec>    
+    <img [src]="imageUrl" class="com-res" width="40" height="40" *ngIf="imageUrl else avatarSec" />
+    <ng-template #avatarSec>
+        <img [src]="userNoImage" class="com-res" width="40" height="40" />
+    </ng-template>
+</ng-template>

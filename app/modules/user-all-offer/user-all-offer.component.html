@@ -1,0 +1,47 @@
+<div class="deal-offer-bg gt-pt-20 viewall-wrapper" infiniteScroll [infiniteScrollDistance]="2"
+    [infiniteScrollUpDistance]="1.5" [infiniteScrollThrottle]="150" (scrolled)="onScrollDown()">
+    <div class="gt-float-100 viewall-offers">
+        
+        <div class="container">
+            <app-bread-crumb [breadcrumbs]="breadcrumb"> </app-bread-crumb>
+        </div>
+        <div class="gt-float-100 gt-mt-20 gvu-top">
+            <div class="container">
+                <div class="gt-float-100">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 co-xs-12">
+                            <div class="gt-float-100 gt-center-between recom-offer">
+                                <div class="gt-float-left gt-vcenter recom-offer-primary">
+                                    <h2 class="gt-fs-19 gt-lightblack gt-text-medium reuse-title dcolor-primary">
+                                        {{ currentSectionConfig.title }}
+                                    </h2>
+                                </div>
+                                <div class="gt-float-right recom-offer-secondary" *ngIf="currentSectionConfig.items.length > 1">
+                                    <button type="submit" class="gt-btn-primary gt-center gt-wh-btn gt-text-lowercase reuse-showall dark-shadow
+                                    bg-change-secondary" (click)="getBackButtonMsg($event)">
+                                        {{ currentSectionConfig.actionButton.label }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gt-float-100 gt-mt-20 gup-rp">
+                    <div class="row" *ngIf="currentSectionConfig.items.length">
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12" *ngFor="let item of currentSectionConfig.items">
+                            <div class="gt-float-100 offer-view-all">
+                                <app-offer-card-default [offer]="item" from="gridView">
+                                </app-offer-card-default>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" *ngIf="currentSectionConfig.items.length === 0">
+                        <div class="col-lg-12 col-md-12 col-sm-12">
+                            <h3>No records found...</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

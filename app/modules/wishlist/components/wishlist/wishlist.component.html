@@ -1,0 +1,641 @@
+<div class="wishlist-offer-bg gt-pt-20">
+
+    <div class="container">
+        <!-- bread-crumbs part start -->
+        <div class="gt-float-100">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100">
+                        <div class="gt-float-left gt-display-flex bredcum-title">
+                            <div class="brdcum-icon">
+                                <img src="assets/images/breadcum-home-icon.svg" alt="icon" width="20" height="22"
+                                    class="gt-img-responsive" />
+                            </div>
+                            <ul class="gt-display-flex bredcum-nav">
+                                <li>
+                                    <span class="material-icons">navigate_next</span>
+                                    <div class="brelink">
+                                        <a routerLink="/wishlist">My wishlist</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <app-add-edit-wishlist (newOfferItem)="addNewWishlist($event)"></app-add-edit-wishlist>
+        
+        <app-wishlist-items [wishlist]="wishlist"></app-wishlist-items>
+
+        <!-- ---------- Start Wishlist items ---------- -->
+        
+<!-- 
+        <div class="gt-float-100 gt-mt-15">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="gt-float-100 gt-center-between wish-main">
+                        <div class="gt-width-100 gt-vcenter wish-primary">
+                            <div class="tags-wish">
+                                <div class="gt-vcenter gt-border-radius-8 wish-tag">
+                                    <h1 class="gt-fs-16 gt-text-medium gt-white">Laptop Apple 124GB Gray 16’ </h1>
+                                    <span
+                                        class="material-icons gt-fs-18 gt-white gt-ml-10 gt-cursor-pointer">close</span>
+                                </div>
+                            </div>
+                            <div class="gt-ml-16 wsh-edit">
+                                <div class="gt-border-radius-8 gt-bg-white image-width-48 gt-center gt-cursor-pointer ditwish" (click)="wishOfferDialog()">
+                                    <img src="assets/images/wishlist/edit-wish.svg" class="wish-edit" width="22"
+                                        height="22" alt="image" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gt-float-right wish-secondary">
+                            <button type="submit" class="gt-btn-primary gt-center gt-wh-btn gt-text-semi-bold gt-whbtn wish-showall-rp">
+                                show all </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="gt-float-100 gt-mt-36 match-border gt-mb-8 match-offers">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img">
+                                <img src="assets/images/create-offer/uplaod-default-img.png" class="gt-img-responsive"
+                                    alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                <div class="match-delete">
+                                    <span class="material-icons">clear</span>
+                                </div>
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>Captain Coons Watches</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img">
+                                <img src="assets/pro/14.jpg" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                <div class="match-delete">
+                                    <span class="material-icons">clear</span>
+                                </div>
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>Coach Tabby 26 for sale</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img">
+                                <img src="assets/pro/15.jpg" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                <div class="match-delete">
+                                    <span class="material-icons">clear</span>
+                                </div>
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>Gopro hero 7 (with receipt)</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img">
+                                <img src="assets/pro/30.jpg" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                <div class="match-delete">
+                                    <span class="material-icons">clear</span>
+                                </div>
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>iPad Pro 2017 Model</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img">
+                                <img src="assets/pro/30.jpg" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                <div class="match-delete">
+                                    <span class="material-icons">clear</span>
+                                </div>
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>iPad Pro 2017 Model</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img">
+                                <img src="assets/pro/30.jpg" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                <div class="match-delete">
+                                    <span class="material-icons">clear</span>
+                                </div>
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>iPad Pro 2017 Model</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img">
+                                <img src="assets/pro/30.jpg" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                <div class="match-delete">
+                                    <span class="material-icons">clear</span>
+                                </div>
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>iPad Pro 2017 Model</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img">
+                                <img src="assets/pro/30.jpg" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                <div class="match-delete">
+                                    <span class="material-icons">clear</span>
+                                </div>
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>iPad Pro 2017 Model</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+         -->
+
+        <!-- ---------- End Wishlist items ---------- -->
+
+
+
+        <!-- <div class="gt-float-100 gt-pt-100 gt-pb-100">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100 gt-center">
+                        <img src="assets/images/wishlist/tag-wishempty.svg" class="empty-offer" alt="image" width="313"
+                            height="255" />
+                    </div>
+                    <div class="gt-float-100 gt-center gt-text-center gt-mt-50 ">
+                        <h1 class="gt-lightblack gt-fs-16 gt-width-402">There are no offers relative to your wish. You will notified when such offers will appear</h1>
+                    </div>                    
+                </div>
+            </div>
+        </div>  -->
+
+        <!-- ---------- Start Wishlist items ---------- -->
+        
+<!--         
+        <div class="gt-float-100 gt-mt-22">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="gt-float-100 gt-center-between wish-main">
+                        <div class="gt-width-100 gt-vcenter wish-primary">
+                            <div class="tags-wish">
+                                <div class="gt-vcenter gt-border-radius-8 wish-tag">
+                                    <h1 class="gt-fs-16 gt-text-medium gt-white">Bycycle Desna</h1>
+                                    <span
+                                        class="material-icons gt-fs-18 gt-white gt-ml-10 gt-cursor-pointer">close</span>
+                                </div>
+                            </div>
+                            <div class="gt-ml-16 wsh-edit">
+                                <div
+                                    class="gt-border-radius-8 gt-bg-white image-width-48 gt-center gt-cursor-pointer ditwish">
+                                    <img src="assets/images/wishlist/edit-wish.svg" class="wish-edit" width="22"
+                                        height="22" alt="image" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gt-float-right wish-secondary">
+                            <button type="submit" class="gt-btn-primary gt-center gt-wh-btn gt-text-semi-bold gt-whbtn wish-showall-rp">
+                                show all </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="gt-float-100 gt-mt-36 gt-mb-8 match-offers">
+            <div class="row">
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img">
+                                <img src="assets/images/create-offer/uplaod-default-img.png" class="gt-img-responsive"
+                                    alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                <div class="match-delete">
+                                    <span class="material-icons">clear</span>
+                                </div>
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>Captain Coons Watches</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img">
+                                <img src="assets/pro/14.jpg" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                <div class="match-delete">
+                                    <span class="material-icons">clear</span>
+                                </div>
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>Coach Tabby 26 for sale</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img">
+                                <img src="assets/pro/15.jpg" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                <div class="match-delete">
+                                    <span class="material-icons">clear</span>
+                                </div>
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>Gopro hero 7 (with receipt)</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img">
+                                <img src="assets/pro/30.jpg" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                <div class="match-delete">
+                                    <span class="material-icons">clear</span>
+                                </div>
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>iPad Pro 2017 Model</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img">
+                                <img src="assets/pro/30.jpg" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                <div class="match-delete">
+                                    <span class="material-icons">clear</span>
+                                </div>
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>iPad Pro 2017 Model</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img">
+                                <img src="assets/pro/30.jpg" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                <div class="match-delete">
+                                    <span class="material-icons">clear</span>
+                                </div>
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>iPad Pro 2017 Model</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img">
+                                <img src="assets/pro/30.jpg" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                <div class="match-delete">
+                                    <span class="material-icons">clear</span>
+                                </div>
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>iPad Pro 2017 Model</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 co-xs-12">
+                    <div class="single-arrivals-products gt-cursor-pointer gt-mb-32">
+                        <div class="arrivals-products-image">
+                            <div class="pr-image max-height-img">
+                                <img src="assets/pro/30.jpg" class="gt-img-responsive" alt="image">
+                                <div class="color-overlay"></div>
+                                <div class="tag">
+                                    <img src="assets/images/matchbox-icon.svg" class="tag-img" alt="image">
+                                    <span>40%</span>
+                                </div>
+                                <div class="match-delete">
+                                    <span class="material-icons">clear</span>
+                                </div>
+                            </div>
+                            <div class="arrivals-action">
+                                <div class="offer-location">Bidhanagar</div>
+                                <span class="material-icons">favorite_border</span>
+                            </div>
+                        </div>
+
+                        <div class="arrivals-products-content product-content-pd">
+                            <div class="offer-name-primary gt-ellipsis" ellipsis>iPad Pro 2017 Model</div>
+                            <div class="pr-desire">
+                                <span class="material-icons">compare_arrows</span>
+                                <div class="offer-desire-primary">Mobile, Laptop</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div> -->
+
+
+        <!-- ---------- End Wishlist items ---------- -->
+
+
+
+
+        <!-- <div class="gt-float-100 gt-pt-100 gt-pb-100">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100 gt-center">
+                        <img src="assets/images/wishlist/wishlist-empty.svg" class="empty-offer" alt="image" width="313"
+                            height="255" />
+                    </div>
+                    <div class="gt-float-100 gt-center gt-mt-50">
+                        <h1 class="gt-lightblack gt-fs-16 ">You have no categories in wishlist.</h1>
+                    </div>
+                    <div class="gt-float-100 gt-center gt-mt-10">
+                        <h2 class="gt-lightblack gt-fs-16 ">Add the items to be notified when such offers will appear
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+    </div>
+</div>
+
+
+<app-floating-menu></app-floating-menu>
+<app-floating-listing></app-floating-listing> 

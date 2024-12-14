@@ -1,0 +1,1324 @@
+<div class="business-offer-wrappers gt-pb-zero gt-pt-20 gt-pb-139">
+  <div class="container">
+    <div class="user-profile-wrapper">
+      <div class="gt-float-100">
+        <app-bread-crumb [breadcrumbs]="breadcrumb"> </app-bread-crumb>
+        <div class="
+            gt-float-100 gt-mt-20 gt-mb-39 gt-pb-40
+            business-profile-edit
+            bg-change
+            dark-shadow
+          " *ngIf="currentBusinessDetails">
+          <div class="gt-float-100">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="buprofile-sub-cover" [ngClass]="currentLyActiveColor"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gt-float-100" *ngIf="allBusinessColors.length">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="color-select">
+                  <div class="gt-mb-8 brand-color">
+                    <h2 class="gt-fs-14 gt-lightgrayish">Brand color</h2>
+                  </div>
+                  <div class="gt-vcenter my_account" [ngClass]="{
+                      dropdown: allowBusinessProfileBrandColor
+                    }">
+                    <a href="#" class="account_user" [ngClass]="{
+                        'dropdown-toggle': allowBusinessProfileBrandColor
+                      }" data-toggle="dropdown" role="button" aria-haspopup="allowBusinessProfileBrandColor"
+                      aria-expanded="false">
+                      <div class="gt-vcenter color-cover-box">
+                        <div class="color-shadow gt-border-radius-circle" [ngClass]="currentLyActiveColor"></div>
+                        <span *ngIf="allowBusinessProfileBrandColor" class="
+                            material-icons
+                            gt-fs-32
+                            li-height
+                            gt-lightgrayish
+                          ">expand_more</span>
+                      </div>
+                    </a>
+                    <div class="dropdown-menu business-color-cover" *ngIf="allowBusinessProfileBrandColor">
+                      <div class="panel panel-default">
+                        <div class="panel-body">
+                          <div class="gt-float-100 sub-colorbox">
+                            <ng-container *ngFor="let color of allBusinessColors">
+                              <div class="
+                                  gt-center
+                                  gt-float-left
+                                  gt-border-radius-circle
+                                  color-select-box" 
+                                  [ngClass]="color === currentLyActiveColor ? 'color-active-1' : ''" 
+                                  (click)="setActiveColor(color)">
+                                <div class="gt-border-radius-circle color-choose" [ngClass]="color"></div>
+                              </div>
+                            </ng-container>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gt-float-100 gt-mtm-70">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-center user-profile-img">
+                  <div class="
+                      users-boxs
+                      user-bg user-box-border
+                      business-edit-primary
+                      bep-rp
+                    ">
+                    <div class="online-delete reonline-delete" *ngIf="
+                        currentBusinessDetails.logoUrl &&
+                        allowBusinessProfileUpdateLogo
+                      ">
+                      <button type="button" class="
+                          gt-btn-primary
+                          edit-delete-btn
+                          bg-change-secondary
+                          dark-shadow
+                          border-none
+                        " (click)="removeBusinessLogo()">
+                        <img src="assets/images/profile/profile-photo-delete.svg" class="pro-res" alt="image" width="20"
+                          height="22" />
+                      </button>
+                    </div>
+                    <div class="online-edit reonline-edit" *ngIf="allowBusinessProfileUpdateLogo">
+                      <button type="button" class="
+                          gt-btn-primary
+                          edit-delete-btn
+                          bg-change-secondary
+                          dark-shadow
+                          border-none
+                        " (click)="openUploadBusinessLogoDialog()">
+                        <img src="assets/images/business/bupro-edit.svg" class="pro-res" alt="Business Profile Edit"
+                          width="20" height="20" />
+                      </button>
+                      <div class="online-edit">
+                        <input type="file" #fileBusinessLogoUpload id="profile-photo" name="fileBusinessLogoUpload"
+                          accept="image/*" style="display: none" />
+                        <div class="image-preview mb-3" *ngIf="previewUrl">
+                          <img [src]="previewUrl" alt="Business Cover Image" height="300" />
+                        </div>
+                      </div>
+                    </div>
+                    <img 
+                      [src]="currentBusinessDetails.logoUrl ? currentBusinessDetails.logoUrl : businessDetailsNoImage" 
+                      alt="Business Logo" 
+                      class="user-img gt-img-responsive h-130" 
+                      [ngClass]="currentBusinessDetails.logoUrl ? '' : 'no-profile-img-business'" 
+                      width="130" height="130" onError="this.src = 'assets/images/no-image.png'" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gt-float-100 gt-mb-20">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 gt-center gt-text-center">
+                  <h1 class="gt-fs-18 gt-text-medium gt-lightblack dcolor-primary">
+                    {{ currentBusinessDetails.name | trimTextToCertainNumberCharector: 20  }}
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gt-float-100 gt-pd-lr-32 gt-mt-10 rp-lr-12"
+            *ngFor="let businessKycs of currentBusinessDetails.businessKycs">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100">
+                  <h3 class="gt-fs-14 gt-lightblack gt-opacity-9 dcolor-primary" style="opacity: 1">
+                    {{businessKycs.kycType}}:
+                    <span class="gt-lightgrayish">{{businessKycs.kycNo}}</span>
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="gt-float-100 gt-pd-lr-32 gt-mt-24 gt-pr-198 rp-lr-12" *ngIf="businessEditSection.cin_number">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-form-primary">
+                  <label for="inputAddress" class="gt-form-label offer-input-label">CIN number ( optional )
+                  </label>
+                  <input id="businessPhone" type="text" class="gt-form-control offer-form-control"
+                    placeholder="Enter CIN Number" required (keyup.enter)="updateCINNumber($event)" />
+                </div>
+              </div>
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngIf="cinNumberInvalid">
+                <div class="gt-text-danger">
+                  <span class="error"> Invalid CIN number.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gt-float-100 gt-pd-lr-32 gt-mt-25 rp-lr-12">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 rating-list">
+                  <div class="gt-float-left gt-vcenter rating-list-primary">
+                    <span class="material-icons">star_outline</span>
+                    <h4 class="gt-fs-21 pro-title-color gt-text-medium gt-ml-10 rating-counts">
+                      <span class="rating-color">{{
+                        currentBusinessDetails.avgRating !== 0
+                        ? currentBusinessDetails.avgRating
+                        : "No review"}}</span>
+                    </h4>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gt-float-100" *ngIf="!businessEditSection.contact_info">
+            <div class="gt-float-100 gt-pd-lr-32 gt-mt-24 rp-lr-12">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="gt-float-100 gt-center-between">
+                    <div class="gt-float-left gt-vcenter">
+                      <h2 class="
+                          gt-fs-16 gt-lightblack gt-text-medium
+                          dcolor-primary
+                        ">
+                        Business contact info
+                      </h2>
+                    </div>
+
+                    <div *ngIf="allowBusinessProfileContactInfo" class="
+                        gt-border-radius-2
+                        gt-center
+                        gt-bg-white
+                        gt-cursor-pointer
+                        image-width-34
+                        btpro-btn
+                        bg-change-secondary
+                        dark-shadow
+                        border-none
+                      " (click)="toggleBusinessEditSection('contact_info')">
+                      <img src="assets/images/business/bupro-edit.svg" class="edit-pro" alt="image" width="20"
+                        height="20" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="gt-float-100 gt-pd-lr-32 gt-mt-14 rp-lr-12">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="gt-float-100">
+                    <div class="gt-float-left width-160">
+                      <h1 class="gt-width-100 gt-fs-14 gt-lightgrayish dcolor-primary">
+                        Phone
+                      </h1>
+                      <h2 class="gt-width-100 gt-mt-4 gt-fs-14 gt-lightblack dcolor-secondary">
+                        {{ currentBusinessDetails.phone | formatMobile }}
+                      </h2>
+                    </div>
+
+                    <div class="gt-float-left width-160">
+                      <h1 class="
+                          gt-width-100 gt-fs-14 gt-lightgrayish
+                          dcolor-primary
+                        ">
+                        Mobile
+                      </h1>
+                      <h2 class="
+                          gt-width-100 gt-mt-4 gt-fs-14 gt-lightblack
+                          dcolor-secondary
+                        ">
+                        {{ currentBusinessDetails.mobile | formatMobile }}
+                      </h2>
+                    </div>
+
+                    <div class="gt-float-left">
+                      <h1 class="
+                          gt-width-100 gt-fs-14 gt-lightgrayish
+                          dcolor-primary
+                        ">
+                        Email
+                      </h1>
+                      <h2 class="
+                          gt-width-100 gt-mt-4 gt-fs-14 gt-lightblack
+                          dcolor-secondary
+                        ">
+                        {{ currentBusinessDetails.email }}
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gt-float-100 personal-info-edit" *ngIf="businessEditSection.contact_info">
+            <form [formGroup]="businessForm" (ngSubmit)="updateBusinessDetails('contact_info')">
+              <div class="gt-float-100 gt-pd-lr-32 gt-mt-24 rp-lr-12">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100 gt-center-between">
+                      <div class="gt-float-left gt-vcenter">
+                        <h2 class="gt-fs-16 gt-lightblack gt-text-medium dcolor-primary">
+                          Business contact info
+                        </h2>
+                      </div>
+
+                      <div class="gt-vcenter">
+                        <button type="submit" class="
+                            gt-border-radius-2
+                            gt-center
+                            gt-bg-white
+                            gt-mr-8
+                            gt-cursor-pointer
+                            image-width-34
+                            btpro-btn
+                            bg-change-secondary
+                            dark-shadow
+                            border-none
+                          " [disabled]="!businessForm.valid">
+                          <span class="material-icons gt-primary">check</span>
+                        </button>
+                        <div (click)="
+                            toggleBusinessEditSection('contact_info', false)
+                          " class="
+                            gt-border-radius-2
+                            gt-center
+                            gt-bg-white
+                            gt-cursor-pointer
+                            image-width-34
+                            btpro-btn
+                            bg-change-secondary
+                            dark-shadow
+                            border-none
+                          ">
+                          <span class="material-icons color-partner">clear</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="
+                  gt-float-100 gt-pd-lr-32 gt-mt-24
+                  image-upload-sections
+                  position-relative rp-lr-12 error-bottom-business
+                ">
+
+
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-form-primary">
+                      <label for="businessPhone" class="gt-form-label offer-input-label dcolor-primary">Phone
+                        <span class="input-star gt-ml-zero">*</span></label>
+
+                      <div class="gt-vcenter phone-group1">
+                        <div class="gt-width-100 custom-inputg">
+                          <div class="currency-group">
+                            <div class="currency-input-group gt-height-48">
+                              <div class="currency-input-group-prepend">
+                                <div class="currency-input-group-text"><span class="icon-add"></span>91</div>
+                              </div>
+                              <input id="businessPhone" numbersOnly type="text" class="currency-form-control"
+                                placeholder="Enter phone number" formControlName="businessPhone"
+                                [customErrors]="businessContactError.businessPhone" />
+                            </div>
+
+                          </div>
+                        </div>
+
+
+                        <button type="button" class="
+                            gt-btn-primary
+                            gt-center
+                            gt-border-radius-4
+                            gt-fs-14
+                            gt-height-48
+                            gt-text-medium
+                            gt-width-189
+                            gt-ml-9
+                            gt-bg-sky
+                            use-cinfo-1
+                            gt-border-none
+                            bg-change-secondary
+                            dark-shadow
+                            border-none
+                          " (click)="useCustomerInfo('PHONE')" [disabled]="!currentUserContactInfo.phone">
+                          use customer info
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="gt-float-100 gt-pd-lr-32 gt-mt-24 rp-lr-12 error-bottom-business">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-form-primary error-bottom-business">
+                      <label for="inputAddress" class="gt-form-label offer-input-label dcolor-primary">Mobile
+                        <span class="input-star gt-ml-zero">*</span></label>
+
+                      <div class="gt-vcenter phone-group2">
+                        <div class="gt-width-100 custom-inputg">
+                          <div class="currency-group">
+                            <div class="currency-input-group gt-height-48">
+                              <div class="currency-input-group-prepend">
+                                <div class="currency-input-group-text"><span class="icon-add"></span>91</div>
+                              </div>
+                              <input id="businessMobile" numbersOnly type="text" class="currency-form-control"
+                                placeholder="Enter mobile number" formControlName="businessMobile"
+                                [customErrors]="businessContactError.businessMobile" />
+                            </div>
+
+                          </div>
+                        </div>
+
+
+                        <button type="button" class="
+                            gt-btn-primary
+                            gt-center
+                            gt-border-radius-4
+                            gt-fs-14
+                            gt-height-48
+                            gt-text-medium
+                            gt-width-189
+                            gt-ml-9
+                            gt-bg-sky
+                            use-cinfo-2
+                            gt-border-none
+                            bg-change-secondary
+                            dark-shadow
+                            border-none
+                          " (click)="useCustomerInfo('MOBILE')" [disabled]="!currentUserContactInfo.mobile">
+                          use customer info
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="gt-float-100 gt-pd-lr-32 gt-mt-24 rp-lr-12 error-bottom-business">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-form-primary">
+                      <label for="businessEmail" class="gt-form-label offer-input-label dcolor-primary">Email
+                        <span class="input-star gt-ml-zero">*</span></label>
+
+                      <div class="gt-vcenter phone-group3">
+                        <div class="gt-width-100 custom-inputg">
+                          <div class="currency-group">
+                            <div class="currency-input-group gt-height-48">
+
+                              <input id="businessEmail" type="text" class="currency-form-control"
+                                placeholder="Enter email" formControlName="businessEmail"
+                                [customErrors]="businessContactError.businessEmail" />
+                            </div>
+
+                          </div>
+                        </div>
+
+
+
+                        <button type="button" class="
+                            gt-btn-primary
+                            gt-center
+                            gt-border-radius-4
+                            gt-fs-14
+                            gt-height-48
+                            gt-text-medium
+                            gt-width-189
+                            gt-ml-9
+                            gt-bg-sky
+                            gt-border-none
+                            use-cinfo-3
+                            bg-change-secondary
+                            dark-shadow
+                            border-none
+                          " (click)="useCustomerInfo('EMAIL')" [disabled]="!currentUserContactInfo.email">
+                          use customer info
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="gt-float-100 gt-pd-lr-32 gt-mt-32 rp-lr-12" *ngIf="!businessEditSection.business_member"
+            @fadeInDelayTrigger>
+            <div class="row">
+              <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="
+                    gt-float-100
+                    gt-center
+                    gt-justify-content-between
+                    gt-border-radius-2
+                    gt-bg-white
+                    auth-pd
+                    gt-cursor-pointer
+                    auth-settings
+                    bg-change-secondary
+                    dark-shadow
+                    border-none
+                  ">
+                  <div class="gt-display-flex gt-align-items-center">
+                    <div class="image-user-fd">
+                      <img src="assets/images/business/business-team.svg" class="sting-image" alt="block-icons"
+                        width="24" height="20" />
+                    </div>
+
+                    <div class="gt-ml-17" [routerLink]="['teams']" *ngIf="
+                        currentBusinessDetails.memberCount > 0;
+                        else addMemberButton
+                      ">
+                      <div class="user-stauth">
+                        <h1 class="
+                            gt-fs-16 gt-text-medium gt-lightgrayish
+                            stauth-primary
+                            dcolor-primary
+                          ">
+                          My business team
+                        </h1>
+                      </div>
+                      <div class="gt-mt-4">
+                        <h2 class="gt-fs-16 gt-text-medium ph-color">
+                          {{ currentBusinessDetails.memberCount }}
+                          {{
+                          currentBusinessDetails.memberCount > 1
+                          ? "users"
+                          : "user"
+                          }}
+                        </h2>
+                      </div>
+                    </div>
+
+                    <ng-template #addMemberButton>
+                      <div class="gt-ml-17" *ngIf="allowBusinessProfileEdit">
+                        <div class="user-stauth">
+                          <h1 class="
+                              gt-fs-16 gt-text-medium gt-lightgrayish gt-vcenter
+                              stauth-primary
+                              dcolor-primary
+                            ">
+                            <span class="material-icons gt-fs-20">add</span>
+                            <span>Add member</span>
+                          </h1>
+                        </div>
+                        <div class="gt-mt-4">
+                          <h2 class="gt-fs-16 gt-text-medium ph-color">
+                            Business team : 0 users
+                          </h2>
+                        </div>
+                      </div>
+                    </ng-template>
+                  </div>
+                  <div [routerLink]="['teams']" class="gt-float-right stauth-secondary">
+                    <span class="material-icons gt-fs-22 arrow-color">arrow_forward</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gt-float-100 business-url-edit" [@slideInDownd]="animationState['business_member']"
+            (@slideInDownd.done)="triggerSomething($event)">
+
+            <div class="gt-float-100 gt-pd-lr-32 gt-mt-30 rp-lr-12">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="gt-float-100 gt-center-between">
+                    <div class="gt-float-left gt-vcenter">
+                      <h2 class="
+                          gt-fs-16 gt-lightblack gt-text-medium
+                          dcolor-primary
+                        ">
+                        My business team
+                      </h2>
+                    </div>
+
+                    <div class="gt-vcenter">
+
+                      <button type="submit" class="
+                          gt-border-radius-2
+                          gt-center
+                          gt-bg-white
+                          gt-mr-8
+                          gt-cursor-pointer
+                          image-width-34
+                          btpro-btn
+                          bg-change-secondary
+                          dark-shadow
+                          border-none
+                        ">
+                        <span class="material-icons gt-primary">check</span>
+                      </button>
+                      <div class="
+                          gt-border-radius-2
+                          gt-center
+                          gt-bg-white
+                          gt-cursor-pointer
+                          image-width-34
+                          btpro-btn
+                          bg-change-secondary
+                          dark-shadow
+                          border-none
+                        " (click)="
+                          toggleBusinessEditSection('business_member', false)
+                        ">
+                        <span class="material-icons color-partner">clear</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="gt-float-100 gt-pd-lr-32 gt-mt-14 rp-lr-12">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="money-hash">
+                    <div class="currency-group">
+                      <div class="currency-input-group hash-input">
+                        <div class="currency-input-group-prepend">
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gt-float-100" *ngIf="!businessEditSection.business_url" @fadeInDelayTrigger>
+            <div class="gt-float-100 gt-pd-lr-32 gt-mt-30 rp-lr-12">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="gt-float-100 gt-center-between">
+                    <div class="gt-float-left gt-vcenter">
+                      <h2 class="
+                          gt-fs-16 gt-lightblack gt-text-medium
+                          dcolor-primary
+                        ">
+                        Your business url
+                      </h2>
+                    </div>
+
+                    <div *ngIf="allowBusinessProfileEdit" (click)="toggleBusinessEditSection('business_url')" class="
+                        gt-border-radius-2
+                        gt-center
+                        gt-bg-white
+                        gt-cursor-pointer
+                        image-width-34
+                        btpro-btn
+                        bg-change-secondary
+                        dark-shadow
+                        border-none
+                      ">
+                      <img src="assets/images/business/bupro-edit.svg" class="edit-pro" alt="image" width="20"
+                        height="20" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="gt-float-100 gt-pd-lr-32 gt-mt-14 rp-lr-12">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="gt-float-100">
+                    <h3 class="gt-fs-16 gt-lightgrayish dcolor-secondary">
+                      {{getBusinessURLPrefix()}}<span class="gt-lightblack dcolor-primary">{{ currentBusinessDetails.profileUrl
+                        }}</span>
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gt-float-100 business-url-edit" [@slideInDownd]="animationState['business_url']"
+            (@slideInDownd.done)="triggerSomething($event)">
+            <form [formGroup]="businessForm" (ngSubmit)="updateBusinessDetails('business_url')">
+              <div class="gt-float-100 gt-pd-lr-32 gt-mt-30 rp-lr-12">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100 gt-center-between">
+                      <div class="gt-float-left gt-vcenter">
+                        <h2 class="
+                            gt-fs-16 gt-lightblack gt-text-medium
+                            dcolor-primary
+                          ">
+                          Your business url
+                        </h2>
+                      </div>
+
+                      <div class="gt-vcenter">
+
+                        <button type="submit" class="
+                            gt-border-radius-2
+                            gt-center
+                            gt-bg-white
+                            gt-mr-8
+                            gt-cursor-pointer
+                            image-width-34
+                            btpro-btn
+                            bg-change-secondary
+                            dark-shadow
+                            border-none
+                          ">
+                          <span class="material-icons gt-primary">check</span>
+                        </button>
+                        <div class="
+                            gt-border-radius-2
+                            gt-center
+                            gt-bg-white
+                            gt-cursor-pointer
+                            image-width-34
+                            btpro-btn
+                            bg-change-secondary
+                            dark-shadow
+                            border-none
+                          " (click)="
+                            toggleBusinessEditSection('business_url', false)
+                          ">
+                          <span class="material-icons color-partner">clear</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gt-float-100 gt-pd-lr-32 rp-lr-12 rp-lr-12">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-mt-25 gt-float-100 fdback-qua">
+                      <h3 class="
+                          gt-fs-16 gt-lightblack gt-text-medium
+                          dcolor-primary
+                        ">
+                        Suggested
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="gt-float-100 gt-pd-lr-32 rp-lr-12">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-mt-16 gt-float-100 fdback-tag" *ngIf="suggestedBusinessUrl.length">
+                      <div class="feed-tag" *ngFor="let url of suggestedBusinessUrl" [ngClass]="{
+                          'feed-tag-active': url === selectedBusinessUrl
+                        }" (click)="updateSelectedBusinessUrl(url)">
+                        {{ url }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gt-float-100 gt-pd-lr-32 gt-mt-14 rp-lr-12">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="money-hash">
+                      <div class="currency-group">
+                        <div class="currency-input-group hash-input noshow-error">
+                          <div class="currency-input-group-prepend ">
+                            <div class="currency-input-group-text business-compny">
+
+                              <h2>{{getBusinessURLPrefix()}}</h2>
+                            </div>
+                          </div>
+                          <input id="businessUrl" type="text" class="currency-form-control hash-control"
+                            placeholder="ABCDinfotech" formControlName="businessUrl" required (input)="
+                              updateSelectedBusinessUrl($event.target.value)
+                            " />
+                        </div>
+
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-text-danger" *ngIf="
+                        businessUrl.invalid &&
+                        (businessUrl.dirty || businessUrl.touched)
+                      " @fadeIn>
+                      <span *ngIf="businessUrl.errors.required" class="error error-next error-show">
+                        URL is required.
+                      </span>
+
+                      <span *ngIf="businessUrl.errors.minlength" class="error error-next error-show">
+                        URL must be at least 4 characters long.
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="gt-float-100" *ngIf="!businessEditSection.business_description">
+            <div class="gt-float-100 gt-pd-lr-32 gt-mt-30 rp-lr-12">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="gt-float-100 gt-center-between">
+                    <div class="gt-float-left gt-vcenter">
+                      <h2 class="
+                          gt-fs-16 gt-lightblack gt-text-medium
+                          dcolor-primary
+                        ">
+                        About your business
+                      </h2>
+                    </div>
+
+                    <div *ngIf="allowBusinessProfileEdit" (click)="
+                        toggleBusinessEditSection('business_description')
+                      " class="
+                        gt-border-radius-2
+                        gt-center
+                        gt-bg-white
+                        gt-cursor-pointer
+                        image-width-34
+                        btpro-btn
+                        bg-change-secondary
+                        dark-shadow
+                        border-none
+                      ">
+                      <img src="assets/images/business/bupro-edit.svg" class="edit-pro" alt="image" width="20"
+                        height="20" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="gt-float-100 gt-pd-lr-32 gt-mt-14 rp-lr-12">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="gt-float-100">
+                    <h3 class="gt-fs-13 gt-line-height-20 about-buss gt-lightgrayish dcolor-secondary"
+                      *ngIf="currentBusinessDetails.description">
+                      {{ currentBusinessDetails.description }}
+                    </h3>
+                    <h3 class="gt-fs-16 gt-lightgrayish dcolor-secondary" *ngIf="!currentBusinessDetails.description">
+                      No business description provided
+                    </h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="gt-float-100 businee-about-edit" [@slideInDownd]="animationState['business_description']">
+            <form [formGroup]="businessForm" (ngSubmit)="updateBusinessDetails('business_description')">
+              <div class="gt-float-100 gt-pd-lr-32 gt-mt-30 rp-lr-12">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100 gt-center-between">
+                      <div class="gt-float-left gt-vcenter">
+                        <h2 class="
+                            gt-fs-16 gt-lightblack gt-text-medium
+                            dcolor-primary
+                          ">
+                          About your business
+                        </h2>
+                      </div>
+
+                      <div class="gt-vcenter">
+
+                        <button type="submit" class="
+                            gt-border-radius-2
+                            gt-center
+                            gt-bg-white
+                            gt-mr-8
+                            gt-cursor-pointer
+                            image-width-34
+                            btpro-btn
+                            bg-change-secondary
+                            dark-shadow
+                            border-none
+                          ">
+                          <span class="material-icons gt-primary">check</span>
+                        </button>
+                        <div (click)="
+                            toggleBusinessEditSection(
+                              'business_description',
+                              false
+                            )
+                          " class="
+                            gt-border-radius-2
+                            gt-center
+                            gt-bg-white
+                            gt-cursor-pointer
+                            image-width-34
+                            btpro-btn
+                            bg-change-secondary
+                            dark-shadow
+                            border-none
+                          ">
+                          <span class="material-icons color-partner">clear</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gt-float-100 gt-pd-lr-32 rp-lr-12">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100 secondary_group gt-mb-zero gt-mt-24">
+                      <div class="secondary-wrap validate-input gt-border-none">
+
+                        <textarea id="businessDescription" type="textarea" class="secondary-input secondary-bg" rows="3"
+                          placeholder="Tell some thoughts about your business"
+                          formControlName="businessDescription"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="gt-float-100" *ngIf="!businessEditSection.business_address">
+            <div class="gt-float-100 gt-pd-lr-32 gt-mt-30 rp-lr-12">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="gt-float-100 gt-center-between">
+                    <div class="gt-float-left gt-vcenter">
+                      <h2 class="
+                          gt-fs-16 gt-lightblack gt-text-medium
+                          dcolor-primary
+                        ">
+                        Business address<span
+                          *ngIf="CheckLengthOFAddress(currentBusinessDetails.businessAddresses)">es</span>
+                      </h2>
+                    </div>
+
+                    <div *ngIf="
+                        allowBusinessProfileUpdateAddress &&
+                        currentBusinessDetails.businessAddresses &&
+                        currentBusinessDetails.businessAddresses.length
+                      " (click)="toggleBusinessEditSection('business_address')" class="
+                        gt-border-radius-2
+                        gt-center
+                        gt-bg-white
+                        gt-cursor-pointer
+                        image-width-34
+                        btpro-btn
+                        bg-change-secondary
+                        dark-shadow
+                        border-none
+                      ">
+                      <img src="assets/images/business/bupro-edit.svg" class="edit-pro" alt="image" width="20"
+                        height="20" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <ng-container *ngIf="
+                currentBusinessDetails.businessAddresses &&
+                currentBusinessDetails.businessAddresses.length
+              ">
+              <ng-container *ngFor="let address of currentBusinessDetails.businessAddresses">
+                <div class="gt-float-100 gt-pd-lr-32 gt-mt-14 rp-lr-12">
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="gt-float-100">
+                        <h3 class="gt-fs-16 gt-lightgrayish dcolor-primary">
+                          {{
+                          address.addressTitle
+                          ? address.addressTitle
+                          : address.annotation
+                          }}
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="gt-float-100 gt-pd-lr-32 gt-mt-4 rp-lr-12">
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="gt-float-100">
+                        <h3 class="gt-fs-14 gt-lightblack dcolor-secondary">
+                          {{ address.addressLine1 }}
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+
+          <div class="gt-float-100 business-address-edit" *ngIf="businessEditSection.business_address">
+            <div class="gt-float-100 gt-pd-lr-32 gt-mt-30 rp-lr-12">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="gt-float-100 gt-center-between">
+                    <div class="gt-float-left gt-vcenter">
+                      <h2 class="
+                          gt-fs-16 gt-lightblack gt-text-medium
+                          dcolor-primary
+                        ">
+                        Business address
+                      </h2>
+                    </div>
+
+                    <div class="gt-vcenter">
+                      <div (click)="
+                          toggleBusinessEditSection('business_address', false)
+                        " class="
+                          gt-border-radius-2
+                          gt-center
+                          gt-bg-white
+                          gt-mr-8
+                          gt-cursor-pointer
+                          image-width-34
+                          btpro-btn
+                          bg-change-secondary
+                          dark-shadow
+                          border-none
+                        ">
+                        <span class="material-icons gt-primary">check</span>
+                      </div>
+                      <div (click)="
+                          toggleBusinessEditSection('business_address', false)
+                        " class="
+                          gt-border-radius-2
+                          gt-center
+                          gt-bg-white
+                          gt-cursor-pointer
+                          image-width-34
+                          btpro-btn
+                          bg-change-secondary
+                          dark-shadow
+                          border-none
+                        " title="close">
+                        <span class="material-icons color-partner">clear</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="gt-float-100 gt-pd-lr-32 gt-mt-22 rp-lr-12">
+              <div class="row" *ngIf="currentBusinessDetails.businessAddresses.length" @fadeIn>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12" *ngFor="
+                    let address of currentBusinessDetails.businessAddresses;
+                    let i = index
+                  ">
+                  <div class="
+                      gt-float-100
+                      profile-address-wrapper
+                      gt-pd-16
+                      bg-change
+                      dark-shadow
+                    ">
+                    <div class="user-edit-address">
+                      <div class="gt-float-100 gt-center-between recom-offer">
+                        <h1 class="
+                            gt-fs-16 gt-lightblack gt-text-medium
+                            dcolor-primary
+                          ">
+                          {{
+                          address.addressTitle
+                          ? address.addressTitle
+                          : address.annotation
+                          }}
+                        </h1>
+                        <div *ngIf="allowBusinessProfileDeleteAddress" class="gt-vcenter time-list-delete"
+                          (click)="removeBusinessAddress(address, i)">
+                          <img src="assets/images/profile/profile-photo-delete.svg" alt="image" width="20" height="22"
+                            class="del-atta" />
+                        </div>
+                      </div>
+                      <div class="edit-addrss-pro gt-mt-22">
+                        <div class="gt-form-primary">
+                          <input type="text" class="
+                              gt-form-control
+                              gt-border-none
+                              gt-border-radius-12
+                              gt-pd-tb-12
+                            " placeholder="Office" [value]="address.annotation" />
+                        </div>
+                      </div>
+
+                      <div class="edit-addrss-pro gt-mt-24 gt-pb-14">
+                        <div class="gt-form-primary">
+                          <input type="text" class="
+                              gt-form-control
+                              gt-border-none
+                              gt-border-radius-12
+                              gt-pd-tb-12
+                            " placeholder="Kolkata, sector-1 "
+                            [value]="address.addressLine1|trimTextToCertainNumberCharector:30" />
+                        </div>
+                        <button class="
+                            gt-btn-primary
+                            date-pro-btn
+                            g-center
+                            btn-bg-edit
+                          " (click)="
+                            openBusinessAddressPopup(
+                              address,
+                              'edit',
+                              address.addressTitle,
+                              'Edit business address'
+                            )
+                          ">
+                          <img src="assets/images/profile/edit-address-icon.svg" width="20" height="24" alt="icon"
+                            class="gt-img-responsive" />
+                        </button>
+                      </div>
+
+                      <button *ngIf="!address.defaultAddress" type="button" class="
+                          gt-btn-primary
+                          gt-bg-body
+                          gt-height-39
+                          gt-center
+                          gt-border-radius-4
+                          gt-fs-16
+                          gt-text-medium
+                          gt-width-100
+                          gt-mt-11
+                          bselect-btn
+                        " (click)="setAsDefaultAddress(address)">
+                        Set as default
+                      </button>
+
+                      <button *ngIf="address.defaultAddress" type="button" class="
+                          gt-btn-primary
+                          gt-bg-body
+                          gt-height-39
+                          gt-center
+                          gt-border-radius-4
+                          gt-fs-16
+                          gt-text-medium
+                          gt-width-100
+                          gt-mt-11
+                          bselect-btn
+                          bselected-btn
+                        ">
+                        Default
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+
+          <div class="gt-float-100 gt-mt-24 gt-mb-20 gt-pd-lr-32 rp-lr-12" *ngIf="allowBusinessProfileAddAddress">
+            <div class="row">
+              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 btn-upload-custom">
+                  <button type="button" role="button" class="
+                      gt-btn-primary
+                      gt-btn-outline
+                      gt-center
+                      gt-border-radius-12
+                      gt-text-medium
+                      gt-width-100
+                      gt-fs-16
+                      badd-btn
+                    " (click)="openBusinessAddressPopup()">
+                    <span class="material-icons gt-fs-14">add</span>
+                    add business address
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <app-show-account-list *ngIf="currentBusinessId" [businessId]="currentBusinessId">
+          </app-show-account-list>
+
+
+          <div class="gt-float-100" *ngIf="!businessEditSection.house_of_operation">
+            <div class="gt-float-100 gt-pd-lr-32 gt-mt-30 rp-lr-12">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="gt-float-100 gt-center-between">
+                    <div class="gt-float-left gt-vcenter">
+                      <h2 class="
+                          gt-fs-16 gt-lightblack gt-text-medium
+                          dcolor-primary
+                        ">
+                        Hours of operation
+                      </h2>
+                    </div>
+
+                    <div *ngIf="allowBusinessProfileUpdateTimings"
+                      (click)="toggleBusinessEditSection('house_of_operation')" class="
+                        gt-border-radius-2
+                        gt-center
+                        gt-bg-white
+                        gt-cursor-pointer
+                        image-width-34
+                        btpro-btn
+                        bg-change-secondary
+                        dark-shadow
+                        border-none
+                      ">
+                      <img src="assets/images/business/bupro-edit.svg" class="edit-pro" alt="image" width="20"
+                        height="20" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="gt-float-100 gt-pd-lr-32 gt-mt-14 rp-lr-12">
+              <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                  *ngIf="!currentBusinessDetails.hrsOfOpSameAllDays">
+                  <div class="gt-float-100">
+                    <div class="gt-float-100">
+                      <div class="gt-display-flex day-active">
+                        <div *ngFor="let item of allOperationsDay" class="day-box {{
+                            item.activeStatus ? 'select-day' : ''
+                          }}">
+                          {{ item.day }}
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="gt-float-100 gt-mt-16" *ngIf="
+                      currentBusinessDetails.hoursOfOperations &&
+                      currentBusinessDetails.hoursOfOperations.length > 0
+                    ">
+                    <div class="day-details dcolor-primary-import" *ngFor="
+                        let time of currentBusinessDetails.hoursOfOperations[0]
+                          .hours
+                      ">
+                      From {{ time.startTime | formatMeetTime }} To
+                      {{ time.endTime | formatMeetTime }}
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                  *ngIf="currentBusinessDetails.hrsOfOpSameAllDays">
+                  <div class="gt-float-100">
+                    <div class="gt-float-100">
+                      <div class="gt-display-flex day-active">
+                        <div *ngFor="let item of allOperationsDay" class="day-box {{
+                            item.activeStatus ? 'select-day' : ''
+                          }}">
+                          {{ item.day }}
+                        </div>
+                      </div>
+                      <div class="gt-display-flex mutiple-time" *ngFor="
+                          let day of currentBusinessDetails.hoursOfOperations
+                        ">
+                        <div class="day-short">
+                          {{ day.day | dayPrefix }}<span>: </span>
+                        </div>
+                        <div class="day-details dcolor-primary-import" *ngFor="let time of day.hours">
+                          From {{ time.startTime | formatMeetTime }} To
+                          {{ time.endTime | formatMeetTime }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="gt-float-100 business-hours-edit" *ngIf="businessEditSection.house_of_operation">
+            <form [formGroup]="businessForm" (ngSubmit)="updateBusinessHOP()">
+              <div class="gt-float-100 gt-pd-lr-32 gt-mt-30 rp-lr-12">
+                <div class="row">
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100 gt-center-between">
+                      <div class="gt-float-left gt-vcenter">
+                        <h2 class="
+                            gt-fs-16 gt-lightblack gt-text-medium
+                            dcolor-primary
+                          ">
+                          Hours of operation
+                        </h2>
+                      </div>
+
+                      <div class="gt-vcenter">
+                        <button type="submit" class="
+                            gt-border-radius-2
+                            gt-center
+                            gt-bg-white
+                            gt-mr-8
+                            gt-cursor-pointer
+                            image-width-34
+                            btpro-btn
+                            bg-change-secondary
+                            dark-shadow
+                            border-none
+                          ">
+                          <span class="material-icons gt-primary">check</span>
+                        </button>
+                        <div (click)="
+                            toggleBusinessEditSection(
+                              'house_of_operation',
+                              false
+                            )
+                          " class="
+                            gt-border-radius-2
+                            gt-center
+                            gt-bg-white
+                            gt-cursor-pointer
+                            image-width-34
+                            btpro-btn
+                            bg-change-secondary
+                            dark-shadow
+                            border-none
+                          ">
+                          <span class="material-icons color-partner">clear</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <app-service-timings [submitted]="submitted"></app-service-timings>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

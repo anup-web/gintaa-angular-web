@@ -1,0 +1,342 @@
+<div class="choose-offer-popup wishlist-edit-pop">
+    <div class="popup-closed offre-filter-pop" (click)="onDialogClose()">
+        <span class="material-icons">close</span>
+    </div>
+
+    <div class="gt-float-100 gt-mt-24 gt-pd-lr-24">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 sel-partner">
+                  <h1 class="gt-fs-24 gt-lightblack gt-text-medium">Get Gintaa Merch</h1> 
+                </div>               
+            </div>
+        </div>
+    </div>
+    
+    <div class="gt-float-100 gt-mt-24 gt-pd-lr-24">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 sel-partner">
+                  <h1 class="gt-fs-16 gt-lightblack gt-text-medium">Order Details</h1> 
+                </div>               
+            </div>
+        </div>
+    </div>
+   
+    <div class="gt-float-100 gt-pr-245 redeem-pyment">
+    
+    <div class="gt-float-100 merch-group" *ngFor="let offer of offers; index as i">   
+    <div class="gt-float-100 gt-mt-24 gt-pd-lr-24">
+        <div class="gt-center-between">
+            <div class="gt-width-100 gt-vcenter">
+                <div class="image-user-fd">
+                    <img src="assets/images/ui.jpg" class="image-width-48 border-radius-100" alt="image" />
+                </div>
+                <div class="gt-ml-16">
+                    <h2 class="gt-fs-18 gt-text-medium gt-lightblack">{{offer.name}}</h2>
+                </div>
+            </div>
+            <div class="gt-width-50 gt-center-end" (click)="removeOffer(offer, i)">                
+                <span class="material-icons gt-cursor-pointer gt-fs-20 close-color">close</span>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="gt-float-100 gt-mt-16 gt-pd-lr-24">
+        <div class="gt-center-between count-payreed">
+            <div class="gt-width-50 gt-vcenter">
+                <div class="gt-center add-offer-payment">
+                    <button 
+                        type="button" 
+                        class="gt-center gt-border-radius-8 image-width-40 removecon-btn"
+                        (click)="clickUpdate($event, offer, 'minus')">
+                        <span class="material-icons">remove</span> 
+                    </button>
+                    <div class="gt-center count-number">
+                        <span>{{offer.selectedQuantity}}</span>
+                    </div>
+                    <button 
+                        type="button" 
+                        class="gt-center gt-border-radius-8 image-width-40 addcon-btn"
+                        (click)="clickUpdate($event, offer, 'add')">
+                        <span class="material-icons">add</span> 
+                    </button>    
+                </div>
+            </div>
+            <div class="gt-width-100 gt-center-end">                
+                <div class="gt-flex-end offer-redeem-payment">
+                    <div class="fav-btn-count">
+                        <div class="chat-bubble-box">
+                            <img src="assets/images/wallet/coins-wallet.svg" class="gems-icon"
+                        width="18" height="18" alt="image">
+                        </div>     
+                        <span class="count-num">{{offer.coins}}</span>
+                    </div>
+                    <div class="fav-btn-count">
+                        <div class="chat-bubble-box">
+                            <img src="assets/images/wallet/wallet-cash.svg" class="gems-icon" width="25"
+                        height="22" alt="image">
+                        </div>     
+                        <span class="count-num">{{offer.cash}}</span>
+                    </div>
+                    <div class="fav-btn-count gt-mr">
+                        <div class="chat-bubble-box">
+                            <img src="assets/images/wallet/gems.svg" class="gems-icon" width="24"
+                            height="16" alt="image">
+                        </div>
+                        <span class="count-num">{{offer.gems}}</span>
+                    </div>
+                    <div class="fav-btn-count gt-mr">
+                        <div class="chat-bubble-box">
+                            <img src="assets/images/create-offer/money.svg" alt="image" width="27" height="27" class="money-tag">
+                        </div>
+                        <span class="count-num">{{offer.money}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- <div class="gt-float-100 merch-group">   
+        <div class="gt-float-100 gt-mt-24 gt-pd-lr-24">
+            <div class="gt-center-between">
+                <div class="gt-width-100 gt-vcenter">
+                    <div class="image-user-fd">
+                        <img src="assets/images/ui.jpg" class="image-width-48 border-radius-100" alt="image" />
+                    </div>
+                    <div class="gt-ml-16">
+                        <h2 class="gt-fs-18 gt-text-medium gt-lightblack">Gintaa Cap</h2>
+                    </div>
+                </div>
+                <div class="gt-width-50 gt-center-end">                
+                    <span class="material-icons gt-cursor-pointer gt-fs-20 close-color">close</span>
+                </div>
+            </div>
+        </div>
+    
+    
+        <div class="gt-float-100 gt-mt-16 gt-pd-lr-24">
+            <div class="gt-center-between count-payreed">
+                <div class="gt-width-50 gt-vcenter">
+                    <div class="gt-center add-offer-payment">
+                        <button type="submit" class="gt-center gt-border-radius-8 image-width-40 removecon-btn">
+                            <span class="material-icons">remove</span> </button>
+                        <div class="gt-center count-number"><span>2</span></div>
+                        <button type="submit" class="gt-center gt-border-radius-8 image-width-40 addcon-btn">
+                            <span class="material-icons">add</span> </button>    
+                    </div>
+                </div>
+                <div class="gt-width-100 gt-center-end">                
+                    <div class="gt-flex-end offer-redeem-payment">
+                        <div class="fav-btn-count">
+                            <div class="chat-bubble-box">
+                                <img src="assets/images/wallet/coins-wallet.svg" class="gems-icon"
+                            width="18" height="18" alt="image">
+                            </div>     
+                            <span class="count-num">555</span>
+                        </div>
+                        <div class="fav-btn-count">
+                            <div class="chat-bubble-box">
+                                <img src="assets/images/wallet/wallet-cash.svg" class="gems-icon" width="25"
+                            height="22" alt="image">
+                            </div>     
+                            <span class="count-num">555</span>
+                        </div>
+                        <div class="fav-btn-count gt-mr">
+                            <div class="chat-bubble-box">
+                                <img src="assets/images/wallet/gems.svg" class="gems-icon" width="24"
+                                height="16" alt="image">
+                            </div>
+                            <span class="count-num">5</span>
+                        </div>
+                        <div class="fav-btn-count gt-mr">
+                            <div class="chat-bubble-box">
+                                <img src="assets/images/create-offer/money.svg" alt="image" width="27" height="27" class="money-tag">
+                            </div>
+                            <span class="count-num">300</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div> -->
+
+
+        <!-- <div class="gt-float-100 merch-group">   
+            <div class="gt-float-100 gt-mt-24 gt-pd-lr-24">
+                <div class="gt-center-between">
+                    <div class="gt-width-100 gt-vcenter">
+                        <div class="image-user-fd">
+                            <img src="assets/images/ui.jpg" class="image-width-48 border-radius-100" alt="image" />
+                        </div>
+                        <div class="gt-ml-16">
+                            <h2 class="gt-fs-18 gt-text-medium gt-lightblack">Gintaa Cap</h2>
+                        </div>
+                    </div>
+                    <div class="gt-width-50 gt-center-end">                
+                        <span class="material-icons gt-cursor-pointer gt-fs-20 close-color">close</span>
+                    </div>
+                </div>
+            </div>
+        
+        
+            <div class="gt-float-100 gt-mt-16 gt-pd-lr-24">
+                <div class="gt-center-between count-payreed">
+                    <div class="gt-width-50 gt-vcenter">
+                        <div class="gt-center add-offer-payment">
+                            <button type="submit" class="gt-center gt-border-radius-8 image-width-40 removecon-btn">
+                                <span class="material-icons">remove</span> </button>
+                            <div class="gt-center count-number"><span>2</span></div>
+                            <button type="submit" class="gt-center gt-border-radius-8 image-width-40 addcon-btn">
+                                <span class="material-icons">add</span> </button>    
+                        </div>
+                    </div>
+                    <div class="gt-width-100 gt-center-end">                
+                        <div class="gt-flex-end offer-redeem-payment">
+                            <div class="fav-btn-count">
+                                <div class="chat-bubble-box">
+                                    <img src="assets/images/wallet/coins-wallet.svg" class="gems-icon"
+                                width="18" height="18" alt="image">
+                                </div>     
+                                <span class="count-num">555</span>
+                            </div>
+                            <div class="fav-btn-count">
+                                <div class="chat-bubble-box">
+                                    <img src="assets/images/wallet/wallet-cash.svg" class="gems-icon" width="25"
+                                height="22" alt="image">
+                                </div>     
+                                <span class="count-num">555</span>
+                            </div>
+                            <div class="fav-btn-count gt-mr">
+                                <div class="chat-bubble-box">
+                                    <img src="assets/images/wallet/gems.svg" class="gems-icon" width="24"
+                                    height="16" alt="image">
+                                </div>
+                                <span class="count-num">5</span>
+                            </div>
+                            <div class="fav-btn-count gt-mr">
+                                <div class="chat-bubble-box">
+                                    <img src="assets/images/create-offer/money.svg" alt="image" width="27" height="27" class="money-tag">
+                                </div>
+                                <span class="count-num">300</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div> -->
+  
+</div>
+    
+
+
+
+<div class="gt-float-100 gt-mt-40">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100 gt-pd-lr-24">
+                <h1 class="gt-fs-16 gt-text-medium gt-lightblack">Delivery preferences</h1>
+            </div> 
+            <div class="gt-float-100">
+                <div class="gt-float-100 search-list">
+                    <div class="sugg-list-item">
+                        <mat-radio-group class="dp-radio-group gt-pb-0" aria-label="Select an option">
+                            <mat-radio-button class="examp-radio-button gt-pd-lr-24" value="1">
+                                <div class="gt-float-100 choose-delivery-options">
+                                    <h2 class="gt-float-100">Deliver to me </h2>
+                                    <h3 class="gt-float-100">Courier will deliver your packages</h3>
+                               </div>
+                            </mat-radio-button>
+                            <mat-radio-button class="gt-mt-16 examp-radio-button gt-pd-lr-24" value="2">
+                                <div class="gt-float-100 choose-delivery-options">
+                                    <h2 class="gt-float-100">Third Party delivery</h2>
+                                    <h3 class="gt-float-100">Couriers will deliver your packages</h3>
+                               </div>
+                            </mat-radio-button>
+
+                            <!-- <app-third-party-delivery></app-third-party-delivery> -->
+
+                            <mat-radio-button class="gt-mt-16 examp-radio-button gt-pd-lr-24" value="3">
+                                <div class="gt-float-100 choose-delivery-options">
+                                    <h2 class="gt-float-100">Get at Gintaa Junction </h2>
+                                    <h3 class="gt-float-100">Come to Gintaa Junction at your city</h3>
+                               </div>
+                            </mat-radio-button>
+                            <!-- <app-gintaa-junction></app-gintaa-junction> -->
+                          </mat-radio-group>
+                         
+                    </div>
+                    
+               </div>
+            </div>                          
+        </div>
+    </div>
+</div>
+      
+
+
+<div class="gt-float-100 gt-mt-28 gt-pd-lr-24">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100 sel-partner">
+              <h1 class="gt-fs-16 gt-lightblack gt-text-medium">Summary</h1> 
+            </div>               
+        </div>
+    </div>
+</div>
+
+<div class="gt-float-100 gt-mt-24 gt-pd-lr-24">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-float-100 sel-partner">
+                <div class="gt-flex-start offer-redeem-payment">
+                    <div class="fav-btn-count">
+                        <div class="chat-bubble-box">
+                            <img src="assets/images/wallet/coins-wallet.svg" class="gems-icon"
+                        width="18" height="18" alt="image">
+                        </div>     
+                        <span class="count-num">{{summary.coins}}</span>
+                    </div>
+                    <div class="fav-btn-count">
+                        <div class="chat-bubble-box">
+                            <img src="assets/images/wallet/wallet-cash.svg" class="gems-icon" width="25"
+                        height="22" alt="image">
+                        </div>     
+                        <span class="count-num">{{summary.cash}}</span>
+                    </div>
+                    <div class="fav-btn-count gt-mr">
+                        <div class="chat-bubble-box">
+                            <img src="assets/images/wallet/gems.svg" class="gems-icon" width="24"
+                            height="16" alt="image">
+                        </div>
+                        <span class="count-num">{{summary.gems}}</span>
+                    </div>
+                    <div class="fav-btn-count gt-mr">
+                        <div class="chat-bubble-box">
+                            <img src="assets/images/create-offer/money.svg" alt="image" width="27" height="27" class="money-tag">
+                        </div>
+                        <span class="count-num">{{summary.money}}</span>
+                    </div>
+                </div>
+            </div>               
+        </div>
+    </div>
+</div>
+<div class="gt-float-100 gt-mt-40 gt-pd-lr-32">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="gt-center gt-pd-16 deal-accepts preview-deal make-payment">
+                <button 
+                    type="button" 
+                    class="gt-btn-primary gt-center deal-accept-btn gt-width-100"
+                    (click)="navigateToPayment()"> 
+                    make payment 
+                </button>                                
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>

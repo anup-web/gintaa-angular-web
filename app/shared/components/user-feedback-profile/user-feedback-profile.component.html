@@ -1,0 +1,83 @@
+<div class="gt-float-100 gt-feedback-user">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="gt-float-100 gt-center gt-justify-content-between user-feedback">
+        <div class="gt-float-left gt-center user-feedback-primary">
+          <h2 class="gt-fs-18 gt-black-80 gt-text-medium dcolor-primary">
+            {{ title }}
+          </h2>
+        </div>
+
+        <div class="gt-float-right user-feedback-secondary" *ngIf="ratings && ratings.length > 0">
+          <button type="submit" class="gt-btn-primary gt-center gt-wh-btn bg-change-secondary dark-shadow border-none" (click)="viewAll()">
+            view all <span class="count gt-ml-5">({{ ratings.length }})</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="gt-float-100 gt-mt-20">
+  <ng-container *ngIf="isPageLoading; else loadedFeedback">
+    <app-loading-spinner loaderType="skelton-feedback" [loader]="isPageLoading"></app-loading-spinner>
+  </ng-container>
+  <ng-template #loadedFeedback>
+    <div class="row" *ngIf="ratings && ratings.length > 0; else noFeedback">
+      <ng-template ngFor let-i="index" let-c="count" let-fedback [ngForOf]="ratings">
+        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 co-xs-12">
+          <div class="gt-float-100 gt-mb-11 all-comments-card">
+            <div class="gt-float-100 feed-back-details">
+              <div class="gt-float-100 gt-vcenter feed-back-card">
+                <div class="image-user-fd">
+                  <app-profile-avatar [userName]="fedback['provider']['name']" [imageUrl]="fedback['provider']['imageUrl']">
+                  </app-profile-avatar>
+                </div>
+
+                <div class="gt-ml-10 gt-pt-3feed-rating">
+                  <div class="gt-float-100 user-name-fd">
+                    <h1 class="gt-fs-14 gt-text-medium gt-lightblack name-fd dcolor-primary">
+                      {{ fedback['provider']['name'] | trimTextToCertainNumberCharector: 15 }}
+                    </h1>
+                  </div>
+                  <div class="gt-float-100 fd-rating">
+                    <ul>
+                      <li *ngFor="let i of counter(fedback.rating)"><span class="material-icons">star</span></li>
+                      
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gt-float-100 gt-mt-10 comments-details">
+                <ng-container *ngIf="
+                    fedback.comment && fedback.comment !== '';
+                    else noComment
+                  ">
+                  <p class="h2 gt-fs-13 gt-mb-zero dcolor-secondary">{{ fedback.comment }}</p>
+                </ng-container>
+                <ng-template #noComment>
+                  <h3 class="gt-fs-13 dcolor-secondary">No comments...</h3>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+    <ng-template #noFeedback>
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="gt-float-100 gt-center">
+            <app-empty-cart-animation></app-empty-cart-animation>
+          </div>
+          <div class="gt-float-100 gt-center gt-mt-50">
+            <h1 class="gt-lightblack gt-fs-20 dcolor-secondary">
+              You have no submitted feedback
+            </h1>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </ng-template>
+</div>

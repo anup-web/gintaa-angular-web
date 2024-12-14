@@ -1,0 +1,105 @@
+<div class="gt-float-100 gt-mt-51">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div *ngIf="member" class="
+          gt-float-100
+          lbox-shadow
+          gt-border-radius-8 gt-pt-12 gt-pb-14
+          height-details
+          gt-bg-white
+          member-detail-business
+          bg-change
+          dark-shadow
+        ">
+        <div class="gt-between gt-float-left gt-width-40 gt-pr-20 gt-pl-42 memdetails-one rpmem-1 ">
+          <div class="gt-vcenter">
+            <div class="limage-users">
+              <img [src]="
+                  member.memberDetails.imageUrl
+                    ? member.memberDetails.imageUrl
+                    : 'assets/images/user-default-img/chatu-noimg.svg'
+                " class="image-width" [class]="
+                  !member.memberDetails.imageUrl
+                    ? 'business-default-avatar'
+                    : ''
+                " [alt]="member.memberDetails.name" />
+            </div>
+
+            <div class="gt-ml-29">
+              <div class="loffer-title">
+                <h1 class="gt-fs-16 gt-lightblack rp-mdrp dcolor-primary">
+                  {{ member.memberDetails.name }}
+                </h1>
+              </div>
+              <div class="gt-mt-10">
+                <h2 class="
+                    gt-fs-14 gt-lightgrayish yur-ew
+                    dcolor-secondary
+                  ">
+                  {{ member.businessRole }}
+                </h2>
+              </div>
+              <div class="gt-mt-10">
+                <h2 class="gt-fs-14" [ngClass]="{
+                    'comyst-active': member.active === true
+                  }">
+                  {{ member.active ? "Active" : "Inactive" }}
+                </h2>
+              </div>
+            </div>
+          </div>
+          <div class="offer-more" *ngIf="member.businessRole !== 'OWNER'" (click)="openEditMemberPopup()"
+            style="cursor: pointer">
+            <span class="material-icons dcolor-secondary">more_horiz</span>
+          </div>
+        </div>
+
+        <div class="gt-float-left gt-width-40 gt-pl-53 memdetails-one rpmem-2">
+          <div class="gt-float-100 gt-mt-3">
+            <h1 class="gt-fs-16 gt-black htr-yur dcolor-primary">
+              Contact details
+            </h1>
+          </div>
+
+          <div class="gt-float-100 gt-pl-5 gt-vcenter gt-mt-21 hyrt-sr" *ngIf="member.memberDetails.email">
+            <img src="assets/images/business/mail-icon.svg" width="22" height="18" alt="icon" class="pr-place" />
+            <h5 class="
+                gt-fs-16 gt-lightgrayish gt-ml-23 hyur-dg
+                dcolor-secondary
+              ">
+              {{ member.memberDetails.email }}
+            </h5>
+          </div>
+
+          <div class="gt-float-100 gt-vcenter gt-mt-21 gt-ml-8 vfgr-sx" *ngIf="member.memberDetails.mobile">
+            <img src="assets/images/business/phone-icon.svg" width="16" height="22" alt="icon" class="pr-place" />
+            <h6 class="
+                gt-fs-16 gt-lightgrayish gt-ml-25 kpu-lm
+                dcolor-secondary
+              ">
+              {{ member.memberDetails.mobile }}
+            </h6>
+          </div>
+        </div>
+
+        <div class="gt-float-left gt-width-20 gt-pt-46 memdetails-one gt-border-none rpmem-3">
+          <div class="gt-float-100 gt-text-center hyu-mlv" >
+            <h1 class="gt-fs-20 gt-sky fghu-kg dcolor-primary">
+              {{ member.offers ? member.offers.length : 0 }}
+            </h1>
+          </div>
+          <div class="gt-float-100 gt-text-center gt-mt-17">
+            <h1 class="
+                gt-fs-16 gt-lightgrayish drfe-wrt  
+                dcolor-secondary
+              ">
+              Listing
+            </h1>
+          </div>
+        </div>
+
+        
+      </div>
+    </div>
+  </div>
+</div>

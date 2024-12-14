@@ -1,0 +1,71 @@
+<div class="close-deal-popup user-feedback-wrapper">    
+    <div class="popup-closed close-pops" (click)="closeDialog()"><span class="material-icons">close</span></div>
+
+    <div class="gt-float-100">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 gt-display-flex">
+                    <h1 class="gt-fs-18 gt-text-medium gt-lightblack">Report</h1>
+                </div>
+        </div>
+    </div>
+
+        
+        <div class="gt-float-100 gt-pt-60 gt-pb-60">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">    
+                  <div class="gt-float-100">
+                        <h3 class="gt-fs-18 gt-text-medium gt-lightblack gt-text-center">Please select the reasons why you want to
+                            report this comment </h3>
+                    </div>   
+                </div>
+            </div>
+        </div> 
+
+        <div class="gt-float-100">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">    
+                  <div class="gt-mt-16 gt-float-100">
+                        <div class="feed-tag" *ngFor="let item of reasons" (click)="clickReason(item.reasonId)" [ngClass]="{'feed-tag-active': item.checked === true}">{{item.value}}</div>
+                        <!-- <div class="feed-tag" (click)="clickReason(1)">Foul language</div>
+                        <div class="feed-tag feed-tag-active" (click)="clickReason(2)">Inappropriate content</div>
+                        <div class="feed-tag" (click)="clickReason(3)">Offensive</div>                        -->
+                    </div>   
+                </div>
+            </div>
+        </div>
+
+        <div class="gt-float-100">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="gt-float-100 secondary_group gt-mb-zero gt-mt-18">
+                        <div class="secondary-wrap validate-input gt-border-none">
+                          <span class="secondary-label gt-mb-8 offer-input-label">Your comment</span>                                  
+                          <textarea type="textarea" class="secondary-input secondary-bg" rows="2" placeholder="Write the reasons for blocking" #reason (ngModelChange)="editTextReason($event)" [(ngModel)]="textReason"></textarea>
+                        </div>
+                      </div>
+                    <!-- <div class="gt-text-danger">
+                      <div class="error"> zip is required </div>
+                   </div> -->
+                  </div>                        
+            </div>
+          </div>
+
+
+          <div class="gt-float-100">
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12" style="color:red;"> 
+                    {{errMsg}}
+                </div>
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+                  <div class="gt-mt-40 gt-float-100 gt-center back-finish">
+                        <button class="gt-btn-primary gt-mr-24 gt-center gt-width-100 gt-height-56 gt-border-radius-12 gt-text-medium gt-bg-transparent gt-back" (click)="closeDialog()">cancel</button>
+                        <button class="gt-btn-primary gt-width-100 gt-center gt-height-56 gt-fs-18 gt-text-medium gt-border-radius-12 bg-submit" (click)="sendReport(reason);">submit</button>
+                    </div>   
+                </div>
+            </div>
+        </div>
+
+
+</div>
+

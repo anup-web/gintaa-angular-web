@@ -1,0 +1,80 @@
+{
+    "success": true,
+    "code": 200,
+    "message": "Offer Auction Result",
+    "payload": {
+        "auctionOffers": [
+            {
+                "unitOfferValuation": 10000.0,
+                "images": null,
+                "name": "test offer 1",
+                "oid": "1613662300233",
+                "totalOfferValuation": 1000.0,
+                "user": {
+                    "averageRating": 0,
+                    "identityId": "f4wcba0MQPUidcK6sf0FJ51015k1",
+                    "name": "Biswanath "
+                },
+                "auctionDate": "10/09/2020",
+                "auctionTime": "16:24:00"
+            },
+            {
+                "unitOfferValuation": 5000.0,
+                "images": null,
+                "name": "test offer 1",
+                "oid": "1613662300233",
+                "totalOfferValuation": 1000.0,
+                "user": {
+                    "averageRating": 0,
+                    "identityId": "f4wcba0MQPUidcK6sf0FJ51015k1",
+                    "name": "Rajib "
+                },
+                "auctionDate": "12/20/2020",
+                "auctionTime": "16:24:00"
+            },
+            {
+                "unitOfferValuation": 10000.0,
+                "images": null,
+                "name": "test offer 1",
+                "oid": "1613662300233",
+                "totalOfferValuation": 1000.0,
+                "user": {
+                    "averageRating": 0,
+                    "identityId": "f4wcba0MQPUidcK6sf0FJ51015k1",
+                    "name": "Biswanath "
+                },
+                "auctionDate": "10/09/2020",
+                "auctionTime": "16:24:00"
+            },
+            {
+                "unitOfferValuation": 10000.0,
+                "images": null,
+                "name": "test offer 1",
+                "oid": "1613662300233",
+                "totalOfferValuation": 1000.0,
+                "user": {
+                    "averageRating": 0,
+                    "identityId": "f4wcba0MQPUidcK6sf0FJ51015k1",
+                    "name": "Biswanath "
+                },
+                "auctionDate": "10/09/2020",
+                "auctionTime": "16:24:00"
+            },
+            {
+                "unitOfferValuation": 10000.0,
+                "images": null,
+                "name": "test offer 1",
+                "oid": "1613662300233",
+                "totalOfferValuation": 1000.0,
+                "user": {
+                    "averageRating": 0,
+                    "identityId": "f4wcba0MQPUidcK6sf0FJ51015k1",
+                    "name": "Biswanath "
+                },
+                "auctionDate": "10/09/2020",
+                "auctionTime": "16:24:00"
+            }
+            
+        ]
+    }
+}

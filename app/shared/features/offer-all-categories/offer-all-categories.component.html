@@ -1,0 +1,201 @@
+<div class="gt-float-100">
+  <div class="row">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="gt-float-100 gt-mt-10 gt-mb-20 new-category">
+        <div class="currency-group">
+          <label class="currency-sr-only secondary-labels">Category</label>
+          <div class="gt-position-relative currency-input-group">
+            <!-- <div class="currency-input-group-prepend">
+              <div class="currency-input-group-text">
+                <img src="assets/images/new-offers/category-new.svg" class="bulk-img" alt="image" width="19"
+                  height="23" />
+              </div>
+            </div> -->
+            <input
+              readonly
+              type="text"
+              class="currency-form-control gt-pl-zero category-head"
+              [formControl]="offerCategoryControl"
+              placeholder="Category"
+              autocomplete="off"
+              (click)="resetCategory()"
+            />
+            <div
+              class="gt-cursor-pointer currency-input-group-append"
+              (click)="resetCategory()"
+            >
+              <span class="material-icons gt-info gt-vcenter">expand_more</span>
+            </div>
+            <div *ngIf="isShowDivIfh" class="hidesh">
+              <div class="gt-float-100 search-cateh">
+                <!-- search section start -->
+                <div class="gt-float-100 gt-pd-lr-12">
+                  <div class="row">
+                    <div
+                      class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                    >
+                      <div class="gt-float-100 gt-mt-10 gt-mb-20 new-category">
+                        <div class="currency-group">
+                          <div
+                            class="gt-position-relative currency-input-group"
+                          >
+                            <input
+                              type="text"
+                              class="currency-form-control gt-pl-zero"
+                              placeholder="Search"
+                              [matAutocomplete]="auto"
+                              [formControl]="searchCategory"
+                              #trigger="matAutocompleteTrigger"
+                              autofocus
+                            />
+                            <mat-autocomplete
+                              #auto="matAutocomplete"
+                              (optionSelected)="optionSelected($event)"
+                            >
+                              <ng-container
+                                *ngIf="
+                                  filteredOptions$ | async as filterResults
+                                "
+                              >
+                                <mat-option
+                                  *ngFor="let category of filterResults"
+                                  [value]="category"
+                                >
+                                  <h2 class="gt-fs-12 gt-blck-70 gt-pd-tb-6">
+                                    {{ showCategory(category) }}
+                                  </h2>
+                                </mat-option>
+                              </ng-container>
+                            </mat-autocomplete>
+                          </div>
+                        </div>
+                        <div class="gt-float-100 gt-mt-3">
+                          <h2 class="gt-fs-13 gt-black-80">Search category</h2>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- suggested section start -->
+                <div class="gt-float-100 gt-pd-lr-12">
+                  <div class="row">
+                    <div
+                      class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                    >
+                      <div class="gt-float-100 gt-center-between tag-heading">
+                        <div class="gt-vcenter tagt-primary">
+                          <h1 class="gt-fs-15 gt-text-medium gt-lightblack">
+                            Suggested
+                          </h1>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="gt-float-100 gt-mg-tb-15 gt-pd-lr-12">
+                  <div class="row">
+                    <div
+                      class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                    >
+                      <div class="gt-float-100 selected-tagsd sutag-kscroll">
+                        <div
+                          class="
+                            gt-center
+                            gt-float-left
+                            gt-border-radius-4
+                            gt-mr-10
+                            gt-mb-10
+                            tagsn
+                          "
+                          *ngFor="let category of suggestedCategories"
+                          (click)="selectCategory(category)"
+                        >
+                          <h3 class="gt-fs-13 new-color">
+                            {{ category.name }}
+                          </h3>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- suggested section end -->
+
+                <!-- search section end -->
+                <!-- vertical category section start -->
+                <!-- <div class="gt-float-100 gt-pt-10 nborder-top" *ngIf="showVericals; else showCategories">
+                  <div class="row">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                      <div class="gt-float-100 category-scrollk">
+                        <div class="
+                            gt-float-100
+                            gt-cursor-pointer
+                            gt-pd-tb-4
+                            gt-pd-lr-12
+                            gt-mb-3
+                            gt-center-between
+                          " *ngFor="let vertical of allVerticals$ | async">
+                          <div class="gt-vcenter" (click)="openParentCategories(vertical)">                             
+                            <h1 class="gt-fs-15 gt-lightblack">
+                              {{ vertical.label }}
+                            </h1>
+                          </div>
+                          <div class="gt-vcenter arrow-right" (click)="openParentCategories(vertical)">
+                            <span class="material-icons gt-lightgrayish">keyboard_arrow_right</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div> -->
+                <!-- <ng-template #showCategories>
+                  <div class="gt-float-100 gt-pt-10 nborder-top">
+                    <div class="row">
+                      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="gt-float-100 gt-mb-10 gt-pd-lr-12 gt-vcenter">
+                          <div class="gt-vcenter gt-cursor-pointer backg-yu">
+                            <span class="material-icons gt-fs-16 gt-mr-5 gt-primary">arrow_back</span>
+                            <h3 class="gt-fs-16 gt-primary" (click)="backToPreviousCategory()">
+                              back
+                            </h3>
+                          </div>
+                          <h4 class="gt-fs-16 gt-lightblack gt-ml-30" style="font-weight: bold">
+                            {{ selectedCurrentCategory }}
+                          </h4>
+                        </div>
+                        <div class="gt-float-100 category-scrollk">
+                          <div class="
+                              gt-float-100
+                              gt-cursor-pointer
+                              gt-pd-tb-5
+                              gt-pd-lr-12
+                              gt-mb-5
+                              gt-center-between
+                            " *ngFor="
+                              let category of allCurrentCategories$ | async
+                            ">
+                            <h1 class="gt-fs-15 gt-lightblack" (click)="
+                                category.leafNode && selectCategory(category)
+                              ">
+                              {{ category.label }}
+                            </h1>
+                            <div *ngIf="!category.leafNode" class="gt-vcenter arrow-right"
+                              (click)="openChildCategories(category)">
+                              <span class="material-icons gt-lightgrayish">keyboard_arrow_right</span>
+                            </div>
+                          </div>
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </ng-template> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

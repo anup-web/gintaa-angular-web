@@ -1,0 +1,36 @@
+.v-lineh{
+    height: 12px;
+    width: 2px;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 0px 10px;
+}
+
+.hyu-pl .icon-popular-loc:before {    
+    color: $gt-lightgrayish;
+}
+
+.wants-return-desire{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    height: 28px;
+    padding: 0px 10px;
+}
+
+.mvalue .icon-gt-currency:before {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+
+
+.off-price{
+    text-decoration: line-through;
+}
+
+.bn-size{       
+    width: 110px;
+    min-width: 110px;
+    padding-right: 10px;
+}
+
+.auction-timer{
+    width: 256px;
+}

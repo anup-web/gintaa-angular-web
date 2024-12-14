@@ -1,0 +1,62 @@
+<div class="gt-pd-12 draft-delete-wrapper bg-change">
+    <div class="popup-closed close-pop" (click)="dialogClose()">
+        <span class="material-icons">close</span>
+    </div>
+    <div class="gt-float-100">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-float-100 gt-display-flex">
+                    <h1 class="gt-fs-14 gt-lightblack dcolor-primary">Delete draft listing</h1>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="gt-float-100 gt-mt-30 ido-rp">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="gt-center">
+                    <div class="feed-image">
+                        <img src="assets/images/profile/profile-photo-delete.svg" alt="images" class="offer-del"
+                            width="20" height="22" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gt-float-100 gt-mt-30  wd-rp dop-rp">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="gt-float-100 gt-center gt-text-center">
+                    <h2 class="gt-fs-14 gt-lightblack dcolor-primary">Do you want to delete this draft
+                        <span class="gt-danger d-block">permanently?</span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="gt-float-100 gt-mt-30 csb-rp">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="gt-center-between">
+                    <div class="gt-float-100 gt-pr-12">
+                        <button 
+                            type="button" 
+                            (click)="dialogClose()"
+                            class="gt-btn-primary gt-width-100 gt-center gt-bg-transparent gt-border-radius-2 gt-fs-14 gt-text-medium  gt-height-42 gt-info-important db-cancel">
+                            cancel
+                        </button>
+                    </div>
+
+                    <div class="gt-float-100 gt-pl-12">
+                        <button type="button" (click)="deleteDraftOffer()"
+                            class="gt-btn-primary gt-width-100 gt-center gt-border-radius-2 gt-fs-14 gt-text-medium gt-height-42 gt-border-none bg-dsubmit">delete</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

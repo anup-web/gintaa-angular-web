@@ -1,0 +1,44 @@
+<div
+  class="deal-offer-bg gt-pt-20 viewall-wrapper"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollUpDistance]="1.5"
+  [infiniteScrollThrottle]="150"
+  (scrolled)="onScrollDown()"
+>
+  <div class="gt-float-100">
+    <div class="container">
+      <app-bread-crumb [breadcrumbs]="breadcrumb"> </app-bread-crumb>
+    </div>
+    <!-- 
+          <app-loading-spinner
+            loaderType="drops-fading"
+            [fullPage]="true"
+            [loader]="isPageLoading"
+            addBackDrop="true"
+            backDropColor="#000000"
+          ></app-loading-spinner> -->
+
+    <app-grid-view
+      *ngIf="allRecentOffers$ | async"
+      [viewConfig]="recentSectionConfig"
+      (dataToEmit)="backToHome($event)"
+    ></app-grid-view>
+    <app-grid-view
+      [viewConfig]="lastViewedSectionConfig"
+      (dataToEmit)="backToHome($event)"
+      *ngIf="allLastViewedOffers"
+    ></app-grid-view>
+    <app-grid-view
+      [viewConfig]="popularCategoriesConfig"
+      (dataToEmit)="backToHome($event)"
+      *ngIf="popularCategoriesConfig.items.length"
+    ></app-grid-view>
+    <app-grid-view
+      [viewConfig]="auctionsOfTheDayConfig"
+      (dataToEmit)="backToHome($event)"
+      isAuction="true"
+      *ngIf="auctionsOfTheDayConfig.items.length"
+    ></app-grid-view>
+  </div>
+</div>

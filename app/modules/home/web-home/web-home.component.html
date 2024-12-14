@@ -1,0 +1,16 @@
+<div class="gt-float-100 new-realese-home">
+   <app-webhome-banner *ngIf="homepageBanners.length" [homepageBanners]="homepageBanners"></app-webhome-banner> 
+   <app-home-section2></app-home-section2>  
+   <app-webhome-recommended-offers #recommendedSection *ngIf="isAuthenticated()"></app-webhome-recommended-offers> 
+   <app-home-section1></app-home-section1>    
+   <app-home-auctions *ngIf="isEnableAuction"></app-home-auctions> 
+   <app-home-section3></app-home-section3>   
+   <app-webhome-recent-offers #recentOffersElementRef></app-webhome-recent-offers> 
+   <app-home-section4></app-home-section4>
+   <app-webhome-viewed-offers *ngIf="isAuthenticated()"></app-webhome-viewed-offers>
+   <app-home-section5></app-home-section5> 
+
+   <app-floating-menu></app-floating-menu>
+  <app-floating-listing></app-floating-listing>
+</div> 
+

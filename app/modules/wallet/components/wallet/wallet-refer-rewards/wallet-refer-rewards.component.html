@@ -1,0 +1,278 @@
+<div class="wallet-bg gt-pt-20 gt-pb-100">
+    <div class="container" *ngIf="walletDetailsObs$ | async as walletDetails">
+
+        <div class="gt-float-100">
+            <div class="user-profile-wrapper">
+                <div class="gt-float-100">
+                    <div class="row">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="gt-float-100">
+                                <div class="gt-float-left gt-display-flex bredcum-title">
+                                    <div class="brdcum-icon">
+                                        <img src="assets/images/breadcum-home-icon.svg" alt="icon" width="20"
+                                            height="22" class="gt-img-responsive" />
+                                    </div>
+                                    <ul class="gt-display-flex bredcum-nav">
+                                        <li>
+                                            <span class="material-icons">navigate_next</span>
+                                            <div class="brelink">
+                                                <a routerLink="/">Gintaa Wallet</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gt-float-100 gt-mt-25">
+            <div class="user-profile-wrapper">
+
+                <div class="gt-float-100 gt-border-radius-12 gt-pt-32 gt-pb-40 settings-wrapper">
+
+
+                    <div class="gt-float-100">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="gt-float-100 gt-pl-126 gt-pr-126 gt-display-flex wallet-primary">
+                                    <div class="wallet-choose">
+                                        <div class="image-width-98 border-radius-100 gt-center ch-bg choose-box">
+                                            <img src="assets/images/wallet/coins-wallet.svg" class="gems-icon"
+                                                width="48" height="33" alt="image">
+                                        </div>
+                                        <div class="gt-mt-8 gt-center-auto gt-text-center choose-text">
+                                            <h1 class="gt-fs-14 gt-text-medium gt-lightgrayish gt-opacity-9">Coins</h1>
+                                        </div>
+                                        <div class="gt-mt-8 gt-center-auto gt-text-center choose-money">
+                                            <h2 class="gt-fs-18 gt-text-medium gt-lightblack gt-opacity-9">{{walletDetails.coins}}</h2>
+                                        </div>
+                                    </div>
+                                    <div class="gt-ml-81 wallet-choose">
+                                        <div class="image-width-98 border-radius-100 gt-center ch-bg choose-box">
+                                            <img src="assets/images/wallet/wallet-cash.svg" class="gems-icon" width="52"
+                                                height="32" alt="image">
+                                        </div>
+                                        <div class="gt-mt-8 gt-center-auto gt-text-center choose-text">
+                                            <h3 class="gt-fs-14 gt-text-medium gt-lightgrayish gt-opacity-9">Gintaa Cash
+                                            </h3>
+                                        </div>
+                                        <div class="gt-mt-8 gt-center-auto gt-text-center choose-money">
+                                            <h4 class="gt-fs-18 gt-text-medium gt-lightblack gt-opacity-9">{{walletDetails.cash}}</h4>
+                                        </div>
+                                    </div>
+                                    <div class="gt-ml-77 wallet-choose">
+                                        <div class="image-width-98 border-radius-100 gt-center ch-bg choose-box">
+                                            <img src="assets/images/wallet/gems.svg" class="gems-icon" width="48"
+                                                height="33" alt="image">
+                                        </div>
+                                        <div class="gt-mt-8 gt-center-auto gt-text-center choose-text">
+                                            <h5 class="gt-fs-14 gt-text-medium gt-lightgrayish gt-opacity-9">Gems</h5>
+                                        </div>
+                                        <div class="gt-mt-8 gt-center-auto gt-text-center choose-money">
+                                            <h6 class="gt-fs-18 gt-text-medium gt-lightblack gt-opacity-9">{{walletDetails.gems}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="gt-float-100 gt-mt-32">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="gt-float-100">
+                                    <button 
+                                        type="button"
+                                        [routerLink]="['redeem']"
+                                        class="gt-btn-primary gt-center gt-height-48 gt-border-radius-12 gt-fs-18 redeem-btn">
+                                        redeem 
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="gt-float-100 gt-mt-42 refer-reward-wrapper">
+                        <div class="gt-float-100">
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div class="refers-box">
+                                        <div class="gt-float-100 gt-bg-white gt-border-radius-12 gt-mt-62 refer-center">
+
+                                            <div class="gt-float-100 gt-center-auto gt-position-relative">
+                                                <div class="image-width-78 border-radius-100 gt-center refer-bg">
+                                                    <img src="assets/images/home/refer-icon.svg" alt="icon" width="32"
+                                                        height="32" class="refer-icn  animate__pulse  animate__animated animate__infinite" />
+                                                </div>
+                                            </div>
+
+
+                                            <div class="gt-float-100 gt-mt-12">
+                                                <h1 class="gt-fs-18 gt-text-medium gt-lightblack gt-text-center">Refer
+                                                    and earn rewards</h1>
+                                            </div>
+                                            <div class="gt-float-100 gt-mt-8">
+                                                <h2 class="gt-fs-14 fr-color gt-text-center">Share and get rewards</h2>
+                                            </div>
+                                            <div class="gt-float-100 gt-mt-24 gt-pd-lr-24">
+                                                <h3 class="gt-fs-16 gt-text-medium invite-color">1. Invite a friend
+                                                </h3>
+                                            </div>
+                                            <div class="gt-float-100 gt-mt-12 gt-pd-lr-24">
+                                                <h5 class="gt-fs-16 gt-text-medium invite-color">2. They get 20 Gintaa
+                                                    Coins </h5>
+                                            </div>
+                                            <div class="gt-float-100 gt-mt-12 gt-pd-lr-24">
+                                                <h5 class="gt-fs-16 gt-text-medium invite-color">3. You get exciting
+                                                    gifts!</h5>
+                                            </div>
+                                            <div class="gt-float-100 gt-mt-32 gt-pd-lr-24 gt-mb-24">
+                                                <button 
+                                                    type="button"
+                                                    [routerLink]="['share']"
+                                                    class="gt-btn-primary gt-center gt-width-100 gt-border-radius-12 ">
+                                                    Refer and Rewards
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="gt-float-100 gt-mt-32 gt-mb-24 gt-pd-lr-32 waleet-tran">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="gt-float-100">
+                                    <h1 class="gt-fs-18 gt-lightblack gt-text-medium">Transactions</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <ng-container *ngIf="walletDetails.transactionResult.length" >
+                        <div class="transcation_section" @fadeIn>
+                    <div class="gt-float-100 gt-pb-32 gt-pd-lr-32 wtran-details" *ngFor="let transaction of walletDetails.transactionResult | slice:0:limit">
+                        <div class="row">                            
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="gt-float-100 gt-vcenter">
+                                    <div class="gt-float-left gt-datew-90">
+                                        <h1 class="gt-fs-14 earn-color">{{transaction.transactionDate | date:'medium'}}</h1>
+                                    </div>
+                                    <ng-container *ngFor="let gem of transaction.gems | slice:0:1">
+                                        <div class="gt-float-left gt-center-end gt-addw-65 gt-mr-13 add-earn">                                        
+                                                <span class="material-icons gt-fs-16 gt-lightblack">add</span>
+                                                <h1 class="gt-fs-14 gt-lightblack gt-text-medium">{{gem.count}}</h1>                                       
+                                        </div>
+                                        <div class="gt-float-left gt-addw-65">                                        
+                                            <img src="assets/images/wallet/coins-wallet.svg" class="gems-icon"
+                                            width="22" height="22" alt="image">                                      
+                                        </div>
+                                        <div class="gt-float-left">                                        
+                                        <h2 class="gt-fs-14 gt-lightblack">{{gem.description}}</h2>                                   
+                                        </div>
+                                    </ng-container>
+                                </div>
+                                <div class="gt-float-100 gt-mt-21 gt-pl-90 gt-vcenter earn-secondary" *ngFor="let gem of transaction.gems | slice:1">                                    
+                                    <div class="gt-float-left gt-center-end gt-addw-65 gt-mr-13 add-earn">                                        
+                                            <span class="material-icons gt-fs-16 gt-lightblack">remove</span>
+                                            <h1 class="gt-fs-14 gt-lightblack gt-text-medium">200</h1>                                       
+                                    </div>
+                                    <div class="gt-float-left gt-addw-65">                                        
+                                        <img src="assets/images/wallet/coins-wallet.svg" class="gems-icon"
+                                        width="22" height="22" alt="image">                                      
+                                    </div>
+                                    <div class="gt-float-left">                                        
+                                       <h2 class="gt-fs-14 gt-lightblack">Edit offer Kaptain Koontz Watches</h2>                                   
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="clearfix"></div>
+</div>
+                    <!-- <div class="gt-float-100 gt-pb-32 gt-pd-lr-32 wtran-details">
+                        <div class="row">                            
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="gt-float-100 gt-vcenter">
+                                    <div class="gt-float-left gt-datew-90">
+                                        <h1 class="gt-fs-14 earn-color">11 sep. 2020</h1>
+                                    </div>
+                                    <div class="gt-float-left gt-center-end gt-addw-65 gt-mr-13 add-earn">                                        
+                                            <span class="material-icons gt-fs-16 gt-lightblack">remove</span>
+                                            <h1 class="gt-fs-14 gt-lightblack gt-text-medium">2k</h1>                                       
+                                    </div>
+                                    <div class="gt-float-left gt-addw-65">                                        
+                                        <img src="assets/images/wallet/wallet-cash.svg" class="gems-icon"
+                                        width="30" height="30" alt="image">                                      
+                                    </div>
+                                    <div class="gt-float-left">                                        
+                                       <h2 class="gt-fs-14 gt-lightblack">Order Gintaa merch</h2>                                   
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="gt-float-100 gt-pb-32 gt-pd-lr-32 wtran-details">
+                        <div class="row">                            
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="gt-float-100 gt-vcenter">
+                                    <div class="gt-float-left gt-datew-90">
+                                        <h1 class="gt-fs-14 earn-color">3 sep. 2020</h1>
+                                    </div>
+                                    <div class="gt-float-left gt-center-end gt-addw-65 gt-mr-13 add-earn">                                        
+                                            <span class="material-icons gt-fs-16 gt-lightblack">add</span>
+                                            <h1 class="gt-fs-14 gt-lightblack gt-text-medium">1</h1>                                       
+                                    </div>
+                                    <div class="gt-float-left gt-addw-65">                                        
+                                        <img src="assets/images/wallet/gems.svg" class="gems-icon"
+                                        width="25" height="25" alt="image">                                      
+                                    </div>
+                                    <div class="gt-float-left">                                        
+                                       <h2 class="gt-fs-14 gt-lightblack">Earn from Bob Burn</h2>                                   
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+                    </div> -->
+
+
+                    <div class="gt-float-100 gt-mt-32 gt-mb-24 gt-pd-lr-32">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="gt-float-100 gt-center">
+                                    <button  *ngIf="walletDetails.transactionResult.length > limit; else showLess"
+                                        type="button" 
+                                        class="gt-btn-primary gt-btn-clear gt-fs-18 gt-text-medium gt-primary-important show-mbtn"
+                                        (click)="showMore(walletDetails.transactionResult.length)">
+                                        show more 
+                                    </button>
+                                    <ng-template #showLess>
+                                        <button
+                                            type="button" 
+                                            class="gt-btn-primary gt-btn-clear gt-fs-18 gt-text-medium gt-primary-important show-mbtn"
+                                            (click)="limit=3">
+                                            show less 
+                                        </button> 
+                                    </ng-template>                                  
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </ng-container>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
